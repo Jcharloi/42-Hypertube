@@ -2,14 +2,22 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "dist",
+    "outDir": "server/dist",
     "sourceMap": true,
     "noImplicitAny": true,
     "jsx": "react",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext.intl", "es2017.intl", "es2018.intl"]
+    "lib": [
+      "esnext.intl",
+      "es2017.intl",
+      "es2018.intl"
+    ]
   },
-  "include": ["server/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

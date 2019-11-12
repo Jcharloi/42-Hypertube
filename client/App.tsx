@@ -1,15 +1,23 @@
 import * as React from "react";
+import { IntlProvider, useIntl } from "react-intl";
+import { hot } from 'react-hot-loader/root';
 
-import { useIntl } from "react-intl";
+import enTranslation from "./translations/en.json";
+import frTranslation from "./translations/fr.json";
 
-interface Props {
-  setLocale: (locale: string) => void;
-}
-
-const App = ({ setLocale }: Props) => {
-  const t = useIntl();
-
-  return <div>{t.formatMessage({ id: "helloworld" })}</div>;
+const messages = {
+  fr: frTranslation,
+  en: enTranslation,
 };
 
-export default App;
+const App = () => {
+  const [locale, setLocale] = React.useState("en");
+  
+  return (
+    <IntlProvider locale={locale} messages={messages[locale]}>
+        Hello world ajoutez des routes ici
+    </IntlProvider>
+  )
+};
+
+export default hot(App);

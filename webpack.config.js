@@ -2,11 +2,7 @@ const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: [
-    "react-hot-loader/patch",
-    "webpack-hot-middleware/client",
-    "./client/index.tsx"
-  ],
+  entry: ["webpack-hot-middleware/client", "./client/index.tsx"],
   output: {
     path: `${__dirname}/server/public`,
     filename: "bundle.js",
@@ -14,8 +10,7 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
-    hot: true,
-    inline: true
+    hot: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {
@@ -51,6 +46,9 @@ module.exports = {
     ]
   },
   resolve: {
+    alias: {
+      "react-dom": "@hot-loader/react-dom"
+    },
     extensions: [".ts", ".tsx", ".js"]
   }
 };
