@@ -2,20 +2,26 @@ import * as React from 'react';
 import { IntlProvider } from 'react-intl';
 import { hot } from 'react-hot-loader/root';
 
-import enTranslation from './translations/en.json';
-import frTranslation from './translations/fr.json';
+import Layout from './Layout';
+
+import enTranslation from '../translations/en.json';
+import frTranslation from '../translations/fr.json';
 
 const messages = {
   fr: frTranslation,
   en: enTranslation,
 };
 
-const App = (): Node => {
+const App = (): ReactElement => {
   const [locale, setLocale] = React.useState('en');
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-        Hello world ajoutez des routes ici
+      <Layout>
+        <div>
+          Hello world ajoutez des routes ici
+        </div>
+      </Layout>
     </IntlProvider>
   );
 };

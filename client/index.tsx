@@ -2,12 +2,11 @@ import 'react-hot-loader';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import App from './App';
+import App from './components/App';
 
 const render = (Component): Node => {
   ReactDOM.render(
-    <Component />,
-    document.getElementById('root'),
+    <Component />, document.getElementById('root'),
   );
 };
 

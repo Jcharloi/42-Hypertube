@@ -1,4 +1,4 @@
-module.exports = (api): any => {
+module.exports = (api) => {
   const isTest = api.env('test');
   api.cache(true);
 
