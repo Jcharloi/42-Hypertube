@@ -100,5 +100,13 @@
     "hooks": {
       "pre-commit": "npm test"
     }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    }
+  },
+  "devDependencies": {
+    "jest-css-modules": "^2.1.0"
   }
 }
