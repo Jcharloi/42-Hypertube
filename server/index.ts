@@ -25,7 +25,7 @@ app.listen(8080, () => {
 });
 
 /* Webpack Hot Reload */
-
+/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../webpack.config.js');
@@ -39,4 +39,5 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(hotMiddleware);
 
+/* eslint-enable */
 /* ------------------ */

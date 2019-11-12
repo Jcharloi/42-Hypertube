@@ -1,16 +1,16 @@
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 module.exports = {
-  mode: "development",
-  entry: ["webpack-hot-middleware/client", "./client/index.tsx"],
+  mode: 'development',
+  entry: ['webpack-hot-middleware/client', './client/index.tsx'],
   output: {
     path: `${__dirname}/server/public`,
-    filename: "bundle.js",
-    publicPath: "/public"
+    filename: 'bundle.js',
+    publicPath: '/public',
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   devServer: {
-    hot: true
+    hot: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {
@@ -18,37 +18,37 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              modules: true
-            }
-          }
-        ]
+              modules: true,
+            },
+          },
+        ],
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "eslint-loader"
+        use: 'eslint-loader',
       },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "ts-loader",
+          loader: 'ts-loader',
           options: {
-            transpileOnly: true
-          }
-        }
-      }
-    ]
+            transpileOnly: true,
+          },
+        },
+      },
+    ],
   },
   resolve: {
     alias: {
-      "react-dom": "@hot-loader/react-dom"
+      'react-dom': '@hot-loader/react-dom',
     },
-    extensions: [".ts", ".tsx", ".js"]
-  }
+    extensions: ['.ts', '.tsx', '.js'],
+  },
 };

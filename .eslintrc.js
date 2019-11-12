@@ -1,7 +1,8 @@
 module.exports = {
     env: {
         browser: true,
-        node: true
+        node: true,
+        jest: true
     },
     extends: ['airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended'],
     parser: '@typescript-eslint/parser',

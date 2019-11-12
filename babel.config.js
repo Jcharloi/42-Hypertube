@@ -1,21 +1,21 @@
-module.exports = api => {
-  const isTest = api.env("test");
+module.exports = (api): any => {
+  const isTest = api.env('test');
   api.cache(true);
 
   return {
-    plugins: ["react-hot-loader/babel"],
+    plugins: ['react-hot-loader/babel'],
     presets: [
-      "@babel/preset-react",
-      "@babel/preset-typescript",
+      '@babel/preset-react',
+      '@babel/preset-typescript',
       [
-        "@babel/preset-env",
+        '@babel/preset-env',
         {
           targets: {
-            browsers: ["last 2 versions"]
+            browsers: ['last 2 versions'],
           },
-          modules: isTest ? "commonjs" : false
-        }
-      ]
-    ]
+          modules: isTest ? 'commonjs' : false,
+        },
+      ],
+    ],
   };
 };
