@@ -79,7 +79,7 @@ exports[`App renders correctly 1`] = `
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
-              placeholder="Search…"
+              placeholder="Search..."
               type="text"
             />
           </div>

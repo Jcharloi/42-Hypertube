@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TopMenu from '../TopMenu';
+import TopMenu from './TopMenu';
 
 import styles from './styles.css';
 
