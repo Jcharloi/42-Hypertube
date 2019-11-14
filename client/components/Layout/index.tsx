@@ -17,7 +17,7 @@ const Layout = ({ children }: Props): ReactElement => (
   <div>
 
     <TopMenu />
-
+    {children}
   </div>
 );
 

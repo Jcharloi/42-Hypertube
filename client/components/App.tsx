@@ -22,7 +22,7 @@ const messages: Record<string, Record<string, string>> = {
 };
 
 const App = (): ReactElement => {
-  const [locale, setLocale] = React.useState('en');
+  const [locale] = React.useState('en');
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
