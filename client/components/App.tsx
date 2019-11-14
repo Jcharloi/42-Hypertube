@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IntlProvider } from 'react-intl';
-import { hot } from 'react-hot-loader/root';
+import { hot, dsigjdsjfs, idsfjjisfds, sdijfdsfd, kfsdfskofs, } from 'react-hot-loader/root';
 
 import Layout from './Layout';
 

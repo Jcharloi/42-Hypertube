@@ -9,9 +9,11 @@ import {
   fade,
   Theme,
   makeStyles,
+
 } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import { useIntl } from 'react-intl';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -67,6 +69,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 export default function SearchAppBar() {
+  const { formatMessage: _t } = useIntl();
   const classes = useStyles();
 
   return (
@@ -82,14 +85,14 @@ export default function SearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            HyperTube
+            {_t({ id: 'title' })}
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder={_t({ id: 'search' })}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
