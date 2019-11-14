@@ -9,7 +9,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import useStyles from './SignUp.styles';
 
 const SignUp = (): ReactElement => {
-  const classes = useStyles();
+  const classes = useStyles({});
 
   return (
     <Paper className={classes.page}>
