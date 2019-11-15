@@ -17,7 +17,7 @@ const App = (): ReactElement => {
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <Layout>
+      <Layout locale={locale} setLocale={setLocale}>
         <div>
           Hello world ajoutez des routes ici
         </div>

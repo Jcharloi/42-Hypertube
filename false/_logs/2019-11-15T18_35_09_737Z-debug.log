@@ -1,0 +1,33 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/Users/psim/.brew/Cellar/node/12.10.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'test:jest',
+1 verbose cli   '-no-cache'
+1 verbose cli ]
+2 info using npm@6.9.0
+3 info using node@v12.10.0
+4 verbose stack Error: Failed to parse json
+4 verbose stack Unexpected string in JSON at position 3055 while parsing '{
+4 verbose stack   "name": "42-hypertube",
+4 verbose stack   "version":'
+4 verbose stack     at parseError (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:452:11)
+4 verbose stack     at parseJson (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:104:26)
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:51:5
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:90:16
+4 verbose stack     at FSReqCallback.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:61:3)
+5 verbose cwd /Users/psim/Documents/Hypertube
+6 verbose Darwin 18.6.0
+7 verbose argv "/Users/psim/.brew/Cellar/node/12.10.0/bin/node" "/usr/local/bin/npm" "run" "test:jest" "-no-cache"
+8 verbose node v12.10.0
+9 verbose npm  v6.9.0
+10 error file /Users/psim/Documents/Hypertube/package.json
+11 error code EJSONPARSE
+12 error JSON.parse Failed to parse json
+12 error JSON.parse Unexpected string in JSON at position 3055 while parsing '{
+12 error JSON.parse   "name": "42-hypertube",
+12 error JSON.parse   "version":'
+13 error JSON.parse Failed to parse package.json data.
+13 error JSON.parse package.json must be actual JSON, not just JavaScript.
+14 verbose exit [ 1, true ]
