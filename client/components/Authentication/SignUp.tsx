@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ChangeEvent, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -12,6 +12,18 @@ import useStyles from './SignUp.styles';
 const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
+  const [userInfo, setUserInfo] = useState({
+    username: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    picture: '',
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => setUserInfo({
+    ...userInfo,
+    [e.target.name]: e.target.value,
+  });
 
   return (
     <Paper className={classes.page}>
@@ -37,16 +49,45 @@ const SignUp = (): ReactElement => {
 
             {/* Text input */}
             <Grid item className={classes.item}>
-              <TextField label={_t({ id: 'authentication.signUp.username' })} variant="filled" className={classes.textInput} autoFocus />
+              <TextField
+                value={userInfo.username}
+                name="username"
+                onChange={handleInputChange}
+                label={_t({ id: 'authentication.signUp.username' })}
+                variant="filled"
+                className={classes.textInput}
+                autoFocus
+              />
             </Grid>
             <Grid item className={classes.item}>
-              <TextField label={_t({ id: 'authentication.signUp.email' })} variant="filled" className={classes.textInput} />
+              <TextField
+                value={userInfo.email}
+                name="email"
+                onChange={handleInputChange}
+                label={_t({ id: 'authentication.signUp.email' })}
+                variant="filled"
+                className={classes.textInput}
+              />
             </Grid>
             <Grid item className={classes.item}>
-              <TextField label={_t({ id: 'authentication.signUp.firstName' })} variant="filled" className={classes.textInput} />
+              <TextField
+                value={userInfo.firstName}
+                name="firstName"
+                onChange={handleInputChange}
+                label={_t({ id: 'authentication.signUp.firstName' })}
+                variant="filled"
+                className={classes.textInput}
+              />
             </Grid>
             <Grid item className={classes.item}>
-              <TextField label={_t({ id: 'authentication.signUp.lastName' })} variant="filled" className={classes.textInput} />
+              <TextField
+                value={userInfo.lastName}
+                name="lastName"
+                onChange={handleInputChange}
+                label={_t({ id: 'authentication.signUp.lastName' })}
+                variant="filled"
+                className={classes.textInput}
+              />
             </Grid>
 
             {/* Picture upload */}

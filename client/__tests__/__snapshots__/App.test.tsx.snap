@@ -159,12 +159,14 @@ exports[`App renders correctly 1`] = `
                     autoFocus={true}
                     className="MuiInputBase-input MuiFilledInput-input"
                     disabled={false}
+                    name="username"
                     onAnimationStart={[Function]}
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
                     required={false}
                     type="text"
+                    value=""
                   />
                 </div>
               </div>
@@ -190,12 +192,14 @@ exports[`App renders correctly 1`] = `
                     autoFocus={false}
                     className="MuiInputBase-input MuiFilledInput-input"
                     disabled={false}
+                    name="email"
                     onAnimationStart={[Function]}
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
                     required={false}
                     type="text"
+                    value=""
                   />
                 </div>
               </div>
@@ -221,12 +225,14 @@ exports[`App renders correctly 1`] = `
                     autoFocus={false}
                     className="MuiInputBase-input MuiFilledInput-input"
                     disabled={false}
+                    name="firstName"
                     onAnimationStart={[Function]}
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
                     required={false}
                     type="text"
+                    value=""
                   />
                 </div>
               </div>
@@ -252,12 +258,14 @@ exports[`App renders correctly 1`] = `
                     autoFocus={false}
                     className="MuiInputBase-input MuiFilledInput-input"
                     disabled={false}
+                    name="lastName"
                     onAnimationStart={[Function]}
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
                     required={false}
                     type="text"
+                    value=""
                   />
                 </div>
               </div>
