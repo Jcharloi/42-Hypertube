@@ -1,5 +1,14 @@
 {
   "title" : "HyperTube",
-  "helloworld": "guten tagijijij !",
-  "search":"Search..."
+  "search":"Search...",
+
+  "authentication.signUp.title": "Who are you ?",
+  "authentication.signUp.subtitle": "To access all our film, you're gonna have to register",
+  "authentication.signUp.username": "Your little usrname",
+  "authentication.signUp.email": "Your email (so we can spam you)",
+  "authentication.signUp.firstName": "Your first name",
+  "authentication.signUp.lastName": "Your last name",
+  "authentication.signUp.picture": "Your handsome face",
+  "authentication.signUp.uploadButton": "Upload",
+  "authentication.signUp.sendButton": "I register on this awesome website"
 }

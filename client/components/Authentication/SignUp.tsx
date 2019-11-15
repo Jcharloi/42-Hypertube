@@ -5,10 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { useIntl } from 'react-intl';
 
 import useStyles from './SignUp.styles';
 
 const SignUp = (): ReactElement => {
+  const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
 
   return (
@@ -17,13 +19,13 @@ const SignUp = (): ReactElement => {
         <Grid container direction="column" alignItems="center" className={classes.titles}>
           <Grid item>
             <Typography variant="h3">
-              Qui es-tu ?
+              {_t({ id: 'authentication.signUp.title' })}
               <span role="img" aria-label="Eyes"> 👀</span>
             </Typography>
           </Grid>
           <Grid item className={classes.subtitle}>
             <Typography variant="subtitle1">
-              Pour pouvoir acceder a tous nos films il va falloir s&apos;inscrire
+              {_t({ id: 'authentication.signUp.subtitle' })}
               <span role="img" aria-label="Eyes"> 🤭</span>
             </Typography>
           </Grid>
@@ -35,23 +37,23 @@ const SignUp = (): ReactElement => {
 
             {/* Text input */}
             <Grid item className={classes.item}>
-              <TextField label="Ton petit pseudo" variant="filled" className={classes.textInput} autoFocus />
+              <TextField label={_t({ id: 'authentication.signUp.username' })} variant="filled" className={classes.textInput} autoFocus />
             </Grid>
             <Grid item className={classes.item}>
-              <TextField label="Ton mail (pour qu'on te spam)" variant="filled" className={classes.textInput} />
+              <TextField label={_t({ id: 'authentication.signUp.email' })} variant="filled" className={classes.textInput} />
             </Grid>
             <Grid item className={classes.item}>
-              <TextField label="Ton prénom" variant="filled" className={classes.textInput} />
+              <TextField label={_t({ id: 'authentication.signUp.firstName' })} variant="filled" className={classes.textInput} />
             </Grid>
             <Grid item className={classes.item}>
-              <TextField label="Ton nom" variant="filled" className={classes.textInput} />
+              <TextField label={_t({ id: 'authentication.signUp.lastName' })} variant="filled" className={classes.textInput} />
             </Grid>
 
             {/* Picture upload */}
             <Grid container direction="column" alignItems="center" className={classes.item}>
               <Grid item>
                 <Typography variant="body1" gutterBottom>
-                  Et ta belle tête de bg
+                  {_t({ id: 'authentication.signUp.picture' })}
                   <span role="img" aria-label="Arm taking a selfie"> 🤳</span>
                 </Typography>
               </Grid>
@@ -65,7 +67,7 @@ const SignUp = (): ReactElement => {
                     type="file"
                   />
                   <Button variant="outlined" color="secondary" startIcon={<CloudUploadIcon />} component="span">
-                    Upload
+                    {_t({ id: 'authentication.signUp.uploadButton' })}
                   </Button>
                 </label>
               </Grid>
@@ -73,7 +75,7 @@ const SignUp = (): ReactElement => {
 
             {/* Send form */}
             <Grid item className={classes.item}>
-              <Button variant="contained" size="large" color="primary">Je m&apos;inscrit sur ce site cool</Button>
+              <Button variant="contained" size="large" color="primary">{_t({ id: 'authentication.signUp.sendButton' })}</Button>
             </Grid>
           </Grid>
         </form>

@@ -109,7 +109,7 @@ exports[`App renders correctly 1`] = `
             <h3
               className="MuiTypography-root MuiTypography-h3"
             >
-              Qui es-tu ?
+              Who are you ?
               <span
                 aria-label="Eyes"
                 role="img"
@@ -124,7 +124,7 @@ exports[`App renders correctly 1`] = `
             <h6
               className="MuiTypography-root MuiTypography-subtitle1"
             >
-              Pour pouvoir acceder a tous nos films il va falloir s'inscrire
+              To access all our film, you're gonna have to register
               <span
                 aria-label="Eyes"
                 role="img"
@@ -148,7 +148,7 @@ exports[`App renders correctly 1`] = `
                   className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
                   data-shrink={false}
                 >
-                  Ton petit pseudo
+                  Your little usrname
                 </label>
                 <div
                   className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -179,7 +179,7 @@ exports[`App renders correctly 1`] = `
                   className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
                   data-shrink={false}
                 >
-                  Ton mail (pour qu'on te spam)
+                  Your email (so we can spam you)
                 </label>
                 <div
                   className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -210,7 +210,7 @@ exports[`App renders correctly 1`] = `
                   className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
                   data-shrink={false}
                 >
-                  Ton prénom
+                  Your first name
                 </label>
                 <div
                   className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -241,7 +241,7 @@ exports[`App renders correctly 1`] = `
                   className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
                   data-shrink={false}
                 >
-                  Ton nom
+                  Your last name
                 </label>
                 <div
                   className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -271,7 +271,7 @@ exports[`App renders correctly 1`] = `
                 <p
                   className="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
                 >
-                  Et ta belle tête de bg
+                  Your handsome face
                   <span
                     aria-label="Arm taking a selfie"
                     role="img"
@@ -361,7 +361,7 @@ exports[`App renders correctly 1`] = `
                 <span
                   className="MuiButton-label"
                 >
-                  Je m'inscrit sur ce site cool
+                  I register on this awesome website
                 </span>
               </button>
             </div>
