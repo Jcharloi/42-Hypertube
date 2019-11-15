@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
+import { Fixture } from '../models/models';
 
 const useApi = (
   url: string,
-  fixture?: {data: {}; loading: boolean; error: {}},
+  fixture?: Fixture,
 ): {data: Record<string, unknown>; loading: boolean; error: {}} => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ const useApi = (
       setLoading(true);
       setError(null);
 
-      axios.get(url)
+      Axios.get(url)
         .then((res) => {
           setData(res.data);
         })

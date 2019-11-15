@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
 import { IntlProvider } from 'react-intl';
 import { hot } from 'react-hot-loader/root';
-import { Router, Switch, Route } from 'react-router-dom';
+import {
+  Router, Switch, Route, Link,
+} from 'react-router-dom';
 
 import history from '../helpers/history';
 
@@ -11,7 +13,7 @@ import frTranslation from '../translations/fr.json';
 import CustomRoute from './Routes/CustomRoute';
 
 import Layout from './Layout';
-import Authentification from './Authentification/Authentification';
+import Authentication from './Authentication/Authentication';
 import Home from './Home/Home';
 
 
@@ -26,44 +28,43 @@ const App = (): ReactElement => {
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
       <Layout>
-        <div>
-        Hello world ajoutez des routes ici
-        </div>
+        <Router history={history}>
+          <Switch>
+            <CustomRoute
+              exact
+              path="/sign-in"
+              component={Authentication}
+              requireAuth={false}
+            />
+            <CustomRoute
+              exact
+              path="/sign-up"
+              component={Authentication}
+              requireAuth={false}
+            />
+            <CustomRoute
+              exact
+              path="/reset-password"
+              component={Authentication}
+              requireAuth={false}
+            />
+            <Route
+              exact
+              path="/"
+              component={Home}
+            />
+            <Route
+              component={(): ReactElement => (
+                <div>
+                  Not found, go to
+                  {' '}
+                  <Link to="/">root</Link>
+                </div>
+              )}
+            />
+          </Switch>
+        </Router>
       </Layout>
-      <Router history={history}>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={Authentification}
-            requireAuth={false}
-          />
-          <CustomRoute
-            exact
-            path="/sign-in"
-            component={Authentification}
-            requireAuth={false}
-          />
-          <CustomRoute
-            exact
-            path="/sign-up"
-            component={Authentification}
-            requireAuth={false}
-          />
-          <CustomRoute
-            exact
-            path="/reset-password"
-            component={Authentification}
-            requireAuth={false}
-          />
-          <CustomRoute
-            exact
-            path="/home"
-            component={Home}
-            requireAuth
-          />
-        </Switch>
-      </Router>
     </IntlProvider>
   );
 };

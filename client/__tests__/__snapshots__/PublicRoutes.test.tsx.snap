@@ -6,23 +6,19 @@ exports[`CustomRoute Error 1`] = `
 </div>
 `;
 
-exports[`CustomRoute Is connected, private route : show div 1`] = `
+exports[`CustomRoute Is connected, private route : should show div 1`] = `
 <div>
-  Is connected, private route : show div
+  Should be shown
 </div>
 `;
 
-exports[`CustomRoute Is connected, public route : hide div 1`] = `
-<div>
-  Is connected, public route : hide div
-</div>
-`;
+exports[`CustomRoute Is connected, public route : should NOT show div 1`] = `null`;
 
-exports[`CustomRoute Is not connected, private route : hide div 1`] = `null`;
+exports[`CustomRoute Is not connected, private route : should NOT show div 1`] = `null`;
 
-exports[`CustomRoute Is not connected, public route : show div 1`] = `
+exports[`CustomRoute Is not connected, public route : should show div 1`] = `
 <div>
-  Is not connected, public route : show div
+  Should be shown
 </div>
 `;
 

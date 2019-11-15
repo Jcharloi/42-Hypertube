@@ -4,13 +4,13 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import ResetPassword from './ResetPassword';
 
-const Authentification = (): ReactElement => (
+const Authentication = (): ReactElement => (
   <div>
-    <Link to="/home">grgregr</Link>
+    <Link to="/">Not authenticated</Link>
     <SignUp />
     <SignIn />
     <ResetPassword />
   </div>
 );
 
-export default Authentification;
+export default Authentication;

@@ -1,13 +1,14 @@
 import React, { ReactElement, ElementType } from 'react';
 import { Redirect, Route } from 'react-router';
 import useApi from '../../hooks/useApi';
+import { Fixture } from '../../models/models';
 
 interface Props {
   exact?: boolean;
   component: ElementType;
-  path: string;
+  path?: string;
   requireAuth: boolean;
-  fixture?: any;
+  fixture?: Fixture;
 }
 
 const CustomRoute = ({

@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import renderer from 'react-test-renderer';
 import { Router } from 'react-router-dom';
 
+import { render } from 'react-dom';
 import CustomRoute from '../components/Routes/CustomRoute';
 import history from '../helpers/history';
 
@@ -16,132 +17,112 @@ const MockComponent = ({ children }: Props): ReactElement => (
 );
 
 describe('CustomRoute', () => {
-  it('Is connected, private route : show div', () => {
-    const tree = renderer
-      .create(
-        <MockComponent>
-          <CustomRoute
-            exact
-            component={(): ReactElement => <div>Is connected, private route : show div</div>}
-            requireAuth
-            path="/"
-            fixture={{
-              loading: false,
-              error: null,
-              data: { validToken: true },
-            }}
-          />
-        </MockComponent>,
-      )
-      .toJSON();
+  it('Is connected, private route : should show div', () => {
+    const domNode = (
+      <MockComponent>
+        <CustomRoute
+          requireAuth
+          component={(): ReactElement => <div>Should be shown</div>}
+          fixture={{ loading: false, error: null, data: { validToken: true } }}
+        />
+      </MockComponent>
+    );
 
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is connected, public route : hide div', () => {
-    const tree = renderer
-      .create(
-        <MockComponent>
-          <CustomRoute
-            exact
-            component={(): ReactElement => <div>Is connected, public route : hide div</div>}
-            requireAuth={false}
-            path="/"
-            fixture={{
-              loading: false,
-              error: null,
-              data: { validToken: true },
-            }}
-          />
-        </MockComponent>,
-      )
-      .toJSON();
+  it('Is connected, public route : should NOT show div', () => {
+    const domNode = (
+      <MockComponent>
+        <CustomRoute
+          requireAuth={false}
+          component={(): ReactElement => <div>Should NOT be shown</div>}
+          fixture={{ loading: false, error: null, data: { validToken: true } }}
+        />
+      </MockComponent>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is not connected, private route : hide div', () => {
-    const tree = renderer
-      .create(
-        <MockComponent>
-          <CustomRoute
-            exact
-            component={(): ReactElement => <div>Is not connected, private route : hide div</div>}
-            requireAuth
-            path="/"
-            fixture={{
-              loading: false,
-              error: null,
-              data: { validToken: false },
-            }}
-          />
-        </MockComponent>,
-      )
-      .toJSON();
+  it('Is not connected, private route : should NOT show div', () => {
+    const domNode = (
+      <MockComponent>
+        <CustomRoute
+          requireAuth
+          component={(): ReactElement => <div>Should NOT be shown</div>}
+          fixture={{ loading: false, error: null, data: { validToken: false } }}
+        />
+      </MockComponent>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is not connected, public route : show div', () => {
-    const tree = renderer
-      .create(
-        <MockComponent>
-          <CustomRoute
-            exact
-            component={(): ReactElement => <div>Is not connected, public route : show div</div>}
-            requireAuth={false}
-            path="/"
-            fixture={{
-              loading: false,
-              error: null,
-              data: { validToken: true },
-            }}
-          />
-        </MockComponent>,
-      )
-      .toJSON();
+  it('Is not connected, public route : should show div', () => {
+    const domNode = (
+      <MockComponent>
+        <CustomRoute
+          requireAuth={false}
+          component={(): ReactElement => <div>Should be shown</div>}
+          fixture={{ loading: false, error: null, data: { validToken: false } }}
+        />
+      </MockComponent>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
     expect(tree).toMatchSnapshot();
   });
 
   it('Loading', () => {
-    const tree = renderer
-      .create(
-        <MockComponent>
-          <CustomRoute
-            exact
-            component={(): ReactElement => <div>Loading</div>}
-            requireAuth={false}
-            path="/"
-            fixture={{
-              loading: true,
-              error: null,
-              data: { validToken: true },
-            }}
-          />
-        </MockComponent>,
-      )
-      .toJSON();
+    const domNode = (
+      <MockComponent>
+        <CustomRoute
+          exact
+          component={(): ReactElement => <div>Loading</div>}
+          requireAuth={false}
+          path="/"
+          fixture={{
+            loading: true,
+            error: null,
+            data: { validToken: true },
+          }}
+        />
+      </MockComponent>
+    );
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
     expect(tree).toMatchSnapshot();
   });
 
   it('Error', () => {
-    const tree = renderer
-      .create(
-        <MockComponent>
-          <CustomRoute
-            exact
-            component={(): ReactElement => <div>Error</div>}
-            requireAuth={false}
-            path="/"
-            fixture={{
-              loading: false,
-              error: {
-                error: true,
-              },
-              data: { validToken: true },
-            }}
-          />
-        </MockComponent>,
-      )
-      .toJSON();
+    const domNode = (
+      <MockComponent>
+        <CustomRoute
+          exact
+          component={(): ReactElement => <div>Error</div>}
+          requireAuth={false}
+          path="/"
+          fixture={{
+            loading: false,
+            error: {
+              error: true,
+            },
+            data: { validToken: true },
+          }}
+        />
+      </MockComponent>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
     expect(tree).toMatchSnapshot();
   });
 });
