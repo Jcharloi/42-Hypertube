@@ -4,10 +4,10 @@ import TopMenu from './TopMenu';
 import styles from './styles.css';
 
 // eslint-disable-next-line
-const Layout = ({ children }) => (
+const Layout = ({ children, locale, setLocale }) => (
   <div>
 
-    <TopMenu />
+    <TopMenu locale={locale} setLocale={setLocale} />
 
   </div>
 );

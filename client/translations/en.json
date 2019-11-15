@@ -1,5 +1,7 @@
 {
   "title" : "HyperTube",
   "helloworld": "guten tagijijij !",
-  "search":"Search..."
+  "search":"Search...",
+  "language.fr" : "🇫🇷",
+  "language.en" : "🇬🇧"
 }

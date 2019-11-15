@@ -1,0 +1,40 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/Users/psim/.brew/Cellar/node/12.10.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'test:jest',
+1 verbose cli   '-no-cache'
+1 verbose cli ]
+2 info using npm@6.9.0
+3 info using node@v12.10.0
+4 verbose run-script [ 'pretest:jest', 'test:jest', 'posttest:jest' ]
+5 info lifecycle 42-hypertube@0.0.0~pretest:jest: 42-hypertube@0.0.0
+6 info lifecycle 42-hypertube@0.0.0~test:jest: 42-hypertube@0.0.0
+7 verbose lifecycle 42-hypertube@0.0.0~test:jest: unsafe-perm in lifecycle true
+8 verbose lifecycle 42-hypertube@0.0.0~test:jest: PATH: /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/psim/Documents/Hypertube/node_modules/.bin:/Users/psim/.brew/bin:/Users/psim/.brew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/munki:/Applications/Visual
+9 verbose lifecycle 42-hypertube@0.0.0~test:jest: CWD: /Users/psim/Documents/Hypertube
+10 silly lifecycle 42-hypertube@0.0.0~test:jest: Args: [ '-c', 'jest' ]
+11 silly lifecycle 42-hypertube@0.0.0~test:jest: Returned: code: 1  signal: null
+12 info lifecycle 42-hypertube@0.0.0~test:jest: Failed to exec test:jest script
+13 verbose stack Error: 42-hypertube@0.0.0 test:jest: `jest`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:301:16)
+13 verbose stack     at EventEmitter.emit (events.js:209:13)
+13 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+13 verbose stack     at ChildProcess.emit (events.js:209:13)
+13 verbose stack     at maybeClose (internal/child_process.js:1021:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:283:5)
+14 verbose pkgid 42-hypertube@0.0.0
+15 verbose cwd /Users/psim/Documents/Hypertube
+16 verbose Darwin 18.6.0
+17 verbose argv "/Users/psim/.brew/Cellar/node/12.10.0/bin/node" "/usr/local/bin/npm" "run" "test:jest" "-no-cache"
+18 verbose node v12.10.0
+19 verbose npm  v6.9.0
+20 error code ELIFECYCLE
+21 error errno 1
+22 error 42-hypertube@0.0.0 test:jest: `jest`
+22 error Exit status 1
+23 error Failed at the 42-hypertube@0.0.0 test:jest script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]

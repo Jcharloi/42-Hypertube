@@ -2,6 +2,9 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+  "transform": {
+    ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -79,8 +82,9 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  //moduleNameMapper: {"\.css$": "identity-obj-proxy"},
 
+  
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
 
