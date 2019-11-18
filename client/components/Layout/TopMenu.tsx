@@ -18,7 +18,7 @@ import useStyles from './TopMenu.styles';
 
 export default function SearchAppBar() {
   const { formatMessage: _t } = useIntl();
-  const classes = useStyles();
+  const classes = useStyles({});
 
   return (
     <div className={classes.root}>
