@@ -1,3 +1,4 @@
+
 import React, { ReactElement } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -12,18 +13,8 @@ interface Props {
 
 const Layout = ({ children }: Props): ReactElement => (
   <div>
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6">
-            Hypertube
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    </AppBar>
-    {children}
+
+    <TopMenu />
 
   </div>
 );
