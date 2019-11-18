@@ -3,7 +3,7 @@ module.exports = (api) => {
   api.cache(true);
 
   return {
-    plugins: ['react-hot-loader/babel'],
+    plugins: ['react-hot-loader/babel', "@babel/transform-runtime", "@babel/plugin-proposal-optional-chaining"],
     presets: [
       '@babel/preset-react',
       '@babel/preset-typescript',
@@ -12,6 +12,7 @@ module.exports = (api) => {
         {
           targets: {
             browsers: ['last 2 versions'],
+            "node": "current"
           },
           modules: isTest ? 'commonjs' : false,
         },

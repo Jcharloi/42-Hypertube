@@ -10,7 +10,7 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    hot: true,
+    hot: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {

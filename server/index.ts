@@ -2,6 +2,9 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import path from 'path';
+import favicon from 'serve-favicon';
+
+import router from './router';
 
 const URL_DB = 'mongodb+srv://root:root@hypertube-fdnbo.mongodb.net/test?retryWrites=true&w=majority';
 
@@ -12,17 +15,13 @@ mongoose.connection.once('open', () => {
 });
 
 const app = express();
+app.set('root', '/');
+app.set('views', path.join(__dirname, './views'));
+app.set('view engine', 'ejs');
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'views', 'favicon.ico')));
+app.use('public/', express.static('public'));
 app.use(morgan('dev'));
-
-app.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/views/index.html`);
-});
-
-app.listen(8080, () => {
-  console.log('Server running on 8080');
-});
 
 /* Webpack Hot Reload */
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -41,3 +40,12 @@ app.use(hotMiddleware);
 
 /* eslint-enable */
 /* ------------------ */
+
+app.use('/API', router);
+app.get('*', (req, res) => {
+  res.render('index');
+});
+
+app.listen(8080, () => {
+  console.log('Server running on 8080');
+});
