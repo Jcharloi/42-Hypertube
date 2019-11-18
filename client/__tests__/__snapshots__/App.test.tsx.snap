@@ -181,6 +181,39 @@ exports[`App renders correctly 1`] = `
                   className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
                   data-shrink={false}
                 >
+                  Your top secret password
+                </label>
+                <div
+                  className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                  onClick={[Function]}
+                >
+                  <input
+                    aria-invalid={false}
+                    autoFocus={false}
+                    className="MuiInputBase-input MuiFilledInput-input"
+                    disabled={false}
+                    name="password"
+                    onAnimationStart={[Function]}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    required={false}
+                    type="password"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="MuiGrid-root makeStyles-item-123 MuiGrid-item"
+            >
+              <div
+                className="MuiFormControl-root MuiTextField-root makeStyles-textInput-124"
+              >
+                <label
+                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                  data-shrink={false}
+                >
                   Your email (so we can spam you)
                 </label>
                 <div

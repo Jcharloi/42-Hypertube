@@ -14,6 +14,7 @@ const SignUp = (): ReactElement => {
   const classes = useStyles({});
   const [userInfo, setUserInfo] = useState({
     username: '',
+    password: '',
     email: '',
     firstName: '',
     lastName: '',
@@ -57,6 +58,17 @@ const SignUp = (): ReactElement => {
                 variant="filled"
                 className={classes.textInput}
                 autoFocus
+              />
+            </Grid>
+            <Grid item className={classes.item}>
+              <TextField
+                value={userInfo.password}
+                name="password"
+                onChange={handleInputChange}
+                label={_t({ id: 'authentication.signUp.password' })}
+                variant="filled"
+                className={classes.textInput}
+                type="password"
               />
             </Grid>
             <Grid item className={classes.item}>

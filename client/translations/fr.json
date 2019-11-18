@@ -5,6 +5,7 @@
   "authentication.signUp.title": "Qui es-tu ?",
   "authentication.signUp.subtitle": "Pour pouvoir acceder a tous nos films il va falloir s'inscrire",
   "authentication.signUp.username": "Ton petit pseudo",
+  "authentication.signUp.password": "Ton mot de passe top secret",
   "authentication.signUp.email": "Ton mail (pour qu'on te spam)",
   "authentication.signUp.firstName": "Ton prénom",
   "authentication.signUp.lastName": "Ton nom",
