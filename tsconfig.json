@@ -16,8 +16,7 @@
     ]
   },
   "include": [
-    "client/**/*.tsx",
-    "server/**/*.ts"
+    "client/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
