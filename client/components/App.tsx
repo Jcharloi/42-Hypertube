@@ -11,7 +11,6 @@ import enTranslation from '../translations/en.json';
 import frTranslation from '../translations/fr.json';
 
 import CustomRoute from './Routes/CustomRoute';
-
 import Layout from './Layout';
 import Authentication from './Authentication/Authentication';
 import Home from './Home/Home';

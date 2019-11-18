@@ -1,5 +1,6 @@
 import React, { ReactElement, ElementType } from 'react';
 import { Redirect, Route } from 'react-router';
+
 import useApi from '../../hooks/useApi';
 import { Fixture } from '../../models/models';
 

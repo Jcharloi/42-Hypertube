@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import renderer from 'react-test-renderer';
 import { Router } from 'react-router-dom';
 
-import { render } from 'react-dom';
 import CustomRoute from '../components/Routes/CustomRoute';
 import history from '../helpers/history';
 
