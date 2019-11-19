@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useIntl } from 'react-intl';
-import styles from './LanguageButton.style.css';
+import useStyles from './LanguageButton.style';
 import { Locale } from '../../models/models';
 
 const options = [
@@ -12,6 +12,7 @@ const options = [
 ];
 
 export default function SimpleMenu({ locale, setLocale }: Locale) {
+  const classes = useStyles({});
   const { formatMessage: _t } = useIntl();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -34,7 +35,7 @@ export default function SimpleMenu({ locale, setLocale }: Locale) {
 
   return (
     <div>
-      <Button className={styles['language-toggle-button']} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <Button className={classes.languageToggleButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         {_t({ id: `language.${locale}` })}
       </Button>
       <Menu

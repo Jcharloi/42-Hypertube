@@ -12,7 +12,7 @@ import TopMenu from './TopMenu';
 interface Props {
   children: ReactElement;
   locale: string;
-  setLocale: () => void;
+  setLocale: (locale: string) => void;
 }
 
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => (
