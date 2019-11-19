@@ -3,6 +3,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import path from "path";
 import favicon from "serve-favicon";
+import fileUpload from "express-fileupload";
 
 import router from "./router";
 
@@ -26,6 +27,7 @@ app.set("view engine", "ejs");
 app.use(favicon(path.join(__dirname, "views", "favicon.ico")));
 app.use("public/", express.static("public"));
 app.use(morgan("dev"));
+app.use(fileUpload());
 
 /* Webpack Hot Reload */
 const webpack = require("webpack");
@@ -52,6 +54,6 @@ app.get("*", (req, res) => {
   res.render("index");
 });
 
-app.listen(8081, () => {
-  console.log("Server running on 8081");
+app.listen(8080, () => {
+  console.log("Server running on 8080");
 });
