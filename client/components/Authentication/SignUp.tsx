@@ -7,12 +7,24 @@ import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useIntl } from 'react-intl';
 
+import {
+  User, requiredErrorKey, checkRequiredField, validateEmail, validatePassword, isThereError,
+} from './SignUp.service';
+
 import useStyles from './SignUp.styles';
 
 const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
-  const [userInfo, setUserInfo] = useState({
+  const [userInfo, setUserInfo] = useState<User>({
+    username: '',
+    password: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    picture: '',
+  });
+  const [userError, setUserError] = useState<User>({
     username: '',
     password: '',
     email: '',
@@ -21,10 +33,41 @@ const SignUp = (): ReactElement => {
     picture: '',
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => setUserInfo({
-    ...userInfo,
-    [e.target.name]: e.target.value,
-  });
+  /**
+   * Change State when user is typing in the form
+   */
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setUserInfo({
+      ...userInfo,
+      [e.target.name]: e.target.value,
+    });
+    // If error is 'required' type, delete it
+    if (userError[e.target.name] === requiredErrorKey) {
+      setUserError({
+        ...userError,
+        [e.target.name]: '',
+      });
+    }
+  };
+
+  /**
+   * Submit the form if:
+   * - all the filled are complete
+   * - mail is valid
+   * - password is valid
+   * else set error message
+   */
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    const newUserError = checkRequiredField(userInfo);
+    newUserError.email = userInfo.email === '' || validateEmail(userInfo.email) ? newUserError.email : 'authentication.signUp.error.email';
+    newUserError.password = userInfo.password === '' || validatePassword(userInfo.password) ? newUserError.password : 'authentication.signUp.error.password';
+
+    setUserError(newUserError);
+    if (!isThereError(newUserError)) {
+      console.log('SENDING ! 😱');
+    }
+  };
 
   return (
     <Paper className={classes.page}>
@@ -45,13 +88,15 @@ const SignUp = (): ReactElement => {
         </Grid>
 
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container direction="column" alignItems="center">
 
             {/* Text input */}
             <Grid item className={classes.item}>
               <TextField
                 value={userInfo.username}
+                helperText={userError.username !== '' ? _t({ id: userError.username }) : ''}
+                error={userError.username !== ''}
                 name="username"
                 onChange={handleInputChange}
                 label={_t({ id: 'authentication.signUp.username' })}
@@ -63,6 +108,8 @@ const SignUp = (): ReactElement => {
             <Grid item className={classes.item}>
               <TextField
                 value={userInfo.password}
+                helperText={userError.password !== '' ? _t({ id: userError.password }) : ''}
+                error={userError.password !== ''}
                 name="password"
                 onChange={handleInputChange}
                 label={_t({ id: 'authentication.signUp.password' })}
@@ -74,6 +121,8 @@ const SignUp = (): ReactElement => {
             <Grid item className={classes.item}>
               <TextField
                 value={userInfo.email}
+                helperText={userError.email !== '' ? _t({ id: userError.email }) : ''}
+                error={userError.email !== ''}
                 name="email"
                 onChange={handleInputChange}
                 label={_t({ id: 'authentication.signUp.email' })}
@@ -84,6 +133,8 @@ const SignUp = (): ReactElement => {
             <Grid item className={classes.item}>
               <TextField
                 value={userInfo.firstName}
+                helperText={userError.firstName !== '' ? _t({ id: userError.firstName }) : ''}
+                error={userError.firstName !== ''}
                 name="firstName"
                 onChange={handleInputChange}
                 label={_t({ id: 'authentication.signUp.firstName' })}
@@ -94,6 +145,8 @@ const SignUp = (): ReactElement => {
             <Grid item className={classes.item}>
               <TextField
                 value={userInfo.lastName}
+                helperText={userError.lastName !== '' ? _t({ id: userError.lastName }) : ''}
+                error={userError.lastName !== ''}
                 name="lastName"
                 onChange={handleInputChange}
                 label={_t({ id: 'authentication.signUp.lastName' })}
@@ -128,7 +181,7 @@ const SignUp = (): ReactElement => {
 
             {/* Send form */}
             <Grid item className={classes.item}>
-              <Button variant="contained" size="large" color="primary">{_t({ id: 'authentication.signUp.sendButton' })}</Button>
+              <Button type="submit" variant="contained" size="large" color="primary">{_t({ id: 'authentication.signUp.sendButton' })}</Button>
             </Grid>
           </Grid>
         </form>

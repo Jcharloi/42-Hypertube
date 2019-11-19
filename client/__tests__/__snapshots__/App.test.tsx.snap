@@ -134,7 +134,9 @@ exports[`App renders correctly 1`] = `
             </h6>
           </div>
         </div>
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <div
             className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
           >
@@ -148,7 +150,7 @@ exports[`App renders correctly 1`] = `
                   className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
                   data-shrink={false}
                 >
-                  Your little usrname
+                  Your little username
                 </label>
                 <div
                   className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -169,6 +171,7 @@ exports[`App renders correctly 1`] = `
                     value=""
                   />
                 </div>
+                
               </div>
             </div>
             <div
@@ -202,6 +205,7 @@ exports[`App renders correctly 1`] = `
                     value=""
                   />
                 </div>
+                
               </div>
             </div>
             <div
@@ -235,6 +239,7 @@ exports[`App renders correctly 1`] = `
                     value=""
                   />
                 </div>
+                
               </div>
             </div>
             <div
@@ -268,6 +273,7 @@ exports[`App renders correctly 1`] = `
                     value=""
                   />
                 </div>
+                
               </div>
             </div>
             <div
@@ -301,6 +307,7 @@ exports[`App renders correctly 1`] = `
                     value=""
                   />
                 </div>
+                
               </div>
             </div>
             <div
@@ -397,7 +404,7 @@ exports[`App renders correctly 1`] = `
                 onTouchMove={[Function]}
                 onTouchStart={[Function]}
                 tabIndex={0}
-                type="button"
+                type="submit"
               >
                 <span
                   className="MuiButton-label"
