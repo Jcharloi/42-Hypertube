@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+
 import { useIntl } from 'react-intl';
 import useStyles from './LanguageButton.style';
 import { Locale } from '../../models/models';
