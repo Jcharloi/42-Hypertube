@@ -4,7 +4,7 @@ module.exports = {
         node: true,
         jest: true
     },
-    extends: ['airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended'],
+    extends: ['airbnb', 'airbnb/hooks'],
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint', 'prettier'
     ],
@@ -36,5 +36,6 @@ module.exports = {
             2,
             2
         ],
+        'no-plusplus': ["error", { "allowForLoopAfterthoughts": true }]
     },
 };
