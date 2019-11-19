@@ -3,5 +3,7 @@
   "helloworld": "niktoa !",
   "search": "Rechercher ...",
   "language.fr" : "🇫🇷",
-  "language.en" : "🇬🇧"
+  "language.en" : "🇬🇧",
+  "profile" : "Mon profile",
+  "disconnect" : "Se déconnecter"
 }

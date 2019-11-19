@@ -17,8 +17,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
 import { useIntl } from 'react-intl';
+import history from '../../helpers/history';
+
 import useStyles from './TopMenu.styles';
 import LanguageButton from './LanguageButton';
 import { Locale } from '../../models/models';
@@ -35,7 +36,7 @@ import { Locale } from '../../models/models';
 //   };
 // }
 
-export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
+export default function PrimarySearchAppBar({ locale, setLocale }: Locale): void {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -44,20 +45,24 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
+  const redirectTitle = (): void => {
+    history.push('/');
+  };
+
+  const handleMobileMenuClose = (): void => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = (): void => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -72,8 +77,8 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{_t({ id: 'profile' })}</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{_t({ id: 'disconnect' })}</MenuItem>
     </Menu>
   );
 
@@ -88,22 +93,6 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -122,15 +111,7 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography onClick={(): void => redirectTitle()} className={classes.title} variant="h6" noWrap>
             {_t({ id: 'title' })}
           </Typography>
           <div className={classes.search}>

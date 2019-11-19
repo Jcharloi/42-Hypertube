@@ -3,5 +3,7 @@
   "helloworld": "guten tagijijij !",
   "search":"Search...",
   "language.fr" : "🇫🇷",
-  "language.en" : "🇬🇧"
+  "language.en" : "🇬🇧",
+  "profile" : "My profile",
+  "disconnect" : "Disconnect"
 }
