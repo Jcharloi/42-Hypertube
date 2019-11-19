@@ -13,7 +13,6 @@ const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
   const classes = useStyles({});
   const { formatMessage: _t } = useIntl();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);
