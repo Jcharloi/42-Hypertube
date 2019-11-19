@@ -1,49 +1,30 @@
 import React from 'react';
-import {
-  fade, makeStyles, Theme, createStyles,
-} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { useIntl } from 'react-intl';
+
 import history from '../../helpers/history';
 
 import useStyles from './TopMenu.styles';
 import LanguageButton from './LanguageButton';
 import { Locale } from '../../models/models';
 
-// export function SimpleMenu() {
-//   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-//   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-//     setAnchorEl(event.currentTarget);
-//   };
-
-//   const handleClose = () => {
-//     setAnchorEl(null);
-//   };
-// }
-
 export default function PrimarySearchAppBar({ locale, setLocale }: Locale): void {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const menuId = 'primary-search-account-menu';
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorEl(event.currentTarget);
@@ -66,7 +47,6 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale): void
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}

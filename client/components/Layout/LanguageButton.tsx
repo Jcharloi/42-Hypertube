@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -6,27 +6,17 @@ import { useIntl } from 'react-intl';
 import useStyles from './LanguageButton.style';
 import { Locale } from '../../models/models';
 
-const options = [
-  'fr',
-  'en',
-];
-
-export default function SimpleMenu({ locale, setLocale }: Locale) {
+const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
   const classes = useStyles({});
   const { formatMessage: _t } = useIntl();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (index: number) => {
-    setSelectedIndex(index);
-    setAnchorEl(null);
-  };
-
-
-  const handleClose = (language: string) => {
+  const handleClose = (language: string): void => {
     setAnchorEl(null);
     if (typeof language === 'string') {
       setLocale(language);
@@ -45,9 +35,11 @@ export default function SimpleMenu({ locale, setLocale }: Locale) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => handleClose('fr')}>{_t({ id: 'language.fr' })}</MenuItem>
-        <MenuItem onClick={() => handleClose('en')}>{_t({ id: 'language.en' })}</MenuItem>
+        <MenuItem onClick={(): null => handleClose('fr')}>{_t({ id: 'language.fr' })}</MenuItem>
+        <MenuItem onClick={(): null => handleClose('en')}>{_t({ id: 'language.en' })}</MenuItem>
       </Menu>
     </div>
   );
-}
+};
+
+export default SimpleMenu;
