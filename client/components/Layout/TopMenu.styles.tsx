@@ -3,7 +3,6 @@ import {
   fade,
   Theme,
   makeStyles,
-
 } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -18,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    cursor: 'pointer',
   },
   search: {
     position: 'relative',

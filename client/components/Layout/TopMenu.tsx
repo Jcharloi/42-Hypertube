@@ -17,7 +17,7 @@ import useStyles from './TopMenu.styles';
 import LanguageButton from './LanguageButton';
 import { Locale } from '../../models/models';
 
-export default function PrimarySearchAppBar({ locale, setLocale }: Locale): void {
+export default function PrimarySearchAppBar({ locale, setLocale }: Locale): ReactElement {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
