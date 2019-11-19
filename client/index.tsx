@@ -4,10 +4,10 @@ import * as ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-const render = (Component): void => {
+const render = (): void => {
   ReactDOM.render(
-    <Component />, document.getElementById('root'),
+    <App />, document.getElementById('root'),
   );
 };
 
-render(App);
+render();

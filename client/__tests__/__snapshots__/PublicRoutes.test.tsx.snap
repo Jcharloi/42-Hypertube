@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomRoute Error 1`] = `
+<div>
+  Error
+</div>
+`;
+
+exports[`CustomRoute Is connected, private route : should show div 1`] = `
+<div>
+  Should be shown
+</div>
+`;
+
+exports[`CustomRoute Is connected, public route : should NOT show div 1`] = `null`;
+
+exports[`CustomRoute Is not connected, private route : should NOT show div 1`] = `null`;
+
+exports[`CustomRoute Is not connected, public route : should show div 1`] = `
+<div>
+  Should be shown
+</div>
+`;
+
+exports[`CustomRoute Loading 1`] = `
+<div>
+  Loading
+</div>
+`;

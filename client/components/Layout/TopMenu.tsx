@@ -37,7 +37,7 @@ import { Locale } from '../../models/models';
 
 export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
   const { formatMessage: _t } = useIntl();
-  const classes = useStyles();
+  const classes = useStyles({});
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
 
