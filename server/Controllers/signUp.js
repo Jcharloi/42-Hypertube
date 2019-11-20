@@ -1,12 +1,13 @@
 import fileType from "file-type";
 import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
+import mongoose from "../mongo";
 
 const validMail = (mail) => {
   const regex = new RegExp(
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
   );
-  if (!mail || !regex.test(String(mail).toLowerCase())) {
+  if (!mail || !regex.test(String(mail).toLowerCase()) || mail.length > 100) {
     return false;
   }
   return true;
@@ -16,7 +17,7 @@ const validPassword = (password) => {
   const regex = new RegExp(
     /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/
   );
-  if (!password || !regex.test(password) || password.length > 50) {
+  if (!password || !regex.test(password) || password.length > 1028) {
     return false;
   }
   return true;
@@ -65,9 +66,11 @@ const nameAlreadyExists = async (userName) => {
 const signUp = async (req, res) => {
   const goodInfos =
     req.body.userName &&
-    req.body.userName.length < 21 &&
+    req.body.userName.length < 30 &&
     req.body.firstName &&
+    req.body.firstName.length < 30 &&
     req.body.lastName &&
+    req.body.lastName.length < 30 &&
     validMail(req.body.mail) &&
     validPassword(req.body.password) &&
     req.files &&
@@ -77,6 +80,7 @@ const signUp = async (req, res) => {
   if (goodInfos && nameFree && mailFree) {
     if (await signUpHelpers.sendMail()) {
       const user = {
+        _id: new mongoose.Types.ObjectId(),
         mail: req.body.mail,
         userName: req.body.userName,
         firstName: req.body.firstName,
@@ -84,7 +88,7 @@ const signUp = async (req, res) => {
         password: req.body.password,
         picture: req.files.picture
       };
-      if (await signUpHelpers.createUser(user)) {
+      if (await signUpHelpers.createUser(user, true)) {
         res
           .status(200)
           .send({ missingInfos: false, nameTaken: false, mailTaken: false });

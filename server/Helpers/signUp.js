@@ -14,22 +14,29 @@ const createRandomId = (length) => {
 
 const sendMail = async () => true;
 
-const createUser = async (user) => {
+const createUser = async (user, insertPT) => {
   try {
-    const hashedPT = `${user.picture.name.split(".")[0] + createRandomId(5)}.${
-      user.picture.mimetype.split("/")[1]
-    }`;
-    user.picture.mv(`./server/data/avatar/${user.picture.name}`, (e) => {
-      if (e) console.error(e);
-    });
+    let hashedPT;
+    if (insertPT) {
+      hashedPT = `${user.picture.name.split(".")[0] + createRandomId(5)}.${
+        user.picture.mimetype.split("/")[1]
+      }`;
+      user.picture.mv(`./server/data/avatar/${user.picture.name}`, (e) => {
+        if (e) console.error(e);
+      });
+    } else {
+      hashedPT = user.picture;
+    }
     const hashedPW = bcrypt.hashSync(user.password, 10);
     const CompiledUser = new UserModel({
+      // eslint-disable-next-line no-underscore-dangle
+      _id: user._id,
       mail: user.mail,
       userName: user.userName,
       firstName: user.firstName,
       lastName: user.lastName,
       password: hashedPW,
-      picturePath: hashedPT
+      picture: hashedPT
     });
     await CompiledUser.save();
     return true;
