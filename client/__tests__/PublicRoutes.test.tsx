@@ -1,22 +1,20 @@
-import React, { ReactElement } from 'react';
-import renderer from 'react-test-renderer';
-import { Router } from 'react-router-dom';
+import React, { ReactElement } from "react";
+import renderer from "react-test-renderer";
+import { Router } from "react-router-dom";
 
-import CustomRoute from '../components/Routes/CustomRoute';
-import history from '../helpers/history';
+import CustomRoute from "../components/Routes/CustomRoute";
+import history from "../helpers/history";
 
 interface Props {
   children: ReactElement;
 }
 
 const MockComponent = ({ children }: Props): ReactElement => (
-  <Router history={history}>
-    {children}
-  </Router>
+  <Router history={history}>{children}</Router>
 );
 
-describe('CustomRoute', () => {
-  it('Is connected, private route : should show div', () => {
+describe("CustomRoute", () => {
+  it("Is connected, private route : should show div", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
@@ -32,7 +30,7 @@ describe('CustomRoute', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is connected, public route : should NOT show div', () => {
+  it("Is connected, public route : should NOT show div", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
@@ -48,7 +46,7 @@ describe('CustomRoute', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is not connected, private route : should NOT show div', () => {
+  it("Is not connected, private route : should NOT show div", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
@@ -64,7 +62,7 @@ describe('CustomRoute', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is not connected, public route : should show div', () => {
+  it("Is not connected, public route : should show div", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
@@ -80,7 +78,7 @@ describe('CustomRoute', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Loading', () => {
+  it("Loading", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
@@ -91,7 +89,7 @@ describe('CustomRoute', () => {
           fixture={{
             loading: true,
             error: null,
-            data: { validToken: true },
+            data: { validToken: true }
           }}
         />
       </MockComponent>
@@ -101,7 +99,7 @@ describe('CustomRoute', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Error', () => {
+  it("Error", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
@@ -112,9 +110,9 @@ describe('CustomRoute', () => {
           fixture={{
             loading: false,
             error: {
-              error: true,
+              error: true
             },
-            data: { validToken: true },
+            data: { validToken: true }
           }}
         />
       </MockComponent>
