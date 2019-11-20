@@ -67,7 +67,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
-  },
-}));
+    inputInput: {
+      padding: theme.spacing(1, 1, 1, 7),
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("sm")]: {
+        width: 120,
+        "&:focus": {
+          width: 200
+        }
+      }
+    }
+  })
+);
 
 export default useStyles;

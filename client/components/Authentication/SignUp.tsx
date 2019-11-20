@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from "react";
 
-const SignUp = (): ReactElement => (<div>Sign Up</div>);
+const SignUp = (): ReactElement => <div>Sign Up</div>;
 
 export default SignUp;

@@ -99,12 +99,12 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale): Reac
               <SearchIcon />
             </div>
             <InputBase
-              placeholder={_t({ id: 'search' })}
+              placeholder={_t({ id: "search" })}
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput,
+                input: classes.inputInput
               }}
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </div>
           <div className={classes.grow} />
