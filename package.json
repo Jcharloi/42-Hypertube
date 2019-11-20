@@ -107,7 +107,6 @@
     "webpack-dev-server": "^3.9.0",
     "webpack-hot-middleware": "^2.25.0"
   },
-  "devDependencies": {},
   "nodemonConfig": {
     "ignore": [
       "**/*.test.ts"
