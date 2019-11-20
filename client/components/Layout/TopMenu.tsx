@@ -8,7 +8,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import { useIntl } from 'react-intl';
 
 import history from '../../helpers/history';
@@ -41,10 +40,6 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale): Reac
   const handleMenuClose = (): void => {
     setAnchorEl(null);
     handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>): void => {
-    setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const renderMenu = (

@@ -26,12 +26,18 @@ exports[`App renders correctly 1`] = `
       setLocale={[Function]}
     >
       <div>
+        <CssBaseline />
         <PrimarySearchAppBar
           locale="en"
           setLocale={[Function]}
         >
           <div
             className="makeStyles-grow-1"
+            style={
+              Object {
+                "margin": 0,
+              }
+            }
           >
             <WithStyles(ForwardRef(AppBar))
               position="static"
@@ -513,6 +519,56 @@ exports[`App renders correctly 1`] = `
                                               <Portal
                                                 containerInfo={
                                                   <body>
+                                                    <div
+                                                      aria-hidden="true"
+                                                      class="MuiPopover-root"
+                                                      id="simple-menu"
+                                                      role="presentation"
+                                                      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                    >
+                                                      <div
+                                                        data-test="sentinelStart"
+                                                        tabindex="0"
+                                                      />
+                                                      <div
+                                                        class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                                        style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                        tabindex="-1"
+                                                      >
+                                                        <ul
+                                                          class="MuiList-root MuiMenu-list MuiList-padding"
+                                                          role="menu"
+                                                          tabindex="-1"
+                                                        >
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="0"
+                                                          >
+                                                            🇫🇷
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="-1"
+                                                          >
+                                                            🇬🇧
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                      <div
+                                                        data-test="sentinelEnd"
+                                                        tabindex="0"
+                                                      />
+                                                    </div>
                                                     <div
                                                       aria-hidden="true"
                                                       class="MuiPopover-root"
@@ -1300,17 +1356,944 @@ exports[`App renders correctly 1`] = `
                             <div
                               className="makeStyles-sectionMobile-9"
                             >
+                              <SimpleMenu
+                                locale="en"
+                                setLocale={[Function]}
+                              >
+                                <div>
+                                  <WithStyles(ForwardRef(Button))
+                                    aria-controls="simple-menu"
+                                    aria-haspopup="true"
+                                    className="makeStyles-languageToggleButton-110"
+                                    onClick={[Function]}
+                                  >
+                                    <ForwardRef(Button)
+                                      aria-controls="simple-menu"
+                                      aria-haspopup="true"
+                                      className="makeStyles-languageToggleButton-110"
+                                      classes={
+                                        Object {
+                                          "colorInherit": "MuiButton-colorInherit",
+                                          "contained": "MuiButton-contained",
+                                          "containedPrimary": "MuiButton-containedPrimary",
+                                          "containedSecondary": "MuiButton-containedSecondary",
+                                          "containedSizeLarge": "MuiButton-containedSizeLarge",
+                                          "containedSizeSmall": "MuiButton-containedSizeSmall",
+                                          "disabled": "Mui-disabled",
+                                          "endIcon": "MuiButton-endIcon",
+                                          "focusVisible": "Mui-focusVisible",
+                                          "fullWidth": "MuiButton-fullWidth",
+                                          "iconSizeLarge": "MuiButton-iconSizeLarge",
+                                          "iconSizeMedium": "MuiButton-iconSizeMedium",
+                                          "iconSizeSmall": "MuiButton-iconSizeSmall",
+                                          "label": "MuiButton-label",
+                                          "outlined": "MuiButton-outlined",
+                                          "outlinedPrimary": "MuiButton-outlinedPrimary",
+                                          "outlinedSecondary": "MuiButton-outlinedSecondary",
+                                          "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                                          "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                                          "root": "MuiButton-root",
+                                          "sizeLarge": "MuiButton-sizeLarge",
+                                          "sizeSmall": "MuiButton-sizeSmall",
+                                          "startIcon": "MuiButton-startIcon",
+                                          "text": "MuiButton-text",
+                                          "textPrimary": "MuiButton-textPrimary",
+                                          "textSecondary": "MuiButton-textSecondary",
+                                          "textSizeLarge": "MuiButton-textSizeLarge",
+                                          "textSizeSmall": "MuiButton-textSizeSmall",
+                                        }
+                                      }
+                                      onClick={[Function]}
+                                    >
+                                      <WithStyles(ForwardRef(ButtonBase))
+                                        aria-controls="simple-menu"
+                                        aria-haspopup="true"
+                                        className="MuiButton-root MuiButton-text makeStyles-languageToggleButton-110"
+                                        component="button"
+                                        disabled={false}
+                                        focusRipple={true}
+                                        focusVisibleClassName="Mui-focusVisible"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        <ForwardRef(ButtonBase)
+                                          aria-controls="simple-menu"
+                                          aria-haspopup="true"
+                                          className="MuiButton-root MuiButton-text makeStyles-languageToggleButton-110"
+                                          classes={
+                                            Object {
+                                              "disabled": "Mui-disabled",
+                                              "focusVisible": "Mui-focusVisible",
+                                              "root": "MuiButtonBase-root",
+                                            }
+                                          }
+                                          component="button"
+                                          disabled={false}
+                                          focusRipple={true}
+                                          focusVisibleClassName="Mui-focusVisible"
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          <button
+                                            aria-controls="simple-menu"
+                                            aria-haspopup="true"
+                                            className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-languageToggleButton-110"
+                                            disabled={false}
+                                            onBlur={[Function]}
+                                            onClick={[Function]}
+                                            onDragLeave={[Function]}
+                                            onFocus={[Function]}
+                                            onKeyDown={[Function]}
+                                            onKeyUp={[Function]}
+                                            onMouseDown={[Function]}
+                                            onMouseLeave={[Function]}
+                                            onMouseUp={[Function]}
+                                            onTouchEnd={[Function]}
+                                            onTouchMove={[Function]}
+                                            onTouchStart={[Function]}
+                                            tabIndex={0}
+                                            type="button"
+                                          >
+                                            <span
+                                              className="MuiButton-label"
+                                            >
+                                              🇬🇧
+                                            </span>
+                                            <NoSsr>
+                                              <WithStyles(undefined)
+                                                center={false}
+                                              >
+                                                <ForwardRef(TouchRipple)
+                                                  center={false}
+                                                  classes={
+                                                    Object {
+                                                      "child": "MuiTouchRipple-child",
+                                                      "childLeaving": "MuiTouchRipple-childLeaving",
+                                                      "childPulsate": "MuiTouchRipple-childPulsate",
+                                                      "ripple": "MuiTouchRipple-ripple",
+                                                      "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                      "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                      "root": "MuiTouchRipple-root",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    className="MuiTouchRipple-root"
+                                                  >
+                                                    <TransitionGroup
+                                                      childFactory={[Function]}
+                                                      component={null}
+                                                      exit={true}
+                                                    />
+                                                  </span>
+                                                </ForwardRef(TouchRipple)>
+                                              </WithStyles(undefined)>
+                                            </NoSsr>
+                                          </button>
+                                        </ForwardRef(ButtonBase)>
+                                      </WithStyles(ForwardRef(ButtonBase))>
+                                    </ForwardRef(Button)>
+                                  </WithStyles(ForwardRef(Button))>
+                                  <WithStyles(ForwardRef(Menu))
+                                    anchorEl={null}
+                                    id="simple-menu"
+                                    keepMounted={true}
+                                    onClose={[Function]}
+                                    open={false}
+                                  >
+                                    <ForwardRef(Menu)
+                                      anchorEl={null}
+                                      classes={
+                                        Object {
+                                          "list": "MuiMenu-list",
+                                          "paper": "MuiMenu-paper",
+                                        }
+                                      }
+                                      id="simple-menu"
+                                      keepMounted={true}
+                                      onClose={[Function]}
+                                      open={false}
+                                    >
+                                      <WithStyles(ForwardRef(Popover))
+                                        PaperProps={
+                                          Object {
+                                            "classes": Object {
+                                              "root": "MuiMenu-paper",
+                                            },
+                                          }
+                                        }
+                                        anchorEl={null}
+                                        anchorOrigin={
+                                          Object {
+                                            "horizontal": "left",
+                                            "vertical": "top",
+                                          }
+                                        }
+                                        getContentAnchorEl={[Function]}
+                                        id="simple-menu"
+                                        keepMounted={true}
+                                        onClose={[Function]}
+                                        onEntering={[Function]}
+                                        open={false}
+                                        transformOrigin={
+                                          Object {
+                                            "horizontal": "left",
+                                            "vertical": "top",
+                                          }
+                                        }
+                                        transitionDuration="auto"
+                                      >
+                                        <ForwardRef(Popover)
+                                          PaperProps={
+                                            Object {
+                                              "classes": Object {
+                                                "root": "MuiMenu-paper",
+                                              },
+                                            }
+                                          }
+                                          anchorEl={null}
+                                          anchorOrigin={
+                                            Object {
+                                              "horizontal": "left",
+                                              "vertical": "top",
+                                            }
+                                          }
+                                          classes={
+                                            Object {
+                                              "paper": "MuiPopover-paper",
+                                              "root": "MuiPopover-root",
+                                            }
+                                          }
+                                          getContentAnchorEl={[Function]}
+                                          id="simple-menu"
+                                          keepMounted={true}
+                                          onClose={[Function]}
+                                          onEntering={[Function]}
+                                          open={false}
+                                          transformOrigin={
+                                            Object {
+                                              "horizontal": "left",
+                                              "vertical": "top",
+                                            }
+                                          }
+                                          transitionDuration="auto"
+                                        >
+                                          <ForwardRef(Modal)
+                                            BackdropProps={
+                                              Object {
+                                                "invisible": true,
+                                              }
+                                            }
+                                            className="MuiPopover-root"
+                                            id="simple-menu"
+                                            keepMounted={true}
+                                            onClose={[Function]}
+                                            open={false}
+                                          >
+                                            <ForwardRef(Portal)
+                                              disablePortal={false}
+                                            >
+                                              <Portal
+                                                containerInfo={
+                                                  <body>
+                                                    <div
+                                                      aria-hidden="true"
+                                                      class="MuiPopover-root"
+                                                      id="simple-menu"
+                                                      role="presentation"
+                                                      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                    >
+                                                      <div
+                                                        data-test="sentinelStart"
+                                                        tabindex="0"
+                                                      />
+                                                      <div
+                                                        class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                                        style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                        tabindex="-1"
+                                                      >
+                                                        <ul
+                                                          class="MuiList-root MuiMenu-list MuiList-padding"
+                                                          role="menu"
+                                                          tabindex="-1"
+                                                        >
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="0"
+                                                          >
+                                                            🇫🇷
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="-1"
+                                                          >
+                                                            🇬🇧
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                      <div
+                                                        data-test="sentinelEnd"
+                                                        tabindex="0"
+                                                      />
+                                                    </div>
+                                                    <div
+                                                      aria-hidden="true"
+                                                      class="MuiPopover-root"
+                                                      id="simple-menu"
+                                                      role="presentation"
+                                                      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                    >
+                                                      <div
+                                                        data-test="sentinelStart"
+                                                        tabindex="0"
+                                                      />
+                                                      <div
+                                                        class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                                        style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                        tabindex="-1"
+                                                      >
+                                                        <ul
+                                                          class="MuiList-root MuiMenu-list MuiList-padding"
+                                                          role="menu"
+                                                          tabindex="-1"
+                                                        >
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="0"
+                                                          >
+                                                            🇫🇷
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="-1"
+                                                          >
+                                                            🇬🇧
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                      <div
+                                                        data-test="sentinelEnd"
+                                                        tabindex="0"
+                                                      />
+                                                    </div>
+                                                    <div
+                                                      aria-hidden="true"
+                                                      class="MuiPopover-root"
+                                                      id="primary-search-account-menu-mobile"
+                                                      role="presentation"
+                                                      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                    >
+                                                      <div
+                                                        data-test="sentinelStart"
+                                                        tabindex="0"
+                                                      />
+                                                      <div
+                                                        class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                                        style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                        tabindex="-1"
+                                                      >
+                                                        <ul
+                                                          class="MuiList-root MuiMenu-list MuiList-padding"
+                                                          role="menu"
+                                                          tabindex="-1"
+                                                        >
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="0"
+                                                          >
+                                                            <button
+                                                              aria-controls="primary-search-account-menu"
+                                                              aria-haspopup="true"
+                                                              aria-label="account of current user"
+                                                              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+                                                              tabindex="0"
+                                                              type="button"
+                                                            >
+                                                              <span
+                                                                class="MuiIconButton-label"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden="true"
+                                                                  class="MuiSvgIcon-root"
+                                                                  focusable="false"
+                                                                  role="presentation"
+                                                                  viewBox="0 0 24 24"
+                                                                >
+                                                                  <path
+                                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                                                                  />
+                                                                </svg>
+                                                              </span>
+                                                              <span
+                                                                class="MuiTouchRipple-root"
+                                                              />
+                                                            </button>
+                                                            <p>
+                                                              Profile
+                                                            </p>
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                      <div
+                                                        data-test="sentinelEnd"
+                                                        tabindex="0"
+                                                      />
+                                                    </div>
+                                                    <div
+                                                      aria-hidden="true"
+                                                      class="MuiPopover-root"
+                                                      id="primary-search-account-menu"
+                                                      role="presentation"
+                                                      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                    >
+                                                      <div
+                                                        data-test="sentinelStart"
+                                                        tabindex="0"
+                                                      />
+                                                      <div
+                                                        class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                                        style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                        tabindex="-1"
+                                                      >
+                                                        <ul
+                                                          class="MuiList-root MuiMenu-list MuiList-padding"
+                                                          role="menu"
+                                                          tabindex="-1"
+                                                        >
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="0"
+                                                          >
+                                                            My profile
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                          <li
+                                                            aria-disabled="false"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            role="menuitem"
+                                                            tabindex="-1"
+                                                          >
+                                                            Disconnect
+                                                            <span
+                                                              class="MuiTouchRipple-root"
+                                                            />
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                      <div
+                                                        data-test="sentinelEnd"
+                                                        tabindex="0"
+                                                      />
+                                                    </div>
+                                                  </body>
+                                                }
+                                              >
+                                                <div
+                                                  className="MuiPopover-root"
+                                                  id="simple-menu"
+                                                  onKeyDown={[Function]}
+                                                  role="presentation"
+                                                  style={
+                                                    Object {
+                                                      "bottom": 0,
+                                                      "left": 0,
+                                                      "position": "fixed",
+                                                      "right": 0,
+                                                      "top": 0,
+                                                      "visibility": "hidden",
+                                                      "zIndex": 1300,
+                                                    }
+                                                  }
+                                                >
+                                                  <ForwardRef(SimpleBackdrop)
+                                                    invisible={true}
+                                                    onClick={[Function]}
+                                                    open={false}
+                                                  />
+                                                  <TrapFocus
+                                                    disableAutoFocus={false}
+                                                    disableEnforceFocus={false}
+                                                    disableRestoreFocus={false}
+                                                    getDoc={[Function]}
+                                                    isEnabled={[Function]}
+                                                    open={false}
+                                                  >
+                                                    <div
+                                                      data-test="sentinelStart"
+                                                      tabIndex={0}
+                                                    />
+                                                    <ForwardRef(Grow)
+                                                      appear={true}
+                                                      in={false}
+                                                      onEnter={[Function]}
+                                                      onEntering={[Function]}
+                                                      onExited={[Function]}
+                                                      tabIndex="-1"
+                                                      timeout="auto"
+                                                    >
+                                                      <Transition
+                                                        addEndListener={[Function]}
+                                                        appear={true}
+                                                        enter={true}
+                                                        exit={true}
+                                                        in={false}
+                                                        mountOnEnter={false}
+                                                        onEnter={[Function]}
+                                                        onEntered={[Function]}
+                                                        onEntering={[Function]}
+                                                        onExit={[Function]}
+                                                        onExited={[Function]}
+                                                        onExiting={[Function]}
+                                                        tabIndex="-1"
+                                                        timeout={null}
+                                                        unmountOnExit={false}
+                                                      >
+                                                        <WithStyles(ForwardRef(Paper))
+                                                          className="MuiPopover-paper"
+                                                          classes={
+                                                            Object {
+                                                              "root": "MuiMenu-paper",
+                                                            }
+                                                          }
+                                                          elevation={8}
+                                                          style={
+                                                            Object {
+                                                              "opacity": 0,
+                                                              "transform": "scale(0.75, 0.5625)",
+                                                              "visibility": "hidden",
+                                                            }
+                                                          }
+                                                          tabIndex="-1"
+                                                        >
+                                                          <ForwardRef(Paper)
+                                                            className="MuiPopover-paper"
+                                                            classes={
+                                                              Object {
+                                                                "elevation0": "MuiPaper-elevation0",
+                                                                "elevation1": "MuiPaper-elevation1",
+                                                                "elevation10": "MuiPaper-elevation10",
+                                                                "elevation11": "MuiPaper-elevation11",
+                                                                "elevation12": "MuiPaper-elevation12",
+                                                                "elevation13": "MuiPaper-elevation13",
+                                                                "elevation14": "MuiPaper-elevation14",
+                                                                "elevation15": "MuiPaper-elevation15",
+                                                                "elevation16": "MuiPaper-elevation16",
+                                                                "elevation17": "MuiPaper-elevation17",
+                                                                "elevation18": "MuiPaper-elevation18",
+                                                                "elevation19": "MuiPaper-elevation19",
+                                                                "elevation2": "MuiPaper-elevation2",
+                                                                "elevation20": "MuiPaper-elevation20",
+                                                                "elevation21": "MuiPaper-elevation21",
+                                                                "elevation22": "MuiPaper-elevation22",
+                                                                "elevation23": "MuiPaper-elevation23",
+                                                                "elevation24": "MuiPaper-elevation24",
+                                                                "elevation3": "MuiPaper-elevation3",
+                                                                "elevation4": "MuiPaper-elevation4",
+                                                                "elevation5": "MuiPaper-elevation5",
+                                                                "elevation6": "MuiPaper-elevation6",
+                                                                "elevation7": "MuiPaper-elevation7",
+                                                                "elevation8": "MuiPaper-elevation8",
+                                                                "elevation9": "MuiPaper-elevation9",
+                                                                "root": "MuiPaper-root MuiMenu-paper",
+                                                                "rounded": "MuiPaper-rounded",
+                                                              }
+                                                            }
+                                                            elevation={8}
+                                                            style={
+                                                              Object {
+                                                                "opacity": 0,
+                                                                "transform": "scale(0.75, 0.5625)",
+                                                                "visibility": "hidden",
+                                                              }
+                                                            }
+                                                            tabIndex="-1"
+                                                          >
+                                                            <div
+                                                              className="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                                              style={
+                                                                Object {
+                                                                  "opacity": 0,
+                                                                  "transform": "scale(0.75, 0.5625)",
+                                                                  "visibility": "hidden",
+                                                                }
+                                                              }
+                                                              tabIndex="-1"
+                                                            >
+                                                              <ForwardRef(MenuList)
+                                                                actions={
+                                                                  Object {
+                                                                    "current": Object {
+                                                                      "adjustStyleForScrollbar": [Function],
+                                                                    },
+                                                                  }
+                                                                }
+                                                                autoFocus={false}
+                                                                autoFocusItem={false}
+                                                                className="MuiMenu-list"
+                                                                onKeyDown={[Function]}
+                                                                variant="selectedMenu"
+                                                              >
+                                                                <WithStyles(ForwardRef(List))
+                                                                  className="MuiMenu-list"
+                                                                  onKeyDown={[Function]}
+                                                                  role="menu"
+                                                                  tabIndex={-1}
+                                                                >
+                                                                  <ForwardRef(List)
+                                                                    className="MuiMenu-list"
+                                                                    classes={
+                                                                      Object {
+                                                                        "dense": "MuiList-dense",
+                                                                        "padding": "MuiList-padding",
+                                                                        "root": "MuiList-root",
+                                                                        "subheader": "MuiList-subheader",
+                                                                      }
+                                                                    }
+                                                                    onKeyDown={[Function]}
+                                                                    role="menu"
+                                                                    tabIndex={-1}
+                                                                  >
+                                                                    <ul
+                                                                      className="MuiList-root MuiMenu-list MuiList-padding"
+                                                                      onKeyDown={[Function]}
+                                                                      role="menu"
+                                                                      tabIndex={-1}
+                                                                    >
+                                                                      <WithStyles(ForwardRef(MenuItem))
+                                                                        key=".$.0"
+                                                                        onClick={[Function]}
+                                                                        tabIndex={0}
+                                                                      >
+                                                                        <ForwardRef(MenuItem)
+                                                                          classes={
+                                                                            Object {
+                                                                              "dense": "MuiMenuItem-dense",
+                                                                              "gutters": "MuiMenuItem-gutters",
+                                                                              "root": "MuiMenuItem-root",
+                                                                              "selected": "Mui-selected",
+                                                                            }
+                                                                          }
+                                                                          onClick={[Function]}
+                                                                          tabIndex={0}
+                                                                        >
+                                                                          <WithStyles(ForwardRef(ListItem))
+                                                                            button={true}
+                                                                            className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                            classes={
+                                                                              Object {
+                                                                                "dense": "MuiMenuItem-dense",
+                                                                              }
+                                                                            }
+                                                                            component="li"
+                                                                            disableGutters={false}
+                                                                            onClick={[Function]}
+                                                                            role="menuitem"
+                                                                            tabIndex={0}
+                                                                          >
+                                                                            <ForwardRef(ListItem)
+                                                                              button={true}
+                                                                              className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                              classes={
+                                                                                Object {
+                                                                                  "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
+                                                                                  "button": "MuiListItem-button",
+                                                                                  "container": "MuiListItem-container",
+                                                                                  "dense": "MuiListItem-dense MuiMenuItem-dense",
+                                                                                  "disabled": "Mui-disabled",
+                                                                                  "divider": "MuiListItem-divider",
+                                                                                  "focusVisible": "Mui-focusVisible",
+                                                                                  "gutters": "MuiListItem-gutters",
+                                                                                  "root": "MuiListItem-root",
+                                                                                  "secondaryAction": "MuiListItem-secondaryAction",
+                                                                                  "selected": "Mui-selected",
+                                                                                }
+                                                                              }
+                                                                              component="li"
+                                                                              disableGutters={false}
+                                                                              onClick={[Function]}
+                                                                              role="menuitem"
+                                                                              tabIndex={0}
+                                                                            >
+                                                                              <WithStyles(ForwardRef(ButtonBase))
+                                                                                className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                component="li"
+                                                                                disabled={false}
+                                                                                focusVisibleClassName="Mui-focusVisible"
+                                                                                onClick={[Function]}
+                                                                                role="menuitem"
+                                                                                tabIndex={0}
+                                                                              >
+                                                                                <ForwardRef(ButtonBase)
+                                                                                  className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                  classes={
+                                                                                    Object {
+                                                                                      "disabled": "Mui-disabled",
+                                                                                      "focusVisible": "Mui-focusVisible",
+                                                                                      "root": "MuiButtonBase-root",
+                                                                                    }
+                                                                                  }
+                                                                                  component="li"
+                                                                                  disabled={false}
+                                                                                  focusVisibleClassName="Mui-focusVisible"
+                                                                                  onClick={[Function]}
+                                                                                  role="menuitem"
+                                                                                  tabIndex={0}
+                                                                                >
+                                                                                  <li
+                                                                                    aria-disabled={false}
+                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                    onBlur={[Function]}
+                                                                                    onClick={[Function]}
+                                                                                    onDragLeave={[Function]}
+                                                                                    onFocus={[Function]}
+                                                                                    onKeyDown={[Function]}
+                                                                                    onKeyUp={[Function]}
+                                                                                    onMouseDown={[Function]}
+                                                                                    onMouseLeave={[Function]}
+                                                                                    onMouseUp={[Function]}
+                                                                                    onTouchEnd={[Function]}
+                                                                                    onTouchMove={[Function]}
+                                                                                    onTouchStart={[Function]}
+                                                                                    role="menuitem"
+                                                                                    tabIndex={0}
+                                                                                  >
+                                                                                    🇫🇷
+                                                                                    <NoSsr>
+                                                                                      <WithStyles(undefined)
+                                                                                        center={false}
+                                                                                      >
+                                                                                        <ForwardRef(TouchRipple)
+                                                                                          center={false}
+                                                                                          classes={
+                                                                                            Object {
+                                                                                              "child": "MuiTouchRipple-child",
+                                                                                              "childLeaving": "MuiTouchRipple-childLeaving",
+                                                                                              "childPulsate": "MuiTouchRipple-childPulsate",
+                                                                                              "ripple": "MuiTouchRipple-ripple",
+                                                                                              "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                                                              "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                                                              "root": "MuiTouchRipple-root",
+                                                                                            }
+                                                                                          }
+                                                                                        >
+                                                                                          <span
+                                                                                            className="MuiTouchRipple-root"
+                                                                                          >
+                                                                                            <TransitionGroup
+                                                                                              childFactory={[Function]}
+                                                                                              component={null}
+                                                                                              exit={true}
+                                                                                            />
+                                                                                          </span>
+                                                                                        </ForwardRef(TouchRipple)>
+                                                                                      </WithStyles(undefined)>
+                                                                                    </NoSsr>
+                                                                                  </li>
+                                                                                </ForwardRef(ButtonBase)>
+                                                                              </WithStyles(ForwardRef(ButtonBase))>
+                                                                            </ForwardRef(ListItem)>
+                                                                          </WithStyles(ForwardRef(ListItem))>
+                                                                        </ForwardRef(MenuItem)>
+                                                                      </WithStyles(ForwardRef(MenuItem))>
+                                                                      <WithStyles(ForwardRef(MenuItem))
+                                                                        key=".$.1"
+                                                                        onClick={[Function]}
+                                                                      >
+                                                                        <ForwardRef(MenuItem)
+                                                                          classes={
+                                                                            Object {
+                                                                              "dense": "MuiMenuItem-dense",
+                                                                              "gutters": "MuiMenuItem-gutters",
+                                                                              "root": "MuiMenuItem-root",
+                                                                              "selected": "Mui-selected",
+                                                                            }
+                                                                          }
+                                                                          onClick={[Function]}
+                                                                        >
+                                                                          <WithStyles(ForwardRef(ListItem))
+                                                                            button={true}
+                                                                            className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                            classes={
+                                                                              Object {
+                                                                                "dense": "MuiMenuItem-dense",
+                                                                              }
+                                                                            }
+                                                                            component="li"
+                                                                            disableGutters={false}
+                                                                            onClick={[Function]}
+                                                                            role="menuitem"
+                                                                            tabIndex={-1}
+                                                                          >
+                                                                            <ForwardRef(ListItem)
+                                                                              button={true}
+                                                                              className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                              classes={
+                                                                                Object {
+                                                                                  "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
+                                                                                  "button": "MuiListItem-button",
+                                                                                  "container": "MuiListItem-container",
+                                                                                  "dense": "MuiListItem-dense MuiMenuItem-dense",
+                                                                                  "disabled": "Mui-disabled",
+                                                                                  "divider": "MuiListItem-divider",
+                                                                                  "focusVisible": "Mui-focusVisible",
+                                                                                  "gutters": "MuiListItem-gutters",
+                                                                                  "root": "MuiListItem-root",
+                                                                                  "secondaryAction": "MuiListItem-secondaryAction",
+                                                                                  "selected": "Mui-selected",
+                                                                                }
+                                                                              }
+                                                                              component="li"
+                                                                              disableGutters={false}
+                                                                              onClick={[Function]}
+                                                                              role="menuitem"
+                                                                              tabIndex={-1}
+                                                                            >
+                                                                              <WithStyles(ForwardRef(ButtonBase))
+                                                                                className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                component="li"
+                                                                                disabled={false}
+                                                                                focusVisibleClassName="Mui-focusVisible"
+                                                                                onClick={[Function]}
+                                                                                role="menuitem"
+                                                                                tabIndex={-1}
+                                                                              >
+                                                                                <ForwardRef(ButtonBase)
+                                                                                  className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                  classes={
+                                                                                    Object {
+                                                                                      "disabled": "Mui-disabled",
+                                                                                      "focusVisible": "Mui-focusVisible",
+                                                                                      "root": "MuiButtonBase-root",
+                                                                                    }
+                                                                                  }
+                                                                                  component="li"
+                                                                                  disabled={false}
+                                                                                  focusVisibleClassName="Mui-focusVisible"
+                                                                                  onClick={[Function]}
+                                                                                  role="menuitem"
+                                                                                  tabIndex={-1}
+                                                                                >
+                                                                                  <li
+                                                                                    aria-disabled={false}
+                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                    onBlur={[Function]}
+                                                                                    onClick={[Function]}
+                                                                                    onDragLeave={[Function]}
+                                                                                    onFocus={[Function]}
+                                                                                    onKeyDown={[Function]}
+                                                                                    onKeyUp={[Function]}
+                                                                                    onMouseDown={[Function]}
+                                                                                    onMouseLeave={[Function]}
+                                                                                    onMouseUp={[Function]}
+                                                                                    onTouchEnd={[Function]}
+                                                                                    onTouchMove={[Function]}
+                                                                                    onTouchStart={[Function]}
+                                                                                    role="menuitem"
+                                                                                    tabIndex={-1}
+                                                                                  >
+                                                                                    🇬🇧
+                                                                                    <NoSsr>
+                                                                                      <WithStyles(undefined)
+                                                                                        center={false}
+                                                                                      >
+                                                                                        <ForwardRef(TouchRipple)
+                                                                                          center={false}
+                                                                                          classes={
+                                                                                            Object {
+                                                                                              "child": "MuiTouchRipple-child",
+                                                                                              "childLeaving": "MuiTouchRipple-childLeaving",
+                                                                                              "childPulsate": "MuiTouchRipple-childPulsate",
+                                                                                              "ripple": "MuiTouchRipple-ripple",
+                                                                                              "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                                                              "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                                                              "root": "MuiTouchRipple-root",
+                                                                                            }
+                                                                                          }
+                                                                                        >
+                                                                                          <span
+                                                                                            className="MuiTouchRipple-root"
+                                                                                          >
+                                                                                            <TransitionGroup
+                                                                                              childFactory={[Function]}
+                                                                                              component={null}
+                                                                                              exit={true}
+                                                                                            />
+                                                                                          </span>
+                                                                                        </ForwardRef(TouchRipple)>
+                                                                                      </WithStyles(undefined)>
+                                                                                    </NoSsr>
+                                                                                  </li>
+                                                                                </ForwardRef(ButtonBase)>
+                                                                              </WithStyles(ForwardRef(ButtonBase))>
+                                                                            </ForwardRef(ListItem)>
+                                                                          </WithStyles(ForwardRef(ListItem))>
+                                                                        </ForwardRef(MenuItem)>
+                                                                      </WithStyles(ForwardRef(MenuItem))>
+                                                                    </ul>
+                                                                  </ForwardRef(List)>
+                                                                </WithStyles(ForwardRef(List))>
+                                                              </ForwardRef(MenuList)>
+                                                            </div>
+                                                          </ForwardRef(Paper)>
+                                                        </WithStyles(ForwardRef(Paper))>
+                                                      </Transition>
+                                                    </ForwardRef(Grow)>
+                                                    <div
+                                                      data-test="sentinelEnd"
+                                                      tabIndex={0}
+                                                    />
+                                                  </TrapFocus>
+                                                </div>
+                                              </Portal>
+                                            </ForwardRef(Portal)>
+                                          </ForwardRef(Modal)>
+                                        </ForwardRef(Popover)>
+                                      </WithStyles(ForwardRef(Popover))>
+                                    </ForwardRef(Menu)>
+                                  </WithStyles(ForwardRef(Menu))>
+                                </div>
+                              </SimpleMenu>
                               <WithStyles(ForwardRef(IconButton))
-                                aria-controls="primary-search-account-menu-mobile"
+                                aria-controls="primary-search-account-menu"
                                 aria-haspopup="true"
-                                aria-label="show more"
+                                aria-label="account of current user"
                                 color="inherit"
+                                edge="end"
                                 onClick={[Function]}
                               >
                                 <ForwardRef(IconButton)
-                                  aria-controls="primary-search-account-menu-mobile"
+                                  aria-controls="primary-search-account-menu"
                                   aria-haspopup="true"
-                                  aria-label="show more"
+                                  aria-label="account of current user"
                                   classes={
                                     Object {
                                       "colorInherit": "MuiIconButton-colorInherit",
@@ -1325,24 +2308,25 @@ exports[`App renders correctly 1`] = `
                                     }
                                   }
                                   color="inherit"
+                                  edge="end"
                                   onClick={[Function]}
                                 >
                                   <WithStyles(ForwardRef(ButtonBase))
-                                    aria-controls="primary-search-account-menu-mobile"
+                                    aria-controls="primary-search-account-menu"
                                     aria-haspopup="true"
-                                    aria-label="show more"
+                                    aria-label="account of current user"
                                     centerRipple={true}
-                                    className="MuiIconButton-root MuiIconButton-colorInherit"
+                                    className="MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeEnd"
                                     disabled={false}
                                     focusRipple={true}
                                     onClick={[Function]}
                                   >
                                     <ForwardRef(ButtonBase)
-                                      aria-controls="primary-search-account-menu-mobile"
+                                      aria-controls="primary-search-account-menu"
                                       aria-haspopup="true"
-                                      aria-label="show more"
+                                      aria-label="account of current user"
                                       centerRipple={true}
-                                      className="MuiIconButton-root MuiIconButton-colorInherit"
+                                      className="MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeEnd"
                                       classes={
                                         Object {
                                           "disabled": "Mui-disabled",
@@ -1355,10 +2339,10 @@ exports[`App renders correctly 1`] = `
                                       onClick={[Function]}
                                     >
                                       <button
-                                        aria-controls="primary-search-account-menu-mobile"
+                                        aria-controls="primary-search-account-menu"
                                         aria-haspopup="true"
-                                        aria-label="show more"
-                                        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+                                        aria-label="account of current user"
+                                        className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeEnd"
                                         disabled={false}
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -1403,7 +2387,7 @@ exports[`App renders correctly 1`] = `
                                                   viewBox="0 0 24 24"
                                                 >
                                                   <path
-                                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
                                                   />
                                                 </svg>
                                               </ForwardRef(SvgIcon)>
@@ -1580,6 +2564,56 @@ exports[`App renders correctly 1`] = `
                         <Portal
                           containerInfo={
                             <body>
+                              <div
+                                aria-hidden="true"
+                                class="MuiPopover-root"
+                                id="simple-menu"
+                                role="presentation"
+                                style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                              >
+                                <div
+                                  data-test="sentinelStart"
+                                  tabindex="0"
+                                />
+                                <div
+                                  class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                  style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                  tabindex="-1"
+                                >
+                                  <ul
+                                    class="MuiList-root MuiMenu-list MuiList-padding"
+                                    role="menu"
+                                    tabindex="-1"
+                                  >
+                                    <li
+                                      aria-disabled="false"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      role="menuitem"
+                                      tabindex="0"
+                                    >
+                                      🇫🇷
+                                      <span
+                                        class="MuiTouchRipple-root"
+                                      />
+                                    </li>
+                                    <li
+                                      aria-disabled="false"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      role="menuitem"
+                                      tabindex="-1"
+                                    >
+                                      🇬🇧
+                                      <span
+                                        class="MuiTouchRipple-root"
+                                      />
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div
+                                  data-test="sentinelEnd"
+                                  tabindex="0"
+                                />
+                              </div>
                               <div
                                 aria-hidden="true"
                                 class="MuiPopover-root"
@@ -2351,6 +3385,56 @@ exports[`App renders correctly 1`] = `
                         <Portal
                           containerInfo={
                             <body>
+                              <div
+                                aria-hidden="true"
+                                class="MuiPopover-root"
+                                id="simple-menu"
+                                role="presentation"
+                                style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                              >
+                                <div
+                                  data-test="sentinelStart"
+                                  tabindex="0"
+                                />
+                                <div
+                                  class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+                                  style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                  tabindex="-1"
+                                >
+                                  <ul
+                                    class="MuiList-root MuiMenu-list MuiList-padding"
+                                    role="menu"
+                                    tabindex="-1"
+                                  >
+                                    <li
+                                      aria-disabled="false"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      role="menuitem"
+                                      tabindex="0"
+                                    >
+                                      🇫🇷
+                                      <span
+                                        class="MuiTouchRipple-root"
+                                      />
+                                    </li>
+                                    <li
+                                      aria-disabled="false"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      role="menuitem"
+                                      tabindex="-1"
+                                    >
+                                      🇬🇧
+                                      <span
+                                        class="MuiTouchRipple-root"
+                                      />
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div
+                                  data-test="sentinelEnd"
+                                  tabindex="0"
+                                />
+                              </div>
                               <div
                                 aria-hidden="true"
                                 class="MuiPopover-root"
