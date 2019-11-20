@@ -1,0 +1,25 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always"
+      }
+    ],
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
+    "no-console": "off",
+    "no-plusplus": "off"
+  }
+}

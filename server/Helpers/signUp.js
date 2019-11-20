@@ -1,9 +1,10 @@
-import bcrypt from 'bcrypt';
-import UserModel from '../Schemas/User';
+import bcrypt from "bcrypt";
+import UserModel from "../Schemas/User";
 
 const createRandomId = (length) => {
-  let result = '';
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -11,12 +12,16 @@ const createRandomId = (length) => {
   return result;
 };
 
-const sendMail = async () => (true);
+const sendMail = async () => true;
 
 const createUser = async (user) => {
   try {
-    const hashedPT = `${user.picture.name.split('.')[0] + createRandomId(5)}.${user.picture.mimetype.split('/')[1]}`;
-    user.picture.mv(`./server/data/avatar/${user.picture.name}`, (e) => { if (e) console.error(e); });
+    const hashedPT = `${user.picture.name.split(".")[0] + createRandomId(5)}.${
+      user.picture.mimetype.split("/")[1]
+    }`;
+    user.picture.mv(`./server/data/avatar/${user.picture.name}`, (e) => {
+      if (e) console.error(e);
+    });
     const hashedPW = bcrypt.hashSync(user.password, 10);
     const CompiledUser = new UserModel({
       mail: user.mail,
@@ -24,7 +29,7 @@ const createUser = async (user) => {
       firstName: user.firstName,
       lastName: user.lastName,
       password: hashedPW,
-      picturePath: hashedPT,
+      picturePath: hashedPT
     });
     await CompiledUser.save();
     return true;

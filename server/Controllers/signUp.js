@@ -1,10 +1,10 @@
-import fileType from 'file-type';
-import signUpHelpers from '../Helpers/signUp';
-import UserModel from '../Schemas/User';
+import fileType from "file-type";
+import signUpHelpers from "../Helpers/signUp";
+import UserModel from "../Schemas/User";
 
 const validMail = (mail) => {
   const regex = new RegExp(
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
   );
   if (!mail || !regex.test(String(mail).toLowerCase())) {
     return false;
@@ -14,7 +14,7 @@ const validMail = (mail) => {
 
 const validPassword = (password) => {
   const regex = new RegExp(
-    /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/,
+    /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/
   );
   if (!password || !regex.test(password) || password.length > 50) {
     return false;
@@ -23,18 +23,16 @@ const validPassword = (password) => {
 };
 
 const validFile = (file) => {
-  const {
-    name, size, data, mimetype: type,
-  } = file;
+  const { name, size, data, mimetype: type } = file;
   const ab = new Uint8Array(data);
   const fileRes = fileType(ab);
   if (!name || !fileRes) {
     return false;
   }
   if (
-    !type
-      || (type !== 'image/png' && type !== 'image/jpeg' && type !== 'image/jpg')
-      || (fileRes.ext !== 'png' && fileRes.ext !== 'jpg')
+    !type ||
+    (type !== "image/png" && type !== "image/jpeg" && type !== "image/jpg") ||
+    (fileRes.ext !== "png" && fileRes.ext !== "jpg")
   ) {
     return false;
   }
@@ -65,13 +63,15 @@ const nameAlreadyExists = async (userName) => {
 };
 
 const signUp = async (req, res) => {
-  const goodInfos = (req.body.userName && req.body.userName.length < 21
-    && req.body.firstName
-    && req.body.lastName
-    && validMail(req.body.mail)
-    && validPassword(req.body.password)
-    && req.files
-    && validFile(req.files.picture));
+  const goodInfos =
+    req.body.userName &&
+    req.body.userName.length < 21 &&
+    req.body.firstName &&
+    req.body.lastName &&
+    validMail(req.body.mail) &&
+    validPassword(req.body.password) &&
+    req.files &&
+    validFile(req.files.picture);
   const nameFree = await nameAlreadyExists(req.body.userName);
   const mailFree = await mailAlreadyExists(req.body.mail);
   if (goodInfos && nameFree && mailFree) {
@@ -82,10 +82,12 @@ const signUp = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         password: req.body.password,
-        picture: req.files.picture,
+        picture: req.files.picture
       };
       if (await signUpHelpers.createUser(user)) {
-        res.status(200).send({ missingInfos: false, nameTaken: false, mailTaken: false });
+        res
+          .status(200)
+          .send({ missingInfos: false, nameTaken: false, mailTaken: false });
       } else {
         res.status(500).send();
       }
@@ -93,7 +95,11 @@ const signUp = async (req, res) => {
       res.status(500).send();
     }
   } else {
-    res.status(200).send({ missingInfos: !goodInfos, nameTaken: !nameFree, mailTaken: !mailFree });
+    res.status(200).send({
+      missingInfos: !goodInfos,
+      nameTaken: !nameFree,
+      mailTaken: !mailFree
+    });
   }
 };
 

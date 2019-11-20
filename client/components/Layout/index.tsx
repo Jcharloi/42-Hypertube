@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from "react";
 
-import TopMenu from './TopMenu';
+import TopMenu from "./TopMenu";
 
 interface Props {
   children: ReactElement;
