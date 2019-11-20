@@ -8,15 +8,16 @@ import {
 const useStyles = makeStyles((theme: Theme) => createStyles({
   grow: {
     flexGrow: 1,
+    margin: 0,
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+    display: 'block',
+    // [theme.breakpoints.up('sm')]: {
+    //   display: 'block',
+    // },
     cursor: 'pointer',
   },
   search: {
@@ -27,8 +28,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
+    marginLeft: 5,
+    width: '4em',
+
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',

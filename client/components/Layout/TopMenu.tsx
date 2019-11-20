@@ -88,7 +88,7 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale): Reac
   );
 
   return (
-    <div className={classes.grow}>
+    <div className={classes.grow} style={{ margin: 0 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography onClick={(): void => redirectTitle()} className={classes.title} variant="h6" noWrap>
@@ -122,14 +122,16 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale): Reac
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
+            <LanguageButton locale={locale} setLocale={setLocale} />
             <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <AccountCircle />
             </IconButton>
           </div>
         </Toolbar>

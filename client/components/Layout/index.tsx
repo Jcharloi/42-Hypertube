@@ -1,5 +1,6 @@
 
 import React, { ReactElement } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline';
 
 import TopMenu from './TopMenu';
 
@@ -11,7 +12,7 @@ interface Props {
 
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => (
   <div>
-
+    <CssBaseline />
     <TopMenu locale={locale} setLocale={setLocale} />
     {children}
   </div>
