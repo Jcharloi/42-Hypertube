@@ -1,7 +1,9 @@
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 
-router.get('/check-token', (req, res) => { res.status(200).send({ validToken: false }); });
+router.get("/check-token", (req, res) => {
+  res.status(200).send({ validToken: false });
+});
 
 export default router;

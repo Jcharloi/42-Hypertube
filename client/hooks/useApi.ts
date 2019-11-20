@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import Axios from 'axios';
+import { useEffect, useState } from "react";
+import Axios from "axios";
 
-import { Fixture } from '../models/models';
+import { Fixture } from "../models/models";
 
 const useApi = (
   url: string,
-  fixture?: Fixture,
-): {data: Record<string, unknown>; loading: boolean; error: {}} => {
+  fixture?: Fixture
+): { data: Record<string, unknown>; loading: boolean; error: {} } => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -26,7 +26,8 @@ const useApi = (
         })
         .catch((err) => {
           setError(err);
-        }).finally(() => {
+        })
+        .finally(() => {
           setLoading(false);
         });
     }
