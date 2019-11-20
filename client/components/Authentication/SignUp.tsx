@@ -102,6 +102,7 @@ const SignUp = (): ReactElement => {
                 label={_t({ id: 'authentication.signUp.username' })}
                 variant="filled"
                 className={classes.textInput}
+                inputProps={{ maxLength: 30 }}
                 autoFocus
               />
             </Grid>
@@ -115,6 +116,7 @@ const SignUp = (): ReactElement => {
                 label={_t({ id: 'authentication.signUp.password' })}
                 variant="filled"
                 className={classes.textInput}
+                inputProps={{ maxLength: 1028 }}
                 type="password"
               />
             </Grid>
@@ -128,6 +130,7 @@ const SignUp = (): ReactElement => {
                 label={_t({ id: 'authentication.signUp.email' })}
                 variant="filled"
                 className={classes.textInput}
+                inputProps={{ maxLength: 100 }}
               />
             </Grid>
             <Grid item className={classes.item}>
@@ -140,6 +143,7 @@ const SignUp = (): ReactElement => {
                 label={_t({ id: 'authentication.signUp.firstName' })}
                 variant="filled"
                 className={classes.textInput}
+                inputProps={{ maxLength: 30 }}
               />
             </Grid>
             <Grid item className={classes.item}>
@@ -152,6 +156,7 @@ const SignUp = (): ReactElement => {
                 label={_t({ id: 'authentication.signUp.lastName' })}
                 variant="filled"
                 className={classes.textInput}
+                inputProps={{ maxLength: 30 }}
               />
             </Grid>
 
