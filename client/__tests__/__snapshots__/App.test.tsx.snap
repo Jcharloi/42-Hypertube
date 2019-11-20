@@ -343,6 +343,8 @@ exports[`App renders correctly 1`] = `
                     accept="image/*"
                     id="raised-button-file"
                     multiple={true}
+                    name="picture"
+                    onChange={[Function]}
                     style={
                       Object {
                         "display": "none",

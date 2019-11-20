@@ -1,4 +1,14 @@
-export interface User {
+export interface UserInfo {
+  username: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  picture: FormData;
+  [key: string]: string | FormData;
+}
+
+export interface UserError {
   username: string;
   password: string;
   email: string;
@@ -9,9 +19,10 @@ export interface User {
 }
 
 export const requiredErrorKey = 'authentication.signUp.error.required';
+export const requiredPictureErrorKey = 'authentication.signUp.error.required.picture';
 
-export const checkRequiredField = (userInfo: User): User => {
-  const userError: User = {
+export const checkRequiredField = (userInfo: UserInfo): UserError => {
+  const userError: UserError = {
     username: '',
     password: '',
     email: '',
@@ -22,7 +33,9 @@ export const checkRequiredField = (userInfo: User): User => {
   const keys: string[] = Object.keys(userInfo);
 
   keys.forEach((key) => {
-    if (userInfo[key] === '') {
+    if (key === 'picture' && userInfo[key] === null) {
+      userError[key] = requiredPictureErrorKey;
+    } else if (userInfo[key] === '') {
       userError[key] = requiredErrorKey;
     }
   });
@@ -40,7 +53,7 @@ export const validatePassword = (password: string): boolean => {
   return reg.test(password);
 };
 
-export const isThereError = (userError: User): boolean => {
+export const isThereError = (userError: UserError): boolean => {
   const keys: string[] = Object.keys(userError);
   let error = false;
 
@@ -50,4 +63,8 @@ export const isThereError = (userError: User): boolean => {
     }
   });
   return error;
+};
+
+export const sendSignUpData = (userInfo: UserInfo): void => {
+  // todo: send userInfo to back
 };

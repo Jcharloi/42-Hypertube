@@ -13,6 +13,7 @@
   "authentication.signUp.uploadButton": "Upload",
   "authentication.signUp.sendButton": "I register on this awesome website",
   "authentication.signUp.error.required": "This field is riquiered",
+  "authentication.signUp.error.required.picture": "Don't be shy, you need to upload a profile picture",
   "authentication.signUp.error.email": "Email is invalid",
   "authentication.signUp.error.password": "Your password need to be minimum 8 characters long, with at least one lowercase letter, one uppercase letter and one number"
 }

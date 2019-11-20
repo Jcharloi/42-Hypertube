@@ -5,10 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
 import { useIntl } from 'react-intl';
 
 import {
-  User, requiredErrorKey, checkRequiredField, validateEmail, validatePassword, isThereError,
+  UserInfo, UserError, requiredErrorKey, requiredPictureErrorKey,
+  checkRequiredField, validateEmail, validatePassword, isThereError,
 } from './SignUp.service';
 
 import useStyles from './SignUp.styles';
@@ -16,15 +18,15 @@ import useStyles from './SignUp.styles';
 const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
-  const [userInfo, setUserInfo] = useState<User>({
+  const [userInfo, setUserInfo] = useState<UserInfo>({
     username: '',
     password: '',
     email: '',
     firstName: '',
     lastName: '',
-    picture: '',
+    picture: null,
   });
-  const [userError, setUserError] = useState<User>({
+  const [userError, setUserError] = useState<UserError>({
     username: '',
     password: '',
     email: '',
@@ -37,12 +39,23 @@ const SignUp = (): ReactElement => {
    * Change State when user is typing in the form
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setUserInfo({
-      ...userInfo,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.type === 'file') {
+      const data = new FormData();
+      data.append('file', e.target.files[0]);
+      setUserInfo({
+        ...userInfo,
+        picture: data,
+      });
+    } else {
+      setUserInfo({
+        ...userInfo,
+        [e.target.name]: e.target.value,
+      });
+    }
+
     // If error is 'required' type, delete it
-    if (userError[e.target.name] === requiredErrorKey) {
+    if (userError[e.target.name] === requiredErrorKey
+    || userError[e.target.name] === requiredPictureErrorKey) {
       setUserError({
         ...userError,
         [e.target.name]: '',
@@ -176,12 +189,22 @@ const SignUp = (): ReactElement => {
                     id="raised-button-file"
                     multiple
                     type="file"
+                    name="picture"
+                    onChange={handleInputChange}
                   />
                   <Button variant="outlined" color="secondary" startIcon={<CloudUploadIcon />} component="span">
                     {_t({ id: 'authentication.signUp.uploadButton' })}
                   </Button>
                 </label>
               </Grid>
+              {userError.picture !== ''
+                && (
+                  <Grid item>
+                    <Typography variant="body2" className={classes.pictureErrorMsg}>
+                      {_t({ id: userError.picture })}
+                    </Typography>
+                  </Grid>
+                )}
             </Grid>
 
             {/* Send form */}

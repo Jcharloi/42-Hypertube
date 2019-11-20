@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   textInput: {
     width: '300px',
   },
+  pictureErrorMsg: {
+    // same as material-ui Textfiel helperText
+    color: '#f44336',
+    marginTop: '8px',
+    fontSize: '12px',
+  },
 }));
 
 export default useStyles;
