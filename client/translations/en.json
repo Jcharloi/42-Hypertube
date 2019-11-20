@@ -1,9 +1,9 @@
 {
-  "title" : "HyperTube",
+  "title": "HyperTube",
   "helloworld": "guten tagijijij !",
-  "search":"Search...",
-  "language.fr" : "🇫🇷",
-  "language.en" : "🇬🇧",
-  "profile" : "My profile",
-  "disconnect" : "Disconnect"
+  "search": "Search...",
+  "language.fr": "🇫🇷",
+  "language.en": "🇬🇧",
+  "profile": "My profile",
+  "disconnect": "Disconnect"
 }

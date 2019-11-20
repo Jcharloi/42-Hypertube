@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import React, { ReactElement } from "react";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
-import { useIntl } from 'react-intl';
+import { useIntl } from "react-intl";
 
-import useStyles from './LanguageButton.style';
+import useStyles from "./LanguageButton.style";
 
-import { Locale } from '../../models/models';
+import { Locale } from "../../models/models";
 
 const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
   const classes = useStyles({});
@@ -20,14 +20,19 @@ const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
 
   const handleClose = (language: string): void => {
     setAnchorEl(null);
-    if (typeof language === 'string') {
+    if (typeof language === "string") {
       setLocale(language);
     }
   };
 
   return (
     <div>
-      <Button className={classes.languageToggleButton} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <Button
+        className={classes.languageToggleButton}
+        aria-controls="simple-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
         {_t({ id: `language.${locale}` })}
       </Button>
       <Menu
@@ -37,8 +42,12 @@ const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={(): null => handleClose('fr')}>{_t({ id: 'language.fr' })}</MenuItem>
-        <MenuItem onClick={(): null => handleClose('en')}>{_t({ id: 'language.en' })}</MenuItem>
+        <MenuItem onClick={(): null => handleClose("fr")}>
+          {_t({ id: "language.fr" })}
+        </MenuItem>
+        <MenuItem onClick={(): null => handleClose("en")}>
+          {_t({ id: "language.en" })}
+        </MenuItem>
       </Menu>
     </div>
   );

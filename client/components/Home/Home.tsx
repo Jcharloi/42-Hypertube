@@ -5,7 +5,11 @@ import useApi from "../../hooks/useApi";
 import Authentication from "../Authentication/Authentication";
 
 const Home = (): ReactElement => {
-  const { data: { validToken }, loading, error } = useApi('http://localhost:8081/API/check-token');
+  const {
+    data: { validToken },
+    loading,
+    error
+  } = useApi("http://localhost:8081/API/check-token");
 
   if (error) {
     return <div>Error</div>;

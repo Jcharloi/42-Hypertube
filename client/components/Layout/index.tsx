@@ -1,10 +1,8 @@
 import React, { ReactElement } from "react";
 
-import React, { ReactElement } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline';
+import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 
-import TopMenu from './TopMenu';
-
+import TopMenu from "./TopMenu";
 
 interface Props {
   children: ReactElement;
