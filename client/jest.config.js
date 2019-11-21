@@ -5,6 +5,9 @@ module.exports = {
   name: "client",
   displayName: "Frontend",
   rootDir: `${__dirname}/..`,
+  moduleNameMapper: {
+    "\\.(css|less)$": "identity-obj-proxy"
+  },
   testMatch: [
     "<rootDir>/client/__tests__/*.tsx",
     "<rootDir>/client/__tests__/*.ts"
