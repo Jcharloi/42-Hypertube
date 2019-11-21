@@ -6,7 +6,7 @@
   "scripts": {
     "linter": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "npm run linter && npm run test:jest",
-    "test:jest": "jest",
+    "test:jest": "jest --projects client server",
     "test:jest:watch": "jest --watch",
     "start": "nodemon --exec babel-node server/index.js"
   },
