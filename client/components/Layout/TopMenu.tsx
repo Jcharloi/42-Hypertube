@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,7 +9,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { useIntl } from "react-intl";
 import useStyles from "./TopMenu.styles";
 
-export default function SearchAppBar() {
+export default function SearchAppBar(): ReactElement {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
 
