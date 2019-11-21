@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
 
-describe("insert", () => {
+describe("Sign Up", () => {
   let mockedUser;
   beforeAll(() => {
     mockedUser = {
@@ -22,7 +22,8 @@ describe("insert", () => {
   });
 
   it("should insert user", async () => {
-    expect(await signUpHelpers.createUser(mockedUser, false)).toBe(true);
+    const res = await signUpHelpers.createUser(mockedUser, false);
+    expect(res).toBe(true);
   });
 
   it("should be the same user", async () => {

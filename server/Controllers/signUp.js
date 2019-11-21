@@ -1,4 +1,5 @@
 import fileType from "file-type";
+
 import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
 import mongoose from "../mongo";

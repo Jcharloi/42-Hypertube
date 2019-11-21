@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+
 import UserModel from "../Schemas/User";
 
 const createRandomId = (length) => {
@@ -29,7 +30,6 @@ const createUser = async (user, insertPT) => {
     }
     const hashedPW = bcrypt.hashSync(user.password, 10);
     const CompiledUser = new UserModel({
-      // eslint-disable-next-line no-underscore-dangle
       _id: user._id,
       mail: user.mail,
       userName: user.userName,

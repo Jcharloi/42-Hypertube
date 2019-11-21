@@ -20,6 +20,14 @@
       "always"
     ],
     "no-console": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ]
   }
 }
