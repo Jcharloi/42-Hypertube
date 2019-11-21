@@ -46,7 +46,7 @@ const LanguageButton = ({ locale, setLocale }: Locale): ReactElement => {
       >
         <MenuItem
           className={classes.languageMenu}
-          onClick={(): null => handleClose("fr")}
+          onClick={(): void => handleClose("fr")}
         >
           <span role="img" aria-label="france flag">
             {_t({ id: "language.fr" })}
@@ -54,7 +54,7 @@ const LanguageButton = ({ locale, setLocale }: Locale): ReactElement => {
         </MenuItem>
         <MenuItem
           className={classes.languageMenu}
-          onClick={(): null => handleClose("en")}
+          onClick={(): void => handleClose("en")}
         >
           <span role="img" aria-label="english flag">
             {_t({ id: "language.en" })}
