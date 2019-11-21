@@ -29,7 +29,7 @@ const createUser = async (user, insertPT) => {
       hashedPT = user.picture;
     }
     const hashedPW = bcrypt.hashSync(user.password, 10);
-    const CompiledUser = new UserModel({
+    await UserModel.create({
       _id: user._id,
       mail: user.mail,
       userName: user.userName,
@@ -38,11 +38,10 @@ const createUser = async (user, insertPT) => {
       password: hashedPW,
       picture: hashedPT
     });
-    await CompiledUser.save();
     return true;
   } catch (e) {
-    console.error(e);
-    return false;
+    console.error(e.message);
+    return e.name;
   }
 };
 

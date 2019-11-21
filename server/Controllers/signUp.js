@@ -62,12 +62,6 @@ const nameDoesNotExists = async (userName) => {
 
 const signUp = async (req, res) => {
   const goodInfos =
-    req.body.userName &&
-    req.body.userName.length < 30 &&
-    req.body.firstName &&
-    req.body.firstName.length < 30 &&
-    req.body.lastName &&
-    req.body.lastName.length < 30 &&
     validMail(req.body.mail) &&
     validPassword(req.body.password) &&
     req.files &&
@@ -85,7 +79,12 @@ const signUp = async (req, res) => {
         password: req.body.password,
         picture: req.files.picture
       };
-      if (await signUpHelpers.createUser(user, true)) {
+      const ret = await signUpHelpers.createUser(user, true);
+      if (ret === "ValidationError") {
+        res
+          .status(200)
+          .send({ missingInfos: true, nameTaken: false, mailTaken: false });
+      } else if (ret === true) {
         res
           .status(200)
           .send({ missingInfos: false, nameTaken: false, mailTaken: false });
