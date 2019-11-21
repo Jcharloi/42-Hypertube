@@ -1,5 +1,8 @@
 {
-  "title" : "HyperTube",
-  "helloworld": "guten tagijijij !",
-  "search":"Search..."
+  "title": "Nethub",
+  "search": "Search...",
+  "language.fr": "🇫🇷",
+  "language.en": "🇬🇧",
+  "profile": "My profile",
+  "disconnect": "Disconnect"
 }
