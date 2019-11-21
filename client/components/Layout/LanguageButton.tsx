@@ -9,7 +9,7 @@ import useStyles from "./LanguageButton.style";
 
 import { Locale } from "../../models/models";
 
-const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
+const LanguageButton = ({ locale, setLocale }: Locale): ReactElement => {
   const classes = useStyles({});
   const { formatMessage: _t } = useIntl();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -33,7 +33,9 @@ const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        {_t({ id: `language.${locale}` })}
+        <span role="img" aria-label="flag">
+          {_t({ id: `language.${locale}` })}
+        </span>
       </Button>
       <Menu
         id="simple-menu"
@@ -42,15 +44,25 @@ const SimpleMenu = ({ locale, setLocale }: Locale): ReactElement => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={(): null => handleClose("fr")}>
-          {_t({ id: "language.fr" })}
+        <MenuItem
+          className={classes.languageMenu}
+          onClick={(): null => handleClose("fr")}
+        >
+          <span role="img" aria-label="france flag">
+            {_t({ id: "language.fr" })}
+          </span>
         </MenuItem>
-        <MenuItem onClick={(): null => handleClose("en")}>
-          {_t({ id: "language.en" })}
+        <MenuItem
+          className={classes.languageMenu}
+          onClick={(): null => handleClose("en")}
+        >
+          <span role="img" aria-label="english flag">
+            {_t({ id: "language.en" })}
+          </span>
         </MenuItem>
       </Menu>
     </div>
   );
 };
 
-export default SimpleMenu;
+export default LanguageButton;

@@ -8,18 +8,16 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+
 import { useIntl } from "react-intl";
+import useStyles from "./TopMenu.styles";
 
 import history from "../../helpers/history";
 
-import useStyles from "./TopMenu.styles";
 import LanguageButton from "./LanguageButton";
 import { Locale } from "../../models/models";
 
-export default function PrimarySearchAppBar({
-  locale,
-  setLocale
-}: Locale): ReactElement {
+const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -91,7 +89,7 @@ export default function PrimarySearchAppBar({
   );
 
   return (
-    <div className={classes.grow} style={{ margin: 0 }}>
+    <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
           <Typography
@@ -148,4 +146,6 @@ export default function PrimarySearchAppBar({
       {renderMenu}
     </div>
   );
-}
+};
+
+export default TopMenu;

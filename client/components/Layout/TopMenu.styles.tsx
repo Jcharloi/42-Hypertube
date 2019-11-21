@@ -16,9 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       display: "block",
-      // [theme.breakpoints.up('sm')]: {
-      //   display: 'block',
-      // },
       cursor: "pointer"
     },
     search: {

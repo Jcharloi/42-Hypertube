@@ -10,12 +10,11 @@ exports[`App renders correctly 1`] = `
     messages={
       Object {
         "disconnect": "Disconnect",
-        "helloworld": "guten tagijijij !",
         "language.en": "🇬🇧",
         "language.fr": "🇫🇷",
         "profile": "My profile",
         "search": "Search...",
-        "title": "HyperTube",
+        "title": "Nethub",
       }
     }
     onError={[Function]}
@@ -27,17 +26,12 @@ exports[`App renders correctly 1`] = `
     >
       <div>
         <CssBaseline />
-        <PrimarySearchAppBar
+        <TopMenu
           locale="en"
           setLocale={[Function]}
         >
           <div
             className="makeStyles-grow-1"
-            style={
-              Object {
-                "margin": 0,
-              }
-            }
           >
             <WithStyles(ForwardRef(AppBar))
               position="static"
@@ -168,7 +162,7 @@ exports[`App renders correctly 1`] = `
                                   className="MuiTypography-root makeStyles-title-3 MuiTypography-h6 MuiTypography-noWrap"
                                   onClick={[Function]}
                                 >
-                                  HyperTube
+                                  Nethub
                                 </h6>
                               </ForwardRef(Typography)>
                             </WithStyles(ForwardRef(Typography))>
@@ -279,7 +273,7 @@ exports[`App renders correctly 1`] = `
                             <div
                               className="makeStyles-sectionDesktop-8"
                             >
-                              <SimpleMenu
+                              <LanguageButton
                                 locale="en"
                                 setLocale={[Function]}
                               >
@@ -380,7 +374,12 @@ exports[`App renders correctly 1`] = `
                                             <span
                                               className="MuiButton-label"
                                             >
-                                              🇬🇧
+                                              <span
+                                                aria-label="flag"
+                                                role="img"
+                                              >
+                                                🇬🇧
+                                              </span>
                                             </span>
                                             <NoSsr>
                                               <WithStyles(undefined)
@@ -542,22 +541,32 @@ exports[`App renders correctly 1`] = `
                                                         >
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="0"
                                                           >
-                                                            🇫🇷
+                                                            <span
+                                                              aria-label="france flag"
+                                                              role="img"
+                                                            >
+                                                              🇫🇷
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
                                                           </li>
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="-1"
                                                           >
-                                                            🇬🇧
+                                                            <span
+                                                              aria-label="english flag"
+                                                              role="img"
+                                                            >
+                                                              🇬🇧
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
@@ -592,22 +601,32 @@ exports[`App renders correctly 1`] = `
                                                         >
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="0"
                                                           >
-                                                            🇫🇷
+                                                            <span
+                                                              aria-label="france flag"
+                                                              role="img"
+                                                            >
+                                                              🇫🇷
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
                                                           </li>
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="-1"
                                                           >
-                                                            🇬🇧
+                                                            <span
+                                                              aria-label="english flag"
+                                                              role="img"
+                                                            >
+                                                              🇬🇧
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
@@ -912,11 +931,13 @@ exports[`App renders correctly 1`] = `
                                                                       tabIndex={-1}
                                                                     >
                                                                       <WithStyles(ForwardRef(MenuItem))
+                                                                        className="makeStyles-languageMenu-111"
                                                                         key=".$.0"
                                                                         onClick={[Function]}
                                                                         tabIndex={0}
                                                                       >
                                                                         <ForwardRef(MenuItem)
+                                                                          className="makeStyles-languageMenu-111"
                                                                           classes={
                                                                             Object {
                                                                               "dense": "MuiMenuItem-dense",
@@ -930,7 +951,7 @@ exports[`App renders correctly 1`] = `
                                                                         >
                                                                           <WithStyles(ForwardRef(ListItem))
                                                                             button={true}
-                                                                            className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                            className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                             classes={
                                                                               Object {
                                                                                 "dense": "MuiMenuItem-dense",
@@ -944,7 +965,7 @@ exports[`App renders correctly 1`] = `
                                                                           >
                                                                             <ForwardRef(ListItem)
                                                                               button={true}
-                                                                              className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                              className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                               classes={
                                                                                 Object {
                                                                                   "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
@@ -967,7 +988,7 @@ exports[`App renders correctly 1`] = `
                                                                               tabIndex={0}
                                                                             >
                                                                               <WithStyles(ForwardRef(ButtonBase))
-                                                                                className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                 component="li"
                                                                                 disabled={false}
                                                                                 focusVisibleClassName="Mui-focusVisible"
@@ -976,7 +997,7 @@ exports[`App renders correctly 1`] = `
                                                                                 tabIndex={0}
                                                                               >
                                                                                 <ForwardRef(ButtonBase)
-                                                                                  className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                  className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                   classes={
                                                                                     Object {
                                                                                       "disabled": "Mui-disabled",
@@ -993,7 +1014,7 @@ exports[`App renders correctly 1`] = `
                                                                                 >
                                                                                   <li
                                                                                     aria-disabled={false}
-                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                     onBlur={[Function]}
                                                                                     onClick={[Function]}
                                                                                     onDragLeave={[Function]}
@@ -1009,7 +1030,13 @@ exports[`App renders correctly 1`] = `
                                                                                     role="menuitem"
                                                                                     tabIndex={0}
                                                                                   >
-                                                                                    🇫🇷
+                                                                                    <span
+                                                                                      aria-label="france flag"
+                                                                                      key=".0"
+                                                                                      role="img"
+                                                                                    >
+                                                                                      🇫🇷
+                                                                                    </span>
                                                                                     <NoSsr>
                                                                                       <WithStyles(undefined)
                                                                                         center={false}
@@ -1048,10 +1075,12 @@ exports[`App renders correctly 1`] = `
                                                                         </ForwardRef(MenuItem)>
                                                                       </WithStyles(ForwardRef(MenuItem))>
                                                                       <WithStyles(ForwardRef(MenuItem))
+                                                                        className="makeStyles-languageMenu-111"
                                                                         key=".$.1"
                                                                         onClick={[Function]}
                                                                       >
                                                                         <ForwardRef(MenuItem)
+                                                                          className="makeStyles-languageMenu-111"
                                                                           classes={
                                                                             Object {
                                                                               "dense": "MuiMenuItem-dense",
@@ -1064,7 +1093,7 @@ exports[`App renders correctly 1`] = `
                                                                         >
                                                                           <WithStyles(ForwardRef(ListItem))
                                                                             button={true}
-                                                                            className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                            className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                             classes={
                                                                               Object {
                                                                                 "dense": "MuiMenuItem-dense",
@@ -1078,7 +1107,7 @@ exports[`App renders correctly 1`] = `
                                                                           >
                                                                             <ForwardRef(ListItem)
                                                                               button={true}
-                                                                              className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                              className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                               classes={
                                                                                 Object {
                                                                                   "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
@@ -1101,7 +1130,7 @@ exports[`App renders correctly 1`] = `
                                                                               tabIndex={-1}
                                                                             >
                                                                               <WithStyles(ForwardRef(ButtonBase))
-                                                                                className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                 component="li"
                                                                                 disabled={false}
                                                                                 focusVisibleClassName="Mui-focusVisible"
@@ -1110,7 +1139,7 @@ exports[`App renders correctly 1`] = `
                                                                                 tabIndex={-1}
                                                                               >
                                                                                 <ForwardRef(ButtonBase)
-                                                                                  className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                  className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                   classes={
                                                                                     Object {
                                                                                       "disabled": "Mui-disabled",
@@ -1127,7 +1156,7 @@ exports[`App renders correctly 1`] = `
                                                                                 >
                                                                                   <li
                                                                                     aria-disabled={false}
-                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                     onBlur={[Function]}
                                                                                     onClick={[Function]}
                                                                                     onDragLeave={[Function]}
@@ -1143,7 +1172,13 @@ exports[`App renders correctly 1`] = `
                                                                                     role="menuitem"
                                                                                     tabIndex={-1}
                                                                                   >
-                                                                                    🇬🇧
+                                                                                    <span
+                                                                                      aria-label="english flag"
+                                                                                      key=".0"
+                                                                                      role="img"
+                                                                                    >
+                                                                                      🇬🇧
+                                                                                    </span>
                                                                                     <NoSsr>
                                                                                       <WithStyles(undefined)
                                                                                         center={false}
@@ -1204,7 +1239,7 @@ exports[`App renders correctly 1`] = `
                                     </ForwardRef(Menu)>
                                   </WithStyles(ForwardRef(Menu))>
                                 </div>
-                              </SimpleMenu>
+                              </LanguageButton>
                               <WithStyles(ForwardRef(IconButton))
                                 aria-controls="primary-search-account-menu"
                                 aria-haspopup="true"
@@ -1356,7 +1391,7 @@ exports[`App renders correctly 1`] = `
                             <div
                               className="makeStyles-sectionMobile-9"
                             >
-                              <SimpleMenu
+                              <LanguageButton
                                 locale="en"
                                 setLocale={[Function]}
                               >
@@ -1457,7 +1492,12 @@ exports[`App renders correctly 1`] = `
                                             <span
                                               className="MuiButton-label"
                                             >
-                                              🇬🇧
+                                              <span
+                                                aria-label="flag"
+                                                role="img"
+                                              >
+                                                🇬🇧
+                                              </span>
                                             </span>
                                             <NoSsr>
                                               <WithStyles(undefined)
@@ -1619,22 +1659,32 @@ exports[`App renders correctly 1`] = `
                                                         >
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="0"
                                                           >
-                                                            🇫🇷
+                                                            <span
+                                                              aria-label="france flag"
+                                                              role="img"
+                                                            >
+                                                              🇫🇷
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
                                                           </li>
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="-1"
                                                           >
-                                                            🇬🇧
+                                                            <span
+                                                              aria-label="english flag"
+                                                              role="img"
+                                                            >
+                                                              🇬🇧
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
@@ -1669,22 +1719,32 @@ exports[`App renders correctly 1`] = `
                                                         >
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="0"
                                                           >
-                                                            🇫🇷
+                                                            <span
+                                                              aria-label="france flag"
+                                                              role="img"
+                                                            >
+                                                              🇫🇷
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
                                                           </li>
                                                           <li
                                                             aria-disabled="false"
-                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                             role="menuitem"
                                                             tabindex="-1"
                                                           >
-                                                            🇬🇧
+                                                            <span
+                                                              aria-label="english flag"
+                                                              role="img"
+                                                            >
+                                                              🇬🇧
+                                                            </span>
                                                             <span
                                                               class="MuiTouchRipple-root"
                                                             />
@@ -1989,11 +2049,13 @@ exports[`App renders correctly 1`] = `
                                                                       tabIndex={-1}
                                                                     >
                                                                       <WithStyles(ForwardRef(MenuItem))
+                                                                        className="makeStyles-languageMenu-111"
                                                                         key=".$.0"
                                                                         onClick={[Function]}
                                                                         tabIndex={0}
                                                                       >
                                                                         <ForwardRef(MenuItem)
+                                                                          className="makeStyles-languageMenu-111"
                                                                           classes={
                                                                             Object {
                                                                               "dense": "MuiMenuItem-dense",
@@ -2007,7 +2069,7 @@ exports[`App renders correctly 1`] = `
                                                                         >
                                                                           <WithStyles(ForwardRef(ListItem))
                                                                             button={true}
-                                                                            className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                            className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                             classes={
                                                                               Object {
                                                                                 "dense": "MuiMenuItem-dense",
@@ -2021,7 +2083,7 @@ exports[`App renders correctly 1`] = `
                                                                           >
                                                                             <ForwardRef(ListItem)
                                                                               button={true}
-                                                                              className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                              className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                               classes={
                                                                                 Object {
                                                                                   "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
@@ -2044,7 +2106,7 @@ exports[`App renders correctly 1`] = `
                                                                               tabIndex={0}
                                                                             >
                                                                               <WithStyles(ForwardRef(ButtonBase))
-                                                                                className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                 component="li"
                                                                                 disabled={false}
                                                                                 focusVisibleClassName="Mui-focusVisible"
@@ -2053,7 +2115,7 @@ exports[`App renders correctly 1`] = `
                                                                                 tabIndex={0}
                                                                               >
                                                                                 <ForwardRef(ButtonBase)
-                                                                                  className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                  className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                   classes={
                                                                                     Object {
                                                                                       "disabled": "Mui-disabled",
@@ -2070,7 +2132,7 @@ exports[`App renders correctly 1`] = `
                                                                                 >
                                                                                   <li
                                                                                     aria-disabled={false}
-                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                     onBlur={[Function]}
                                                                                     onClick={[Function]}
                                                                                     onDragLeave={[Function]}
@@ -2086,7 +2148,13 @@ exports[`App renders correctly 1`] = `
                                                                                     role="menuitem"
                                                                                     tabIndex={0}
                                                                                   >
-                                                                                    🇫🇷
+                                                                                    <span
+                                                                                      aria-label="france flag"
+                                                                                      key=".0"
+                                                                                      role="img"
+                                                                                    >
+                                                                                      🇫🇷
+                                                                                    </span>
                                                                                     <NoSsr>
                                                                                       <WithStyles(undefined)
                                                                                         center={false}
@@ -2125,10 +2193,12 @@ exports[`App renders correctly 1`] = `
                                                                         </ForwardRef(MenuItem)>
                                                                       </WithStyles(ForwardRef(MenuItem))>
                                                                       <WithStyles(ForwardRef(MenuItem))
+                                                                        className="makeStyles-languageMenu-111"
                                                                         key=".$.1"
                                                                         onClick={[Function]}
                                                                       >
                                                                         <ForwardRef(MenuItem)
+                                                                          className="makeStyles-languageMenu-111"
                                                                           classes={
                                                                             Object {
                                                                               "dense": "MuiMenuItem-dense",
@@ -2141,7 +2211,7 @@ exports[`App renders correctly 1`] = `
                                                                         >
                                                                           <WithStyles(ForwardRef(ListItem))
                                                                             button={true}
-                                                                            className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                            className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                             classes={
                                                                               Object {
                                                                                 "dense": "MuiMenuItem-dense",
@@ -2155,7 +2225,7 @@ exports[`App renders correctly 1`] = `
                                                                           >
                                                                             <ForwardRef(ListItem)
                                                                               button={true}
-                                                                              className="MuiMenuItem-root MuiMenuItem-gutters"
+                                                                              className="MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters"
                                                                               classes={
                                                                                 Object {
                                                                                   "alignItemsFlexStart": "MuiListItem-alignItemsFlexStart",
@@ -2178,7 +2248,7 @@ exports[`App renders correctly 1`] = `
                                                                               tabIndex={-1}
                                                                             >
                                                                               <WithStyles(ForwardRef(ButtonBase))
-                                                                                className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                 component="li"
                                                                                 disabled={false}
                                                                                 focusVisibleClassName="Mui-focusVisible"
@@ -2187,7 +2257,7 @@ exports[`App renders correctly 1`] = `
                                                                                 tabIndex={-1}
                                                                               >
                                                                                 <ForwardRef(ButtonBase)
-                                                                                  className="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                  className="MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                   classes={
                                                                                     Object {
                                                                                       "disabled": "Mui-disabled",
@@ -2204,7 +2274,7 @@ exports[`App renders correctly 1`] = `
                                                                                 >
                                                                                   <li
                                                                                     aria-disabled={false}
-                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                                    className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                                                                     onBlur={[Function]}
                                                                                     onClick={[Function]}
                                                                                     onDragLeave={[Function]}
@@ -2220,7 +2290,13 @@ exports[`App renders correctly 1`] = `
                                                                                     role="menuitem"
                                                                                     tabIndex={-1}
                                                                                   >
-                                                                                    🇬🇧
+                                                                                    <span
+                                                                                      aria-label="english flag"
+                                                                                      key=".0"
+                                                                                      role="img"
+                                                                                    >
+                                                                                      🇬🇧
+                                                                                    </span>
                                                                                     <NoSsr>
                                                                                       <WithStyles(undefined)
                                                                                         center={false}
@@ -2281,7 +2357,7 @@ exports[`App renders correctly 1`] = `
                                     </ForwardRef(Menu)>
                                   </WithStyles(ForwardRef(Menu))>
                                 </div>
-                              </SimpleMenu>
+                              </LanguageButton>
                               <WithStyles(ForwardRef(IconButton))
                                 aria-controls="primary-search-account-menu"
                                 aria-haspopup="true"
@@ -2587,22 +2663,32 @@ exports[`App renders correctly 1`] = `
                                   >
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="0"
                                     >
-                                      🇫🇷
+                                      <span
+                                        aria-label="france flag"
+                                        role="img"
+                                      >
+                                        🇫🇷
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
                                     </li>
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="-1"
                                     >
-                                      🇬🇧
+                                      <span
+                                        aria-label="english flag"
+                                        role="img"
+                                      >
+                                        🇬🇧
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
@@ -2637,22 +2723,32 @@ exports[`App renders correctly 1`] = `
                                   >
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="0"
                                     >
-                                      🇫🇷
+                                      <span
+                                        aria-label="france flag"
+                                        role="img"
+                                      >
+                                        🇫🇷
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
                                     </li>
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="-1"
                                     >
-                                      🇬🇧
+                                      <span
+                                        aria-label="english flag"
+                                        role="img"
+                                      >
+                                        🇬🇧
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
@@ -3408,22 +3504,32 @@ exports[`App renders correctly 1`] = `
                                   >
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="0"
                                     >
-                                      🇫🇷
+                                      <span
+                                        aria-label="france flag"
+                                        role="img"
+                                      >
+                                        🇫🇷
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
                                     </li>
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="-1"
                                     >
-                                      🇬🇧
+                                      <span
+                                        aria-label="english flag"
+                                        role="img"
+                                      >
+                                        🇬🇧
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
@@ -3458,22 +3564,32 @@ exports[`App renders correctly 1`] = `
                                   >
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="0"
                                     >
-                                      🇫🇷
+                                      <span
+                                        aria-label="france flag"
+                                        role="img"
+                                      >
+                                        🇫🇷
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
                                     </li>
                                     <li
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root makeStyles-languageMenu-111 MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
                                       role="menuitem"
                                       tabindex="-1"
                                     >
-                                      🇬🇧
+                                      <span
+                                        aria-label="english flag"
+                                        role="img"
+                                      >
+                                        🇬🇧
+                                      </span>
                                       <span
                                         class="MuiTouchRipple-root"
                                       />
@@ -4070,7 +4186,7 @@ exports[`App renders correctly 1`] = `
               </ForwardRef(Menu)>
             </WithStyles(ForwardRef(Menu))>
           </div>
-        </PrimarySearchAppBar>
+        </TopMenu>
         <Router
           history={
             Object {
