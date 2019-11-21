@@ -6,18 +6,12 @@ import mongoose from "../mongo";
 
 const validMail = (mail) => {
   const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-  if (!mail || !regex.test(String(mail)) || mail.length > 100) {
-    return false;
-  }
-  return true;
+  return mail && regex.test(String(mail));
 };
 
 const validPassword = (password) => {
   const regex = /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/;
-  if (!password || !regex.test(password) || password.length > 1028) {
-    return false;
-  }
-  return true;
+  return password && regex.test(password);
 };
 
 const validFile = (file) => {
