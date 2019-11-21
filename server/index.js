@@ -22,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(favicon(path.join(__dirname, 'views', 'favicon.ico')));
 app.use('public/', express.static('public'));
 app.use(morgan('dev'));
+// I need to use body-parser to acces `req.body`, don't know why jcharloi didn't needed it in /back-signup
 app.use(express.json());
 
 /* Webpack Hot Reload */

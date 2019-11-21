@@ -61,6 +61,22 @@ export const validatePassword = (password: string): boolean => {
   return reg.test(password);
 };
 
+export const validatePicture = (picture: File): string => {
+  const ext = picture.name.split('.').pop();
+  console.log('picture.size > 1000000', picture.size < 1000000);
+
+  if (picture.size > 1000000) {
+    return 'size';
+  }
+  if ((picture.type === 'image/png' && ext === 'png')
+  || (picture.type === 'image/jpeg' && (ext === 'jpeg' || ext === 'jpg'))) {
+    return 'type';
+  }
+  return '';
+  // (picture.type === 'image/png' && ext === 'png')
+  // || (picture.type === 'image/jpeg' && (ext === 'jpeg' || ext === 'jpg'))
+};
+
 export const isThereError = (userError: UserError): boolean => {
   const keys: string[] = Object.keys(userError);
   let error = false;

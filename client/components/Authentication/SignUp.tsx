@@ -10,7 +10,7 @@ import { useIntl } from 'react-intl';
 
 import {
   UserInfo, UserError, requiredErrorKey, requiredPictureErrorKey, checkRequiredField,
-  validateEmail, validatePassword, isThereError, sendSignUpData,
+  validateEmail, validatePassword, validatePicture, isThereError, sendSignUpData,
 } from './SignUp.service';
 
 import useStyles from './SignUp.styles';
@@ -40,12 +40,19 @@ const SignUp = (): ReactElement => {
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (e.target.type === 'file') {
-      const data = new FormData();
-      data.append('file', e.target.files[0]);
-      setUserInfo({
-        ...userInfo,
-        picture: data,
-      });
+      if (validatePicture(e.target.files[0])) {
+        const data = new FormData();
+        data.append('file', e.target.files[0]);
+        setUserInfo({
+          ...userInfo,
+          picture: data,
+        });
+      } else {
+        setUserError({
+          ...userError,
+          picture: 'authentication.signUp.error.file',
+        });
+      }
     } else {
       setUserInfo({
         ...userInfo,
