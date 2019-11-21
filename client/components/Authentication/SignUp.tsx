@@ -9,8 +9,8 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useIntl } from 'react-intl';
 
 import {
-  UserInfo, UserError, requiredErrorKey, requiredPictureErrorKey,
-  checkRequiredField, validateEmail, validatePassword, isThereError,
+  UserInfo, UserError, requiredErrorKey, requiredPictureErrorKey, checkRequiredField,
+  validateEmail, validatePassword, isThereError, sendSignUpData,
 } from './SignUp.service';
 
 import useStyles from './SignUp.styles';
@@ -79,6 +79,12 @@ const SignUp = (): ReactElement => {
     setUserError(newUserError);
     if (!isThereError(newUserError)) {
       console.log('SENDING ! 😱');
+
+      sendSignUpData(userInfo).then((data) => {
+        console.log('DONE', data);
+      }).catch((err) => {
+        console.log('Error', err);
+      });
     }
   };
 

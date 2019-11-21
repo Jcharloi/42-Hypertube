@@ -1,3 +1,5 @@
+import API from '../../helpers/api';
+
 export interface UserInfo {
   username: string;
   password: string;
@@ -16,6 +18,12 @@ export interface UserError {
   lastName: string;
   picture: string;
   [key: string]: string;
+}
+
+export interface ApiData {
+  missingInfos: boolean;
+  nameTaken: boolean;
+  mailTaken: boolean;
 }
 
 export const requiredErrorKey = 'authentication.signUp.error.required';
@@ -65,6 +73,4 @@ export const isThereError = (userError: UserError): boolean => {
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): void => {
-  // todo: send userInfo to back
-};
+export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => API.post('/inscription', userInfo).then((res) => res.data);
