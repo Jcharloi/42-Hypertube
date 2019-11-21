@@ -22,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(favicon(path.join(__dirname, 'views', 'favicon.ico')));
 app.use('public/', express.static('public'));
 app.use(morgan('dev'));
+app.use(express.json());
 
 /* Webpack Hot Reload */
 /* eslint-disable @typescript-eslint/no-var-requires */
