@@ -27,7 +27,7 @@ describe("Sign Up", () => {
   });
 
   it("should be the same user", async () => {
-    const findUser = await UserModel.findOne({ _id: "test" });
+    const findUser = await UserModel.findById("test");
     const res = await bcrypt.compare(mockedUser.password, findUser.password);
     findUser.password = res ? "test password" : findUser.password;
     expect(mockedUser).toEqual(findUser.toJSON());

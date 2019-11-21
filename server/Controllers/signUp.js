@@ -5,19 +5,15 @@ import UserModel from "../Schemas/User";
 import mongoose from "../mongo";
 
 const validMail = (mail) => {
-  const regex = new RegExp(
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
-  );
-  if (!mail || !regex.test(String(mail).toLowerCase()) || mail.length > 100) {
+  const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  if (!mail || !regex.test(String(mail)) || mail.length > 100) {
     return false;
   }
   return true;
 };
 
 const validPassword = (password) => {
-  const regex = new RegExp(
-    /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/
-  );
+  const regex = /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/;
   if (!password || !regex.test(password) || password.length > 1028) {
     return false;
   }
@@ -34,7 +30,7 @@ const validFile = (file) => {
   if (
     !type ||
     (type !== "image/png" && type !== "image/jpeg" && type !== "image/jpg") ||
-    (fileRes.ext !== "png" && fileRes.ext !== "jpg")
+    (fileRes.ext !== "png" && fileRes.ext !== "jpeg" && fileRes.ext !== "jpg")
   ) {
     return false;
   }
@@ -44,20 +40,20 @@ const validFile = (file) => {
   return true;
 };
 
-const mailAlreadyExists = async (mail) => {
+const mailDoesNotExists = async (mail) => {
   try {
-    const users = await UserModel.find({ mail });
-    return users.length === 0;
+    const users = await UserModel.findOne({ mail });
+    return users === null;
   } catch (e) {
     console.error(e);
     return false;
   }
 };
 
-const nameAlreadyExists = async (userName) => {
+const nameDoesNotExists = async (userName) => {
   try {
-    const users = await UserModel.find({ userName });
-    return users.length === 0;
+    const users = await UserModel.findOne({ userName });
+    return users === null;
   } catch (e) {
     console.error(e);
     return false;
@@ -76,8 +72,8 @@ const signUp = async (req, res) => {
     validPassword(req.body.password) &&
     req.files &&
     validFile(req.files.picture);
-  const nameFree = await nameAlreadyExists(req.body.userName);
-  const mailFree = await mailAlreadyExists(req.body.mail);
+  const nameFree = await nameDoesNotExists(req.body.userName);
+  const mailFree = await mailDoesNotExists(req.body.mail);
   if (goodInfos && nameFree && mailFree) {
     if (await signUpHelpers.sendMail()) {
       const user = {
