@@ -12,7 +12,6 @@ interface Props {
 
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => (
   <div>
-    <CssBaseline />
     <TopMenu locale={locale} setLocale={setLocale} />
     {children}
   </div>
