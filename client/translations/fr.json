@@ -14,7 +14,10 @@
   "authentication.signUp.sendButton": "Je m'inscris sur ce site cool",
   "authentication.signUp.error.required": "Ce champs est requis",
   "authentication.signUp.error.required.picture": "Soit pas timide, tu dois fournir une photo de profile",
-  "authentication.signUp.error.email": "Adresse email incorrecte",
-  "authentication.signUp.error.password": "Votre mot de passe doit comporter au minimum 8 caractères, avec au moins une lettre minuscule, une lettre majuscule et un chiffre.",
-  "authentication.signUp.error.file": "Votre photo est invalide"
+  "authentication.signUp.error.username.taken": "Mince, ce nom d'utilisateur est pas dispo",
+  "authentication.signUp.error.email.invalid": "Adresse email incorrecte",
+  "authentication.signUp.error.email.taken": "Oups, cette adresse email est déja utilisé",
+  "authentication.signUp.error.password.invalid": "Ton mot de passe doit comporter au minimum 8 caractères, avec au moins une lettre minuscule, une lettre majuscule et un chiffre.",
+  "authentication.signUp.error.picture.tooHeavy": "Ouch, ton image est trop grosse, prend en une qui fais moins de 1Mo",
+  "authentication.signUp.error.picture.wrongType": "ha désolé, on accepte que les .jpeg, .jpg et .png"
 }

@@ -23,7 +23,7 @@ export interface UserError {
 export interface ApiData {
   missingInfos: boolean;
   nameTaken: boolean;
-  mailTaken: boolean;
+  emailTaken: boolean;
 }
 
 export const requiredErrorKey = 'authentication.signUp.error.required';
@@ -63,18 +63,15 @@ export const validatePassword = (password: string): boolean => {
 
 export const validatePicture = (picture: File): string => {
   const ext = picture.name.split('.').pop();
-  console.log('picture.size > 1000000', picture.size < 1000000);
 
   if (picture.size > 1000000) {
-    return 'size';
+    return 'authentication.signUp.error.picture.tooHeavy';
   }
-  if ((picture.type === 'image/png' && ext === 'png')
-  || (picture.type === 'image/jpeg' && (ext === 'jpeg' || ext === 'jpg'))) {
-    return 'type';
+  if (!(picture.type === 'image/png' && ext === 'png')
+  && !(picture.type === 'image/jpeg' && (ext === 'jpeg' || ext === 'jpg'))) {
+    return 'authentication.signUp.error.picture.wrongType';
   }
   return '';
-  // (picture.type === 'image/png' && ext === 'png')
-  // || (picture.type === 'image/jpeg' && (ext === 'jpeg' || ext === 'jpg'))
 };
 
 export const isThereError = (userError: UserError): boolean => {
@@ -89,4 +86,5 @@ export const isThereError = (userError: UserError): boolean => {
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => API.post('/inscription', userInfo).then((res) => res.data);
+export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => API.post('/inscription', userInfo)
+  .then((res) => res.data);

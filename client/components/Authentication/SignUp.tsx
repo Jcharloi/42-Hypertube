@@ -15,6 +15,13 @@ import {
 
 import useStyles from './SignUp.styles';
 
+const errosToRemoveOnChange = [
+  requiredErrorKey,
+  requiredPictureErrorKey,
+  'authentication.signUp.error.username.taken',
+  'authentication.signUp.error.email.taken',
+];
+
 const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
@@ -39,18 +46,18 @@ const SignUp = (): ReactElement => {
    * Change State when user is typing in the form
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    if (e.target.type === 'file') {
-      if (validatePicture(e.target.files[0])) {
+    if (e.target.type === 'file' && e.target.files[0]) {
+      const picErr = validatePicture(e.target.files[0]);
+      setUserError({
+        ...userError,
+        picture: picErr,
+      });
+      if (picErr === '') {
         const data = new FormData();
         data.append('file', e.target.files[0]);
         setUserInfo({
           ...userInfo,
           picture: data,
-        });
-      } else {
-        setUserError({
-          ...userError,
-          picture: 'authentication.signUp.error.file',
         });
       }
     } else {
@@ -59,10 +66,8 @@ const SignUp = (): ReactElement => {
         [e.target.name]: e.target.value,
       });
     }
-
     // If error is 'required' type, delete it
-    if (userError[e.target.name] === requiredErrorKey
-    || userError[e.target.name] === requiredPictureErrorKey) {
+    if (errosToRemoveOnChange.includes(userError[e.target.name])) {
       setUserError({
         ...userError,
         [e.target.name]: '',
@@ -75,22 +80,25 @@ const SignUp = (): ReactElement => {
    * - all the filled are complete
    * - mail is valid
    * - password is valid
-   * else set error message
+   * - picture is valid
+   * else set error(s) message(s)
    */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const newUserError = checkRequiredField(userInfo);
-    newUserError.email = userInfo.email === '' || validateEmail(userInfo.email) ? newUserError.email : 'authentication.signUp.error.email';
-    newUserError.password = userInfo.password === '' || validatePassword(userInfo.password) ? newUserError.password : 'authentication.signUp.error.password';
+    newUserError.email = userInfo.email === '' || validateEmail(userInfo.email) ? newUserError.email : 'authentication.signUp.error.email.invalid';
+    newUserError.password = userInfo.password === '' || validatePassword(userInfo.password) ? newUserError.password : 'authentication.signUp.error.password.invalid';
 
     setUserError(newUserError);
     if (!isThereError(newUserError)) {
-      console.log('SENDING ! 😱');
-
       sendSignUpData(userInfo).then((data) => {
         console.log('DONE', data);
-      }).catch((err) => {
-        console.log('Error', err);
+      }).catch(({ response: { data } }) => {
+        setUserError({
+          ...newUserError,
+          username: data.nameTaken ? 'authentication.signUp.error.username.taken' : '',
+          email: data.emailTaken ? 'authentication.signUp.error.email.taken' : '',
+        });
       });
     }
   };
