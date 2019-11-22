@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 import { useIntl } from 'react-intl';
@@ -25,6 +26,7 @@ const errosToRemoveOnChange = [
 const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
+  const [waitingRes, setWaitingRes] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo>({
     username: '',
     password: '',
@@ -91,9 +93,12 @@ const SignUp = (): ReactElement => {
 
     setUserError(newUserError);
     if (!isThereError(newUserError)) {
+      setWaitingRes(true);
       sendSignUpData(userInfo).then((data) => {
+        setWaitingRes(false);
         console.log('DONE', data);
       }).catch(({ response: { data } }) => {
+        setWaitingRes(false);
         setUserError({
           ...newUserError,
           username: data.nameTaken ? 'authentication.signUp.error.username.taken' : '',
@@ -230,7 +235,13 @@ const SignUp = (): ReactElement => {
 
             {/* Send form */}
             <Grid item className={classes.item}>
-              <Button type="submit" variant="contained" size="large" color="primary">{_t({ id: 'authentication.signUp.sendButton' })}</Button>
+              <div className={classes.circularProgressContainer}>
+                <Button type="submit" disabled={waitingRes} variant="contained" size="large" color="primary">
+                  {!waitingRes && _t({ id: 'authentication.signUp.sendButton' })}
+                  {waitingRes && _t({ id: 'authentication.signUp.sendButton.waiting' })}
+                </Button>
+                {waitingRes && (<CircularProgress color="secondary" className={classes.circularProgress} />)}
+              </div>
             </Grid>
           </Grid>
         </form>

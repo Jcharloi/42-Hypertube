@@ -12,6 +12,7 @@
   "authentication.signUp.picture": "Your handsome face",
   "authentication.signUp.uploadButton": "Upload",
   "authentication.signUp.sendButton": "I register on this awesome website",
+  "authentication.signUp.sendButton.waiting": "Sending all your precious data",
   "authentication.signUp.error.required": "This field is riquiered",
   "authentication.signUp.error.required.picture": "Don't be shy, you need to upload a profile picture",
   "authentication.signUp.error.username.taken": "Damn, this username is not available",

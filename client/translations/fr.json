@@ -12,6 +12,7 @@
   "authentication.signUp.picture": "Et ta belle tête de bg",
   "authentication.signUp.uploadButton": "Upload",
   "authentication.signUp.sendButton": "Je m'inscris sur ce site cool",
+  "authentication.signUp.sendButton.waiting": "Envoi de tes préciseuses données en cours",
   "authentication.signUp.error.required": "Ce champs est requis",
   "authentication.signUp.error.required.picture": "Soit pas timide, tu dois fournir une photo de profile",
   "authentication.signUp.error.username.taken": "Mince, ce nom d'utilisateur est pas dispo",

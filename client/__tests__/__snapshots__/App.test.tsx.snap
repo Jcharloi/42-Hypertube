@@ -396,29 +396,33 @@ exports[`App renders correctly 1`] = `
             <div
               className="MuiGrid-root makeStyles-item-123 MuiGrid-item"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="submit"
+              <div
+                className="makeStyles-circularProgressContainer-126"
               >
-                <span
-                  className="MuiButton-label"
+                <button
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="submit"
                 >
-                  I register on this awesome website
-                </span>
-              </button>
+                  <span
+                    className="MuiButton-label"
+                  >
+                    I register on this awesome website
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </form>

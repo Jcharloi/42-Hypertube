@@ -26,6 +26,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     marginTop: '8px',
     fontSize: '12px',
   },
+  circularProgressContainer: {
+    position: 'relative',
+  },
+  circularProgress: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: '-20px',
+    marginLeft: '-20px',
+  },
 }));
 
 export default useStyles;
