@@ -7,7 +7,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Typography from '@material-ui/core/Typography';
 
 import { useIntl } from 'react-intl';
-import useStyles from './SignUp.styles';
+import useStyles from './SignUpForm.styles';
 
 import { UserInfo, UserError } from './SignUp.service';
 

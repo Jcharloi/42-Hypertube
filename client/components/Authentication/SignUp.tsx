@@ -3,23 +3,21 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-
 import { useIntl } from 'react-intl';
 import useStyles from './SignUp.styles';
 
 import SigneUpForm from './SignUpForm';
 
 import {
-  UserInfo, UserError, requiredErrorKey, requiredPictureErrorKey, checkRequiredField,
-  validateEmail, validatePassword, validatePicture, isThereError, sendSignUpData,
+  UserInfo, UserError, requiredErrorKey, usernameTakenErororKey,
+  emailTakenErororKey, checkErrors, getPictureError, isThereError, sendSignUpData,
 } from './SignUp.service';
 
 
 const errosToRemoveOnChange = [
   requiredErrorKey,
-  requiredPictureErrorKey,
-  'authentication.signUp.error.username.taken',
-  'authentication.signUp.error.email.taken',
+  usernameTakenErororKey,
+  emailTakenErororKey,
 ];
 
 const SignUp = (): ReactElement => {
@@ -48,7 +46,7 @@ const SignUp = (): ReactElement => {
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (e.target.type === 'file' && e.target.files[0]) {
-      const picErr = validatePicture(e.target.files[0]);
+      const picErr = getPictureError(e.target.files[0]);
       setUserError({
         ...userError,
         picture: picErr,
@@ -66,13 +64,13 @@ const SignUp = (): ReactElement => {
         ...userInfo,
         [e.target.name]: e.target.value,
       });
-    }
-    // If error is 'required' type, delete it
-    if (errosToRemoveOnChange.includes(userError[e.target.name])) {
-      setUserError({
-        ...userError,
-        [e.target.name]: '',
-      });
+      // If error is 'required' type, delete it
+      if (errosToRemoveOnChange.includes(userError[e.target.name])) {
+        setUserError({
+          ...userError,
+          [e.target.name]: '',
+        });
+      }
     }
   };
 
@@ -86,14 +84,12 @@ const SignUp = (): ReactElement => {
    */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    // todo: keep error like mail/usrname taken ?
-    const newUserError = checkRequiredField(userInfo);
-    newUserError.email = userInfo.email === '' || validateEmail(userInfo.email) ? newUserError.email : 'authentication.signUp.error.email.invalid';
-    newUserError.password = userInfo.password === '' || validatePassword(userInfo.password) ? newUserError.password : 'authentication.signUp.error.password.invalid';
+    const newUserError = checkErrors(userInfo, userError);
 
     setUserError(newUserError);
     if (!isThereError(newUserError)) {
       setWaitingRes(true);
+
       sendSignUpData(userInfo).then((data) => {
         setWaitingRes(false);
         console.log('DONE', data);
@@ -101,8 +97,8 @@ const SignUp = (): ReactElement => {
         setWaitingRes(false);
         setUserError({
           ...newUserError,
-          username: data.nameTaken ? 'authentication.signUp.error.username.taken' : '',
-          email: data.emailTaken ? 'authentication.signUp.error.email.taken' : '',
+          username: data.nameTaken ? usernameTakenErororKey : '',
+          email: data.emailTaken ? emailTakenErororKey : '',
         });
       });
     }

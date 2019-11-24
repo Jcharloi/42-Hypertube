@@ -28,9 +28,43 @@ export interface ApiData {
 
 export const requiredErrorKey = 'authentication.signUp.error.required';
 export const requiredPictureErrorKey = 'authentication.signUp.error.required.picture';
+export const usernameTakenErororKey = 'authentication.signUp.error.username.taken';
+export const emailTakenErororKey = 'authentication.signUp.error.email.taken';
 
-export const checkRequiredField = (userInfo: UserInfo): UserError => {
-  const userError: UserError = {
+
+const serveurError = [usernameTakenErororKey, emailTakenErororKey];
+
+
+const checkRequiredField = (userInfo: UserInfo, newUserError: UserError): UserError => {
+  const newUserErrorCopy: UserError = { ...newUserError };
+  const keys: string[] = Object.keys(userInfo);
+
+  keys.forEach((key) => {
+    if (key === 'picture' && userInfo[key] === null) {
+      newUserErrorCopy[key] = requiredPictureErrorKey;
+    } else if (userInfo[key] === '') {
+      newUserErrorCopy[key] = requiredErrorKey;
+    }
+  });
+
+  return newUserErrorCopy;
+};
+
+const validateEmail = (email: string): boolean => {
+  const reg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  return reg.test(email);
+};
+
+const validatePassword = (password: string): boolean => {
+  const reg = /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/;
+  return reg.test(password);
+};
+
+/**
+ * Check if all field are field and if email/password are valid
+ */
+export const checkErrors = (userInfo: UserInfo, userError: UserError): UserError => {
+  let newUserError: UserError = {
     username: '',
     password: '',
     email: '',
@@ -38,30 +72,30 @@ export const checkRequiredField = (userInfo: UserInfo): UserError => {
     lastName: '',
     picture: '',
   };
-  const keys: string[] = Object.keys(userInfo);
+  const keys: string[] = Object.keys(userError);
 
+  // Just keeping error that are verified by server
   keys.forEach((key) => {
-    if (key === 'picture' && userInfo[key] === null) {
-      userError[key] = requiredPictureErrorKey;
-    } else if (userInfo[key] === '') {
-      userError[key] = requiredErrorKey;
+    if (serveurError.includes(userError[key])) {
+      newUserError[key] = userError[key];
     }
   });
 
-  return userError;
+  newUserError = checkRequiredField(userInfo, newUserError);
+  if (newUserError.email === '') {
+    newUserError.email = validateEmail(userInfo.email) ? newUserError.email : 'authentication.signUp.error.email.invalid';
+  }
+  if (newUserError.password === '') {
+    newUserError.password = validatePassword(userInfo.password) ? newUserError.password : 'authentication.signUp.error.password.invalid';
+  }
+
+  return newUserError;
 };
 
-export const validateEmail = (email: string): boolean => {
-  const reg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-  return reg.test(email);
-};
-
-export const validatePassword = (password: string): boolean => {
-  const reg = /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/;
-  return reg.test(password);
-};
-
-export const validatePicture = (picture: File): string => {
+/**
+ * Check if the picture has a valid type and is not to heavy
+ */
+export const getPictureError = (picture: File): string => {
   const ext = picture.name.split('.').pop();
 
   if (picture.size > 1000000) {
