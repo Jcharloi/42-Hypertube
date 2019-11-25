@@ -100,261 +100,309 @@ exports[`App renders correctly 1`] = `
       <div
         className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
       >
-        <div
-          className="MuiGrid-root makeStyles-titles-121 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
-        >
+        <div>
           <div
-            className="MuiGrid-root MuiGrid-item"
+            className="MuiGrid-root makeStyles-titles-121 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
           >
-            <h3
-              className="MuiTypography-root MuiTypography-h3"
+            <div
+              className="MuiGrid-root MuiGrid-item"
             >
-              Who are you ?
-              <span
-                aria-label="Eyes"
-                role="img"
+              <h3
+                className="MuiTypography-root MuiTypography-h3"
               >
-                 👀
-              </span>
-            </h3>
+                Who are you ?
+                <span
+                  aria-label="Eyes"
+                  role="img"
+                >
+                   👀
+                </span>
+              </h3>
+            </div>
+            <div
+              className="MuiGrid-root makeStyles-subtitle-122 MuiGrid-item"
+            >
+              <h6
+                className="MuiTypography-root MuiTypography-subtitle1"
+              >
+                To access all our film, you're gonna have to register
+                <span
+                  aria-label="Eyes"
+                  role="img"
+                >
+                   🤭
+                </span>
+              </h6>
+            </div>
           </div>
-          <div
-            className="MuiGrid-root makeStyles-subtitle-122 MuiGrid-item"
-          >
-            <h6
-              className="MuiTypography-root MuiTypography-subtitle1"
-            >
-              To access all our film, you're gonna have to register
-              <span
-                aria-label="Eyes"
-                role="img"
-              >
-                 🤭
-              </span>
-            </h6>
-          </div>
-        </div>
-        <form
-          onSubmit={[Function]}
-        >
-          <div
-            className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+          <form
+            onSubmit={[Function]}
           >
             <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-item"
+              className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
             >
               <div
-                className="MuiFormControl-root MuiTextField-root makeStyles-textInput-227"
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-item"
               >
-                <label
-                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                  data-shrink={false}
-                >
-                  Your little username
-                </label>
                 <div
-                  className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                  onClick={[Function]}
+                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-230"
                 >
-                  <input
-                    aria-invalid={false}
-                    autoFocus={true}
-                    className="MuiInputBase-input MuiFilledInput-input"
-                    disabled={false}
-                    maxLength={30}
-                    name="username"
-                    onAnimationStart={[Function]}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
-                </div>
-                
-              </div>
-            </div>
-            <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-item"
-            >
-              <div
-                className="MuiFormControl-root MuiTextField-root makeStyles-textInput-227"
-              >
-                <label
-                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                  data-shrink={false}
-                >
-                  Your top secret password
-                </label>
-                <div
-                  className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                  onClick={[Function]}
-                >
-                  <input
-                    aria-invalid={false}
-                    autoFocus={false}
-                    className="MuiInputBase-input MuiFilledInput-input"
-                    disabled={false}
-                    maxLength={1028}
-                    name="password"
-                    onAnimationStart={[Function]}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    required={false}
-                    type="password"
-                    value=""
-                  />
-                </div>
-                
-              </div>
-            </div>
-            <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-item"
-            >
-              <div
-                className="MuiFormControl-root MuiTextField-root makeStyles-textInput-227"
-              >
-                <label
-                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                  data-shrink={false}
-                >
-                  Your email (so we can spam you)
-                </label>
-                <div
-                  className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                  onClick={[Function]}
-                >
-                  <input
-                    aria-invalid={false}
-                    autoFocus={false}
-                    className="MuiInputBase-input MuiFilledInput-input"
-                    disabled={false}
-                    maxLength={100}
-                    name="email"
-                    onAnimationStart={[Function]}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
-                </div>
-                
-              </div>
-            </div>
-            <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-item"
-            >
-              <div
-                className="MuiFormControl-root MuiTextField-root makeStyles-textInput-227"
-              >
-                <label
-                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                  data-shrink={false}
-                >
-                  Your first name
-                </label>
-                <div
-                  className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                  onClick={[Function]}
-                >
-                  <input
-                    aria-invalid={false}
-                    autoFocus={false}
-                    className="MuiInputBase-input MuiFilledInput-input"
-                    disabled={false}
-                    maxLength={30}
-                    name="firstName"
-                    onAnimationStart={[Function]}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
-                </div>
-                
-              </div>
-            </div>
-            <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-item"
-            >
-              <div
-                className="MuiFormControl-root MuiTextField-root makeStyles-textInput-227"
-              >
-                <label
-                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                  data-shrink={false}
-                >
-                  Your last name
-                </label>
-                <div
-                  className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                  onClick={[Function]}
-                >
-                  <input
-                    aria-invalid={false}
-                    autoFocus={false}
-                    className="MuiInputBase-input MuiFilledInput-input"
-                    disabled={false}
-                    maxLength={30}
-                    name="lastName"
-                    onAnimationStart={[Function]}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
-                </div>
-                
-              </div>
-            </div>
-            <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
-            >
-              <div
-                className="MuiGrid-root MuiGrid-item"
-              >
-                <p
-                  className="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
-                >
-                  Your handsome face
-                  <span
-                    aria-label="Arm taking a selfie"
-                    role="img"
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink={false}
                   >
-                     🤳
-                  </span>
-                </p>
+                    Your little username
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={true}
+                      className="MuiInputBase-input MuiFilledInput-input"
+                      disabled={false}
+                      maxLength={30}
+                      name="username"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  
+                </div>
               </div>
               <div
-                className="MuiGrid-root MuiGrid-item"
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-item"
               >
-                <label
-                  htmlFor="raised-button-file"
+                <div
+                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-230"
                 >
-                  <input
-                    accept="image/*"
-                    id="raised-button-file"
-                    multiple={true}
-                    name="picture"
-                    onChange={[Function]}
-                    style={
-                      Object {
-                        "display": "none",
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink={false}
+                  >
+                    Your top secret password
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={false}
+                      className="MuiInputBase-input MuiFilledInput-input"
+                      disabled={false}
+                      maxLength={1028}
+                      name="password"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={false}
+                      type="password"
+                      value=""
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+              <div
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-item"
+              >
+                <div
+                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-230"
+                >
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink={false}
+                  >
+                    Your email (so we can spam you)
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={false}
+                      className="MuiInputBase-input MuiFilledInput-input"
+                      disabled={false}
+                      maxLength={100}
+                      name="email"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+              <div
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-item"
+              >
+                <div
+                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-230"
+                >
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink={false}
+                  >
+                    Your first name
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={false}
+                      className="MuiInputBase-input MuiFilledInput-input"
+                      disabled={false}
+                      maxLength={30}
+                      name="firstName"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+              <div
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-item"
+              >
+                <div
+                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-230"
+                >
+                  <label
+                    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                    data-shrink={false}
+                  >
+                    Your last name
+                  </label>
+                  <div
+                    className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                    onClick={[Function]}
+                  >
+                    <input
+                      aria-invalid={false}
+                      autoFocus={false}
+                      className="MuiInputBase-input MuiFilledInput-input"
+                      disabled={false}
+                      maxLength={30}
+                      name="lastName"
+                      onAnimationStart={[Function]}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+              <div
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+              >
+                <div
+                  className="MuiGrid-root MuiGrid-item"
+                >
+                  <p
+                    className="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
+                  >
+                    Your handsome face
+                    <span
+                      aria-label="Arm taking a selfie"
+                      role="img"
+                    >
+                       🤳
+                    </span>
+                  </p>
+                </div>
+                <div
+                  className="MuiGrid-root MuiGrid-item"
+                >
+                  <label
+                    htmlFor="raised-button-file"
+                  >
+                    <input
+                      accept="image/*"
+                      id="raised-button-file"
+                      multiple={true}
+                      name="picture"
+                      onChange={[Function]}
+                      style={
+                        Object {
+                          "display": "none",
+                        }
                       }
-                    }
-                    type="file"
-                  />
-                  <span
-                    aria-disabled={false}
-                    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                      type="file"
+                    />
+                    <span
+                      aria-disabled={false}
+                      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                      onBlur={[Function]}
+                      onDragLeave={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onKeyUp={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      onTouchEnd={[Function]}
+                      onTouchMove={[Function]}
+                      onTouchStart={[Function]}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <span
+                        className="MuiButton-label"
+                      >
+                        <span
+                          className="MuiButton-startIcon MuiButton-iconSizeMedium"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="MuiSvgIcon-root"
+                            focusable="false"
+                            role="presentation"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                            />
+                          </svg>
+                        </span>
+                        Upload
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="MuiGrid-root makeStyles-item-229 MuiGrid-item"
+              >
+                <div
+                  className="makeStyles-circularProgressContainer-232"
+                >
+                  <button
+                    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                    disabled={false}
                     onBlur={[Function]}
                     onDragLeave={[Function]}
                     onFocus={[Function]}
@@ -366,66 +414,20 @@ exports[`App renders correctly 1`] = `
                     onTouchEnd={[Function]}
                     onTouchMove={[Function]}
                     onTouchStart={[Function]}
-                    role="button"
                     tabIndex={0}
+                    type="submit"
                   >
                     <span
                       className="MuiButton-label"
                     >
-                      <span
-                        className="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="MuiSvgIcon-root"
-                          focusable="false"
-                          role="presentation"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
-                          />
-                        </svg>
-                      </span>
-                      Upload
+                      I register on this awesome website
                     </span>
-                  </span>
-                </label>
+                  </button>
+                </div>
               </div>
             </div>
-            <div
-              className="MuiGrid-root makeStyles-item-226 MuiGrid-item"
-            >
-              <div
-                className="makeStyles-circularProgressContainer-229"
-              >
-                <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onDragLeave={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchEnd={[Function]}
-                  onTouchMove={[Function]}
-                  onTouchStart={[Function]}
-                  tabIndex={0}
-                  type="submit"
-                >
-                  <span
-                    className="MuiButton-label"
-                  >
-                    I register on this awesome website
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
     <div>

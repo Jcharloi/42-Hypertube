@@ -2,6 +2,8 @@ import React, { ReactElement, ChangeEvent, useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
+import EmailIcon from '@material-ui/icons/Email';
 
 import { useIntl } from 'react-intl';
 import useStyles from './SignUp.styles';
@@ -13,7 +15,6 @@ import {
   emailTakenErororKey, checkErrors, getPictureError, isThereError, sendSignUpData,
 } from './SignUp.service';
 
-
 const errosToRemoveOnChange = [
   requiredErrorKey,
   usernameTakenErororKey,
@@ -24,6 +25,7 @@ const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [waitingRes, setWaitingRes] = useState(false);
+  const [validForm, setvValidForm] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo>({
     username: '',
     password: '',
@@ -93,6 +95,7 @@ const SignUp = (): ReactElement => {
       sendSignUpData(userInfo).then((data) => {
         setWaitingRes(false);
         console.log('DONE', data);
+        setvValidForm(true);
       }).catch(({ response: { data } }) => {
         setWaitingRes(false);
         setUserError({
@@ -107,28 +110,65 @@ const SignUp = (): ReactElement => {
   return (
     <Paper className={classes.page}>
       <Grid container direction="column" alignItems="center">
-        <Grid container direction="column" alignItems="center" className={classes.titles}>
-          <Grid item>
-            <Typography variant="h3">
-              {_t({ id: 'authentication.signUp.title' })}
-              <span role="img" aria-label="Eyes"> 👀</span>
-            </Typography>
-          </Grid>
-          <Grid item className={classes.subtitle}>
-            <Typography variant="subtitle1">
-              {_t({ id: 'authentication.signUp.subtitle' })}
-              <span role="img" aria-label="Eyes"> 🤭</span>
-            </Typography>
-          </Grid>
-        </Grid>
+        {!validForm && (
+          <div>
+            <Grid container direction="column" alignItems="center" className={classes.titles}>
+              <Grid item>
+                <Typography variant="h3">
+                  {_t({ id: 'authentication.signUp.title' })}
+                  <span role="img" aria-label="Eyes"> 👀</span>
+                </Typography>
+              </Grid>
+              <Grid item className={classes.subtitle}>
+                <Typography variant="subtitle1">
+                  {_t({ id: 'authentication.signUp.subtitle' })}
+                  <span role="img" aria-label="Eyes"> 🤭</span>
+                </Typography>
+              </Grid>
+            </Grid>
 
-        <SigneUpForm
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-          userInfo={userInfo}
-          userError={userError}
-          waitingRes={waitingRes}
-        />
+            <SigneUpForm
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+              userInfo={userInfo}
+              userError={userError}
+              waitingRes={waitingRes}
+            />
+          </div>
+        )}
+
+        {validForm && (
+          <Grid container direction="column" alignItems="center" className={classes.titles}>
+            <Grid item>
+              <Typography variant="h4">
+                {`${_t({ id: 'authentication.signUp.validForm.title' })} ${userInfo.firstName}`}
+                <span role="img" aria-label="Waving hand"> 👋🏻</span>
+              </Typography>
+            </Grid>
+            <Grid container direction="row" justify="center">
+              <Grid item>
+                <Avatar className={classes.emailRound}>
+                  <EmailIcon color="secondary" className={classes.emailIcon} />
+                </Avatar>
+              </Grid>
+              <Grid item>
+                <Grid container direction="column" justify="center" className={classes.randomWrapper}>
+                  <Grid item className={classes.subtitle}>
+                    <Typography variant="subtitle1">
+                      {_t({ id: 'authentication.signUp.validForm.checkMail' })}
+                    </Typography>
+                  </Grid>
+                  <Grid item className={classes.subtitle}>
+                    <Typography variant="subtitle1">
+                      {_t({ id: 'authentication.signUp.validForm.bingeWatching' })}
+                      <span role="img" aria-label="Shush guy"> 🤫</span>
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        )}
 
       </Grid>
     </Paper>

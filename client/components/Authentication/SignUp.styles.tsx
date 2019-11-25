@@ -14,6 +14,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   subtitle: {
     marginTop: `${theme.spacing(1)}px`,
   },
+  emailRound: {
+    width: '80px',
+    height: '80px',
+    backgroundColor: theme.palette.primary.main,
+    margin: `${theme.spacing(3)}px`,
+  },
+  emailIcon: {
+    fontSize: '50px',
+  },
+  randomWrapper: {
+    height: '100%',
+  },
 }));
 
 export default useStyles;

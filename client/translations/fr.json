@@ -20,5 +20,8 @@
   "authentication.signUp.error.email.taken": "Oups, cette adresse email est déja utilisé",
   "authentication.signUp.error.password.invalid": "Ton mot de passe doit comporter au minimum 8 caractères, avec au moins une lettre minuscule, une lettre majuscule et un chiffre.",
   "authentication.signUp.error.picture.tooHeavy": "Ouch, ton image est trop grosse, prend en une qui fais moins de 1Mo",
-  "authentication.signUp.error.picture.wrongType": "ha désolé, on accepte que les .jpeg, .jpg et .png"
+  "authentication.signUp.error.picture.wrongType": "ha désolé, on accepte que les .jpeg, .jpg et .png",
+  "authentication.signUp.validForm.title": "Bienvenue",
+  "authentication.signUp.validForm.checkMail": "Maitenant t'as juste à validé tom mail",
+  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher"
 }
