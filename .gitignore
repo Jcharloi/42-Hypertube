@@ -1,7 +1,5 @@
 node_modules/
-
 dist/
-
+data/
 .eslintcache
-
 .DS_STORE

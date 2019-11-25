@@ -61,11 +61,9 @@ const SignUp = (): ReactElement => {
         picture: picErr
       });
       if (picErr === "") {
-        const data = new FormData();
-        data.append("file", e.target.files[0]);
         setUserInfo({
           ...userInfo,
-          picture: data
+          picture: e.target.files[0]
         });
       }
     } else {
@@ -190,7 +188,7 @@ const SignUp = (): ReactElement => {
                 >
                   <Grid item className={classes.subtitle}>
                     <Typography variant="subtitle1">
-                      {_t({ id: "authentication.signUp.validForm.checkMail" })}
+                      {_t({ id: "authentication.signUp.validForm.checkEmail" })}
                     </Typography>
                   </Grid>
                   <Grid item className={classes.subtitle}>

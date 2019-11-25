@@ -6,8 +6,8 @@ export interface UserInfo {
   email: string;
   firstName: string;
   lastName: string;
-  picture: FormData;
-  [key: string]: string | FormData;
+  picture: File;
+  [key: string]: string | File;
 }
 
 export interface UserError {
@@ -132,5 +132,17 @@ export const isThereError = (userError: UserError): boolean => {
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> =>
-  API.post("/inscription", userInfo).then((res) => res.data);
+export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => {
+  const data = new FormData();
+  const keys: string[] = Object.keys(userInfo);
+
+  keys.forEach((key) => {
+    data.append(key, userInfo[key]);
+  });
+  return API({
+    method: "post",
+    url: "/inscription",
+    headers: { "Content-Type": "multipart/form-data" },
+    data
+  }).then((res) => res.data);
+};
