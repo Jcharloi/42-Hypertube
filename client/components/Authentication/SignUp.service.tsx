@@ -1,4 +1,4 @@
-import API from '../../helpers/api';
+import API from "../../helpers/api";
 
 export interface UserInfo {
   username: string;
@@ -26,23 +26,26 @@ export interface ApiData {
   emailTaken: boolean;
 }
 
-export const requiredErrorKey = 'authentication.signUp.error.required';
-export const requiredPictureErrorKey = 'authentication.signUp.error.required.picture';
-export const usernameTakenErororKey = 'authentication.signUp.error.username.taken';
-export const emailTakenErororKey = 'authentication.signUp.error.email.taken';
-
+export const requiredErrorKey = "authentication.signUp.error.required";
+export const requiredPictureErrorKey =
+  "authentication.signUp.error.required.picture";
+export const usernameTakenErororKey =
+  "authentication.signUp.error.username.taken";
+export const emailTakenErororKey = "authentication.signUp.error.email.taken";
 
 const serveurError = [usernameTakenErororKey, emailTakenErororKey];
 
-
-const checkRequiredField = (userInfo: UserInfo, newUserError: UserError): UserError => {
+const checkRequiredField = (
+  userInfo: UserInfo,
+  newUserError: UserError
+): UserError => {
   const newUserErrorCopy: UserError = { ...newUserError };
   const keys: string[] = Object.keys(userInfo);
 
   keys.forEach((key) => {
-    if (key === 'picture' && userInfo[key] === null) {
+    if (key === "picture" && userInfo[key] === null) {
       newUserErrorCopy[key] = requiredPictureErrorKey;
-    } else if (userInfo[key] === '') {
+    } else if (userInfo[key] === "") {
       newUserErrorCopy[key] = requiredErrorKey;
     }
   });
@@ -63,14 +66,17 @@ const validatePassword = (password: string): boolean => {
 /**
  * Check if all field are field and if email/password are valid
  */
-export const checkErrors = (userInfo: UserInfo, userError: UserError): UserError => {
+export const checkErrors = (
+  userInfo: UserInfo,
+  userError: UserError
+): UserError => {
   let newUserError: UserError = {
-    username: '',
-    password: '',
-    email: '',
-    firstName: '',
-    lastName: '',
-    picture: '',
+    username: "",
+    password: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    picture: ""
   };
   const keys: string[] = Object.keys(userError);
 
@@ -82,11 +88,15 @@ export const checkErrors = (userInfo: UserInfo, userError: UserError): UserError
   });
 
   newUserError = checkRequiredField(userInfo, newUserError);
-  if (newUserError.email === '') {
-    newUserError.email = validateEmail(userInfo.email) ? newUserError.email : 'authentication.signUp.error.email.invalid';
+  if (newUserError.email === "") {
+    newUserError.email = validateEmail(userInfo.email)
+      ? newUserError.email
+      : "authentication.signUp.error.email.invalid";
   }
-  if (newUserError.password === '') {
-    newUserError.password = validatePassword(userInfo.password) ? newUserError.password : 'authentication.signUp.error.password.invalid';
+  if (newUserError.password === "") {
+    newUserError.password = validatePassword(userInfo.password)
+      ? newUserError.password
+      : "authentication.signUp.error.password.invalid";
   }
 
   return newUserError;
@@ -96,16 +106,18 @@ export const checkErrors = (userInfo: UserInfo, userError: UserError): UserError
  * Check if the picture has a valid type and is not to heavy
  */
 export const getPictureError = (picture: File): string => {
-  const ext = picture.name.split('.').pop();
+  const ext = picture.name.split(".").pop();
 
   if (picture.size > 1000000) {
-    return 'authentication.signUp.error.picture.tooHeavy';
+    return "authentication.signUp.error.picture.tooHeavy";
   }
-  if (!(picture.type === 'image/png' && ext === 'png')
-  && !(picture.type === 'image/jpeg' && (ext === 'jpeg' || ext === 'jpg'))) {
-    return 'authentication.signUp.error.picture.wrongType';
+  if (
+    !(picture.type === "image/png" && ext === "png") &&
+    !(picture.type === "image/jpeg" && (ext === "jpeg" || ext === "jpg"))
+  ) {
+    return "authentication.signUp.error.picture.wrongType";
   }
-  return '';
+  return "";
 };
 
 export const isThereError = (userError: UserError): boolean => {
@@ -113,12 +125,12 @@ export const isThereError = (userError: UserError): boolean => {
   let error = false;
 
   keys.forEach((key) => {
-    if (userError[key] !== '') {
+    if (userError[key] !== "") {
       error = true;
     }
   });
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => API.post('/inscription', userInfo)
-  .then((res) => res.data);
+export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> =>
+  API.post("/inscription", userInfo).then((res) => res.data);

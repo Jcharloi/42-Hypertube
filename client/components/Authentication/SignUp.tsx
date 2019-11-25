@@ -1,24 +1,31 @@
-import React, { ReactElement, ChangeEvent, useState } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import EmailIcon from '@material-ui/icons/Email';
+import React, { ReactElement, ChangeEvent, useState } from "react";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Avatar from "@material-ui/core/Avatar";
+import EmailIcon from "@material-ui/icons/Email";
 
-import { useIntl } from 'react-intl';
-import useStyles from './SignUp.styles';
+import { useIntl } from "react-intl";
+import useStyles from "./SignUp.styles";
 
-import SigneUpForm from './SignUpForm';
+import SigneUpForm from "./SignUpForm";
 
 import {
-  UserInfo, UserError, requiredErrorKey, usernameTakenErororKey,
-  emailTakenErororKey, checkErrors, getPictureError, isThereError, sendSignUpData,
-} from './SignUp.service';
+  UserInfo,
+  UserError,
+  requiredErrorKey,
+  usernameTakenErororKey,
+  emailTakenErororKey,
+  checkErrors,
+  getPictureError,
+  isThereError,
+  sendSignUpData
+} from "./SignUp.service";
 
 const errosToRemoveOnChange = [
   requiredErrorKey,
   usernameTakenErororKey,
-  emailTakenErororKey,
+  emailTakenErororKey
 ];
 
 const SignUp = (): ReactElement => {
@@ -27,50 +34,50 @@ const SignUp = (): ReactElement => {
   const [waitingRes, setWaitingRes] = useState(false);
   const [validForm, setvValidForm] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo>({
-    username: '',
-    password: '',
-    email: '',
-    firstName: '',
-    lastName: '',
-    picture: null,
+    username: "",
+    password: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    picture: null
   });
   const [userError, setUserError] = useState<UserError>({
-    username: '',
-    password: '',
-    email: '',
-    firstName: '',
-    lastName: '',
-    picture: '',
+    username: "",
+    password: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    picture: ""
   });
 
   /**
    * Change State when user is typing in the form
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    if (e.target.type === 'file' && e.target.files[0]) {
+    if (e.target.type === "file" && e.target.files[0]) {
       const picErr = getPictureError(e.target.files[0]);
       setUserError({
         ...userError,
-        picture: picErr,
+        picture: picErr
       });
-      if (picErr === '') {
+      if (picErr === "") {
         const data = new FormData();
-        data.append('file', e.target.files[0]);
+        data.append("file", e.target.files[0]);
         setUserInfo({
           ...userInfo,
-          picture: data,
+          picture: data
         });
       }
     } else {
       setUserInfo({
         ...userInfo,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value
       });
       // If error is 'required' type, delete it
       if (errosToRemoveOnChange.includes(userError[e.target.name])) {
         setUserError({
           ...userError,
-          [e.target.name]: '',
+          [e.target.name]: ""
         });
       }
     }
@@ -92,18 +99,20 @@ const SignUp = (): ReactElement => {
     if (!isThereError(newUserError)) {
       setWaitingRes(true);
 
-      sendSignUpData(userInfo).then((data) => {
-        setWaitingRes(false);
-        console.log('DONE', data);
-        setvValidForm(true);
-      }).catch(({ response: { data } }) => {
-        setWaitingRes(false);
-        setUserError({
-          ...newUserError,
-          username: data.nameTaken ? usernameTakenErororKey : '',
-          email: data.emailTaken ? emailTakenErororKey : '',
+      sendSignUpData(userInfo)
+        .then((data) => {
+          setWaitingRes(false);
+          console.log("DONE", data);
+          setvValidForm(true);
+        })
+        .catch(({ response: { data } }) => {
+          setWaitingRes(false);
+          setUserError({
+            ...newUserError,
+            username: data.nameTaken ? usernameTakenErororKey : "",
+            email: data.emailTaken ? emailTakenErororKey : ""
+          });
         });
-      });
     }
   };
 
@@ -112,17 +121,28 @@ const SignUp = (): ReactElement => {
       <Grid container direction="column" alignItems="center">
         {!validForm && (
           <div>
-            <Grid container direction="column" alignItems="center" className={classes.titles}>
+            <Grid
+              container
+              direction="column"
+              alignItems="center"
+              className={classes.titles}
+            >
               <Grid item>
                 <Typography variant="h3">
-                  {_t({ id: 'authentication.signUp.title' })}
-                  <span role="img" aria-label="Eyes"> 👀</span>
+                  {_t({ id: "authentication.signUp.title" })}
+                  <span role="img" aria-label="Eyes">
+                    {" "}
+                    👀
+                  </span>
                 </Typography>
               </Grid>
               <Grid item className={classes.subtitle}>
                 <Typography variant="subtitle1">
-                  {_t({ id: 'authentication.signUp.subtitle' })}
-                  <span role="img" aria-label="Eyes"> 🤭</span>
+                  {_t({ id: "authentication.signUp.subtitle" })}
+                  <span role="img" aria-label="Eyes">
+                    {" "}
+                    🤭
+                  </span>
                 </Typography>
               </Grid>
             </Grid>
@@ -138,11 +158,21 @@ const SignUp = (): ReactElement => {
         )}
 
         {validForm && (
-          <Grid container direction="column" alignItems="center" className={classes.titles}>
+          <Grid
+            container
+            direction="column"
+            alignItems="center"
+            className={classes.titles}
+          >
             <Grid item>
               <Typography variant="h4">
-                {`${_t({ id: 'authentication.signUp.validForm.title' })} ${userInfo.firstName}`}
-                <span role="img" aria-label="Waving hand"> 👋🏻</span>
+                {`${_t({ id: "authentication.signUp.validForm.title" })} ${
+                  userInfo.firstName
+                }`}
+                <span role="img" aria-label="Waving hand">
+                  {" "}
+                  👋🏻
+                </span>
               </Typography>
             </Grid>
             <Grid container direction="row" justify="center">
@@ -152,16 +182,26 @@ const SignUp = (): ReactElement => {
                 </Avatar>
               </Grid>
               <Grid item>
-                <Grid container direction="column" justify="center" className={classes.randomWrapper}>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  className={classes.randomWrapper}
+                >
                   <Grid item className={classes.subtitle}>
                     <Typography variant="subtitle1">
-                      {_t({ id: 'authentication.signUp.validForm.checkMail' })}
+                      {_t({ id: "authentication.signUp.validForm.checkMail" })}
                     </Typography>
                   </Grid>
                   <Grid item className={classes.subtitle}>
                     <Typography variant="subtitle1">
-                      {_t({ id: 'authentication.signUp.validForm.bingeWatching' })}
-                      <span role="img" aria-label="Shush guy"> 🤫</span>
+                      {_t({
+                        id: "authentication.signUp.validForm.bingeWatching"
+                      })}
+                      <span role="img" aria-label="Shush guy">
+                        {" "}
+                        🤫
+                      </span>
                     </Typography>
                   </Grid>
                 </Grid>
@@ -169,7 +209,6 @@ const SignUp = (): ReactElement => {
             </Grid>
           </Grid>
         )}
-
       </Grid>
     </Paper>
   );

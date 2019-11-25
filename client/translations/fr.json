@@ -1,6 +1,10 @@
 {
-  "title" : "HyperTube",
+  "title": "Nethub",
   "search": "Rechercher ...",
+  "language.fr": "🇫🇷",
+  "language.en": "🇬🇧",
+  "profile": "Mon profile",
+  "disconnect": "Se déconnecter",
 
   "authentication.signUp.title": "Qui es-tu ?",
   "authentication.signUp.subtitle": "Pour pouvoir acceder a tous nos films il va falloir s'inscrire",

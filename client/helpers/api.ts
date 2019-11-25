@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default axios.create({
   baseURL: `${window.location.origin}/API`,
-  responseType: 'json',
+  responseType: "json"
 });

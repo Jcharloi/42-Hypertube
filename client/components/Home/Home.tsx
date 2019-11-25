@@ -1,11 +1,15 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from "react";
 
-import useApi from '../../hooks/useApi';
+import useApi from "../../hooks/useApi";
 
-import Authentication from '../Authentication/Authentication';
+import Authentication from "../Authentication/Authentication";
 
 const Home = (): ReactElement => {
-  const { data: { validToken }, loading, error } = useApi('http://localhost:8080/API/check-token');
+  const {
+    data: { validToken },
+    loading,
+    error
+  } = useApi("/check-token");
 
   if (error) {
     return <div>Error</div>;
@@ -17,11 +21,7 @@ const Home = (): ReactElement => {
     return <Authentication />;
   }
 
-  return (
-    <div>
-            Home sweet home;
-    </div>
-  );
+  return <div>Home sweet home;</div>;
 };
 
 export default Home;

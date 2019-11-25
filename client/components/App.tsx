@@ -1,32 +1,29 @@
-import React, { ReactElement } from 'react';
-import { IntlProvider } from 'react-intl';
-import { hot } from 'react-hot-loader/root';
-import {
-  Router, Switch, Route, Link,
-} from 'react-router-dom';
+import React, { ReactElement } from "react";
+import { IntlProvider } from "react-intl";
+import { hot } from "react-hot-loader/root";
+import { Router, Switch, Route, Link } from "react-router-dom";
 
-import history from '../helpers/history';
+import history from "../helpers/history";
 
-import enTranslation from '../translations/en.json';
-import frTranslation from '../translations/fr.json';
+import enTranslation from "../translations/en.json";
+import frTranslation from "../translations/fr.json";
 
-import CustomRoute from './Routes/CustomRoute';
-import Layout from './Layout';
-import Authentication from './Authentication/Authentication';
-import Home from './Home/Home';
-
+import CustomRoute from "./Routes/CustomRoute";
+import Layout from "./Layout";
+import Authentication from "./Authentication/Authentication";
+import Home from "./Home/Home";
 
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
-  fr: frTranslation,
+  fr: frTranslation
 };
 
 const App = (): ReactElement => {
-  const [locale] = React.useState('en');
+  const [locale, setLocale] = React.useState("en");
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <Layout>
+      <Layout locale={locale} setLocale={setLocale}>
         <Router history={history}>
           <Switch>
             <CustomRoute
@@ -47,17 +44,11 @@ const App = (): ReactElement => {
               component={Authentication}
               requireAuth={false}
             />
-            <Route
-              exact
-              path="/"
-              component={Home}
-            />
+            <Route exact path="/" component={Home} />
             <Route
               component={(): ReactElement => (
                 <div>
-                  Not found, go to
-                  {' '}
-                  <Link to="/">root</Link>
+                  Not found, go to <Link to="/">root</Link>
                 </div>
               )}
             />
