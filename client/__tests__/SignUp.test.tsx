@@ -14,7 +14,7 @@ import {
 } from "../components/Authentication/SignUp.service";
 
 describe("SignUp", () => {
-  it("should return error when a field is empty", () => {
+  it("should return an error when a field is empty", () => {
     const mockUserInfo: UserInfo = {
       username: "",
       password: "",
