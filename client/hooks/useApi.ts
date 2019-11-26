@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import API from "../helpers/api";
+import API from "../util/api";
 
 import { Fixture } from "../models/models";
 

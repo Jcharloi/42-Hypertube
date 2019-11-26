@@ -1,4 +1,4 @@
-import API from "../../helpers/api";
+import API from "../../util/api";
 
 export interface UserInfo {
   username: string;
