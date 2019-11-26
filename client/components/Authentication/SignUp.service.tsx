@@ -35,7 +35,7 @@ export const emailTakenErororKey = "authentication.signUp.error.email.taken";
 
 const serveurError = [usernameTakenErororKey, emailTakenErororKey];
 
-const checkRequiredField = (
+export const checkRequiredField = (
   userInfo: UserInfo,
   newUserError: UserError
 ): UserError => {
