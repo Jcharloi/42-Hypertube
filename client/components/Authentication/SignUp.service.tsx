@@ -29,11 +29,13 @@ export interface ApiData {
 export const requiredErrorKey = "authentication.signUp.error.required";
 export const requiredPictureErrorKey =
   "authentication.signUp.error.required.picture";
-export const usernameTakenErororKey =
+export const emailInvalidErrorKey = "authentication.signUp.error.email.invalid";
+export const passwordInvalidErrorKey = "authentication.signUp.error.password.invalid";
+export const usernameTakenErrorKey =
   "authentication.signUp.error.username.taken";
-export const emailTakenErororKey = "authentication.signUp.error.email.taken";
+export const emailTakenErrorKey = "authentication.signUp.error.email.taken";
 
-const serveurError = [usernameTakenErororKey, emailTakenErororKey];
+const serveurError = [usernameTakenErrorKey, emailTakenErrorKey];
 
 export const checkRequiredField = (
   userInfo: UserInfo,
@@ -88,15 +90,11 @@ export const checkErrors = (
   });
 
   newUserError = checkRequiredField(userInfo, newUserError);
-  if (newUserError.email === "") {
-    newUserError.email = validateEmail(userInfo.email)
-      ? newUserError.email
-      : "authentication.signUp.error.email.invalid";
+  if (newUserError.email === "" && !validateEmail(userInfo.email)) {
+    newUserError.email = emailInvalidErrorKey;
   }
-  if (newUserError.password === "") {
-    newUserError.password = validatePassword(userInfo.password)
-      ? newUserError.password
-      : "authentication.signUp.error.password.invalid";
+  if (newUserError.password === "" && !validatePassword(userInfo.password)) {
+    newUserError.password = passwordInvalidErrorKey;
   }
 
   return newUserError;

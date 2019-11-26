@@ -1,11 +1,16 @@
 import {
   UserInfo,
-  checkRequiredField,
+  UserError,
   requiredErrorKey,
   requiredPictureErrorKey,
+  checkRequiredField,
   validateEmail,
   validatePassword,
-  UserError
+  checkErrors,
+  emailTakenErrorKey,
+  usernameTakenErrorKey,
+  emailInvalidErrorKey,
+  passwordInvalidErrorKey
 } from "../components/Authentication/SignUp.service";
 
 describe("SignUp", () => {
@@ -97,5 +102,76 @@ describe("SignUp", () => {
     expect(validatePassword("toto5679")).toBeFalsy();
     expect(validatePassword("TOTO5679")).toBeFalsy();
     expect(validatePassword("Toto12")).toBeFalsy();
+  });
+
+  it("should return the good errors key", () => {
+    const mockUserInfo: UserInfo = {
+      username: "Xx_toto_xX",
+      password: "Password1",
+      email: "toto@gmail.com",
+      firstName: "Toto",
+      lastName: "Mountbatten",
+      picture: new File([""], "maTeteDeBG.png", {
+        type: "image/png"
+      })
+    };
+    const mockUserError: UserError = {
+      username: "",
+      password: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      picture: ""
+    };
+
+    // Valid User
+    expect(checkErrors(mockUserInfo, mockUserError)).toEqual({
+      username: "",
+      password: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      picture: ""
+    });
+
+    // Keep server errors (ex: username/email taken)
+    mockUserError.username = usernameTakenErrorKey;
+    mockUserError.email = emailTakenErrorKey;
+    expect(checkErrors(mockUserInfo, mockUserError)).toEqual({
+      username: usernameTakenErrorKey,
+      password: "",
+      email: emailTakenErrorKey,
+      firstName: "",
+      lastName: "",
+      picture: ""
+    });
+
+    // Change from no error (email) or required error (password) to invalid error key
+    mockUserError.username = "";
+    mockUserError.password = requiredErrorKey;
+    mockUserError.email = "";
+    mockUserInfo.email = "toto@";
+    mockUserInfo.password = "password";
+    expect(checkErrors(mockUserInfo, mockUserError)).toEqual({
+      username: "",
+      password: passwordInvalidErrorKey,
+      email: emailInvalidErrorKey,
+      firstName: "",
+      lastName: "",
+      picture: ""
+    });
+
+    // Change from no error (email) or invalid error (password) to required error key
+    mockUserError.password = passwordInvalidErrorKey;
+    mockUserInfo.email = "";
+    mockUserInfo.password = "";
+    expect(checkErrors(mockUserInfo, mockUserError)).toEqual({
+      username: "",
+      password: requiredErrorKey,
+      email: requiredErrorKey,
+      firstName: "",
+      lastName: "",
+      picture: ""
+    });
   });
 });

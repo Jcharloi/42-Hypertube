@@ -14,8 +14,8 @@ import {
   UserInfo,
   UserError,
   requiredErrorKey,
-  usernameTakenErororKey,
-  emailTakenErororKey,
+  usernameTakenErrorKey,
+  emailTakenErrorKey,
   checkErrors,
   getPictureError,
   isThereError,
@@ -24,8 +24,8 @@ import {
 
 const errosToRemoveOnChange = [
   requiredErrorKey,
-  usernameTakenErororKey,
-  emailTakenErororKey
+  usernameTakenErrorKey,
+  emailTakenErrorKey
 ];
 
 const SignUp = (): ReactElement => {
@@ -107,8 +107,8 @@ const SignUp = (): ReactElement => {
           setWaitingRes(false);
           setUserError({
             ...newUserError,
-            username: data.nameTaken ? usernameTakenErororKey : "",
-            email: data.emailTaken ? emailTakenErororKey : ""
+            username: data.nameTaken ? usernameTakenErrorKey : "",
+            email: data.emailTaken ? emailTakenErrorKey : ""
           });
         });
     }
