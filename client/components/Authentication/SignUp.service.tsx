@@ -53,12 +53,12 @@ const checkRequiredField = (
   return newUserErrorCopy;
 };
 
-const validateEmail = (email: string): boolean => {
+export const validateEmail = (email: string): boolean => {
   const reg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
   return reg.test(email);
 };
 
-const validatePassword = (password: string): boolean => {
+export const validatePassword = (password: string): boolean => {
   const reg = /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/;
   return reg.test(password);
 };
