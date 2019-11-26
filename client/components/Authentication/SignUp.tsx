@@ -126,7 +126,7 @@ const SignUp = (): ReactElement => {
               className={classes.titles}
             >
               <Grid item>
-                <Typography variant="h3">
+                <Typography variant="h3" align="center">
                   {_t({ id: "authentication.signUp.title" })}
                   <span role="img" aria-label="Eyes">
                     {" "}
@@ -135,7 +135,7 @@ const SignUp = (): ReactElement => {
                 </Typography>
               </Grid>
               <Grid item className={classes.subtitle}>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" align="center">
                   {_t({ id: "authentication.signUp.subtitle" })}
                   <span role="img" aria-label="Eyes">
                     {" "}
@@ -163,7 +163,7 @@ const SignUp = (): ReactElement => {
             className={classes.titles}
           >
             <Grid item>
-              <Typography variant="h4">
+              <Typography variant="h4" align="center">
                 {`${_t({ id: "authentication.signUp.validForm.title" })} ${
                   userInfo.firstName
                 }`}
@@ -187,12 +187,12 @@ const SignUp = (): ReactElement => {
                   className={classes.randomWrapper}
                 >
                   <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1">
+                    <Typography variant="subtitle1" align="center">
                       {_t({ id: "authentication.signUp.validForm.checkEmail" })}
                     </Typography>
                   </Grid>
                   <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1">
+                    <Typography variant="subtitle1" align="center">
                       {_t({
                         id: "authentication.signUp.validForm.bingeWatching"
                       })}

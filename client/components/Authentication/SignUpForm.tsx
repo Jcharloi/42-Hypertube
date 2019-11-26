@@ -149,7 +149,11 @@ const SignUpForm = ({
           </Grid>
           {userError.picture !== "" && (
             <Grid item>
-              <Typography variant="body2" className={classes.pictureErrorMsg}>
+              <Typography
+                variant="body2"
+                className={classes.pictureErrorMsg}
+                align="center"
+              >
                 {_t({ id: userError.picture })}
               </Typography>
             </Grid>
