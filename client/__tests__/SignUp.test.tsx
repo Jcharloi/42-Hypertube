@@ -1,3 +1,10 @@
+import React from "react";
+import EnzymeToJson from "enzyme-to-json";
+
+import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
+
+import SignUp from "../components/Authentication/SignUp";
+
 import {
   UserInfo,
   UserError,
@@ -14,6 +21,16 @@ import {
 } from "../components/Authentication/SignUp.service";
 
 describe("SignUp", () => {
+  it("should render <SignUp> in english", () => {
+    const domNode = mountWithIntl(<SignUp />, "en");
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUp> in french", () => {
+    const domNode = mountWithIntl(<SignUp />, "fr");
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
   it("should return an error when a field is empty", () => {
     const mockUserInfo: UserInfo = {
       username: "",
