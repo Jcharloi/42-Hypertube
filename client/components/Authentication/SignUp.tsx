@@ -71,7 +71,7 @@ const SignUp = (): ReactElement => {
         ...userInfo,
         [e.target.name]: e.target.value
       });
-      // If error is 'required' type, delete it
+      // If error is not relevant after a change, delete it
       if (errosToRemoveOnChange.includes(userError[e.target.name])) {
         setUserError({
           ...userError,
@@ -83,7 +83,7 @@ const SignUp = (): ReactElement => {
 
   /**
    * Submit the form if:
-   * - all the filled are complete
+   * - all the field are complete
    * - mail is valid
    * - password is valid
    * - picture is valid
@@ -98,9 +98,8 @@ const SignUp = (): ReactElement => {
       setWaitingRes(true);
 
       sendSignUpData(userInfo)
-        .then((data) => {
+        .then(() => {
           setWaitingRes(false);
-          console.log("DONE", data);
           setvValidForm(true);
         })
         .catch(({ response: { data } }) => {

@@ -102,7 +102,7 @@ export const checkErrors = (
 };
 
 /**
- * Check if the picture has a valid type and is not to heavy
+ * Check if the picture has a valid type and is not to heavy (1Mo max)
  */
 export const getPictureError = (picture: File): string => {
   const ext = picture.name.split(".").pop();
