@@ -2,7 +2,7 @@
  * Components using the react-intl module require access to the intl context.
  * This is not available when mounting single components in Enzyme.
  * These helper functions aim to address that and wrap a valid,
- * English-locale intl context around them.
+ * locale intl context around them of the language of your choice
  */
 
 import { ReactElement } from "react";
