@@ -4248,7 +4248,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 <h6
                                   className="MuiTypography-root MuiTypography-subtitle1 MuiTypography-alignCenter"
                                 >
-                                  Pour pouvoir acceder a tous nos films il va falloir s'inscrire
+                                  Pour pouvoir accéder à tous nos films, il va falloir s'inscrire
                                   <span
                                     aria-label="Eyes"
                                     role="img"

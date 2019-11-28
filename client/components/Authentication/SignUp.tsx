@@ -8,7 +8,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import { useIntl } from "react-intl";
 import useStyles from "./SignUp.styles";
 
-import SigneUpForm from "./SignUpForm";
+import SignUpForm from "./SignUpForm";
 
 import {
   UserInfo,
@@ -22,7 +22,7 @@ import {
   sendSignUpData
 } from "./SignUp.service";
 
-const errosToRemoveOnChange = [
+const errorsToRemoveOnChange = [
   requiredErrorKey,
   usernameTakenErrorKey,
   emailTakenErrorKey
@@ -32,7 +32,7 @@ const SignUp = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [waitingRes, setWaitingRes] = useState(false);
-  const [validForm, setvValidForm] = useState(false);
+  const [userIsRegistered, setUserIsRegistered] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo>({
     username: "",
     password: "",
@@ -74,7 +74,7 @@ const SignUp = (): ReactElement => {
         [e.target.name]: e.target.value
       });
       // If error is not relevant after a change, delete it
-      if (errosToRemoveOnChange.includes(userError[e.target.name])) {
+      if (errorsToRemoveOnChange.includes(userError[e.target.name])) {
         setUserError({
           ...userError,
           [e.target.name]: ""
@@ -102,7 +102,7 @@ const SignUp = (): ReactElement => {
       sendSignUpData(userInfo)
         .then(() => {
           setWaitingRes(false);
-          setvValidForm(true);
+          setUserIsRegistered(true);
         })
         .catch(({ response: { data } }) => {
           setWaitingRes(false);
@@ -118,7 +118,7 @@ const SignUp = (): ReactElement => {
   return (
     <Paper className={classes.page}>
       <Grid container direction="column" alignItems="center">
-        {!validForm && (
+        {!userIsRegistered && (
           <div>
             <Grid
               container
@@ -146,7 +146,7 @@ const SignUp = (): ReactElement => {
               </Grid>
             </Grid>
 
-            <SigneUpForm
+            <SignUpForm
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
               userInfo={userInfo}
@@ -156,7 +156,7 @@ const SignUp = (): ReactElement => {
           </div>
         )}
 
-        {validForm && (
+        {userIsRegistered && (
           <Grid
             container
             direction="column"

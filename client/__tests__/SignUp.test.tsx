@@ -4,7 +4,6 @@ import EnzymeToJson from "enzyme-to-json";
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import SignUp from "../components/Authentication/SignUp";
-
 import {
   UserInfo,
   UserError,

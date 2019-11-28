@@ -44,7 +44,7 @@ const emailIsFree = async (email) => {
   }
 };
 
-const usernamIsFree = async (username) => {
+const usernameIsFree = async (username) => {
   try {
     const users = await UserModel.findOne({ username });
     return users === null;
@@ -60,7 +60,7 @@ const signUp = async (req, res) => {
     validPassword(req.body.password) &&
     req.files &&
     validFile(req.files.picture);
-  const usernameFree = await usernamIsFree(req.body.username);
+  const usernameFree = await usernameIsFree(req.body.username);
   const emailFree = await emailIsFree(req.body.email);
   if (goodInfos && usernameFree && emailFree) {
     if (await signUpHelpers.sendEmail()) {

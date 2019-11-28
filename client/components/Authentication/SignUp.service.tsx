@@ -1,3 +1,5 @@
+import { AxiosPromise } from "axios";
+
 import API from "../../util/api";
 
 export interface UserInfo {
@@ -36,7 +38,7 @@ export const usernameTakenErrorKey =
   "authentication.signUp.error.username.taken";
 export const emailTakenErrorKey = "authentication.signUp.error.email.taken";
 
-const serveurError = [usernameTakenErrorKey, emailTakenErrorKey];
+const serverError = [usernameTakenErrorKey, emailTakenErrorKey];
 
 export const checkRequiredField = (
   userInfo: UserInfo,
@@ -46,8 +48,8 @@ export const checkRequiredField = (
   const keys: string[] = Object.keys(userInfo);
 
   keys.forEach((key) => {
-    if (key === "picture" && userInfo[key] === null) {
-      newUserErrorCopy[key] = requiredPictureErrorKey;
+    if (key === "picture" && !userInfo.picture) {
+      newUserErrorCopy.picture = requiredPictureErrorKey;
     } else if (userInfo[key] === "") {
       newUserErrorCopy[key] = requiredErrorKey;
     }
@@ -85,7 +87,7 @@ export const checkErrors = (
 
   // Just keeping error that are verified by server
   keys.forEach((key) => {
-    if (serveurError.includes(userError[key])) {
+    if (serverError.includes(userError[key])) {
       newUserError[key] = userError[key];
     }
   });
@@ -131,7 +133,7 @@ export const isThereError = (userError: UserError): boolean => {
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => {
+export const sendSignUpData = (userInfo: UserInfo): AxiosPromise<ApiData> => {
   const data = new FormData();
   const keys: string[] = Object.keys(userInfo);
 
@@ -143,5 +145,5 @@ export const sendSignUpData = (userInfo: UserInfo): Promise<ApiData> => {
     url: "/inscription",
     headers: { "Content-Type": "multipart/form-data" },
     data
-  }).then((res) => res.data);
+  });
 };
