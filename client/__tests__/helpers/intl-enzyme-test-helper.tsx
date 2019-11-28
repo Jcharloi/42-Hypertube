@@ -4,8 +4,7 @@
  * These helper functions aim to address that and wrap a valid,
  * locale intl context around them of the language of your choice
  */
-
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import Adapter from "enzyme-adapter-react-16";
 import {
@@ -43,11 +42,9 @@ export const shallowWithIntl = (
   node: ReactElement,
   locale: string
 ): ShallowWrapper => {
-  return shallow(node, {
-    wrappingComponent: IntlProvider,
-    wrappingComponentProps: {
-      messages: messages[locale],
-      locale
-    }
-  });
+  return shallow(
+    <IntlProvider locale={locale} messages={messages[locale]}>
+      {node}
+    </IntlProvider>
+  );
 };
