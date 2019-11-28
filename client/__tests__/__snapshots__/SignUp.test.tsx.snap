@@ -3192,6 +3192,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           color="secondary"
                                           component="span"
                                           startIcon={<UNDEFINED />}
+                                          style={Object {}}
                                           variant="outlined"
                                         >
                                           <ForwardRef(Button)
@@ -3230,6 +3231,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                             color="secondary"
                                             component="span"
                                             startIcon={<UNDEFINED />}
+                                            style={Object {}}
                                             variant="outlined"
                                           >
                                             <WithStyles(ForwardRef(ButtonBase))
@@ -3238,6 +3240,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                               disabled={false}
                                               focusRipple={true}
                                               focusVisibleClassName="Mui-focusVisible"
+                                              style={Object {}}
                                               type="button"
                                             >
                                               <ForwardRef(ButtonBase)
@@ -3253,6 +3256,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                 disabled={false}
                                                 focusRipple={true}
                                                 focusVisibleClassName="Mui-focusVisible"
+                                                style={Object {}}
                                                 type="button"
                                               >
                                                 <span
@@ -3270,6 +3274,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                   onTouchMove={[Function]}
                                                   onTouchStart={[Function]}
                                                   role="button"
+                                                  style={Object {}}
                                                   tabIndex={0}
                                                 >
                                                   <span
@@ -6812,6 +6817,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           color="secondary"
                                           component="span"
                                           startIcon={<UNDEFINED />}
+                                          style={Object {}}
                                           variant="outlined"
                                         >
                                           <ForwardRef(Button)
@@ -6850,6 +6856,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                             color="secondary"
                                             component="span"
                                             startIcon={<UNDEFINED />}
+                                            style={Object {}}
                                             variant="outlined"
                                           >
                                             <WithStyles(ForwardRef(ButtonBase))
@@ -6858,6 +6865,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                               disabled={false}
                                               focusRipple={true}
                                               focusVisibleClassName="Mui-focusVisible"
+                                              style={Object {}}
                                               type="button"
                                             >
                                               <ForwardRef(ButtonBase)
@@ -6873,6 +6881,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                 disabled={false}
                                                 focusRipple={true}
                                                 focusVisibleClassName="Mui-focusVisible"
+                                                style={Object {}}
                                                 type="button"
                                               >
                                                 <span
@@ -6890,6 +6899,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                   onTouchMove={[Function]}
                                                   onTouchStart={[Function]}
                                                   role="button"
+                                                  style={Object {}}
                                                   tabIndex={0}
                                                 >
                                                   <span

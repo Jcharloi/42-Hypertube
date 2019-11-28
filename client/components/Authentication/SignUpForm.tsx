@@ -142,8 +142,12 @@ const SignUpForm = ({
                 color="secondary"
                 startIcon={<CloudUploadIcon />}
                 component="span"
+                // To avoid picture name to be in uppercase :
+                style={userInfo.picture ? { textTransform: "none" } : {}}
               >
-                {_t({ id: "authentication.signUp.uploadButton" })}
+                {userInfo.picture && userInfo.picture.name}
+                {!userInfo.picture &&
+                  _t({ id: "authentication.signUp.uploadButton" })}
               </Button>
             </label>
           </Grid>

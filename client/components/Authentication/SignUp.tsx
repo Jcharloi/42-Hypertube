@@ -54,18 +54,20 @@ const SignUp = (): ReactElement => {
    * Change State when user is typing in the form
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    if (e.target.type === "file" && e.target.files[0]) {
-      const picErr = getPictureError(e.target.files[0]);
+    if (e.target.type === "file") {
+      const picErr = e.target.files[0]
+        ? getPictureError(e.target.files[0])
+        : "";
+      // Setting picture error
       setUserError({
         ...userError,
         picture: picErr
       });
-      if (picErr === "") {
-        setUserInfo({
-          ...userInfo,
-          picture: e.target.files[0]
-        });
-      }
+      // Setting picture value
+      setUserInfo({
+        ...userInfo,
+        picture: e.target.files[0] && picErr === "" ? e.target.files[0] : null
+      });
     } else {
       setUserInfo({
         ...userInfo,
