@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     pictureErrorMsg: {
       // same as material-ui Textfiel helperText
-      color: "#f44336",
-      marginTop: "8px",
+      color: theme.palette.error.main,
+      marginTop: `${theme.spacing(1)}px`,
       fontSize: "12px"
     },
     circularProgressContainer: {

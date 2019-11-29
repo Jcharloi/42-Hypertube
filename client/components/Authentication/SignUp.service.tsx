@@ -1,6 +1,14 @@
 import { AxiosPromise } from "axios";
 
 import API from "../../util/api";
+import {
+  requiredErrorKey,
+  requiredPictureErrorKey,
+  emailInvalidErrorKey,
+  passwordInvalidErrorKey,
+  usernameTakenErrorKey,
+  emailTakenErrorKey
+} from "./errorKey";
 
 export interface UserInfo {
   username: string;
@@ -27,16 +35,6 @@ export interface ApiData {
   nameTaken: boolean;
   emailTaken: boolean;
 }
-
-export const requiredErrorKey = "authentication.signUp.error.required";
-export const requiredPictureErrorKey =
-  "authentication.signUp.error.required.picture";
-export const emailInvalidErrorKey = "authentication.signUp.error.email.invalid";
-export const passwordInvalidErrorKey =
-  "authentication.signUp.error.password.invalid";
-export const usernameTakenErrorKey =
-  "authentication.signUp.error.username.taken";
-export const emailTakenErrorKey = "authentication.signUp.error.email.taken";
 
 const serverError = [usernameTakenErrorKey, emailTakenErrorKey];
 

@@ -7,17 +7,19 @@ import SignUp from "../components/Authentication/SignUp";
 import {
   UserInfo,
   UserError,
-  requiredErrorKey,
-  requiredPictureErrorKey,
   checkRequiredField,
   validateEmail,
   validatePassword,
-  checkErrors,
-  emailTakenErrorKey,
-  usernameTakenErrorKey,
-  emailInvalidErrorKey,
-  passwordInvalidErrorKey
+  checkErrors
 } from "../components/Authentication/SignUp.service";
+import {
+  requiredErrorKey,
+  requiredPictureErrorKey,
+  emailInvalidErrorKey,
+  passwordInvalidErrorKey,
+  usernameTakenErrorKey,
+  emailTakenErrorKey
+} from "../components/Authentication/errorKey";
 
 describe("SignUp", () => {
   it("should render <SignUp> in english", () => {

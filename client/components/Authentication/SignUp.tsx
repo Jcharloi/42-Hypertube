@@ -13,14 +13,16 @@ import SignUpForm from "./SignUpForm";
 import {
   UserInfo,
   UserError,
-  requiredErrorKey,
-  usernameTakenErrorKey,
-  emailTakenErrorKey,
   checkErrors,
   getPictureError,
   isThereError,
   sendSignUpData
 } from "./SignUp.service";
+import {
+  requiredErrorKey,
+  usernameTakenErrorKey,
+  emailTakenErrorKey
+} from "./errorKey";
 
 const errorsToRemoveOnChange = [
   requiredErrorKey,

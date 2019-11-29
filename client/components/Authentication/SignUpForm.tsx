@@ -5,8 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import Typography from "@material-ui/core/Typography";
-
 import { useIntl } from "react-intl";
+
 import useStyles from "./SignUpForm.styles";
 
 import { UserInfo, UserError } from "./SignUp.service";
@@ -145,9 +145,9 @@ const SignUpForm = ({
                 // To avoid picture name to be in uppercase :
                 style={userInfo.picture ? { textTransform: "none" } : {}}
               >
-                {userInfo.picture && userInfo.picture.name}
-                {!userInfo.picture &&
-                  _t({ id: "authentication.signUp.uploadButton" })}
+                {userInfo.picture
+                  ? userInfo.picture.name
+                  : _t({ id: "authentication.signUp.uploadButton" })}
               </Button>
             </label>
           </Grid>
