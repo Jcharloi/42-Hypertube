@@ -1,9 +1,11 @@
+import "./dotenv.config";
 import express from "express";
 import morgan from "morgan";
 import path from "path";
 import favicon from "serve-favicon";
 import fileUpload from "express-fileupload";
 import router from "./router";
+import passport from "./passport-config";
 
 const app = express();
 app.set("root", "/");
@@ -14,6 +16,7 @@ app.use(favicon(path.join(__dirname, "views", "favicon.ico")));
 app.use("public/", express.static("public"));
 app.use(morgan("dev"));
 app.use(fileUpload());
+app.use(passport.initialize());
 
 /* Webpack Hot Reload */
 const webpack = require("webpack");

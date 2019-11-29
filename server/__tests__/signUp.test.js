@@ -1,3 +1,4 @@
+import "../dotenv.config";
 import bcrypt from "bcrypt";
 import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
@@ -8,6 +9,7 @@ describe("Sign Up", () => {
     mockedUser = {
       _id: "test",
       mail: "test mail",
+      verifiedMail: true,
       userName: "test name",
       firstName: "test first",
       lastName: "test last",

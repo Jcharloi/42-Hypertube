@@ -32,6 +32,7 @@ const createUser = async (user, insertPT) => {
     await UserModel.create({
       _id: user._id,
       mail: user.mail,
+      verifiedMail: user.verifiedMail,
       userName: user.userName,
       firstName: user.firstName,
       lastName: user.lastName,

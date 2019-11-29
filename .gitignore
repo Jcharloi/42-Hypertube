@@ -5,3 +5,5 @@ dist/
 .eslintcache
 
 .DS_STORE
+
+.env

@@ -67,6 +67,7 @@ const signUp = async (req, res) => {
       const user = {
         _id: new mongoose.Types.ObjectId(),
         mail: req.body.mail,
+        verifiedMail: false,
         userName: req.body.userName,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
