@@ -4,7 +4,7 @@
  * These helper functions aim to address that and wrap a valid,
  * locale intl context around them of the language of your choice
  */
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import Adapter from "enzyme-adapter-react-16";
 import {
@@ -38,13 +38,17 @@ export const mountWithIntl = (
   });
 };
 
+// Doesn't work, I don't understand why
+// I followed instruction here: https://github.com/formatjs/react-intl/blob/master/docs/Testing-with-React-Intl.md#helper-function-1
 export const shallowWithIntl = (
   node: ReactElement,
   locale: string
 ): ShallowWrapper => {
-  return shallow(
-    <IntlProvider locale={locale} messages={messages[locale]}>
-      {node}
-    </IntlProvider>
-  );
+  return shallow(node, {
+    wrappingComponent: IntlProvider,
+    wrappingComponentProps: {
+      messages: messages[locale],
+      locale
+    }
+  });
 };
