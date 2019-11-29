@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "linter": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "linter:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "test": "npm run linter && npm run test:jest",
     "test:jest": "jest --projects client server --no-cache",
     "test:jest:watch": "jest --watch",

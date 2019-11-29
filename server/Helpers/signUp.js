@@ -13,7 +13,7 @@ const createRandomId = (length) => {
   return result;
 };
 
-const sendMail = async () => true;
+const sendEmail = async () => true;
 
 const createUser = async (user, insertPT) => {
   try {
@@ -22,7 +22,7 @@ const createUser = async (user, insertPT) => {
       hashedPT = `${user.picture.name.split(".")[0] + createRandomId(5)}.${
         user.picture.mimetype.split("/")[1]
       }`;
-      user.picture.mv(`./server/data/avatar/${user.picture.name}`, (e) => {
+      user.picture.mv(`./server/data/avatar/${hashedPT}`, (e) => {
         if (e) console.error(e);
       });
     } else {
@@ -31,8 +31,8 @@ const createUser = async (user, insertPT) => {
     const hashedPW = bcrypt.hashSync(user.password, 10);
     await UserModel.create({
       _id: user._id,
-      mail: user.mail,
-      userName: user.userName,
+      email: user.email,
+      username: user.username,
       firstName: user.firstName,
       lastName: user.lastName,
       password: hashedPW,
@@ -45,4 +45,4 @@ const createUser = async (user, insertPT) => {
   }
 };
 
-export default { sendMail, createUser };
+export default { sendEmail, createUser };

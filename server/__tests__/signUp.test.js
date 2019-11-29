@@ -7,8 +7,8 @@ describe("Sign Up", () => {
   beforeAll(() => {
     mockedUser = {
       _id: "test",
-      mail: "test mail",
-      userName: "test name",
+      email: "test email",
+      username: "test name",
       firstName: "test first",
       lastName: "test last",
       password: "test password",

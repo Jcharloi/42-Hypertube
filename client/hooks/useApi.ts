@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Axios from "axios";
+
+import API from "../util/api";
 
 import { Fixture } from "../models/models";
 
@@ -20,7 +21,7 @@ const useApi = (
       setLoading(true);
       setError(null);
 
-      Axios.get(url)
+      API.get(url)
         .then((res) => {
           setData(res.data);
         })

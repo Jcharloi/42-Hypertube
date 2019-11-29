@@ -23,7 +23,7 @@ const CustomRoute = ({
     data: { validToken },
     loading,
     error
-  } = useApi("http://localhost:8081/API/check-token", fixture);
+  } = useApi("/check-token", fixture);
 
   return (
     <Route

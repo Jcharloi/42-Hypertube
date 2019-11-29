@@ -4,9 +4,9 @@ import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
 import mongoose from "../mongo";
 
-const validMail = (mail) => {
+const validEmail = (email) => {
   const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-  return mail && regex.test(String(mail));
+  return email && regex.test(String(email));
 };
 
 const validPassword = (password) => {
@@ -34,9 +34,9 @@ const validFile = (file) => {
   return true;
 };
 
-const mailDoesNotExists = async (mail) => {
+const emailIsFree = async (email) => {
   try {
-    const users = await UserModel.findOne({ mail });
+    const users = await UserModel.findOne({ email });
     return users === null;
   } catch (e) {
     console.error(e);
@@ -44,9 +44,9 @@ const mailDoesNotExists = async (mail) => {
   }
 };
 
-const nameDoesNotExists = async (userName) => {
+const usernameIsFree = async (username) => {
   try {
-    const users = await UserModel.findOne({ userName });
+    const users = await UserModel.findOne({ username });
     return users === null;
   } catch (e) {
     console.error(e);
@@ -56,18 +56,18 @@ const nameDoesNotExists = async (userName) => {
 
 const signUp = async (req, res) => {
   const goodInfos =
-    validMail(req.body.mail) &&
+    validEmail(req.body.email) &&
     validPassword(req.body.password) &&
     req.files &&
     validFile(req.files.picture);
-  const nameFree = await nameDoesNotExists(req.body.userName);
-  const mailFree = await mailDoesNotExists(req.body.mail);
-  if (goodInfos && nameFree && mailFree) {
-    if (await signUpHelpers.sendMail()) {
+  const usernameFree = await usernameIsFree(req.body.username);
+  const emailFree = await emailIsFree(req.body.email);
+  if (goodInfos && usernameFree && emailFree) {
+    if (await signUpHelpers.sendEmail()) {
       const user = {
         _id: new mongoose.Types.ObjectId(),
-        mail: req.body.mail,
-        userName: req.body.userName,
+        email: req.body.email,
+        username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         password: req.body.password,
@@ -76,12 +76,12 @@ const signUp = async (req, res) => {
       const ret = await signUpHelpers.createUser(user, true);
       if (ret === "ValidationError") {
         res
-          .status(200)
-          .send({ missingInfos: true, nameTaken: false, mailTaken: false });
+          .status(400)
+          .send({ missingInfos: true, nameTaken: false, emailTaken: false });
       } else if (ret === true) {
         res
           .status(200)
-          .send({ missingInfos: false, nameTaken: false, mailTaken: false });
+          .send({ missingInfos: false, nameTaken: false, emailTaken: false });
       } else {
         res.status(500).send();
       }
@@ -89,10 +89,10 @@ const signUp = async (req, res) => {
       res.status(500).send();
     }
   } else {
-    res.status(200).send({
+    res.status(400).send({
       missingInfos: !goodInfos,
-      nameTaken: !nameFree,
-      mailTaken: !mailFree
+      nameTaken: !usernameFree,
+      emailTaken: !emailFree
     });
   }
 };
