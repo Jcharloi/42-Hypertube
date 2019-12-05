@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/inscription", controllers.signUp);
 router.get("/check-token", (req, res) => {
-  res.status(200).send({ validToken: false });
+  res.status(200).send({ validToken: true });
 });
 
 router.get("/data/avatar/:id", (req, res) => {

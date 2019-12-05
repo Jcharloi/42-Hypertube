@@ -1,5 +1,5 @@
 {
-  "title": "Nethub",
+  "title": "Hypertube",
   "search": "Search...",
   "language.fr": "🇫🇷",
   "language.en": "🇬🇧",
@@ -27,5 +27,7 @@
   "authentication.signUp.error.picture.wrongType": "Sorry, we only accept .jpeg, .jpg et .png",
   "authentication.signUp.validForm.title": "Nice to meet you",
   "authentication.signUp.validForm.checkEmail": "Now you just need to validate your email",
-  "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content"
+  "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content",
+
+  "movie.error.invalid": "Sorry, this movie does not exists. Maybe find an other one ?"
 }

@@ -1,5 +1,5 @@
 {
-  "title": "Nethub",
+  "title": "Hypertube",
   "search": "Rechercher ...",
   "language.fr": "🇫🇷",
   "language.en": "🇬🇧",
@@ -27,5 +27,7 @@
   "authentication.signUp.error.picture.wrongType": "Désolé, nous acceptons que les formats .jpeg, .jpg, .png",
   "authentication.signUp.validForm.title": "Bienvenue",
   "authentication.signUp.validForm.checkEmail": "Maitenant t'as juste à valider ton email",
-  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher"
+  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher",
+
+  "movie.error.invalid": "Désolé, ce film n'existe pas. Pourquoi pas en chercher un autre ?"
 }

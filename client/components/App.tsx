@@ -12,6 +12,7 @@ import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
 import Authentication from "./Authentication/Authentication";
 import Home from "./Home/Home";
+import Movie from "./Movie/Movie";
 
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
@@ -45,6 +46,7 @@ const App = (): ReactElement => {
               requireAuth={false}
             />
             <Route exact path="/" component={Home} />
+            <CustomRoute path="/movie" component={Movie} requireAuth />
             <Route
               component={(): ReactElement => (
                 <div>

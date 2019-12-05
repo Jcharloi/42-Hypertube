@@ -32,9 +32,9 @@ const CustomRoute = ({
       render={(): ReactElement => {
         if (error) return <div>Error</div>;
         if (loading) return <div>Loading</div>;
-        if ((validToken && requireAuth) || (!validToken && !requireAuth))
+        if (!loading && (validToken && requireAuth) || (!validToken && !requireAuth))
           return <Component />;
-        if ((validToken && !requireAuth) || (!validToken && requireAuth))
+        if (!loading && (validToken && !requireAuth) || (!validToken && requireAuth))
           return <Redirect to="/" />;
         return null;
       }}
