@@ -1,3 +1,4 @@
+import "../dotenv.config";
 import bcrypt from "bcrypt";
 import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";

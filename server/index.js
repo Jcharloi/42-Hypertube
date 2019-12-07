@@ -1,3 +1,4 @@
+import "./dotenv.config";
 import express from "express";
 import morgan from "morgan";
 import path from "path";
@@ -6,12 +7,14 @@ import fileUpload from "express-fileupload";
 import router from "./router";
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 app.set("root", "/");
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
 
 app.use(favicon(path.join(__dirname, "views", "favicon.ico")));
-app.use("public/", express.static("public"));
+app.use("/public", express.static("public"));
 app.use(morgan("dev"));
 app.use(fileUpload());
 
@@ -40,6 +43,6 @@ app.get("*", (req, res) => {
   res.render("index");
 });
 
-app.listen(8080, () => {
-  console.log("Server running on 8080");
+app.listen(port, () => {
+  console.log(`Server running on ${port}`);
 });
