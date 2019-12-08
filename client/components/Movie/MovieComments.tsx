@@ -14,7 +14,7 @@ import {
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import useStyles from "./MovieComments.style";
+import useStyles from "./MovieComments.styles";
 
 interface Props {
   movieRating: number;
