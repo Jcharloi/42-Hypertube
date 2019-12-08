@@ -27,7 +27,7 @@ export const getTransporter = createTransporter();
 export const sendMail = async (option) => {
   const transporter = await getTransporter;
   const mailParam = {
-    from: '"The NetHub Company 🎥 <noreply@nethub.horse>', // sender address
+    from: '"The Hypertube Company 🎥 <noreply@hypertube.horse>', // sender address
     ...option
   };
 
