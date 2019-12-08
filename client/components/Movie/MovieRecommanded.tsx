@@ -1,5 +1,5 @@
 import React from "react";
-import useStyles from "./RecommandeMovies.styles";
+import useStyles from "./MovieRecommanded.style.";
 
 interface Props {
   matches: boolean;

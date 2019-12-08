@@ -2,9 +2,12 @@ import React, { ReactElement, useState, useEffect } from "react";
 import { useIntl } from "react-intl";
 import useApi from "../../hooks/useApi";
 
+import RecommandedMovies from "./MovieRecommanded";
+import MovieComments from "./MovieComments";
+import { Review } from "../../models/models";
+
 import useStyles from "./Movie.styles";
-import { useMediaQuery } from "@material-ui/core";
-import RecommandedMovies from "./RecommandedMovies";
+import { useMediaQuery, Container } from "@material-ui/core";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -18,18 +21,39 @@ const Movie = (): ReactElement => {
     creator: "",
     prodDate: "",
     runTime: "",
-    stars: 0
+    stars: null
   });
+  const [reviews, setReviews] = useState([
+    { id: "", name: "", date: "", stars: null, body: "" }
+  ]);
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
   useEffect(() => {
     if (!loading && Object.entries(data).length > 0) {
       let totalStars = 0;
-      if (data.reviews)
-        data.reviews.forEach((review: { stars: string }) => {
-          totalStars += parseInt(review.stars, 10);
-        });
+      if (data.reviews) {
+        let reviewsTab: Array<Review> = [];
+        data.reviews.map(
+          (review: {
+            review_id: string;
+            reviewer: string;
+            reviewdate: string;
+            stars: string;
+            reviewbody: string;
+          }) => {
+            totalStars += parseInt(review.stars, 10);
+            reviewsTab.push({
+              id: review.review_id,
+              name: review.reviewer,
+              date: review.reviewdate,
+              stars: parseInt(review.stars),
+              body: review.reviewbody
+            });
+          }
+        );
+        setReviews(reviewsTab);
+      }
       const infos = {
         title: data.metadata.title,
         description: data.metadata.description,
@@ -39,7 +63,7 @@ const Movie = (): ReactElement => {
         stars:
           data.reviews && data.reviews.length > 0
             ? Math.floor(totalStars / data.reviews.length)
-            : -42 // What if there is no reviews ?
+            : null
       };
       setMovieInfos(infos);
     }
@@ -57,15 +81,52 @@ const Movie = (): ReactElement => {
                 : classes.movieContainer
             }
           >
-            le titre: {movieInfos.title}
-            <br />
-            le résumé : {movieInfos.description}
-            <br />
-            le casting (au moins producteur, réalisateur, acteurs principaux,
-            etc...) : {movieInfos.creator}
-            <br />
-            l’année de production: {movieInfos.prodDate} <br /> la durée:{" "}
-            {movieInfos.runTime} <br /> la note : {movieInfos.stars}/5 <br />
+            <img
+              className={classes.backgroundMovie}
+              src="http://localhost:8080/public/background-movie.jpg"
+            />
+            {/*Presentation part*/}
+            <Container className={classes.containerPresentation}>
+              <div className={classes.containerMovie}>
+                <div className={classes.labelMovie}>{movieInfos.title}</div>
+                {movieInfos.creator && (
+                  <div className={classes.labelMovie}>
+                    {_t({ id: "movie.creator" })} {movieInfos.creator}
+                  </div>
+                )}
+                {movieInfos.description && (
+                  <div className={classes.labelMovie}>
+                    {_t({ id: "movie.description" })} {movieInfos.description}
+                  </div>
+                )}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent:
+                      movieInfos.prodDate && movieInfos.runTime
+                        ? "space-between"
+                        : "center",
+                    width: "80%",
+                    fontSize: "1rem"
+                  }}
+                >
+                  {movieInfos.prodDate && (
+                    <span>
+                      {_t({ id: "movie.prodDate" })} {movieInfos.prodDate}{" "}
+                    </span>
+                  )}
+                  {movieInfos.runTime && (
+                    <span>
+                      {_t({ id: "movie.runTime" })} {movieInfos.runTime}{" "}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </Container>
+            {/*Movie part OMG*/}
+            {/* <Container /> */}
+            {/*Comments part*/}
+            <MovieComments movieRating={movieInfos.stars} reviews={reviews} />
           </div>
         ) : (
           <div
@@ -82,4 +143,5 @@ const Movie = (): ReactElement => {
     </div>
   );
 };
+
 export default Movie;

@@ -29,5 +29,25 @@
   "authentication.signUp.validForm.checkEmail": "Now you just need to validate your email",
   "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content",
 
-  "movie.error.invalid": "Sorry, this movie does not exists. Maybe find an other one ?"
+  "movie.description": "About this movie : ",
+  "movie.creator": "Created by : ",
+  "movie.prodDate": "Production date : ",
+  "movie.runTime": "Run time : ",
+  "movie.rating": "Movie's rating",
+  "movie.comment.title": "Wanna say something about it ?",
+  "movie.comment.none": "There is no comment yet, add yours !",
+  "movie.error.invalid": "Sorry, this movie does not exists. Maybe find an other one ?",
+
+  "month.january": "January",
+  "month.february": "February",
+  "month.march": "March",
+  "month.april": "April",
+  "month.may": "May",
+  "month.june": "June",
+  "month.july": "July",
+  "month.august": "August",
+  "month.september": "September",
+  "month.october": "October",
+  "month.november": "November",
+  "month.december": "December"
 }

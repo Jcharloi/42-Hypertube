@@ -9,11 +9,10 @@ export interface Fixture {
   error: {};
 }
 
-export interface MovieInfos {
-  title: string;
-  description: string;
-  creator: string;
-  prodDate: string;
-  runTime: string;
+export interface Review {
+  id: string;
+  name: string;
+  date: string;
   stars: number;
+  body: string;
 }
