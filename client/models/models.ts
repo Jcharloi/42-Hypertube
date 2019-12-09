@@ -10,9 +10,10 @@ export interface Fixture {
 }
 
 export interface Review {
-  id: string;
   name: string;
-  date: string;
+  month: string;
+  day: string;
+  year: string;
   stars: number;
   body: string;
 }

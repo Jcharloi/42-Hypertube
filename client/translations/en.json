@@ -36,6 +36,9 @@
   "movie.rating": "Movie's rating",
   "movie.comment.title": "Wanna say something about it ?",
   "movie.comment.none": "There is no comment yet, add yours !",
+  "movie.comment.label": "Tell us what you think about the movie",
+  "movie.comment.askRating": "Rate it :",
+  "movie.comment.send": "Send",
   "movie.error.invalid": "Sorry, this movie does not exists. Maybe find an other one ?",
 
   "month.january": "January",

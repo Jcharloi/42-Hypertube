@@ -1,6 +1,7 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import { useIntl } from "react-intl";
 import useApi from "../../hooks/useApi";
+import { socket } from "../../helpers/socket";
 
 import RecommandedMovies from "./MovieRecommanded";
 import MovieComments from "./MovieComments";
@@ -24,10 +25,28 @@ const Movie = (): ReactElement => {
     stars: null
   });
   const [reviews, setReviews] = useState([
-    { id: "", name: "", date: "", stars: null, body: "" }
+    { name: "", month: "", day: "", year: "", stars: null, body: "" }
   ]);
+  const months = [
+    _t({ id: "month.january" }),
+    _t({ id: "month.february" }),
+    _t({ id: "month.march" }),
+    _t({ id: "month.april" }),
+    _t({ id: "month.may" }),
+    _t({ id: "month.june" }),
+    _t({ id: "month.july" }),
+    _t({ id: "month.august" }),
+    _t({ id: "month.september" }),
+    _t({ id: "month.october" }),
+    _t({ id: "month.november" }),
+    _t({ id: "month.december" })
+  ];
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
+
+  // const initComments = (reviewsReceived: Array<Review>): void => {
+  //   setReviews(reviewsReceived);
+  // };
 
   useEffect(() => {
     if (!loading && Object.entries(data).length > 0) {
@@ -36,7 +55,6 @@ const Movie = (): ReactElement => {
         let reviewsTab: Array<Review> = [];
         data.reviews.map(
           (review: {
-            review_id: string;
             reviewer: string;
             reviewdate: string;
             stars: string;
@@ -44,9 +62,10 @@ const Movie = (): ReactElement => {
           }) => {
             totalStars += parseInt(review.stars, 10);
             reviewsTab.push({
-              id: review.review_id,
               name: review.reviewer,
-              date: review.reviewdate,
+              month: months[parseInt(review.reviewdate.split("-")[1]) - 1],
+              day: review.reviewdate.split("-")[2].split(" ")[0],
+              year: review.reviewdate.split("-")[0],
               stars: parseInt(review.stars),
               body: review.reviewbody
             });
@@ -66,7 +85,9 @@ const Movie = (): ReactElement => {
             : null
       };
       setMovieInfos(infos);
+      // socket.on("New comments", initComments);
     }
+    // return () => socket.removeListener("New comments", initComments);
   }, [data, loading]);
 
   return (

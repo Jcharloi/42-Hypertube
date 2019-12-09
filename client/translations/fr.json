@@ -36,6 +36,9 @@
   "movie.rating": "Note du film",
   "movie.comment.title": "Quelque chose à dire à son propos ?",
   "movie.comment.none": "Il n'y a aucun commentaire pour l'instant, ajoute le tien !",
+  "movie.comment.label": "Dis nous ce que tu penses du film",
+  "movie.comment.askRating": "Note le :",
+  "movie.comment.send": "Envoyer",
   "movie.error.invalid": "Désolé, ce film n'existe pas. Pourquoi pas en chercher un autre ?",
 
   "month.january": "Janvier",

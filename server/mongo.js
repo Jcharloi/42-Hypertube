@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const URL_DB =
-  "mongodb+srv://root:root@hypertube-fdnbo.mongodb.net/test?retryWrites=true&w=majority";
+const URL_DB = process.env.DB_URL;
 
 mongoose.connect(URL_DB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on(

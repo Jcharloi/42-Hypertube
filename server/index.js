@@ -1,11 +1,16 @@
+import "./dotenv.config";
 import express from "express";
 import morgan from "morgan";
 import path from "path";
 import favicon from "serve-favicon";
 import fileUpload from "express-fileupload";
+
 import router from "./router";
 
 const app = express();
+var http = require("http").createServer(app);
+var io = require("socket.io")(http);
+
 app.set("root", "/");
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
@@ -40,6 +45,10 @@ app.get("*", (req, res) => {
   res.render("index");
 });
 
-app.listen(8080, () => {
+io.on("connection", socket => {
+  console.log("A user connected");
+});
+
+http.listen(8080, () => {
   console.log("Server running on 8080");
 });

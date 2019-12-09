@@ -22,7 +22,8 @@ const useStyles = makeStyles(() =>
       backgroundColor: "#151515",
       borderRadius: "4px",
       height: "auto",
-      maxHeight: "50vh"
+      maxHeight: "70vh",
+      padding: "2rem"
     },
     containerPeople: {
       marginTop: "1rem",
@@ -33,7 +34,25 @@ const useStyles = makeStyles(() =>
     },
     comment: {
       margin: "1rem 0"
-    }
+    },
+    personalCommentContainer: {
+      padding: "1rem 0",
+      marginTop: "1rem"
+    },
+    textField: {
+      width: "100%",
+      backgroundColor: "white",
+      maxHeight: "10rem",
+      overflow: "scroll",
+      overflowX: "hidden"
+    },
+    rateAndSendButton: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: "1rem",
+      flexWrap: "wrap"
+    },
+    rateIt: { display: "flex", alignItems: "center", flexWrap: "wrap" }
   })
 );
 

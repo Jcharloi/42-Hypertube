@@ -1,6 +1,7 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect, ChangeEvent } from "react";
 import { useIntl } from "react-intl";
 import Scroll from "react-scroll";
+import API from "../../util/api";
 
 import { Review } from "../../models/models";
 
@@ -9,7 +10,7 @@ import {
   Container,
   TextField,
   InputAdornment,
-  Divider
+  Button
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
@@ -23,24 +24,18 @@ interface Props {
 
 const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
   const { formatMessage: _t } = useIntl();
-  const [months] = useState([
-    _t({ id: "month.january" }),
-    _t({ id: "month.february" }),
-    _t({ id: "month.march" }),
-    _t({ id: "month.april" }),
-    _t({ id: "month.may" }),
-    _t({ id: "month.june" }),
-    _t({ id: "month.july" }),
-    _t({ id: "month.august" }),
-    _t({ id: "month.september" }),
-    _t({ id: "month.october" }),
-    _t({ id: "month.november" }),
-    _t({ id: "month.december" })
-  ]);
+  const [ourRating, setRating] = useState(null);
+  const [comment, setComment] = useState({
+    name: "",
+    month: "",
+    day: "",
+    year: "",
+    body: ""
+  });
   const scroll = Scroll.animateScroll;
   const classes = useStyles({});
 
-  const scrollToBottom = () => {
+  const scrollToBottom = (): void => {
     scroll.scrollToBottom({
       containerId: "scrollComment"
     });
@@ -50,6 +45,33 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
     scrollToBottom();
   });
 
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    index: string
+  ): void => {
+    const today = new Date();
+    index === "rating"
+      ? setRating(parseInt(e.target.value))
+      : setComment({
+          name: "toto",
+          month: String(today.getMonth() + 1).padStart(2, "0"),
+          day: String(today.getDate()).padStart(2, "0"),
+          year: String(today.getFullYear()),
+          body: e.target.value
+        });
+  };
+
+  const sendComment = (): void => {
+    console.log(ourRating, comment);
+    // check everything, even stars
+    const body = { comment, ourRating };
+    API.put("/movie/send-comment", body)
+      .then(() => {})
+      .catch(e => {
+        console.error(e);
+      });
+  };
+
   return (
     <div className={classes.containerRatingAndComment}>
       <Box component="fieldset" borderColor="transparent">
@@ -57,7 +79,6 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
         <Rating
           value={movieRating}
           readOnly
-          style={{ display: "flex", justifyContent: "center" }}
           emptyIcon={<StarBorderIcon color="secondary" />}
         />
       </Box>
@@ -67,34 +88,54 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
       <Container fixed className={classes.containerComment}>
         {reviews.length > 0 ? (
           <div className={classes.containerPeople} id="scrollComment">
-            {reviews.map(({ id, name, date, stars, body }) => (
-              <div key={id} className={classes.comment}>
-                <span style={{ fontSize: "1.1rem" }}>{name} </span>-{" "}
-                {months[parseInt(date.split("-")[1]) - 1]},{" "}
-                {date.split("-")[2].split(" ")[0]}, {date.split("-")[0]} -{" "}
-                <Rating size="small" value={stars} readOnly />
+            {reviews.map(({ name, month, day, year, stars, body }, index) => (
+              <div key={index} className={classes.comment}>
+                <span style={{ fontSize: "1.1rem" }}>{name} </span>- {month},{" "}
+                {day}, {year} - <Rating size="small" value={stars} readOnly />
                 <div style={{ marginRight: "0.5rem" }}>{body}</div>
               </div>
             ))}
           </div>
         ) : (
-          <div style={{ margin: "1rem 0" }}>
+          <div className={classes.comment}>
             {_t({ id: "movie.comment.none" })}
           </div>
         )}
-        {/* <Divider style={{ backgroundColor: "white !important" }} /> */}
-        <TextField
-          style={{ width: "90%" }}
-          multiline
-          label="Write your comment here"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AccountCircle />
-              </InputAdornment>
-            )
-          }}
-        />
+        <div className={classes.personalCommentContainer}>
+          <TextField
+            className={classes.textField}
+            multiline
+            label={_t({ id: "movie.comment.label" })}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              )
+            }}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleChange(e, "comment")
+            }
+          />
+          <div className={classes.rateAndSendButton}>
+            <div className={classes.rateIt}>
+              <span style={{ marginRight: "0.2rem" }}>
+                {_t({ id: "movie.comment.askRating" })}
+              </span>
+              <Rating
+                name="simple-controlled"
+                value={ourRating}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  handleChange(e, "rating")
+                }
+                emptyIcon={<StarBorderIcon color="primary" />}
+              />
+            </div>
+            <Button variant="contained" onClick={sendComment}>
+              {_t({ id: "movie.comment.send" })}
+            </Button>
+          </div>
+        </div>
       </Container>
     </div>
   );
