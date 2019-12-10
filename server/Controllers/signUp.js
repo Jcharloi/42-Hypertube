@@ -2,7 +2,6 @@ import fileType from "file-type";
 
 import signUpHelpers from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
-import mongoose from "../mongo";
 
 const validEmail = (email) => {
   const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -65,7 +64,6 @@ const signUp = async (req, res) => {
   if (goodInfos && usernameFree && emailFree) {
     if (await signUpHelpers.sendEmail()) {
       const user = {
-        _id: new mongoose.Types.ObjectId(),
         email: req.body.email,
         username: req.body.username,
         firstName: req.body.firstName,
