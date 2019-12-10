@@ -31,7 +31,7 @@ const errorsToRemoveOnChange = [
 ];
 
 const SignUp = (): ReactElement => {
-  const { formatMessage: _t } = useIntl();
+  const { locale, formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [waitingRes, setWaitingRes] = useState(false);
   const [userIsRegistered, setUserIsRegistered] = useState(false);
@@ -101,7 +101,7 @@ const SignUp = (): ReactElement => {
     if (!isThereError(newUserError)) {
       setWaitingRes(true);
 
-      sendSignUpData(userInfo)
+      sendSignUpData(userInfo, locale)
         .then(() => {
           setWaitingRes(false);
           setUserIsRegistered(true);

@@ -131,13 +131,17 @@ export const isThereError = (userError: UserError): boolean => {
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): AxiosPromise<ApiData> => {
+export const sendSignUpData = (
+  userInfo: UserInfo,
+  locale: string
+): AxiosPromise<ApiData> => {
   const data = new FormData();
   const keys: string[] = Object.keys(userInfo);
 
   keys.forEach((key) => {
     data.append(key, userInfo[key]);
   });
+  data.append("locale", locale);
   return API({
     method: "post",
     url: "/inscription",
