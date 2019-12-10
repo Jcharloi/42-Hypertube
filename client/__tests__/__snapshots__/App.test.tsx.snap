@@ -9,6 +9,10 @@ exports[`App renders correctly 1`] = `
     locale="en"
     messages={
       Object {
+        "authentication.confirmEmail.homeButton": "Start enjoying film",
+        "authentication.confirmEmail.notVerified": "Oops, something went wrong",
+        "authentication.confirmEmail.verified": "You email adress has benn verified",
+        "authentication.confirmEmail.waiting": "Confirming your email address...",
         "authentication.signUp.email": "Your email (so we can spam you)",
         "authentication.signUp.error.email.invalid": "Email is invalid",
         "authentication.signUp.error.email.taken": "Oops, this email is already used",

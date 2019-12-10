@@ -12,6 +12,7 @@ import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
 import Authentication from "./Authentication/Authentication";
 import Home from "./Home/Home";
+import ConfirmEmail from "./Authentication/ConfirmEmail";
 
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
@@ -26,6 +27,7 @@ const App = (): ReactElement => {
       <Layout locale={locale} setLocale={setLocale}>
         <Router history={history}>
           <Switch>
+            <Route exact path="/confirm-email/:id" component={ConfirmEmail} />
             <CustomRoute
               exact
               path="/sign-in"

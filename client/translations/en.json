@@ -27,5 +27,10 @@
   "authentication.signUp.error.picture.wrongType": "Sorry, we only accept .jpeg, .jpg et .png",
   "authentication.signUp.validForm.title": "Nice to meet you",
   "authentication.signUp.validForm.checkEmail": "Now you just need to validate your email",
-  "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content"
+  "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content",
+
+  "authentication.confirmEmail.waiting": "Confirming your email address...",
+  "authentication.confirmEmail.homeButton": "Start enjoying film",
+  "authentication.confirmEmail.verified": "You email adress has benn verified",
+  "authentication.confirmEmail.notVerified": "Oops, something went wrong"
 }

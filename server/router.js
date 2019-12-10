@@ -36,6 +36,14 @@ router.get("/data/avatar/:id", (req, res) => {
   res.status(200).sendFile(absolutePath);
 });
 
+// Just to test Front
+router.put("/verify-email/:id", (req, res) => {
+  console.log("confirming", req.params.id);
+  res.cookie("testing shit", "working ?");
+  res.status(200).send("verified !");
+});
+
+// Just to test sendMail
 router.get("/test-mail/:locale", async (req, res) => {
   try {
     await sendMail({
