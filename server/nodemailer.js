@@ -24,7 +24,7 @@ const createTransporter = async () => {
 
 export const getTransporter = createTransporter();
 
-export const sendMail = async (option) => {
+export const sendEmail = async (option) => {
   const transporter = await getTransporter;
   const mailParam = {
     from: '"The Hypertube Company 🎥 <noreply@hypertube.horse>', // sender address

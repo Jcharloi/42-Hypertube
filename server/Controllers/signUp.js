@@ -1,6 +1,6 @@
 import fileType from "file-type";
 
-import signUpHelpers from "../Helpers/signUp";
+import { createUser, sendValidateEmail } from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
 
 const validEmail = (email) => {
@@ -59,32 +59,33 @@ const signUp = async (req, res) => {
     validPassword(req.body.password) &&
     req.files &&
     validFile(req.files.picture);
+  // todo: use `unique` in mongoose shema
   const usernameFree = await usernameIsFree(req.body.username);
   const emailFree = await emailIsFree(req.body.email);
   if (goodInfos && usernameFree && emailFree) {
-    if (await signUpHelpers.sendEmail()) {
-      const user = {
-        email: req.body.email,
-        username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-        picture: req.files.picture
-      };
-      const ret = await signUpHelpers.createUser(user, true);
-      if (ret === "ValidationError") {
+    const user = {
+      email: req.body.email,
+      username: req.body.username,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      password: req.body.password,
+      picture: req.files.picture
+    };
+    try {
+      const userCreated = await createUser(user, true);
+      await sendValidateEmail(userCreated, req.body.locale || "en");
+      res
+        .status(200)
+        .send({ missingInfos: false, nameTaken: false, emailTaken: false });
+    } catch (err) {
+      console.error(err.message);
+      if (err.name === "ValidationError") {
         res
           .status(400)
           .send({ missingInfos: true, nameTaken: false, emailTaken: false });
-      } else if (ret === true) {
-        res
-          .status(200)
-          .send({ missingInfos: false, nameTaken: false, emailTaken: false });
       } else {
         res.status(500).send();
       }
-    } else {
-      res.status(500).send();
     }
   } else {
     res.status(400).send({

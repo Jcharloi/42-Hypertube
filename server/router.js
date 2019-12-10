@@ -3,25 +3,8 @@ import path from "path";
 
 import controllers from "./Controllers/signUp";
 
-import { sendMail } from "./nodemailer";
-
-import enHtml from "./emailsHtml/confirmEmailAdress.en.html";
-import frHtml from "./emailsHtml/confirmEmailAdress.fr.html";
-
-const confirmEmailInfo = {
-  en: {
-    subject: "Confirm your email adress to watch some sick movies",
-    text:
-      "Welcome to Nethub\n\nWe just need to check that your email is really yours\nPlease go to this link to confirm your email adress:\nlocalhost:8080/confirm-email/id",
-    html: enHtml
-  },
-  fr: {
-    subject: "Confirme ton adresse email pour regarder des films stylés",
-    text:
-      "Bienvenue sur Hypertube\n\nOn doit juste vérifier que ton email t'apartiens bien\nVous pouvez aller sur ce lien pour confirmer votre adresse email:\nlocalhost:8080/confirm-email/id",
-    html: frHtml
-  }
-};
+import UserModel from "./Schemas/User";
+import { sendValidateEmail } from "./Helpers/signUp";
 
 const router = express.Router();
 
@@ -36,20 +19,25 @@ router.get("/data/avatar/:id", (req, res) => {
   res.status(200).sendFile(absolutePath);
 });
 
-// Just to test Front
-router.put("/verify-email/:id", (req, res) => {
-  console.log("confirming", req.params.id);
-  res.cookie("testing shit", "working ?");
-  res.status(200).send("verified !");
+router.put("/verify-email/:id", async (req, res) => {
+  try {
+    // Updating db
+    await UserModel.findByIdAndUpdate(req.params.id, { emailVerified: true });
+    // sending Token
+    // res.cookie("token", "YOUR TOKEN HERE IN THE FUTUR");
+    res.status(200).send();
+  } catch (err) {
+    console.error(err);
+    res.status(400).send();
+  }
 });
 
-// Just to test sendMail
-router.get("/test-mail/:locale", async (req, res) => {
+// Just to test sendValidateEmail
+router.get("/test-mail/:id/:locale", async (req, res) => {
+  console.log("req.params.id", req.params.id);
+  const user = await UserModel.findById(req.params.id);
   try {
-    await sendMail({
-      to: "fmuller@student.42.fr", // list of receivers
-      ...confirmEmailInfo[req.params.locale]
-    });
+    await sendValidateEmail(user, req.params.locale);
     res.status(200).send("mail is gone");
   } catch (err) {
     console.log(err);
