@@ -12,9 +12,9 @@ import { useMediaQuery, Container } from "@material-ui/core";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
-  const movie = window.location.pathname.split("/")[2];
+  const [movieId] = useState(window.location.pathname.split("/")[2]);
   const { data, loading, error } = useApi(
-    `https://archive.org/metadata/${movie}`
+    `https://archive.org/metadata/${movieId}`
   );
   const [movieInfos, setMovieInfos] = useState({
     title: "",
@@ -22,10 +22,10 @@ const Movie = (): ReactElement => {
     creator: "",
     prodDate: "",
     runTime: "",
-    stars: null
+    stars: 0
   });
   const [reviews, setReviews] = useState([
-    { name: "", month: "", day: "", year: "", stars: null, body: "" }
+    { name: "", month: "", day: "", year: "", stars: 0, body: "" }
   ]);
   const months = [
     _t({ id: "month.january" }),
@@ -44,9 +44,9 @@ const Movie = (): ReactElement => {
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
-  // const initComments = (reviewsReceived: Array<Review>): void => {
-  //   setReviews(reviewsReceived);
-  // };
+  const initComments = (reviewReceived: Review): void => {
+    setReviews(reviews => [...reviews, reviewReceived]);
+  };
 
   useEffect(() => {
     if (!loading && Object.entries(data).length > 0) {
@@ -85,9 +85,13 @@ const Movie = (): ReactElement => {
             : null
       };
       setMovieInfos(infos);
-      // socket.on("New comments", initComments);
+      socket.emit("join-movie-room", movieId);
+      socket.on("New comments", initComments);
     }
-    // return () => socket.removeListener("New comments", initComments);
+    return () => {
+      socket.emit("leave-movie-room", movieId);
+      socket.removeListener("New comments", initComments);
+    };
   }, [data, loading]);
 
   return (

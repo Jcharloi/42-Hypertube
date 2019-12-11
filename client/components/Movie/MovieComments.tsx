@@ -4,6 +4,7 @@ import Scroll from "react-scroll";
 import API from "../../util/api";
 
 import { Review } from "../../models/models";
+import { checkInvalidComment } from "./MovieComments.service";
 
 import {
   Box,
@@ -24,7 +25,7 @@ interface Props {
 
 const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
   const { formatMessage: _t } = useIntl();
-  const [ourRating, setRating] = useState(null);
+  const [stars, setStars] = useState(0);
   const [comment, setComment] = useState({
     name: "",
     month: "",
@@ -32,6 +33,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
     year: "",
     body: ""
   });
+  const [error, setError] = useState(false);
   const scroll = Scroll.animateScroll;
   const classes = useStyles({});
 
@@ -50,26 +52,44 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
     index: string
   ): void => {
     const today = new Date();
-    index === "rating"
-      ? setRating(parseInt(e.target.value))
-      : setComment({
-          name: "toto",
-          month: String(today.getMonth() + 1).padStart(2, "0"),
-          day: String(today.getDate()).padStart(2, "0"),
-          year: String(today.getFullYear()),
-          body: e.target.value
-        });
+    if (index === "rating") {
+      setStars(parseInt(e.target.value));
+    } else {
+      setComment({
+        name: "toto",
+        month: String(today.getMonth() + 1).padStart(2, "0"),
+        day: String(today.getDate()).padStart(2, "0"),
+        year: String(today.getFullYear()),
+        body: e.target.value
+      });
+      setError(false);
+    }
   };
 
   const sendComment = (): void => {
-    console.log(ourRating, comment);
-    // check everything, even stars
-    const body = { comment, ourRating };
-    API.put("/movie/send-comment", body)
-      .then(() => {})
-      .catch(e => {
-        console.error(e);
-      });
+    if (!checkInvalidComment(stars, comment.body)) {
+      setError(true);
+    } else {
+      const body = {
+        movieId: window.location.pathname.split("/")[2],
+        ...comment,
+        stars
+      };
+      API.post("/movie/comment", body)
+        .then(() => {
+          setComment({
+            name: "",
+            month: "",
+            day: "",
+            year: "",
+            body: ""
+          });
+          setStars(0);
+        })
+        .catch(e => {
+          console.error(e);
+        });
+    }
   };
 
   return (
@@ -103,9 +123,14 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
         )}
         <div className={classes.personalCommentContainer}>
           <TextField
+            error={error}
+            helperText={
+              error && _t({ id: "authentication.signUp.error.required" })
+            }
             className={classes.textField}
             multiline
             label={_t({ id: "movie.comment.label" })}
+            inputProps={{ maxLength: 1000 }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -113,6 +138,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
                 </InputAdornment>
               )
             }}
+            value={comment.body}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               handleChange(e, "comment")
             }
@@ -124,7 +150,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
               </span>
               <Rating
                 name="simple-controlled"
-                value={ourRating}
+                value={stars}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   handleChange(e, "rating")
                 }
