@@ -34,6 +34,20 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
     body: ""
   });
   const [error, setError] = useState(false);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
   const scroll = Scroll.animateScroll;
   const classes = useStyles({});
 
@@ -75,7 +89,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
         ...comment,
         stars
       };
-      API.post("/movie/comment", body)
+      API.post("/movie/review", body)
         .then(() => {
           setComment({
             name: "",
@@ -110,8 +124,9 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
           <div className={classes.containerPeople} id="scrollComment">
             {reviews.map(({ name, month, day, year, stars, body }, index) => (
               <div key={index} className={classes.comment}>
-                <span style={{ fontSize: "1.1rem" }}>{name} </span>- {month},{" "}
-                {day}, {year} - <Rating size="small" value={stars} readOnly />
+                <span style={{ fontSize: "1.1rem" }}>{name} </span>-{" "}
+                {months[parseInt(month) - 1]}, {day}, {year} -{" "}
+                <Rating size="small" value={stars} readOnly />
                 <div style={{ marginRight: "0.5rem" }}>{body}</div>
               </div>
             ))}

@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import { useIntl } from "react-intl";
-import useApi from "../../hooks/useApi";
 import { socket } from "../../helpers/socket";
+import API from "../../util/api";
 
 import RecommandedMovies from "./MovieRecommanded";
 import MovieComments from "./MovieComments";
@@ -13,9 +13,7 @@ import { useMediaQuery, Container } from "@material-ui/core";
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const [movieId] = useState(window.location.pathname.split("/")[2]);
-  const { data, loading, error } = useApi(
-    `https://archive.org/metadata/${movieId}`
-  );
+  const [loading, setLoading] = useState(true);
   const [movieInfos, setMovieInfos] = useState({
     title: "",
     description: "",
@@ -27,20 +25,6 @@ const Movie = (): ReactElement => {
   const [reviews, setReviews] = useState([
     { name: "", month: "", day: "", year: "", stars: 0, body: "" }
   ]);
-  const months = [
-    _t({ id: "month.january" }),
-    _t({ id: "month.february" }),
-    _t({ id: "month.march" }),
-    _t({ id: "month.april" }),
-    _t({ id: "month.may" }),
-    _t({ id: "month.june" }),
-    _t({ id: "month.july" }),
-    _t({ id: "month.august" }),
-    _t({ id: "month.september" }),
-    _t({ id: "month.october" }),
-    _t({ id: "month.november" }),
-    _t({ id: "month.december" })
-  ];
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
@@ -49,55 +33,28 @@ const Movie = (): ReactElement => {
   };
 
   useEffect(() => {
-    if (!loading && Object.entries(data).length > 0) {
-      let totalStars = 0;
-      if (data.reviews) {
-        let reviewsTab: Array<Review> = [];
-        data.reviews.map(
-          (review: {
-            reviewer: string;
-            reviewdate: string;
-            stars: string;
-            reviewbody: string;
-          }) => {
-            totalStars += parseInt(review.stars, 10);
-            reviewsTab.push({
-              name: review.reviewer,
-              month: months[parseInt(review.reviewdate.split("-")[1]) - 1],
-              day: review.reviewdate.split("-")[2].split(" ")[0],
-              year: review.reviewdate.split("-")[0],
-              stars: parseInt(review.stars),
-              body: review.reviewbody
-            });
-          }
-        );
-        setReviews(reviewsTab);
-      }
-      const infos = {
-        title: data.metadata.title,
-        description: data.metadata.description,
-        creator: data.metadata.creator,
-        prodDate: data.metadata.date,
-        runTime: data.metadata.runtime,
-        stars:
-          data.reviews && data.reviews.length > 0
-            ? Math.floor(totalStars / data.reviews.length)
-            : null
-      };
-      setMovieInfos(infos);
-      socket.emit("join-movie-room", movieId);
-      socket.on("New comments", initComments);
+    if (loading) {
+      API.get(`/movie/infos/${movieId}`)
+        .then(({ data: { infos, reviews } }) => {
+          setMovieInfos(infos);
+          setReviews(reviews);
+          setLoading(false);
+          socket.emit("join-movie-room", movieId);
+          socket.on("New comments", initComments);
+        })
+        .catch(e => {
+          console.error(e);
+        });
     }
     return () => {
       socket.emit("leave-movie-room", movieId);
       socket.removeListener("New comments", initComments);
     };
-  }, [data, loading]);
+  });
 
   return (
     <div className={matches ? classes.rootResponsive : classes.root}>
       {!loading &&
-        !error &&
         (movieInfos.title ? (
           <div
             className={

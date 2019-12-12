@@ -14,7 +14,8 @@ router.get("/check-token", (req, res) => {
 router.post("/inscription", signUp.signUp);
 
 /* Movie */
-router.post("/movie/comment", movie.receiveComment);
+router.get("/movie/infos/:id", movie.getInfos);
+router.post("/movie/review", movie.receiveReviews);
 
 router.get("/data/avatar/:id", (req, res) => {
   const pictureName = req.params.id;

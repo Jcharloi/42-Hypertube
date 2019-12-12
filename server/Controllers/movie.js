@@ -12,7 +12,48 @@ const checkDate = (yearComment, monthComment, dayComment) => {
   return year === yearComment && month === monthComment && day === dayComment;
 };
 
-const receiveComment = (req, res) => {
+const getInfos = (req, res) => {
+  Axios.get(`https://archive.org/metadata/${req.params.id}`)
+    .then(async ({ data }) => {
+      let totalStars = 0;
+      let reviews = [];
+      if (data.reviews) {
+        data.reviews.map(review => {
+          totalStars += parseInt(review.stars, 10);
+          reviews.push({
+            name: review.reviewer,
+            month: review.reviewdate.split("-")[1],
+            day: review.reviewdate.split("-")[2].split(" ")[0],
+            year: review.reviewdate.split("-")[0],
+            stars: parseInt(review.stars),
+            body: review.reviewbody
+          });
+        });
+      }
+      const infos = {
+        title: data.metadata.title,
+        description: data.metadata.description,
+        creator: data.metadata.creator,
+        prodDate: data.metadata.date,
+        runTime: data.metadata.runtime,
+        stars:
+          data.reviews && data.reviews.length > 0
+            ? Math.floor(totalStars / data.reviews.length)
+            : null
+      };
+      const ourReviews = await movieHelpers.findReviews(req.params.id);
+      //verif ourReviews
+      reviews = movieHelpers.sortReviews(reviews, ourReviews);
+      console.log(infos, reviews);
+      res.status(200).send({ infos, reviews });
+    })
+    .catch(e => {
+      console.error(e.message);
+      res.sendStatus(500);
+    });
+};
+
+const receiveReviews = (req, res) => {
   Axios.get(`https://archive.org/metadata/${req.body.movieId}`)
     .then(async ({ data }) => {
       if (
@@ -21,7 +62,7 @@ const receiveComment = (req, res) => {
         req.body.body &&
         req.body.body.length < 1001
       ) {
-        const ret = await movieHelpers.saveComment({
+        const ret = await movieHelpers.saveReview({
           id: new mongoose.Types.ObjectId(),
           movieId: req.body.movieId,
           name: req.body.name,
@@ -54,4 +95,4 @@ const receiveComment = (req, res) => {
     });
 };
 
-export default { receiveComment };
+export default { receiveReviews, getInfos };
