@@ -29,11 +29,18 @@ const CustomRoute = ({
     <Route
       path={path}
       exact={exact}
-      render={(): ReactElement => {
+      render={(props): ReactElement => {
         if (error) return <div>Error</div>;
         if (loading) return <div>Loading</div>;
         if ((validToken && requireAuth) || (!validToken && !requireAuth))
-          return <Component />;
+          return (
+            <Component
+              history={props.history}
+              location={props.location}
+              match={props.match}
+              staticContext={props.staticContext}
+            />
+          );
         if ((validToken && !requireAuth) || (!validToken && requireAuth))
           return <Redirect to="/" />;
         return null;
