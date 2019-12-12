@@ -53,30 +53,31 @@ const usernameIsFree = async (username) => {
   }
 };
 
-const signUp = async (req, res) => {
+export const signUp = async (req, res) => {
   const goodInfos =
     validEmail(req.body.email) &&
     validPassword(req.body.password) &&
     req.files &&
     validFile(req.files.picture);
-  // todo: use `unique` in mongoose shema
   const usernameFree = await usernameIsFree(req.body.username);
   const emailFree = await emailIsFree(req.body.email);
+
   if (goodInfos && usernameFree && emailFree) {
-    const user = {
-      email: req.body.email,
-      username: req.body.username,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      password: req.body.password,
-      picture: req.files.picture
-    };
+    let userCreated;
+
+    // Creating user in database
     try {
-      const userCreated = await createUser(user, true);
-      await sendValidateEmail(userCreated, req.body.locale || "en");
-      res
-        .status(200)
-        .send({ missingInfos: false, nameTaken: false, emailTaken: false });
+      userCreated = await createUser(
+        {
+          email: req.body.email,
+          username: req.body.username,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          password: req.body.password,
+          picture: req.files.picture
+        },
+        true
+      );
     } catch (err) {
       console.error(err.message);
       if (err.name === "ValidationError") {
@@ -87,6 +88,17 @@ const signUp = async (req, res) => {
         res.status(500).send();
       }
     }
+
+    // Sending confirmation email
+    try {
+      await sendValidateEmail(userCreated, req.body.locale || "en");
+    } catch (err) {
+      console.error(err);
+    }
+
+    res
+      .status(200)
+      .send({ missingInfos: false, nameTaken: false, emailTaken: false });
   } else {
     res.status(400).send({
       missingInfos: !goodInfos,
@@ -96,4 +108,17 @@ const signUp = async (req, res) => {
   }
 };
 
-export default { signUp };
+export const verifyEmail = async (req, res) => {
+  try {
+    // Updating db
+    await UserModel.findByIdAndUpdate(req.params.id, { emailVerified: true });
+
+    // Sending auth token
+    // res.cookie("token", "YOUR TOKEN HERE IN THE FUTUR");
+
+    res.status(200).send();
+  } catch (err) {
+    console.error(err);
+    res.status(400).send();
+  }
+};

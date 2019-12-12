@@ -144,7 +144,7 @@ export const sendSignUpData = (
   data.append("locale", locale);
   return API({
     method: "post",
-    url: "/inscription",
+    url: "/users",
     headers: { "Content-Type": "multipart/form-data" },
     data
   });

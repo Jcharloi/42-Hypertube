@@ -38,7 +38,7 @@ app.use(hotMiddleware);
 /* eslint-enable */
 /* ------------------ */
 
-app.use("/API", router);
+app.use("/api", router);
 app.get("*", (req, res) => {
   res.render("index");
 });
