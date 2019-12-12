@@ -1,8 +1,10 @@
+import crypto from "crypto";
 import bcrypt from "bcrypt";
 
 import UserModel from "../Schemas/User";
-import { sendEmail } from "../nodemailer";
+import TokenModel from "../Schemas/Token";
 
+import { sendEmail } from "../nodemailer";
 import enHtml from "../emailsHtml/confirmEmailAdress.en.html";
 import frHtml from "../emailsHtml/confirmEmailAdress.fr.html";
 
@@ -21,41 +23,33 @@ const confirmEmailInfo = {
   }
 };
 
-const createRandomId = (length) => {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-};
-
 export const sendValidateEmail = async (user, locale) => {
   const emailInfo = confirmEmailInfo[locale];
+  const token = await TokenModel.create({
+    user: user._id
+  });
 
   // Setting unique url in html/text
   emailInfo.html = emailInfo.html.replace(
     /{{confirmUrl}}/g,
-    `${process.env.CLIENT_ORIGIN}/confirm-email/${user._id}`
+    `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
   );
   emailInfo.text = emailInfo.text.replace(
     /{{confirmUrl}}/g,
-    `${process.env.CLIENT_ORIGIN}/confirm-email/${user._id}`
+    `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
   );
 
   await sendEmail({
     to: user.email,
     ...emailInfo
   });
-  return true;
 };
 
 export const createUser = async (user, insertPT) => {
   let hashedPT;
   if (insertPT) {
-    hashedPT = `${user.picture.name.split(".")[0] + createRandomId(5)}.${
+    hashedPT = `${user.picture.name.split(".")[0] +
+      crypto.randomBytes(5).toString("hex")}.${
       user.picture.mimetype.split("/")[1]
     }`;
     user.picture.mv(`./server/data/avatar/${hashedPT}`, (e) => {

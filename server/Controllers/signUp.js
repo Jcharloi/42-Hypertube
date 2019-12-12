@@ -1,7 +1,9 @@
 import fileType from "file-type";
 
 import { createUser, sendValidateEmail } from "../Helpers/signUp";
+
 import UserModel from "../Schemas/User";
+import TokenModel from "../Schemas/Token";
 
 const validEmail = (email) => {
   const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
@@ -110,15 +112,30 @@ export const signUp = async (req, res) => {
 
 export const verifyEmail = async (req, res) => {
   try {
-    // Updating db
-    await UserModel.findByIdAndUpdate(req.params.id, { emailVerified: true });
+    // Getting data from DB
+    const token = await TokenModel.findOne({
+      value: req.params.value
+    }).populate("user", "emailVerified");
 
-    // Sending auth token
-    // res.cookie("token", "YOUR TOKEN HERE IN THE FUTUR");
+    if (token) {
+      // Changing user data
+      if (!token.user.emailVerified) {
+        token.user.emailVerified = true;
+        await token.user.save();
 
-    res.status(200).send();
+        // todo: Send auth token
+        // res.cookie("token", "YOUR TOKEN HERE IN THE FUTURE");
+      }
+
+      // Deleting the token
+      await TokenModel.findByIdAndDelete(token._id);
+
+      res.status(200).send();
+    } else {
+      res.status(400).send();
+    }
   } catch (err) {
     console.error(err);
-    res.status(400).send();
+    res.status(500).send();
   }
 };

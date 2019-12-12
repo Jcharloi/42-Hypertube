@@ -9,7 +9,7 @@ router.use("/avatar", express.static("./server/data/avatar"));
 
 // Users
 router.post("/users", signUp);
-router.put("/users/:id/verify-email", verifyEmail);
+router.put("/tokens/:value/verify-email", verifyEmail);
 
 // Other
 router.get("/check-token", (req, res) => {
