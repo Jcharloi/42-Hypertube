@@ -26,7 +26,7 @@
   "authentication.signUp.error.picture.tooHeavy": "Oof, your picture is too big. Select one smaller than 1Mo",
   "authentication.signUp.error.picture.wrongType": "Sorry, we only accept .jpeg, .jpg et .png",
   "authentication.signUp.validForm.title": "Nice to meet you",
-  "authentication.signUp.validForm.checkEmail": "Now you just need to validate your email",
+  "authentication.signUp.validForm.checkEmail": "Now you just need to confirm your email",
   "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content",
   "authentication.signUp.validForm.emailProblem": "You didn't receive your email ?",
   "authentication.signUp.validForm.emailProblemButton": "resend email",

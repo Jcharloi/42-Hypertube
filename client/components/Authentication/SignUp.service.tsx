@@ -147,7 +147,3 @@ export const sendSignUpData = (
     data
   });
 };
-
-export const resendConfrimationEmail = (id: string, locale: string): void => {
-  API.put(`users/${id}/send-validation-email`, { locale });
-};
