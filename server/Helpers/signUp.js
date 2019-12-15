@@ -29,19 +29,18 @@ export const sendValidateEmail = async (user, locale) => {
     user: user._id
   });
 
-  // Setting unique url in html/text
-  emailInfo.html = emailInfo.html.replace(
-    /{{confirmUrl}}/g,
-    `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
-  );
-  emailInfo.text = emailInfo.text.replace(
-    /{{confirmUrl}}/g,
-    `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
-  );
-
   await sendEmail({
     to: user.email,
-    ...emailInfo
+    ...emailInfo,
+    // Setting unique url in html/text
+    html: emailInfo.html.replace(
+      /{{confirmUrl}}/g,
+      `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
+    ),
+    text: emailInfo.text.replace(
+      /{{confirmUrl}}/g,
+      `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
+    )
   });
 };
 

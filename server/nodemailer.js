@@ -1,23 +1,26 @@
 import nodemailer from "nodemailer";
 
 const createTransporter = async () => {
-  // return nodemailer.createTransport({
-  //   host: process.env.EMAIL_HOST,
-  //   port: process.env.EMAIL_PORT,
-  //   secure: process.env.EMAIL_PORT === 465,
-  //   auth: {
-  //     user: process.env.EMAIL_USER,
-  //     pass: process.env.EMAIL_PASS
-  //   }
-  // });
-  const testAccount = await nodemailer.createTestAccount();
+  if (process.env.ENVIRONEMENT === "dev") {
+    const testAccount = await nodemailer.createTestAccount();
+    return nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: testAccount.user, // generated ethereal user
+        pass: testAccount.pass // generated ethereal password
+      }
+    });
+  }
+  // console.log("type", typeof process.env.EMAIL_PORT);
   return nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: process.env.EMAIL_PORT === "465",
     auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass // generated ethereal password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 };
@@ -33,8 +36,10 @@ export const sendEmail = async (option) => {
 
   const info = await transporter.sendMail(mailParam);
 
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  if (process.env.ENVIRONEMENT === "dev") {
+    // url to preview mail send through Ethereal
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  }
 
   return info;
 };

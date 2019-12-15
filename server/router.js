@@ -1,6 +1,10 @@
 import express from "express";
 
-import { signUp, verifyEmail } from "./Controllers/signUp";
+import {
+  signUp,
+  verifyEmail,
+  resendValidationEmail
+} from "./Controllers/signUp";
 
 const router = express.Router();
 
@@ -9,6 +13,7 @@ router.use("/avatar", express.static("./server/data/avatar"));
 
 // Users
 router.post("/users", signUp);
+router.put("/users/:id/send-validation-email", resendValidationEmail);
 router.put("/tokens/:value/verify-email", verifyEmail);
 
 // Other

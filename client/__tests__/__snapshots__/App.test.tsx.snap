@@ -34,6 +34,8 @@ exports[`App renders correctly 1`] = `
         "authentication.signUp.username": "Your little username",
         "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content",
         "authentication.signUp.validForm.checkEmail": "Now you just need to validate your email",
+        "authentication.signUp.validForm.emailProblem": "You didn't receive your email ?",
+        "authentication.signUp.validForm.emailProblemButton": "resend email",
         "authentication.signUp.validForm.title": "Nice to meet you",
         "disconnect": "Disconnect",
         "language.en": "🇬🇧",

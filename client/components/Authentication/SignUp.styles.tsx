@@ -26,6 +26,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     randomWrapper: {
       height: "100%"
+    },
+    resendWrapper: {
+      marginTop: "40px"
+    },
+    resendButton: {
+      fontSize: "12px",
+      marginLeft: "10px"
     }
   })
 );

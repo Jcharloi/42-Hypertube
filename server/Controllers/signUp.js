@@ -98,15 +98,37 @@ export const signUp = async (req, res) => {
       console.error(err);
     }
 
-    res
-      .status(200)
-      .send({ missingInfos: false, nameTaken: false, emailTaken: false });
+    res.status(200).send({ id: userCreated._id });
   } else {
     res.status(400).send({
       missingInfos: !goodInfos,
       nameTaken: !usernameFree,
       emailTaken: !emailFree
     });
+  }
+};
+
+export const resendValidationEmail = async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    if (user && !user.emailVerified) {
+      const token = await TokenModel.findOne({ user: user._id });
+      // check if 1mn is passed
+      if (Date.now() - token.createdAt.getTime() >= 60000) {
+        // Deleting old token
+        await TokenModel.findOneAndDelete({ user: user._id });
+        // Sending a new mail
+        await sendValidateEmail(user, req.body.locale || "en");
+        res.status(200).send();
+      } else {
+        res.status(400).send({ error: "TOO_SOON" });
+      }
+    } else {
+      res.status(400).send({ error: "WRONG_USER" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ error: "UNKNOWN" });
   }
 };
 

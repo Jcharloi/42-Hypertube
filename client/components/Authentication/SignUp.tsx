@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import EmailIcon from "@material-ui/icons/Email";
+import Button from "@material-ui/core/Button";
 
 import { useIntl } from "react-intl";
 import useStyles from "./SignUp.styles";
@@ -16,7 +17,8 @@ import {
   checkErrors,
   getPictureError,
   isThereError,
-  sendSignUpData
+  sendSignUpData,
+  resendConfrimationEmail
 } from "./SignUp.service";
 import {
   requiredErrorKey,
@@ -34,7 +36,7 @@ const SignUp = (): ReactElement => {
   const { locale, formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const [waitingRes, setWaitingRes] = useState(false);
-  const [userIsRegistered, setUserIsRegistered] = useState(false);
+  const [userId, setUserId] = useState("");
   const [userInfo, setUserInfo] = useState<UserInfo>({
     username: "",
     password: "",
@@ -102,9 +104,9 @@ const SignUp = (): ReactElement => {
       setWaitingRes(true);
 
       sendSignUpData(userInfo, locale)
-        .then(() => {
+        .then(({ data: { id } }) => {
           setWaitingRes(false);
-          setUserIsRegistered(true);
+          setUserId(id);
         })
         .catch(({ response: { data } }) => {
           setWaitingRes(false);
@@ -120,7 +122,7 @@ const SignUp = (): ReactElement => {
   return (
     <Paper className={classes.page}>
       <Grid container direction="column" alignItems="center">
-        {!userIsRegistered && (
+        {userId === "" && (
           <div>
             <Grid
               container
@@ -158,13 +160,14 @@ const SignUp = (): ReactElement => {
           </div>
         )}
 
-        {userIsRegistered && (
+        {userId !== "" && (
           <Grid
             container
             direction="column"
             alignItems="center"
             className={classes.titles}
           >
+            {/* Title */}
             <Grid item>
               <Typography variant="h4" align="center">
                 {`${_t({ id: "authentication.signUp.validForm.title" })} ${
@@ -176,12 +179,15 @@ const SignUp = (): ReactElement => {
                 </span>
               </Typography>
             </Grid>
+            {/* Icon + instruction */}
             <Grid container direction="row" justify="center">
+              {/* Mail icon */}
               <Grid item>
                 <Avatar className={classes.emailRound}>
                   <EmailIcon color="secondary" className={classes.emailIcon} />
                 </Avatar>
               </Grid>
+              {/* instruction */}
               <Grid item>
                 <Grid
                   container
@@ -206,6 +212,33 @@ const SignUp = (): ReactElement => {
                     </Typography>
                   </Grid>
                 </Grid>
+              </Grid>
+            </Grid>
+            {/* Resend */}
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              className={classes.resendWrapper}
+            >
+              <Grid item>
+                <Typography variant="body2" align="center">
+                  {_t({ id: "authentication.signUp.validForm.emailProblem" })}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  size="small"
+                  className={classes.resendButton}
+                  onClick={(): void => resendConfrimationEmail(userId, locale)}
+                >
+                  {_t({
+                    id: "authentication.signUp.validForm.emailProblemButton"
+                  })}
+                </Button>
               </Grid>
             </Grid>
           </Grid>

@@ -1,5 +1,6 @@
 import "./dotenv.config";
 import express from "express";
+import bodyParser from "body-parser";
 import morgan from "morgan";
 import path from "path";
 import favicon from "serve-favicon";
@@ -13,6 +14,7 @@ app.set("root", "/");
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
 
+app.use(bodyParser.json());
 app.use(favicon(path.join(__dirname, "views", "favicon.ico")));
 app.use("/public", express.static("public"));
 app.use(morgan("dev"));
