@@ -32,7 +32,7 @@ describe("Sign Up", () => {
   });
 
   it("should insert user", async () => {
-    const newUser = await createUser(mockedUser, false);
+    const newUser = await createUser(mockedUser, true);
 
     if (await bcrypt.compare(mockedUser.password, newUser.password)) {
       resultUser.password = newUser.password;

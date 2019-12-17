@@ -44,9 +44,9 @@ export const sendValidateEmail = async (user, locale) => {
   });
 };
 
-export const createUser = async (user, insertPT) => {
+export const createUser = async (user, dontInsertPicture) => {
   let hashedPT;
-  if (insertPT) {
+  if (!dontInsertPicture) {
     hashedPT = `${user.picture.name.split(".")[0] +
       crypto.randomBytes(5).toString("hex")}.${
       user.picture.mimetype.split("/")[1]

@@ -69,17 +69,14 @@ export const signUp = async (req, res) => {
 
     // Creating user in database
     try {
-      userCreated = await createUser(
-        {
-          email: req.body.email,
-          username: req.body.username,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          password: req.body.password,
-          picture: req.files.picture
-        },
-        true
-      );
+      userCreated = await createUser({
+        email: req.body.email,
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        password: req.body.password,
+        picture: req.files.picture
+      });
     } catch (err) {
       console.error(err.message);
       if (err.name === "ValidationError") {
