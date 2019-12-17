@@ -13,7 +13,6 @@ const createTransporter = async () => {
       }
     });
   }
-  // console.log("type", typeof process.env.EMAIL_PORT);
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,

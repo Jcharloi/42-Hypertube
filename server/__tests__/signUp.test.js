@@ -1,8 +1,9 @@
 import "../dotenv.config";
 import bcrypt from "bcrypt";
 import mongoose from "../mongo";
-import { createUser } from "../Helpers/signUp";
+import { createUser, sendValidateEmail } from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
+import TokenModel from "../Schemas/Token";
 
 describe("Sign Up", () => {
   let mockedUser;
@@ -11,12 +12,12 @@ describe("Sign Up", () => {
   beforeAll(() => {
     mockedUser = {
       _id: new mongoose.Types.ObjectId(),
-      email: "test email",
+      email: "test@email.com",
       username: "test name",
       firstName: "test first",
       lastName: "test last",
-      password: "test password",
-      picture: "test picture"
+      password: "TestPassword1",
+      picture: "test/picture"
     };
     resultUser = {
       ...mockedUser,
@@ -27,6 +28,7 @@ describe("Sign Up", () => {
 
   afterAll(async () => {
     await UserModel.findByIdAndDelete(mockedUser._id);
+    await TokenModel.findOneAndDelete({ user: mockedUser._id });
   });
 
   it("should insert user", async () => {
@@ -41,5 +43,12 @@ describe("Sign Up", () => {
   it("should be the same user", async () => {
     const findUser = await UserModel.findById(mockedUser._id);
     expect(findUser.toJSON()).toEqual(resultUser);
+  });
+
+  it("should create a token for our user", async () => {
+    await sendValidateEmail(resultUser, "en");
+    const token = await TokenModel.findOne({ user: resultUser._id });
+
+    expect(token).not.toBeNull();
   });
 });
