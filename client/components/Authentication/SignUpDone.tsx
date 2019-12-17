@@ -89,7 +89,13 @@ const SignUpDone = ({ user }: Props): ReactElement => {
           >
             <Grid item className={classes.subtitle}>
               <Typography variant="subtitle1" align="center">
-                {_t({ id: "authentication.signUpDone.checkEmail" })}
+                {_t({ id: "authentication.signUpDone.weSent" })}
+                <b>{user.email}</b>
+              </Typography>
+            </Grid>
+            <Grid item className={classes.subtitle}>
+              <Typography variant="subtitle1" align="center">
+                {_t({ id: "authentication.signUpDone.goClick" })}
               </Typography>
             </Grid>
             <Grid item className={classes.subtitle}>

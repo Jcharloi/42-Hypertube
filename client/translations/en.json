@@ -27,7 +27,8 @@
   "authentication.signUp.error.picture.wrongType": "Sorry, we only accept .jpeg, .jpg et .png",
 
   "authentication.signUpDone.title": "Nice to meet you",
-  "authentication.signUpDone.checkEmail": "Now you just need to confirm your email",
+  "authentication.signUpDone.weSent": "We've sent a confirmation email to ",
+  "authentication.signUpDone.goClick": "You just have to click on the link, like always...",
   "authentication.signUpDone.bingeWatching": "Then you can start binge watching our content",
   "authentication.signUpDone.emailProblem": "You didn't receive your email ?",
   "authentication.signUpDone.emailProblemButton": "resend email",

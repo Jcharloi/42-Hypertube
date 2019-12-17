@@ -27,7 +27,8 @@
   "authentication.signUp.error.picture.wrongType": "Désolé, nous acceptons que les formats .jpeg, .jpg, .png",
 
   "authentication.signUpDone.title": "Bienvenue",
-  "authentication.signUpDone.checkEmail": "Maitenant t'as juste à confirmer ton email",
+  "authentication.signUpDone.weSent": "On a envoyé un email de confirmation à l'ardesse ",
+  "authentication.signUpDone.goClick": "T'as juste à cliquer sur le lien, comme d'hab...",
   "authentication.signUpDone.bingeWatching": "Et après promis, tu peux commencer à binge watcher",
   "authentication.signUpDone.emailProblem": "Tu n'as pas reçue ton email ?",
   "authentication.signUpDone.emailProblemButton": "Renvoyer l'email",
