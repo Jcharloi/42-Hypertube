@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
@@ -10,6 +10,9 @@ import useStyles from "./SignUpDone.styles";
 
 import resendConfrimationEmail, { User } from "./SignUpDone.service";
 
+import CustomSnackbars from "../Snackbars/CustomSnackbars";
+import { Variant } from "../Snackbars/CustomSnackbarsContent";
+
 interface Props {
   user: User;
 }
@@ -17,6 +20,39 @@ interface Props {
 const SignUpDone = ({ user }: Props): ReactElement => {
   const { locale, formatMessage: _t } = useIntl();
   const classes = useStyles({});
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [variant, setVariant] = useState<Variant>("success");
+
+  const handleResendClick = (): void => {
+    resendConfrimationEmail(user.id, locale)
+      .then(() => {
+        setMessage(_t({ id: "authentication.signUpDone.snack.send" }));
+        setVariant("success");
+        setOpen(true);
+      })
+      .catch(
+        ({
+          response: {
+            data: { error }
+          }
+        }) => {
+          if (error === "TOO_SOON") {
+            setMessage(_t({ id: "authentication.signUpDone.snack.tooSoon" }));
+            setVariant("warning");
+          } else if (error === "WRONG_USER") {
+            setMessage(
+              _t({ id: "authentication.signUpDone.snack.alreadyConfirmed" })
+            );
+            setVariant("info");
+          } else {
+            setMessage(_t({ id: "authentication.signUpDone.snack.unknown" }));
+            setVariant("error");
+          }
+          setOpen(true);
+        }
+      );
+  };
 
   return (
     <Grid
@@ -28,9 +64,7 @@ const SignUpDone = ({ user }: Props): ReactElement => {
       {/* Title */}
       <Grid item>
         <Typography variant="h4" align="center">
-          {`${_t({ id: "authentication.signUp.validForm.title" })} ${
-            user.firstName
-          }`}
+          {`${_t({ id: "authentication.signUpDone.title" })} ${user.firstName}`}
           <span role="img" aria-label="Waving hand">
             {" "}
             👋🏻
@@ -55,13 +89,13 @@ const SignUpDone = ({ user }: Props): ReactElement => {
           >
             <Grid item className={classes.subtitle}>
               <Typography variant="subtitle1" align="center">
-                {_t({ id: "authentication.signUp.validForm.checkEmail" })}
+                {_t({ id: "authentication.signUpDone.checkEmail" })}
               </Typography>
             </Grid>
             <Grid item className={classes.subtitle}>
               <Typography variant="subtitle1" align="center">
                 {_t({
-                  id: "authentication.signUp.validForm.bingeWatching"
+                  id: "authentication.signUpDone.bingeWatching"
                 })}
                 <span role="img" aria-label="Shush guy">
                   {" "}
@@ -82,7 +116,7 @@ const SignUpDone = ({ user }: Props): ReactElement => {
       >
         <Grid item>
           <Typography variant="body2" align="center">
-            {_t({ id: "authentication.signUp.validForm.emailProblem" })}
+            {_t({ id: "authentication.signUpDone.emailProblem" })}
           </Typography>
         </Grid>
         <Grid item>
@@ -91,12 +125,18 @@ const SignUpDone = ({ user }: Props): ReactElement => {
             color="secondary"
             size="small"
             className={classes.resendButton}
-            onClick={(): void => resendConfrimationEmail(user.id, locale)}
+            onClick={handleResendClick}
           >
             {_t({
-              id: "authentication.signUp.validForm.emailProblemButton"
+              id: "authentication.signUpDone.emailProblemButton"
             })}
           </Button>
+          <CustomSnackbars
+            message={message}
+            open={open}
+            setOpen={setOpen}
+            variant={variant}
+          />
         </Grid>
       </Grid>
     </Grid>
