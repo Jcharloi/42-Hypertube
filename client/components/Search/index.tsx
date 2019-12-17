@@ -26,7 +26,7 @@ const Search = (): ReactElement => {
   const [block, setBlock] = useState(false);
   const [page, setPage] = useState(1);
   const { data, loading, error, setUrl } = useApi(
-    `http://localhost:8080/API/getFilms?${qs.stringify({
+    `/search?${qs.stringify({
       ...history.location.state,
       page: 1
     })}`

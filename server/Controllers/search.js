@@ -1,11 +1,11 @@
 import qs from "qs";
 
-import getFilmsHelper from "../Helpers/getFilms";
+import searchHelper from "../Helpers/search";
 
-const getFilms = async (req, res) => {
+const search = async (req, res) => {
   const parsedQuery = qs.parse(req.query);
 
-  const data = await getFilmsHelper({
+  const data = await searchHelper({
     query: parsedQuery.query,
     page: parsedQuery.page,
     startYear: parsedQuery.startYear,
@@ -17,4 +17,4 @@ const getFilms = async (req, res) => {
   return res.send(data);
 };
 
-export default { getFilms };
+export default { search };

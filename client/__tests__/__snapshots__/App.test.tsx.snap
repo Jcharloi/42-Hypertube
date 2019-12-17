@@ -549,9 +549,7 @@ exports[`App renders correctly 1`] = `
                                         "aria-label": "search",
                                       }
                                     }
-                                    onBlur={[Function]}
                                     onChange={[Function]}
-                                    onFocus={[Function]}
                                     placeholder="Search a film, an author..."
                                     startAdornment={
                                       <ForwardRef(WithStyles)
@@ -591,9 +589,7 @@ exports[`App renders correctly 1`] = `
                                           "aria-label": "search",
                                         }
                                       }
-                                      onBlur={[Function]}
                                       onChange={[Function]}
-                                      onFocus={[Function]}
                                       placeholder="Search a film, an author..."
                                       startAdornment={
                                         <ForwardRef(WithStyles)

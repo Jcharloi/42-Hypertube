@@ -1,11 +1,14 @@
-import * as React from "react";
+import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import EnzymeToJson from "enzyme-to-json";
+import moment from "moment";
 import { mount, configure } from "enzyme";
 
 import Search from "../components/Search";
 import Film from "../components/Search/Film";
 import Thumbnail from "../components/Search/Thumbnail";
+
+import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import * as ServiceSearch from "../components/Search/service";
 
@@ -37,15 +40,15 @@ describe("Search", () => {
   };
 
   describe("search", () => {
-    it("renders correctly", async () => {
-      const domNode = mount(<Search />);
+    it("renders correctly", () => {
+      const domNode = mountWithIntl(<Search />, "en");
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });
   });
 
   describe("film", () => {
     it("renders correctly", () => {
-      const domNode = mount(<Film film={filmFixture} />);
+      const domNode = mountWithIntl(<Film film={filmFixture} />, "en");
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });
   });
@@ -89,7 +92,7 @@ describe("Search", () => {
 
         const testQuery = ServiceSearch.formatUrl(filters, 1);
         expect(testQuery).toBe(
-          "http://localhost:8080/API/getFilms?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
+          "/search?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
         );
       });
 
@@ -98,13 +101,13 @@ describe("Search", () => {
           query: "",
           collections: Array(0),
           startYear: 1900,
-          endYear: 2019,
+          endYear: moment().year(),
           minRating: 0,
           maxRating: 5
         };
 
         const testQuery = ServiceSearch.formatUrl(filters, 1);
-        expect(testQuery).toBe("http://localhost:8080/API/getFilms?page=1");
+        expect(testQuery).toBe("/search?page=1");
       });
     });
   });

@@ -4,11 +4,11 @@ import path from "path";
 import movie from "./Controllers/movie";
 
 import signUpController from "./Controllers/signUp";
-import getFilmsController from "./Controllers/getFilms";
+import searchController from "./Controllers/search";
 
 const router = express.Router();
 
-router.get("/getFilms", getFilmsController.getFilms);
+router.get("/search", searchController.search);
 
 router.post("/inscription", signUpController.signUp);
 

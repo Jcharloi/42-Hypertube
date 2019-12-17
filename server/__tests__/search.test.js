@@ -1,4 +1,4 @@
-import getFilmsHelper from "../Helpers/getFilms";
+import searchHelper from "../Helpers/search";
 
 describe("search", () => {
   describe("helper", () => {
@@ -12,7 +12,7 @@ describe("search", () => {
         endYear: 2019
       };
 
-      const res = await getFilmsHelper(filters);
+      const res = await searchHelper(filters);
       expect(res).toBeDefined();
       expect(res).toHaveProperty("numFound");
       expect(res).toHaveProperty("start");

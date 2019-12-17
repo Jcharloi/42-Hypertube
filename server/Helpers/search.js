@@ -3,7 +3,7 @@ import qs from "qs";
 
 const ARCHIVE_URL = "https://archive.org/advancedsearch.php";
 
-const getFilmsHelper = async ({
+const searchHelper = async ({
   query,
   page,
   minRating,
@@ -37,4 +37,4 @@ const getFilmsHelper = async ({
   return res.data.response;
 };
 
-export default getFilmsHelper;
+export default searchHelper;
