@@ -33,9 +33,12 @@ const LanguageButton = ({ locale, setLocale }: Locale): ReactElement => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <span role="img" aria-label="flag">
-          {_t({ id: `language.${locale}` })}
-        </span>
+        {locale === "fr" ? (
+          <img src="http://localhost:8080/fr.png" alt="fr flag"></img>
+        ) : (
+          <img src="http://localhost:8080/en.png" alt="en flag"></img>
+        )}
+        {console.log(locale)}
       </Button>
       <Menu
         id="simple-menu"
