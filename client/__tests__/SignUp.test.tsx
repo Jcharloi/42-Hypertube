@@ -4,6 +4,7 @@ import EnzymeToJson from "enzyme-to-json";
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import SignUp from "../components/Authentication/SignUp";
+import SignUpDone from "../components/Authentication/SignUpDone";
 import {
   UserInfo,
   UserError,
@@ -29,6 +30,42 @@ describe("SignUp", () => {
 
   it("should render <SignUp> in french", () => {
     const domNode = mountWithIntl(<SignUp />, "fr");
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUpDone> in english", () => {
+    const domNode = mountWithIntl(
+      <SignUpDone
+        user={{
+          username: "",
+          password: "",
+          email: "toto@gmail.com",
+          firstName: "Toto",
+          lastName: "",
+          picture: null,
+          id: ""
+        }}
+      />,
+      "en"
+    );
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUpDone> in french", () => {
+    const domNode = mountWithIntl(
+      <SignUpDone
+        user={{
+          username: "",
+          password: "",
+          email: "toto@gmail.com",
+          firstName: "Toto",
+          lastName: "",
+          picture: null,
+          id: ""
+        }}
+      />,
+      "fr"
+    );
     expect(EnzymeToJson(domNode)).toMatchSnapshot();
   });
 
