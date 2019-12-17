@@ -16,3 +16,22 @@ export interface Review {
   stars: number;
   body: string;
 }
+
+export interface Film {
+  title: string;
+  avg_rating: number;
+  date: string;
+  creator: string;
+  subject: string | string[];
+  description: string;
+  identifier: string;
+}
+
+export interface Filters {
+  query: string;
+  collections: string[];
+  startYear: number;
+  endYear: number;
+  minRating: number;
+  maxRating: number;
+}

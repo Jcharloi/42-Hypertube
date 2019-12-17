@@ -3,7 +3,6 @@ import { IntlProvider } from "react-intl";
 import { hot } from "react-hot-loader/root";
 import { Router, Switch, Route, Link } from "react-router-dom";
 
-import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import history from "../helpers/history";
 
@@ -33,7 +32,6 @@ const App = (): ReactElement => {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <CssBaseline />
       <IntlProvider locale={locale} messages={messages[locale]}>
         <Layout locale={locale} setLocale={setLocale}>
           <Router history={history}>

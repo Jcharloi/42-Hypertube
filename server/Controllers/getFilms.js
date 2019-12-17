@@ -3,12 +3,16 @@ import qs from "qs";
 import getFilmsHelper from "../Helpers/getFilms";
 
 const getFilms = async (req, res) => {
-  console.log("over here");
   const parsedQuery = qs.parse(req.query);
 
   const data = await getFilmsHelper({
-    query: parsedQuery.query || null,
-    page: parsedQuery.page || 1
+    query: parsedQuery.query,
+    page: parsedQuery.page,
+    startYear: parsedQuery.startYear,
+    endYear: parsedQuery.endYear,
+    collections: parsedQuery.collections,
+    minRating: parsedQuery.minRating,
+    maxRating: parsedQuery.maxRating
   });
   return res.send(data);
 };
