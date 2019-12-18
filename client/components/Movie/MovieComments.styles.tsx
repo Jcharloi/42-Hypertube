@@ -32,6 +32,11 @@ const useStyles = makeStyles(() =>
       overflow: "scroll",
       overflowX: "hidden"
     },
+    commentText: {
+      marginRight: "0.5rem",
+      whiteSpace: "pre-line",
+      overflowWrap: "break-word"
+    },
     comment: {
       margin: "1rem 0"
     },

@@ -34,10 +34,12 @@ const getInfos = (req, res) => {
             : null
       };
       const ourReviews = await movieHelpers.findReviews(req.params.id);
-      //verif ourReviews
-
-      reviews = movieHelpers.sortReviews(reviews, ourReviews);
-      res.status(200).send({ infos, reviews });
+      if (typeof ourReviews !== "string") {
+        reviews = movieHelpers.sortReviews(reviews, ourReviews);
+        res.status(200).send({ infos, reviews });
+      } else {
+        res.sendStatus(500);
+      }
     })
     .catch((e) => {
       console.error(e.message);
@@ -57,7 +59,7 @@ const receiveReviews = (req, res) => {
           stars: req.body.stars,
           body: req.body.body
         });
-        if (ret === true) {
+        if (typeof ret !== "string") {
           const fullDate = String(new Date(req.body.date)).split(" ");
           ioConnection.ioConnection.to(req.body.movieId).emit("New comments", {
             id: Date.now(),

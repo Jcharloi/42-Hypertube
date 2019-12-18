@@ -9,6 +9,7 @@ import API from "../../util/api";
 import RecommandedMovies from "./MovieRecommanded";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
+import newMovieRating from "./MovieComments.service";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -28,11 +29,11 @@ const Movie = (): ReactElement => {
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
-  const initComments = (reviewReceived: Review): void => {
-    setReviews((reviewsHook) => [...reviewsHook, reviewReceived]);
-  };
-
   useEffect(() => {
+    const initComments = (reviewReceived: Review): void => {
+      // newMovieRating(movieInfos.stars);
+      setReviews((reviewsHook) => [...reviewsHook, reviewReceived]);
+    };
     if (loading) {
       API.get(`/movie/infos/${movieId}`)
         .then(({ data: { infos, reviews: allReviews } }) => {
@@ -50,7 +51,7 @@ const Movie = (): ReactElement => {
       socket.socket.emit("leave-movie-room", movieId);
       socket.socket.removeListener("New comments", initComments);
     };
-  }, [loading, movieId]);
+  }, [loading, movieId, movieInfos.stars]);
 
   return (
     <div className={matches ? classes.rootResponsive : classes.root}>

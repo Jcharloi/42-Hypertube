@@ -1,14 +1,14 @@
 import MovieCommentModel from "../Schemas/Movie";
 
 const timestampToDate = (month, day, year) => {
-  return month + ", " + day + ", " + year;
+  return `${month}, ${day}, ${year}`;
 };
 
 const sortReviews = (reviews, ourReviews) => {
-  let copyReviews = reviews;
-  reviews.splice(reviews.length - 1, 0, ...ourReviews);
-  reviews.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
-  reviews.map(({ date }, index) => {
+  const copyReviews = reviews;
+  copyReviews.splice(copyReviews.length - 1, 0, ...ourReviews);
+  copyReviews.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
+  copyReviews.map(({ date }, index) => {
     const fullDate = String(new Date(date)).split(" ");
     copyReviews[index].date = timestampToDate(
       fullDate[1],
@@ -17,7 +17,7 @@ const sortReviews = (reviews, ourReviews) => {
     );
     return 1;
   });
-  return reviews;
+  return copyReviews;
 };
 
 const findReviews = async (movieId) => {

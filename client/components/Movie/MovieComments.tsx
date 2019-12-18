@@ -122,7 +122,7 @@ const MovieComments = ({
                     />
                   }
                 />
-                <div style={{ marginRight: "0.5rem" }}>{body}</div>
+                <div className={classes.commentText}>{body}</div>
               </div>
             ))}
           </div>
@@ -143,6 +143,7 @@ const MovieComments = ({
             inputProps={{
               maxLength: 1000
             }}
+            // eslint-disable-next-line
             InputProps={{
               maxLength: 1000,
               startAdornment: (
