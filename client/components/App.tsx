@@ -28,12 +28,6 @@ const App = (): ReactElement => {
           <Switch>
             <CustomRoute
               exact
-              path="/sign-in"
-              component={Authentication}
-              requireAuth={false}
-            />
-            <CustomRoute
-              exact
               path="/sign-up"
               component={Authentication}
               requireAuth={false}

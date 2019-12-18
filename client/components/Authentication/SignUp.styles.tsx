@@ -4,7 +4,9 @@ import indigo from "@material-ui/core/colors/indigo";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     page: {
-      margin: `${theme.spacing(1)}px`,
+      maxWidth: "500px",
+      flexGrow: 1,
+      margin: `${theme.spacing(3)}px 0px`,
       // Using indigo for now bevause we're using material default's theme
       // todo: change and use theme in the future
       backgroundColor: indigo[50]

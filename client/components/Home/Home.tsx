@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 
 import useApi from "../../hooks/useApi";
 
+import Loading from "../Routes/Loading";
 import Authentication from "../Authentication/Authentication";
 
 const Home = (): ReactElement => {
@@ -15,7 +16,7 @@ const Home = (): ReactElement => {
     return <div>Error</div>;
   }
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   if (!validToken) {
     return <Authentication />;

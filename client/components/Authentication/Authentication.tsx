@@ -1,16 +1,22 @@
 import React, { ReactElement } from "react";
-import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+
+import CustomRoute from "../Routes/CustomRoute";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import ResetPassword from "./ResetPassword";
 
 const Authentication = (): ReactElement => (
-  <div>
-    <Link to="/">Not authenticated</Link>
-    <SignUp />
-    <SignIn />
-    <ResetPassword />
-  </div>
+  <Grid container alignItems="center" justify="center">
+    <CustomRoute exact path="/" component={SignIn} requireAuth={false} />
+    <CustomRoute exact path="/sign-up" component={SignUp} requireAuth={false} />
+    <CustomRoute
+      exact
+      path="/reset-password"
+      component={ResetPassword}
+      requireAuth={false}
+    />
+  </Grid>
 );
 
 export default Authentication;

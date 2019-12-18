@@ -9,7 +9,7 @@ const useApi = (
   fixture?: Fixture
 ): { data: Record<string, unknown>; loading: boolean; error: {} } => {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
