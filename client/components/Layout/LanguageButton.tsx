@@ -1,41 +1,44 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import { useIntl } from 'react-intl';
-import styles from './LanguageButton.style.css';
-import { Locale } from '../../models/models';
+import React, { ReactElement } from "react";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
-const options = [
-  'fr',
-  'en',
-];
+import { useIntl } from "react-intl";
 
-export default function SimpleMenu({ locale, setLocale }: Locale) {
+import useStyles from "./LanguageButton.style";
+
+import { Locale } from "../../models/models";
+
+const LanguageButton = ({ locale, setLocale }: Locale): ReactElement => {
+  const classes = useStyles({});
   const { formatMessage: _t } = useIntl();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (index: number) => {
-    setSelectedIndex(index);
+  const handleClose = (language: string): void => {
     setAnchorEl(null);
-  };
-
-
-  const handleClose = (language: string) => {
-    setAnchorEl(null);
-    if (typeof language === 'string') {
+    if (typeof language === "string") {
       setLocale(language);
     }
   };
 
   return (
     <div>
-      <Button className={styles['language-toggle-button']} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        {_t({ id: `language.${locale}` })}
+      <Button
+        className={classes.languageToggleButton}
+        aria-controls="simple-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        {locale === "fr" ? (
+          <img src="http://localhost:8080/fr.png" alt="fr flag"></img>
+        ) : (
+          <img src="http://localhost:8080/en.png" alt="en flag"></img>
+        )}
+        {console.log(locale)}
       </Button>
       <Menu
         id="simple-menu"
@@ -44,9 +47,25 @@ export default function SimpleMenu({ locale, setLocale }: Locale) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => handleClose('fr')}>{_t({ id: 'language.fr' })}</MenuItem>
-        <MenuItem onClick={() => handleClose('en')}>{_t({ id: 'language.en' })}</MenuItem>
+        <MenuItem
+          className={classes.languageMenu}
+          onClick={(): void => handleClose("fr")}
+        >
+          <span role="img" aria-label="france flag">
+            {_t({ id: "language.fr" })}
+          </span>
+        </MenuItem>
+        <MenuItem
+          className={classes.languageMenu}
+          onClick={(): void => handleClose("en")}
+        >
+          <span role="img" aria-label="english flag">
+            {_t({ id: "language.en" })}
+          </span>
+        </MenuItem>
       </Menu>
     </div>
   );
-}
+};
+
+export default LanguageButton;

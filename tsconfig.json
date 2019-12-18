@@ -9,13 +9,14 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": [
+      "dom",
       "esnext.intl",
       "es2017.intl",
       "es2018.intl"
     ]
   },
   "include": [
-    "server/**/*.ts"
+    "client/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

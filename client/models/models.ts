@@ -1,4 +1,9 @@
 export interface Locale {
   locale: string;
-  setLocale: () => void ;
+  setLocale: (locale: string) => void;
+}
+export interface Fixture {
+  data: {};
+  loading: boolean;
+  error: {};
 }

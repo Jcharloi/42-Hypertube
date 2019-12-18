@@ -1,109 +1,79 @@
-import React from 'react';
-import {
-  fade, makeStyles, Theme, createStyles,
-} from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import React, { ReactElement } from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import InputBase from "@material-ui/core/InputBase";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 
-import { useIntl } from 'react-intl';
-import useStyles from './TopMenu.styles';
-import LanguageButton from './LanguageButton';
-import { Locale } from '../../models/models';
+import { useIntl } from "react-intl";
+import useStyles from "./TopMenu.styles";
 
-// export function SimpleMenu() {
-//   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+import history from "../../helpers/history";
 
-//   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-//     setAnchorEl(event.currentTarget);
-//   };
+import LanguageButton from "./LanguageButton";
+import { Locale } from "../../models/models";
 
-//   const handleClose = () => {
-//     setAnchorEl(null);
-//   };
-// }
-
-export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
+const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
   const { formatMessage: _t } = useIntl();
-  const classes = useStyles();
+  const classes = useStyles({});
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-
+  const [
+    mobileMoreAnchorEl,
+    setMobileMoreAnchorEl
+  ] = React.useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const menuId = "primary-search-account-menu";
 
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleProfileMenuOpen = (
+    event: React.MouseEvent<HTMLElement>
+  ): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
+  const redirectTitle = (): void => {
+    history.push("/");
+  };
+
+  const handleMobileMenuClose = (): void => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = (): void => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{_t({ id: "profile" })}</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{_t({ id: "disconnect" })}</MenuItem>
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -122,28 +92,25 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
+          <Typography
+            onClick={(): void => redirectTitle()}
+            className={classes.title}
+            variant="h6"
+            noWrap
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            {_t({ id: 'title' })}
+            {_t({ id: "title" })}
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder={_t({ id: 'search' })}
+              placeholder={_t({ id: "search" })}
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput,
+                input: classes.inputInput
               }}
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </div>
           <div className={classes.grow} />
@@ -161,14 +128,16 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
+            <LanguageButton locale={locale} setLocale={setLocale} />
             <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <AccountCircle />
             </IconButton>
           </div>
         </Toolbar>
@@ -177,4 +146,6 @@ export default function PrimarySearchAppBar({ locale, setLocale }: Locale) {
       {renderMenu}
     </div>
   );
-}
+};
+
+export default TopMenu;

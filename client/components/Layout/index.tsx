@@ -1,14 +1,20 @@
-import * as React from 'react';
-import TopMenu from './TopMenu';
+import React, { ReactElement } from "react";
 
-import styles from './styles.css';
+import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 
-// eslint-disable-next-line
-const Layout = ({ children, locale, setLocale }) => (
+import TopMenu from "./TopMenu";
+
+interface Props {
+  children: ReactElement;
+  locale: string;
+  setLocale: (locale: string) => void;
+}
+
+const Layout = ({ children, locale, setLocale }: Props): ReactElement => (
   <div>
-
+    <CssBaseline />
     <TopMenu locale={locale} setLocale={setLocale} />
-
+    {children}
   </div>
 );
 
