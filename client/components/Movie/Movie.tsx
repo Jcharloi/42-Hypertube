@@ -1,14 +1,14 @@
-import React, { ReactElement, useState, useEffect } from "react";
 import { useIntl } from "react-intl";
-import { socket } from "../../helpers/socket";
-import API from "../../util/api";
+import React, { ReactElement, useState, useEffect } from "react";
 
+import { useMediaQuery, Container } from "@material-ui/core";
+import useStyles from "./Movie.styles";
+
+import socket from "../../helpers/socket";
+import API from "../../util/api";
 import RecommandedMovies from "./MovieRecommanded";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
-
-import useStyles from "./Movie.styles";
-import { useMediaQuery, Container } from "@material-ui/core";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -23,34 +23,34 @@ const Movie = (): ReactElement => {
     stars: 0
   });
   const [reviews, setReviews] = useState([
-    { name: "", month: "", day: "", year: "", stars: 0, body: "" }
+    { id: "", name: "", date: null, stars: 0, body: "" }
   ]);
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
   const initComments = (reviewReceived: Review): void => {
-    setReviews(reviews => [...reviews, reviewReceived]);
+    setReviews((reviewsHook) => [...reviewsHook, reviewReceived]);
   };
 
   useEffect(() => {
     if (loading) {
       API.get(`/movie/infos/${movieId}`)
-        .then(({ data: { infos, reviews } }) => {
+        .then(({ data: { infos, reviews: allReviews } }) => {
           setMovieInfos(infos);
-          setReviews(reviews);
-          setLoading(false);
-          socket.emit("join-movie-room", movieId);
-          socket.on("New comments", initComments);
+          setReviews(allReviews);
+          socket.socket.emit("join-movie-room", movieId);
+          socket.socket.on("New comments", initComments);
         })
-        .catch(e => {
+        .catch((e) => {
           console.error(e);
         });
+      setLoading(false);
     }
-    return () => {
-      socket.emit("leave-movie-room", movieId);
-      socket.removeListener("New comments", initComments);
+    return (): void => {
+      socket.socket.emit("leave-movie-room", movieId);
+      socket.socket.removeListener("New comments", initComments);
     };
-  });
+  }, [loading, movieId]);
 
   return (
     <div className={matches ? classes.rootResponsive : classes.root}>
@@ -64,10 +64,10 @@ const Movie = (): ReactElement => {
             }
           >
             <img
+              alt="backgroundMovie"
               className={classes.backgroundMovie}
               src="http://localhost:8080/public/background-movie.jpg"
             />
-            {/*Presentation part*/}
             <Container className={classes.containerPresentation}>
               <div className={classes.containerMovie}>
                 <div className={classes.labelMovie}>{movieInfos.title}</div>
@@ -105,10 +105,11 @@ const Movie = (): ReactElement => {
                 </div>
               </div>
             </Container>
-            {/*Movie part OMG*/}
-            {/* <Container /> */}
-            {/*Comments part*/}
-            <MovieComments movieRating={movieInfos.stars} reviews={reviews} />
+            <MovieComments
+              movieId={movieId}
+              movieRating={movieInfos.stars}
+              reviews={reviews}
+            />
           </div>
         ) : (
           <div

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { ReactElement } from "react";
+
 import useStyles from "./MovieRecommanded.styles";
 
 interface Props {
   matches: boolean;
 }
 
-const RecommandedMovies = ({ matches }: Props) => {
+const RecommandedMovies = ({ matches }: Props): ReactElement => {
   const classes = useStyles({});
   return (
     <div className={matches ? classes.rootResponsive : classes.root}>

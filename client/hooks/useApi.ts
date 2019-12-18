@@ -7,7 +7,7 @@ import { Fixture } from "../models/models";
 const useApi = (
   url: string,
   fixture?: Fixture
-): { data: Record<string, any>; loading: boolean; error: {} } => {
+): { data: Record<string, unknown>; loading: boolean; error: {} } => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

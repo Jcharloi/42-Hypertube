@@ -1,19 +1,33 @@
 import MovieCommentModel from "../Schemas/Movie";
 
-const sortReviews = (reviews, ourReviews) => {
-  reviews.splice(reviews.length - 1, 0, ...ourReviews);
-  reviews.sort((reviewA, reviewB) => reviewA.month - reviewB.month);
+const timestampToDate = (month, day, year) => {
+  return month + ", " + day + ", " + year;
+};
 
+const sortReviews = (reviews, ourReviews) => {
+  let copyReviews = reviews;
+  reviews.splice(reviews.length - 1, 0, ...ourReviews);
+  reviews.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
+  reviews.map(({ date }, index) => {
+    const fullDate = String(new Date(date)).split(" ");
+    copyReviews[index].date = timestampToDate(
+      fullDate[1],
+      fullDate[2],
+      fullDate[3]
+    );
+    return 1;
+  });
   return reviews;
 };
 
-const findReviews = async movieId => {
+const findReviews = async (movieId) => {
   try {
     const reviews = await MovieCommentModel.find({ movieId });
-    let ourReviews = [];
+    const ourReviews = [];
     if (reviews.length > 0) {
-      reviews.map(({ name, month, day, year, stars, body }) => {
-        ourReviews.push({ name, month, day, year, stars, body });
+      reviews.map(({ _id, name, date, stars, body }) => {
+        ourReviews.push({ id: _id, name, date, stars, body });
+        return 1;
       });
     }
     return ourReviews;
@@ -23,15 +37,13 @@ const findReviews = async movieId => {
   }
 };
 
-const saveReview = async comment => {
+const saveReview = async (comment) => {
   try {
     await MovieCommentModel.create({
       _id: comment.id,
       movieId: comment.movieId,
       name: comment.name,
-      month: comment.month,
-      day: comment.day,
-      year: comment.year,
+      date: comment.date,
       stars: comment.stars,
       body: comment.body
     });
@@ -42,4 +54,4 @@ const saveReview = async comment => {
   }
 };
 
-export default { saveReview, sortReviews, findReviews };
+export default { timestampToDate, saveReview, sortReviews, findReviews };

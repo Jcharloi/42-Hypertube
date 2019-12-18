@@ -1,10 +1,6 @@
 import React, { ReactElement, useState, useEffect, ChangeEvent } from "react";
 import { useIntl } from "react-intl";
 import Scroll from "react-scroll";
-import API from "../../util/api";
-
-import { Review } from "../../models/models";
-import { checkInvalidComment } from "./MovieComments.service";
 
 import {
   Box,
@@ -18,36 +14,29 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import useStyles from "./MovieComments.styles";
 
+import API from "../../util/api";
+import { Review } from "../../models/models";
+import checkInvalidComment from "./MovieComments.service";
+
 interface Props {
+  movieId: string;
   movieRating: number;
   reviews: Array<Review>;
 }
 
-const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
+const MovieComments = ({
+  movieId,
+  movieRating,
+  reviews
+}: Props): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const [stars, setStars] = useState(0);
   const [comment, setComment] = useState({
     name: "",
-    month: "",
-    day: "",
-    year: "",
+    date: null,
     body: ""
   });
   const [error, setError] = useState(false);
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
   const scroll = Scroll.animateScroll;
   const classes = useStyles({});
 
@@ -65,15 +54,12 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
     e: ChangeEvent<HTMLInputElement>,
     index: string
   ): void => {
-    const today = new Date();
     if (index === "rating") {
-      setStars(parseInt(e.target.value));
+      setStars(parseInt(e.target.value, 10));
     } else {
       setComment({
         name: "toto",
-        month: String(today.getMonth() + 1).padStart(2, "0"),
-        day: String(today.getDate()).padStart(2, "0"),
-        year: String(today.getFullYear()),
+        date: Date.now(),
         body: e.target.value
       });
       setError(false);
@@ -85,7 +71,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
       setError(true);
     } else {
       const body = {
-        movieId: window.location.pathname.split("/")[2],
+        movieId,
         ...comment,
         stars
       };
@@ -93,14 +79,12 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
         .then(() => {
           setComment({
             name: "",
-            month: "",
-            day: "",
-            year: "",
+            date: null,
             body: ""
           });
           setStars(0);
         })
-        .catch(e => {
+        .catch((e) => {
           console.error(e);
         });
     }
@@ -113,7 +97,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
         <Rating
           value={movieRating}
           readOnly
-          emptyIcon={<StarBorderIcon color="secondary" />}
+          emptyIcon={<StarBorderIcon color="primary" />}
         />
       </Box>
       <span className={classes.commentTitle}>
@@ -122,11 +106,22 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
       <Container fixed className={classes.containerComment}>
         {reviews.length > 0 ? (
           <div className={classes.containerPeople} id="scrollComment">
-            {reviews.map(({ name, month, day, year, stars, body }, index) => (
-              <div key={index} className={classes.comment}>
-                <span style={{ fontSize: "1.1rem" }}>{name} </span>-{" "}
-                {months[parseInt(month) - 1]}, {day}, {year} -{" "}
-                <Rating size="small" value={stars} readOnly />
+            {reviews.map(({ id, name, date, stars: nbStars, body }) => (
+              <div key={id} className={classes.comment}>
+                <span style={{ fontSize: "1.1rem" }}>
+                  {name} - {date} -{" "}
+                </span>
+                <Rating
+                  size="small"
+                  value={nbStars}
+                  readOnly
+                  emptyIcon={
+                    <StarBorderIcon
+                      style={{ fontSize: "1.1rem" }}
+                      color="primary"
+                    />
+                  }
+                />
                 <div style={{ marginRight: "0.5rem" }}>{body}</div>
               </div>
             ))}
@@ -145,8 +140,11 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
             className={classes.textField}
             multiline
             label={_t({ id: "movie.comment.label" })}
-            inputProps={{ maxLength: 1000 }}
+            inputProps={{
+              maxLength: 1000
+            }}
             InputProps={{
+              maxLength: 1000,
               startAdornment: (
                 <InputAdornment position="start">
                   <AccountCircle />
@@ -154,7 +152,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
               )
             }}
             value={comment.body}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            onChange={(e: ChangeEvent<HTMLInputElement>): void =>
               handleChange(e, "comment")
             }
           />
@@ -166,7 +164,7 @@ const MovieComments = ({ movieRating, reviews }: Props): ReactElement => {
               <Rating
                 name="simple-controlled"
                 value={stars}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                onChange={(e: ChangeEvent<HTMLInputElement>): void =>
                   handleChange(e, "rating")
                 }
                 emptyIcon={<StarBorderIcon color="primary" />}

@@ -2,15 +2,7 @@ import Axios from "axios";
 
 import movieHelpers from "../Helpers/movie";
 import mongoose from "../mongo";
-import { ioConnection } from "..";
-
-const checkDate = (yearComment, monthComment, dayComment) => {
-  const today = new Date();
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const day = String(today.getDate()).padStart(2, "0");
-  const year = String(today.getFullYear());
-  return year === yearComment && month === monthComment && day === dayComment;
-};
+import ioConnection from "..";
 
 const getInfos = (req, res) => {
   Axios.get(`https://archive.org/metadata/${req.params.id}`)
@@ -18,16 +10,16 @@ const getInfos = (req, res) => {
       let totalStars = 0;
       let reviews = [];
       if (data.reviews) {
-        data.reviews.map(review => {
+        data.reviews.map((review) => {
           totalStars += parseInt(review.stars, 10);
           reviews.push({
+            id: Date.parse(review.createdate),
             name: review.reviewer,
-            month: review.reviewdate.split("-")[1],
-            day: review.reviewdate.split("-")[2].split(" ")[0],
-            year: review.reviewdate.split("-")[0],
-            stars: parseInt(review.stars),
+            date: Date.parse(review.reviewdate),
+            stars: parseInt(review.stars, 10),
             body: review.reviewbody
           });
+          return 1;
         });
       }
       const infos = {
@@ -43,11 +35,11 @@ const getInfos = (req, res) => {
       };
       const ourReviews = await movieHelpers.findReviews(req.params.id);
       //verif ourReviews
+
       reviews = movieHelpers.sortReviews(reviews, ourReviews);
-      console.log(infos, reviews);
       res.status(200).send({ infos, reviews });
     })
-    .catch(e => {
+    .catch((e) => {
       console.error(e.message);
       res.sendStatus(500);
     });
@@ -56,28 +48,25 @@ const getInfos = (req, res) => {
 const receiveReviews = (req, res) => {
   Axios.get(`https://archive.org/metadata/${req.body.movieId}`)
     .then(async ({ data }) => {
-      if (
-        data.metadata &&
-        checkDate(req.body.year, req.body.month, req.body.day) &&
-        req.body.body &&
-        req.body.body.length < 1001
-      ) {
+      if (data.metadata && req.body.body && req.body.body.length < 1001) {
         const ret = await movieHelpers.saveReview({
           id: new mongoose.Types.ObjectId(),
           movieId: req.body.movieId,
           name: req.body.name,
-          month: req.body.month,
-          day: req.body.day,
-          year: req.body.year,
+          date: req.body.date,
           stars: req.body.stars,
           body: req.body.body
         });
         if (ret === true) {
-          ioConnection.to(req.body.movieId).emit("New comments", {
+          const fullDate = String(new Date(req.body.date)).split(" ");
+          ioConnection.ioConnection.to(req.body.movieId).emit("New comments", {
+            id: Date.now(),
             name: req.body.name,
-            month: req.body.month,
-            day: req.body.day,
-            year: req.body.year,
+            date: movieHelpers.timestampToDate(
+              fullDate[1],
+              fullDate[2],
+              fullDate[3]
+            ),
             stars: req.body.stars,
             body: req.body.body
           });
@@ -89,7 +78,7 @@ const receiveReviews = (req, res) => {
         res.sendStatus(409);
       }
     })
-    .catch(e => {
+    .catch((e) => {
       console.error(e.message);
       res.sendStatus(500);
     });

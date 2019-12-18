@@ -4,9 +4,7 @@ const commentSchema = new mongoose.Schema({
   _id: String,
   movieId: { type: String, required: true },
   name: { type: String, required: true },
-  month: { type: String, required: true },
-  day: { type: String, required: true },
-  year: { type: String, required: true },
+  date: { type: Number, required: true },
   stars: {
     type: Number,
     min: 0,
