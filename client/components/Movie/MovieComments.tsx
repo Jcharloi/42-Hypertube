@@ -16,7 +16,7 @@ import useStyles from "./MovieComments.styles";
 
 import API from "../../util/api";
 import { Review } from "../../models/models";
-import checkInvalidComment from "./MovieComments.service";
+import checkInvalidCommentOrStars from "./MovieComments.service";
 
 interface Props {
   movieId: string;
@@ -36,7 +36,7 @@ const MovieComments = ({
     date: null,
     body: ""
   });
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({ comment: false, stars: false });
   const scroll = Scroll.animateScroll;
   const classes = useStyles({});
 
@@ -62,14 +62,16 @@ const MovieComments = ({
         date: Date.now(),
         body: e.target.value
       });
-      setError(false);
     }
+    setError({
+      comment: comment.body.length === 0 && index !== "comment",
+      stars: stars === 0 && index !== "rating"
+    });
   };
 
   const sendComment = (): void => {
-    if (!checkInvalidComment(stars, comment.body)) {
-      setError(true);
-    } else {
+    const ret = checkInvalidCommentOrStars(stars, comment.body);
+    if (!ret.comment && !ret.stars) {
       const body = {
         movieId,
         ...comment,
@@ -87,6 +89,8 @@ const MovieComments = ({
         .catch((e) => {
           console.error(e);
         });
+    } else {
+      setError(ret);
     }
   };
 
@@ -133,9 +137,10 @@ const MovieComments = ({
         )}
         <div className={classes.personalCommentContainer}>
           <TextField
-            error={error}
+            error={error.comment}
             helperText={
-              error && _t({ id: "authentication.signUp.error.required" })
+              error.comment &&
+              _t({ id: "authentication.signUp.error.required" })
             }
             className={classes.textField}
             multiline
@@ -145,7 +150,6 @@ const MovieComments = ({
             }}
             // eslint-disable-next-line
             InputProps={{
-              maxLength: 1000,
               startAdornment: (
                 <InputAdornment position="start">
                   <AccountCircle />
@@ -170,6 +174,11 @@ const MovieComments = ({
                 }
                 emptyIcon={<StarBorderIcon color="primary" />}
               />
+              {error.stars && (
+                <span className={classes.rateRequired}>
+                  {_t({ id: "authentication.signUp.error.required" })}
+                </span>
+              )}
             </div>
             <Button variant="contained" onClick={sendComment}>
               {_t({ id: "movie.comment.send" })}

@@ -57,7 +57,14 @@ const useStyles = makeStyles(() =>
       marginTop: "1rem",
       flexWrap: "wrap"
     },
-    rateIt: { display: "flex", alignItems: "center", flexWrap: "wrap" }
+    rateIt: { display: "flex", alignItems: "center", flexWrap: "wrap" },
+    rateRequired: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "flex-start",
+      marginTop: "1rem",
+      color: "red"
+    }
   })
 );
 

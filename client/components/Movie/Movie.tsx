@@ -9,7 +9,6 @@ import API from "../../util/api";
 import RecommandedMovies from "./MovieRecommanded";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
-import newMovieRating from "./MovieComments.service";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -31,8 +30,22 @@ const Movie = (): ReactElement => {
 
   useEffect(() => {
     const initComments = (reviewReceived: Review): void => {
-      // newMovieRating(movieInfos.stars);
-      setReviews((reviewsHook) => [...reviewsHook, reviewReceived]);
+      let totalStars = reviewReceived.stars;
+      let reviewsLength = 1;
+      setReviews((reviewsHook) => {
+        reviewsHook.map((review) => {
+          totalStars += review.stars;
+          return 1;
+        });
+        reviewsLength += reviewsHook.length;
+        return [...reviewsHook, reviewReceived];
+      });
+      setMovieInfos((movieInfosHook) => {
+        return {
+          ...movieInfosHook,
+          stars: Math.floor(totalStars / reviewsLength)
+        };
+      });
     };
     if (loading) {
       API.get(`/movie/infos/${movieId}`)
@@ -48,10 +61,10 @@ const Movie = (): ReactElement => {
       setLoading(false);
     }
     return (): void => {
-      socket.socket.emit("leave-movie-room", movieId);
       socket.socket.removeListener("New comments", initComments);
+      socket.socket.emit("leave-movie-room", movieId);
     };
-  }, [loading, movieId, movieInfos.stars]);
+  }, [loading, movieId]);
 
   return (
     <div className={matches ? classes.rootResponsive : classes.root}>

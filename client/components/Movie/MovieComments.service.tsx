@@ -1,9 +1,11 @@
-const checkInvalidComment = (stars: number, comment: string): boolean => {
-  return stars >= 0 && stars <= 5 && comment.length > 0;
+const checkInvalidCommentOrStars = (
+  stars: number,
+  comment: string
+): { comment: boolean; stars: boolean } => {
+  return {
+    comment: comment.length <= 0 || comment.length > 1000,
+    stars: stars < 1 || stars > 5
+  };
 };
 
-const newMovieRating = (movieRating: number): void => {
-  console.log(movieRating);
-};
-
-export default { checkInvalidComment, newMovieRating };
+export default checkInvalidCommentOrStars;
