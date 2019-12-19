@@ -18,7 +18,15 @@ import Search from "./Search";
 
 export const theme = createMuiTheme({
   palette: {
-    type: "dark"
+    type: "dark",
+    primary: {
+      main: "#FFC689",
+      contrastText: "#000000"
+    },
+    secondary: {
+      main: "#616161",
+      contrastText: "#ffffff"
+    }
   }
 });
 
@@ -33,8 +41,8 @@ const App = (): ReactElement => {
   return (
     <MuiThemeProvider theme={theme}>
       <IntlProvider locale={locale} messages={messages[locale]}>
-        <Layout locale={locale} setLocale={setLocale}>
-          <Router history={history}>
+        <Router history={history}>
+          <Layout locale={locale} setLocale={setLocale}>
             <Switch>
               <CustomRoute
                 exact
@@ -65,8 +73,8 @@ const App = (): ReactElement => {
                 )}
               />
             </Switch>
-          </Router>
-        </Layout>
+          </Layout>
+        </Router>
       </IntlProvider>
     </MuiThemeProvider>
   );

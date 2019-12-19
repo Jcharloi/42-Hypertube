@@ -21,11 +21,10 @@ export const useFiltersStyles = makeStyles({
     height: "100%"
   },
   filterContainerTop: {
-    position: "absolute",
-    top: 0,
-    left: "100%",
     padding: "24px 24px",
-    width: "100%"
+    paddingBottom: 48,
+    width: "100%",
+    marginBottom: 24
   },
   filterContainer: {
     margin: "8px 0"

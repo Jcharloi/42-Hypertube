@@ -5,15 +5,7 @@ import searchHelper from "../Helpers/search";
 const search = async (req, res) => {
   const parsedQuery = qs.parse(req.query);
 
-  const data = await searchHelper({
-    query: parsedQuery.query,
-    page: parsedQuery.page,
-    startYear: parsedQuery.startYear,
-    endYear: parsedQuery.endYear,
-    collections: parsedQuery.collections,
-    minRating: parsedQuery.minRating,
-    maxRating: parsedQuery.maxRating
-  });
+  const data = await searchHelper(parsedQuery);
   return res.send(data);
 };
 

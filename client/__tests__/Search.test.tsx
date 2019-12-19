@@ -1,7 +1,6 @@
 import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import EnzymeToJson from "enzyme-to-json";
-import moment from "moment";
 import { mount, configure } from "enzyme";
 
 import Search from "../components/Search";
@@ -18,12 +17,10 @@ jest.mock("react-router-dom", () => ({
   useHistory: (): Record<string, unknown> => ({
     push: jest.fn(),
     location: { state: {} }
-  })
-}));
-
-jest.mock("react-intl", () => ({
-  useIntl: (): Record<string, unknown> => ({
-    formatMessage: ({ id }: { id: string }): string => id
+  }),
+  useLocation: (): Record<string, unknown> => ({
+    state: {},
+    search: ""
   })
 }));
 
@@ -79,34 +76,20 @@ describe("Search", () => {
       });
     });
 
-    describe("formatUrl", () => {
+    describe("formatQueryUrl", () => {
       it("should get a full query", () => {
-        const filters = {
-          query: "top",
-          collections: ["collec1", "collec2"],
-          startYear: 1900,
-          endYear: 2019,
-          minRating: 0,
-          maxRating: 5
-        };
+        const testQuery = ServiceSearch.formatQueryUrl(
+          "?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2",
+          1
+        );
 
-        const testQuery = ServiceSearch.formatUrl(filters, 1);
         expect(testQuery).toBe(
           "/search?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
         );
       });
 
       it("should get a empty query", () => {
-        const filters = {
-          query: "",
-          collections: Array(0),
-          startYear: 1900,
-          endYear: moment().year(),
-          minRating: 0,
-          maxRating: 5
-        };
-
-        const testQuery = ServiceSearch.formatUrl(filters, 1);
+        const testQuery = ServiceSearch.formatQueryUrl("", 1);
         expect(testQuery).toBe("/search?page=1");
       });
     });

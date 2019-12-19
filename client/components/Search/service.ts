@@ -1,20 +1,24 @@
 import qs from "qs";
 import moment from "moment";
 
-import { Filters } from "../../models/models";
-
 export const clamp = (str: string, maxLength: number): string =>
   str
     ? `${str.slice(0, maxLength)}${str.length <= maxLength ? "" : "..."}`
     : "";
 
-export const formatUrl = (
-  { query, collections, startYear, endYear, minRating, maxRating }: Filters,
-  page: number
-): string =>
-  `/search?${qs.stringify({
+export const formatQueryUrl = (search: string, page: number): string => {
+  const {
+    query,
+    collections,
+    startYear,
+    endYear,
+    minRating,
+    maxRating
+  } = qs.parse(search.slice(1));
+
+  return `/search?${qs.stringify({
     query: query || undefined,
-    collections: collections.length ? collections : undefined,
+    collections: collections || undefined,
     startYear:
       startYear === 1900 && endYear === moment().year() ? undefined : startYear,
     endYear:
@@ -23,7 +27,4 @@ export const formatUrl = (
     maxRating: minRating === 0 && maxRating === 5 ? undefined : maxRating,
     page
   })}`;
-
-export default {
-  clamp
 };

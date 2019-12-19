@@ -1,6 +1,5 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import qs from "qs";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -13,32 +12,31 @@ import Film from "./Film";
 
 import useApi from "../../hooks/useApi";
 
-import { formatUrl } from "./service";
+import { formatQueryUrl } from "./service";
 
 import { useSearchStyles } from "./styles";
 
 const Search = (): ReactElement => {
   const classes = useSearchStyles({});
   const history = useHistory();
+  const location = useLocation();
   const { formatMessage: _t } = useIntl();
   const [filmData, setFilmData] = useState(null);
   const [filmList, setFilmList] = useState([]);
   const [block, setBlock] = useState(false);
   const [page, setPage] = useState(1);
+
   const { data, loading, error, setUrl } = useApi(
-    `/search?${qs.stringify({
-      ...history.location.state,
-      page: 1
-    })}`
+    formatQueryUrl(location.search, 1)
   );
 
   useEffect(() => {
-    if (history.location.state.previousHistory && !loading && !block) {
+    if (!loading && !block) {
       setPage(1);
       setFilmList([]);
-      setUrl(formatUrl(history.location.state, 1));
+      setUrl(formatQueryUrl(location.search, 1));
     }
-  }, [history.location.state]);
+  }, [location.search]);
 
   useEffect(() => {
     if (data?.docs) {
@@ -52,7 +50,7 @@ const Search = (): ReactElement => {
   const loadMore = (): void => {
     setBlock(true);
     setPage(page + 1);
-    setUrl(formatUrl(history.location.state, page + 1));
+    setUrl(formatQueryUrl(location.search, page + 1));
   };
 
   if (error) {
@@ -61,47 +59,45 @@ const Search = (): ReactElement => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.resultContainer}>
-        <div className={classes.thumbsContainer}>
-          <Paper className={classes.infoSidebar}>
-            {loading ? (
-              <>
-                {_t({ id: "search.loading" })}
-                <CircularProgress />
-              </>
-            ) : (
-              <Typography>
-                {_t(
-                  { id: "search.film_count" },
-                  { count: Number(data.numFound || 0) }
-                )}
-              </Typography>
-            )}
-          </Paper>
-          <InfiniteScroll
-            initialLoad={false}
-            useWindow={false}
-            loadMore={loadMore}
-            hasMore={!block && !loading && page * 10 < data.numFound}
-          >
-            {filmList.map((film) => (
-              <Thumbnail
-                key={film.identifier}
-                film={film}
-                onClick={(): void => setFilmData(film)}
-              />
-            ))}
-          </InfiniteScroll>
-        </div>
-        <div className={classes.filmContainer}>
-          {filmData ? (
-            <Film film={filmData} />
+      <div className={classes.thumbsContainer}>
+        <Paper className={classes.infoSidebar}>
+          {loading ? (
+            <>
+              {_t({ id: "search.loading" })}
+              <CircularProgress />
+            </>
           ) : (
-            <Typography variant="h2">
-              {_t({ id: "search.details_placeholder" })}
+            <Typography>
+              {_t(
+                { id: "search.film_count" },
+                { count: Number(data.numFound || 0) }
+              )}
             </Typography>
           )}
-        </div>
+        </Paper>
+        <InfiniteScroll
+          initialLoad={false}
+          useWindow={false}
+          loadMore={loadMore}
+          hasMore={!block && !loading && page * 10 < data.numFound}
+        >
+          {filmList.map((film) => (
+            <Thumbnail
+              key={film.identifier}
+              film={film}
+              onClick={(): void => setFilmData(film)}
+            />
+          ))}
+        </InfiniteScroll>
+      </div>
+      <div className={classes.filmContainer}>
+        {filmData ? (
+          <Film film={filmData} />
+        ) : (
+          <Typography variant="h2">
+            {_t({ id: "search.details_placeholder" })}
+          </Typography>
+        )}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const useApi = (
   data: Record<string, unknown>;
   loading: boolean;
   error: {};
-  setUrl: Function;
+  setUrl: (url: string) => void;
 } => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);

@@ -26,8 +26,7 @@ const Film = ({ film }: Props): ReactElement => {
     history.push({
       state: {
         ...history.location.state,
-        query: subj,
-        previousHistory: true
+        query: subj
       }
     });
 
@@ -58,21 +57,21 @@ const Film = ({ film }: Props): ReactElement => {
           precision={0.01}
           readOnly
         />
-        <div>
+        <Typography>
           {film.avg_rating || `- ${_t({ id: "search.film.norating" })}`}
-        </div>
+        </Typography>
       </div>
-      <span>
+      <Typography>
         {`${_t(
           { id: "search.film.author" },
           { author: film.creator || _t({ id: "search.film.unknown_author" }) }
         )}`}{" "}
         - {moment(film.date).year()}
-      </span>
+      </Typography>
       <Typography variant="caption" className={classes.descriptionContainer}>
         {film.description}
       </Typography>
-      <div>{_t({ id: "search.film.tags" })} : </div>
+      <Typography>{_t({ id: "search.film.tags" })} : </Typography>
       <div>{renderTags()}</div>
       <div className={classes.buttonContainer}>
         <Button

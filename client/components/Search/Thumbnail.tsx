@@ -13,7 +13,7 @@ import { useThumbnailStyles } from "./styles";
 
 interface Props {
   film: FilmInterface;
-  onClick: Function;
+  onClick: () => void;
 }
 
 const Thumbnail = ({ film, onClick }: Props): ReactElement => {
