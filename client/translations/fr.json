@@ -39,18 +39,5 @@
   "movie.comment.label": "Dis nous ce que tu penses du film",
   "movie.comment.askRating": "Note le :",
   "movie.comment.send": "Envoyer",
-  "movie.error.invalid": "Désolé, ce film n'existe pas. Pourquoi pas en chercher un autre ?",
-
-  "month.january": "Janvier",
-  "month.february": "Février",
-  "month.march": "Mars",
-  "month.april": "Avril",
-  "month.may": "Mai",
-  "month.june": "Juin",
-  "month.july": "Juillet",
-  "month.august": "Août",
-  "month.september": "Septembre",
-  "month.october": "Octobre",
-  "month.november": "Novembre",
-  "month.december": "Décembre"
+  "movie.error.invalid": "Désolé, ce film n'existe pas. Pourquoi pas en chercher un autre ?"
 }

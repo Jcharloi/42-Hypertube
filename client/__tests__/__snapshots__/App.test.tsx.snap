@@ -34,9 +34,20 @@ exports[`App renders correctly 1`] = `
         "disconnect": "Disconnect",
         "language.en": "🇬🇧",
         "language.fr": "🇫🇷",
+        "movie.comment.askRating": "Rate it :",
+        "movie.comment.label": "Tell us what you think about the movie",
+        "movie.comment.none": "There is no comment yet, add yours !",
+        "movie.comment.send": "Send",
+        "movie.comment.title": "Wanna say something about it ?",
+        "movie.creator": "Created by : ",
+        "movie.description": "About this movie : ",
+        "movie.error.invalid": "Sorry, this movie does not exists. Maybe find an other one ?",
+        "movie.prodDate": "Production date : ",
+        "movie.rating": "Movie's rating",
+        "movie.runTime": "Run time : ",
         "profile": "My profile",
         "search": "Search...",
-        "title": "Nethub",
+        "title": "Hypertube",
       }
     }
     onError={[Function]}
@@ -184,7 +195,7 @@ exports[`App renders correctly 1`] = `
                                   className="MuiTypography-root makeStyles-title-3 MuiTypography-h6 MuiTypography-noWrap"
                                   onClick={[Function]}
                                 >
-                                  Nethub
+                                  Hypertube
                                 </h6>
                               </ForwardRef(Typography)>
                             </WithStyles(ForwardRef(Typography))>
