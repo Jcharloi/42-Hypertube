@@ -90,7 +90,7 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography
             onClick={(): void => redirectTitle()}
@@ -142,6 +142,8 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
           </div>
         </Toolbar>
       </AppBar>
+      {/* Empty Toolbar to keep element from going underneath the <AppBar> */}
+      <Toolbar />
       {renderMobileMenu}
       {renderMenu}
     </div>

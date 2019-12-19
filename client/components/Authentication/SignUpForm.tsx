@@ -40,6 +40,8 @@ const SignUpForm = ({
             }
             error={userError.username !== ""}
             name="username"
+            id="username"
+            autoComplete="section-newuser username"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.username" })}
             variant="filled"
@@ -56,6 +58,8 @@ const SignUpForm = ({
             }
             error={userError.password !== ""}
             name="password"
+            id="password"
+            autoComplete="section-newuser new-password"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.password" })}
             variant="filled"
@@ -72,6 +76,8 @@ const SignUpForm = ({
             }
             error={userError.email !== ""}
             name="email"
+            id="email"
+            autoComplete="section-newuser home email"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.email" })}
             variant="filled"
@@ -87,6 +93,8 @@ const SignUpForm = ({
             }
             error={userError.firstName !== ""}
             name="firstName"
+            id="firstName"
+            autoComplete="section-newuser given-name"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.firstName" })}
             variant="filled"
@@ -102,6 +110,8 @@ const SignUpForm = ({
             }
             error={userError.lastName !== ""}
             name="lastName"
+            id="lastName"
+            autoComplete="section-newuser family-name"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.lastName" })}
             variant="filled"
@@ -132,7 +142,6 @@ const SignUpForm = ({
                 accept="image/*"
                 style={{ display: "none" }}
                 id="raised-button-file"
-                multiple
                 type="file"
                 name="picture"
                 onChange={handleInputChange}

@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import Grid from "@material-ui/core/Grid";
 
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 
@@ -11,11 +12,14 @@ interface Props {
 }
 
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => (
-  <div>
+  <Grid container direction="column" style={{ minHeight: "100%" }}>
     <CssBaseline />
-    <TopMenu locale={locale} setLocale={setLocale} />
+    <Grid item>
+      <TopMenu locale={locale} setLocale={setLocale} />
+    </Grid>
+    {/* If you want `children` to take all the height, just add `flex-grow: 1` to the first div */}
     {children}
-  </div>
+  </Grid>
 );
 
 export default Layout;

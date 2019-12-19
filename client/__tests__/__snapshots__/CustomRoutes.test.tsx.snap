@@ -27,7 +27,7 @@ exports[`CustomRoute Loading 1`] = `
   className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
   style={
     Object {
-      "minHeight": "100%",
+      "flexGrow": 1,
     }
   }
 >

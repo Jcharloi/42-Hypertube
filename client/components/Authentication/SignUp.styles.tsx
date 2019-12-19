@@ -6,7 +6,18 @@ const useStyles = makeStyles((theme: Theme) =>
     page: {
       maxWidth: "500px",
       flexGrow: 1,
-      margin: `${theme.spacing(3)}px 0px`,
+      margin: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
+      padding: `${theme.spacing(0.5)}px`,
+      // Using indigo for now bevause we're using material default's theme
+      // todo: change and use theme in the future
+      backgroundColor: indigo[50]
+    },
+    registerPage: {
+      maxWidth: "650px",
+      flexGrow: 1,
+      alignSelf: "flex-start",
+      margin: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
+      padding: `${theme.spacing(0.5)}px`,
       // Using indigo for now bevause we're using material default's theme
       // todo: change and use theme in the future
       backgroundColor: indigo[50]
@@ -25,9 +36,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     emailIcon: {
       fontSize: "50px"
-    },
-    randomWrapper: {
-      height: "100%"
     }
   })
 );

@@ -118,47 +118,47 @@ const SignUp = (): ReactElement => {
   };
 
   return (
-    <Paper className={classes.page}>
-      <Grid container direction="column" alignItems="center">
-        {!userIsRegistered && (
-          <div>
-            <Grid
-              container
-              direction="column"
-              alignItems="center"
-              className={classes.titles}
-            >
-              <Grid item>
-                <Typography variant="h3" align="center">
-                  {_t({ id: "authentication.signUp.title" })}
-                  <span role="img" aria-label="Eyes">
-                    {" "}
-                    👀
-                  </span>
-                </Typography>
-              </Grid>
-              <Grid item className={classes.subtitle}>
-                <Typography variant="subtitle1" align="center">
-                  {_t({ id: "authentication.signUp.subtitle" })}
-                  <span role="img" aria-label="Eyes">
-                    {" "}
-                    🤭
-                  </span>
-                </Typography>
-              </Grid>
+    <>
+      {!userIsRegistered && (
+        <Paper className={classes.page}>
+          <Grid
+            container
+            direction="column"
+            alignItems="center"
+            className={classes.titles}
+          >
+            <Grid item>
+              <Typography variant="h3" align="center">
+                {_t({ id: "authentication.signUp.title" })}
+                <span role="img" aria-label="Eyes">
+                  {" "}
+                  👀
+                </span>
+              </Typography>
             </Grid>
+            <Grid item className={classes.subtitle}>
+              <Typography variant="subtitle1" align="center">
+                {_t({ id: "authentication.signUp.subtitle" })}
+                <span role="img" aria-label="Eyes">
+                  {" "}
+                  🤭
+                </span>
+              </Typography>
+            </Grid>
+          </Grid>
 
-            <SignUpForm
-              handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
-              userInfo={userInfo}
-              userError={userError}
-              waitingRes={waitingRes}
-            />
-          </div>
-        )}
+          <SignUpForm
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+            userInfo={userInfo}
+            userError={userError}
+            waitingRes={waitingRes}
+          />
+        </Paper>
+      )}
 
-        {userIsRegistered && (
+      {userIsRegistered && (
+        <Paper className={classes.registerPage}>
           <Grid
             container
             direction="column"
@@ -176,42 +176,37 @@ const SignUp = (): ReactElement => {
                 </span>
               </Typography>
             </Grid>
-            <Grid container direction="row" justify="center">
+            <Grid
+              item
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+            >
               <Grid item>
                 <Avatar className={classes.emailRound}>
                   <EmailIcon color="secondary" className={classes.emailIcon} />
                 </Avatar>
               </Grid>
               <Grid item>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  className={classes.randomWrapper}
-                >
-                  <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1" align="center">
-                      {_t({ id: "authentication.signUp.validForm.checkEmail" })}
-                    </Typography>
-                  </Grid>
-                  <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1" align="center">
-                      {_t({
-                        id: "authentication.signUp.validForm.bingeWatching"
-                      })}
-                      <span role="img" aria-label="Shush guy">
-                        {" "}
-                        🤫
-                      </span>
-                    </Typography>
-                  </Grid>
-                </Grid>
+                <Typography variant="subtitle1" align="center">
+                  {_t({ id: "authentication.signUp.validForm.checkEmail" })}
+                </Typography>
+                <Typography variant="subtitle1" align="center">
+                  {_t({
+                    id: "authentication.signUp.validForm.bingeWatching"
+                  })}
+                  <span role="img" aria-label="Shush guy">
+                    {" "}
+                    🤫
+                  </span>
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
-        )}
-      </Grid>
-    </Paper>
+        </Paper>
+      )}
+    </>
   );
 };
 export default SignUp;
