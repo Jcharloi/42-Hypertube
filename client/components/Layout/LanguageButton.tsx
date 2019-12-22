@@ -34,9 +34,9 @@ const LanguageButton = ({ locale, setLocale }: Locale): ReactElement => {
         onClick={handleClick}
       >
         {locale === "fr" ? (
-          <img src="http://localhost:8080/public/fr.png" alt="fr flag"></img>
+          <img src="http://localhost:8080/public/fr.png" alt="fr flag" />
         ) : (
-          <img src="http://localhost:8080/public/en.png" alt="en flag"></img>
+          <img src="http://localhost:8080/public/en.png" alt="en flag" />
         )}
         {console.log(locale)}
       </Button>

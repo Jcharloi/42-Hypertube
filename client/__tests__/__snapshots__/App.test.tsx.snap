@@ -396,12 +396,10 @@ exports[`App renders correctly 1`] = `
                                             <span
                                               className="MuiButton-label"
                                             >
-                                              <span
-                                                aria-label="flag"
-                                                role="img"
-                                              >
-                                                🇬🇧
-                                              </span>
+                                              <img
+                                                alt="en flag"
+                                                src="http://localhost:8080/public/en.png"
+                                              />
                                             </span>
                                             <NoSsr>
                                               <WithStyles(undefined)
@@ -1514,12 +1512,10 @@ exports[`App renders correctly 1`] = `
                                             <span
                                               className="MuiButton-label"
                                             >
-                                              <span
-                                                aria-label="flag"
-                                                role="img"
-                                              >
-                                                🇬🇧
-                                              </span>
+                                              <img
+                                                alt="en flag"
+                                                src="http://localhost:8080/public/en.png"
+                                              />
                                             </span>
                                             <NoSsr>
                                               <WithStyles(undefined)
