@@ -6,16 +6,17 @@ const timestampToDate = (month, day, year) => {
 
 const sortReviews = (reviews, ourReviews) => {
   const copyReviews = reviews;
-  copyReviews.splice(copyReviews.length - 1, 0, ...ourReviews);
-  copyReviews.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
-  copyReviews.map(({ date }, index) => {
+  copyReviews.push(...ourReviews);
+  if (copyReviews.length > 1) {
+    copyReviews.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
+  }
+  copyReviews.forEach(({ date }, index) => {
     const fullDate = String(new Date(date)).split(" ");
     copyReviews[index].date = timestampToDate(
       fullDate[1],
       fullDate[2],
       fullDate[3]
     );
-    return 1;
   });
   return copyReviews;
 };
@@ -25,9 +26,8 @@ const findReviews = async (movieId) => {
     const reviews = await MovieCommentModel.find({ movieId });
     const ourReviews = [];
     if (reviews.length > 0) {
-      reviews.map(({ _id, name, date, stars, body }) => {
+      reviews.forEach(({ _id, name, date, stars, body }) => {
         ourReviews.push({ id: _id, name, date, stars, body });
-        return 1;
       });
     }
     return ourReviews;
@@ -40,7 +40,7 @@ const findReviews = async (movieId) => {
 const saveReview = async (comment) => {
   try {
     await MovieCommentModel.create({
-      _id: comment.id,
+      _id: comment._id,
       movieId: comment.movieId,
       name: comment.name,
       date: comment.date,

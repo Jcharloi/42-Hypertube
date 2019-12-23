@@ -33,9 +33,8 @@ const Movie = (): ReactElement => {
       let totalStars = reviewReceived.stars;
       let reviewsLength = 1;
       setReviews((reviewsHook) => {
-        reviewsHook.map((review) => {
+        reviewsHook.forEach((review) => {
           totalStars += review.stars;
-          return 1;
         });
         reviewsLength += reviewsHook.length;
         return [...reviewsHook, reviewReceived];

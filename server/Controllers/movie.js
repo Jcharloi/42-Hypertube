@@ -10,7 +10,7 @@ const getInfos = (req, res) => {
       let totalStars = 0;
       let reviews = [];
       if (data.reviews) {
-        data.reviews.map((review) => {
+        data.reviews.forEach((review) => {
           totalStars += parseInt(review.stars, 10);
           reviews.push({
             id: Date.parse(review.createdate),
@@ -19,7 +19,6 @@ const getInfos = (req, res) => {
             stars: parseInt(review.stars, 10),
             body: review.reviewbody
           });
-          return 1;
         });
       }
       const infos = {
@@ -27,7 +26,7 @@ const getInfos = (req, res) => {
         description: data.metadata.description,
         creator: data.metadata.creator,
         prodDate: data.metadata.date,
-        runTime: data.metadata.runtime,
+        runTime: data.metadata.ia_orig__runtime,
         stars:
           data.reviews && data.reviews.length > 0
             ? Math.floor(totalStars / data.reviews.length)
@@ -52,7 +51,7 @@ const receiveReviews = (req, res) => {
     .then(async ({ data }) => {
       if (data.metadata && req.body.body && req.body.body.length < 1001) {
         const ret = await movieHelpers.saveReview({
-          id: new mongoose.Types.ObjectId(),
+          _id: new mongoose.Types.ObjectId(),
           movieId: req.body.movieId,
           name: req.body.name,
           date: req.body.date,
