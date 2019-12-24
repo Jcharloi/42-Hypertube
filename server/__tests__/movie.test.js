@@ -72,5 +72,59 @@ describe("Movie Comments", () => {
     expect(isReviewHere).toBeTruthy();
   });
 
-  // it("should sort all reviews", () => {});
+  it("should sorts both reviews from API and Database", () => {
+    const mockedApiReviews = [
+      {
+        ...mockedReview,
+        _id: "0123456789"
+      },
+      {
+        ...mockedReview,
+        _id: "0123456789",
+        date: 1575500400000
+      }
+    ];
+    const mockedOurReviews = [
+      { ...mockedReview, _id: "0123456789", date: 1576278000000 },
+      { ...mockedReview, _id: "0123456789", date: 1575759600000 }
+    ];
+    const bothReviews = movieHelpers.sortReviews(
+      mockedApiReviews,
+      mockedOurReviews
+    );
+    expect(bothReviews).toEqual([
+      {
+        _id: "0123456789",
+        movieId: "B123rR",
+        name: "TestMan",
+        date: "Dec, 05, 2019",
+        stars: 4,
+        body: "That was actually really awesome"
+      },
+      {
+        _id: "0123456789",
+        movieId: "B123rR",
+        name: "TestMan",
+        date: "Dec, 08, 2019",
+        stars: 4,
+        body: "That was actually really awesome"
+      },
+      {
+        _id: "0123456789",
+        movieId: "B123rR",
+        name: "TestMan",
+        date: "Dec, 14, 2019",
+        stars: 4,
+        body: "That was actually really awesome"
+      },
+      {
+        _id: "0123456789",
+        movieId: "B123rR",
+        name: "TestMan",
+        date: "Dec, 23, 2019",
+        stars: 4,
+        body: "That was actually really awesome"
+      }
+    ]);
+  });
 });
