@@ -1,0 +1,3587 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie should renders <Movie> in english 1`] = `
+<Movie>
+  <div
+    className="makeStyles-root-1"
+  >
+    <Loading>
+      <WithStyles(ForwardRef(Grid))
+        alignItems="center"
+        container={true}
+        justify="center"
+        style={
+          Object {
+            "flexGrow": 1,
+          }
+        }
+      >
+        <ForwardRef(Grid)
+          alignItems="center"
+          classes={
+            Object {
+              "align-content-xs-center": "MuiGrid-align-content-xs-center",
+              "align-content-xs-flex-end": "MuiGrid-align-content-xs-flex-end",
+              "align-content-xs-flex-start": "MuiGrid-align-content-xs-flex-start",
+              "align-content-xs-space-around": "MuiGrid-align-content-xs-space-around",
+              "align-content-xs-space-between": "MuiGrid-align-content-xs-space-between",
+              "align-items-xs-baseline": "MuiGrid-align-items-xs-baseline",
+              "align-items-xs-center": "MuiGrid-align-items-xs-center",
+              "align-items-xs-flex-end": "MuiGrid-align-items-xs-flex-end",
+              "align-items-xs-flex-start": "MuiGrid-align-items-xs-flex-start",
+              "container": "MuiGrid-container",
+              "direction-xs-column": "MuiGrid-direction-xs-column",
+              "direction-xs-column-reverse": "MuiGrid-direction-xs-column-reverse",
+              "direction-xs-row-reverse": "MuiGrid-direction-xs-row-reverse",
+              "grid-lg-1": "MuiGrid-grid-lg-1",
+              "grid-lg-10": "MuiGrid-grid-lg-10",
+              "grid-lg-11": "MuiGrid-grid-lg-11",
+              "grid-lg-12": "MuiGrid-grid-lg-12",
+              "grid-lg-2": "MuiGrid-grid-lg-2",
+              "grid-lg-3": "MuiGrid-grid-lg-3",
+              "grid-lg-4": "MuiGrid-grid-lg-4",
+              "grid-lg-5": "MuiGrid-grid-lg-5",
+              "grid-lg-6": "MuiGrid-grid-lg-6",
+              "grid-lg-7": "MuiGrid-grid-lg-7",
+              "grid-lg-8": "MuiGrid-grid-lg-8",
+              "grid-lg-9": "MuiGrid-grid-lg-9",
+              "grid-lg-auto": "MuiGrid-grid-lg-auto",
+              "grid-lg-true": "MuiGrid-grid-lg-true",
+              "grid-md-1": "MuiGrid-grid-md-1",
+              "grid-md-10": "MuiGrid-grid-md-10",
+              "grid-md-11": "MuiGrid-grid-md-11",
+              "grid-md-12": "MuiGrid-grid-md-12",
+              "grid-md-2": "MuiGrid-grid-md-2",
+              "grid-md-3": "MuiGrid-grid-md-3",
+              "grid-md-4": "MuiGrid-grid-md-4",
+              "grid-md-5": "MuiGrid-grid-md-5",
+              "grid-md-6": "MuiGrid-grid-md-6",
+              "grid-md-7": "MuiGrid-grid-md-7",
+              "grid-md-8": "MuiGrid-grid-md-8",
+              "grid-md-9": "MuiGrid-grid-md-9",
+              "grid-md-auto": "MuiGrid-grid-md-auto",
+              "grid-md-true": "MuiGrid-grid-md-true",
+              "grid-sm-1": "MuiGrid-grid-sm-1",
+              "grid-sm-10": "MuiGrid-grid-sm-10",
+              "grid-sm-11": "MuiGrid-grid-sm-11",
+              "grid-sm-12": "MuiGrid-grid-sm-12",
+              "grid-sm-2": "MuiGrid-grid-sm-2",
+              "grid-sm-3": "MuiGrid-grid-sm-3",
+              "grid-sm-4": "MuiGrid-grid-sm-4",
+              "grid-sm-5": "MuiGrid-grid-sm-5",
+              "grid-sm-6": "MuiGrid-grid-sm-6",
+              "grid-sm-7": "MuiGrid-grid-sm-7",
+              "grid-sm-8": "MuiGrid-grid-sm-8",
+              "grid-sm-9": "MuiGrid-grid-sm-9",
+              "grid-sm-auto": "MuiGrid-grid-sm-auto",
+              "grid-sm-true": "MuiGrid-grid-sm-true",
+              "grid-xl-1": "MuiGrid-grid-xl-1",
+              "grid-xl-10": "MuiGrid-grid-xl-10",
+              "grid-xl-11": "MuiGrid-grid-xl-11",
+              "grid-xl-12": "MuiGrid-grid-xl-12",
+              "grid-xl-2": "MuiGrid-grid-xl-2",
+              "grid-xl-3": "MuiGrid-grid-xl-3",
+              "grid-xl-4": "MuiGrid-grid-xl-4",
+              "grid-xl-5": "MuiGrid-grid-xl-5",
+              "grid-xl-6": "MuiGrid-grid-xl-6",
+              "grid-xl-7": "MuiGrid-grid-xl-7",
+              "grid-xl-8": "MuiGrid-grid-xl-8",
+              "grid-xl-9": "MuiGrid-grid-xl-9",
+              "grid-xl-auto": "MuiGrid-grid-xl-auto",
+              "grid-xl-true": "MuiGrid-grid-xl-true",
+              "grid-xs-1": "MuiGrid-grid-xs-1",
+              "grid-xs-10": "MuiGrid-grid-xs-10",
+              "grid-xs-11": "MuiGrid-grid-xs-11",
+              "grid-xs-12": "MuiGrid-grid-xs-12",
+              "grid-xs-2": "MuiGrid-grid-xs-2",
+              "grid-xs-3": "MuiGrid-grid-xs-3",
+              "grid-xs-4": "MuiGrid-grid-xs-4",
+              "grid-xs-5": "MuiGrid-grid-xs-5",
+              "grid-xs-6": "MuiGrid-grid-xs-6",
+              "grid-xs-7": "MuiGrid-grid-xs-7",
+              "grid-xs-8": "MuiGrid-grid-xs-8",
+              "grid-xs-9": "MuiGrid-grid-xs-9",
+              "grid-xs-auto": "MuiGrid-grid-xs-auto",
+              "grid-xs-true": "MuiGrid-grid-xs-true",
+              "item": "MuiGrid-item",
+              "justify-xs-center": "MuiGrid-justify-xs-center",
+              "justify-xs-flex-end": "MuiGrid-justify-xs-flex-end",
+              "justify-xs-space-around": "MuiGrid-justify-xs-space-around",
+              "justify-xs-space-between": "MuiGrid-justify-xs-space-between",
+              "justify-xs-space-evenly": "MuiGrid-justify-xs-space-evenly",
+              "root": "MuiGrid-root",
+              "spacing-xs-1": "MuiGrid-spacing-xs-1",
+              "spacing-xs-10": "MuiGrid-spacing-xs-10",
+              "spacing-xs-2": "MuiGrid-spacing-xs-2",
+              "spacing-xs-3": "MuiGrid-spacing-xs-3",
+              "spacing-xs-4": "MuiGrid-spacing-xs-4",
+              "spacing-xs-5": "MuiGrid-spacing-xs-5",
+              "spacing-xs-6": "MuiGrid-spacing-xs-6",
+              "spacing-xs-7": "MuiGrid-spacing-xs-7",
+              "spacing-xs-8": "MuiGrid-spacing-xs-8",
+              "spacing-xs-9": "MuiGrid-spacing-xs-9",
+              "wrap-xs-nowrap": "MuiGrid-wrap-xs-nowrap",
+              "wrap-xs-wrap-reverse": "MuiGrid-wrap-xs-wrap-reverse",
+              "zeroMinWidth": "MuiGrid-zeroMinWidth",
+            }
+          }
+          container={true}
+          justify="center"
+          style={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+        >
+          <div
+            className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            style={
+              Object {
+                "flexGrow": 1,
+              }
+            }
+          >
+            <WithStyles(ForwardRef(CircularProgress))>
+              <ForwardRef(CircularProgress)
+                classes={
+                  Object {
+                    "circle": "MuiCircularProgress-circle",
+                    "circleDisableShrink": "MuiCircularProgress-circleDisableShrink",
+                    "circleIndeterminate": "MuiCircularProgress-circleIndeterminate",
+                    "circleStatic": "MuiCircularProgress-circleStatic",
+                    "colorPrimary": "MuiCircularProgress-colorPrimary",
+                    "colorSecondary": "MuiCircularProgress-colorSecondary",
+                    "indeterminate": "MuiCircularProgress-indeterminate",
+                    "root": "MuiCircularProgress-root",
+                    "static": "MuiCircularProgress-static",
+                    "svg": "MuiCircularProgress-svg",
+                  }
+                }
+              >
+                <div
+                  className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+                  role="progressbar"
+                  style={
+                    Object {
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                >
+                  <svg
+                    className="MuiCircularProgress-svg"
+                    viewBox="22 22 44 44"
+                  >
+                    <circle
+                      className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                      cx={44}
+                      cy={44}
+                      fill="none"
+                      r={20.2}
+                      strokeWidth={3.6}
+                      style={Object {}}
+                    />
+                  </svg>
+                </div>
+              </ForwardRef(CircularProgress)>
+            </WithStyles(ForwardRef(CircularProgress))>
+          </div>
+        </ForwardRef(Grid)>
+      </WithStyles(ForwardRef(Grid))>
+    </Loading>
+    <RecommandedMovies
+      matches={false}
+    >
+      <div
+        className="makeStyles-root-126"
+      >
+        Ceci est une liste de films inspirés de la search
+      </div>
+    </RecommandedMovies>
+  </div>
+</Movie>
+`;
+
+exports[`Movie should renders <Movie> in french 1`] = `
+<Movie>
+  <div
+    className="makeStyles-root-1"
+  >
+    <Loading>
+      <WithStyles(ForwardRef(Grid))
+        alignItems="center"
+        container={true}
+        justify="center"
+        style={
+          Object {
+            "flexGrow": 1,
+          }
+        }
+      >
+        <ForwardRef(Grid)
+          alignItems="center"
+          classes={
+            Object {
+              "align-content-xs-center": "MuiGrid-align-content-xs-center",
+              "align-content-xs-flex-end": "MuiGrid-align-content-xs-flex-end",
+              "align-content-xs-flex-start": "MuiGrid-align-content-xs-flex-start",
+              "align-content-xs-space-around": "MuiGrid-align-content-xs-space-around",
+              "align-content-xs-space-between": "MuiGrid-align-content-xs-space-between",
+              "align-items-xs-baseline": "MuiGrid-align-items-xs-baseline",
+              "align-items-xs-center": "MuiGrid-align-items-xs-center",
+              "align-items-xs-flex-end": "MuiGrid-align-items-xs-flex-end",
+              "align-items-xs-flex-start": "MuiGrid-align-items-xs-flex-start",
+              "container": "MuiGrid-container",
+              "direction-xs-column": "MuiGrid-direction-xs-column",
+              "direction-xs-column-reverse": "MuiGrid-direction-xs-column-reverse",
+              "direction-xs-row-reverse": "MuiGrid-direction-xs-row-reverse",
+              "grid-lg-1": "MuiGrid-grid-lg-1",
+              "grid-lg-10": "MuiGrid-grid-lg-10",
+              "grid-lg-11": "MuiGrid-grid-lg-11",
+              "grid-lg-12": "MuiGrid-grid-lg-12",
+              "grid-lg-2": "MuiGrid-grid-lg-2",
+              "grid-lg-3": "MuiGrid-grid-lg-3",
+              "grid-lg-4": "MuiGrid-grid-lg-4",
+              "grid-lg-5": "MuiGrid-grid-lg-5",
+              "grid-lg-6": "MuiGrid-grid-lg-6",
+              "grid-lg-7": "MuiGrid-grid-lg-7",
+              "grid-lg-8": "MuiGrid-grid-lg-8",
+              "grid-lg-9": "MuiGrid-grid-lg-9",
+              "grid-lg-auto": "MuiGrid-grid-lg-auto",
+              "grid-lg-true": "MuiGrid-grid-lg-true",
+              "grid-md-1": "MuiGrid-grid-md-1",
+              "grid-md-10": "MuiGrid-grid-md-10",
+              "grid-md-11": "MuiGrid-grid-md-11",
+              "grid-md-12": "MuiGrid-grid-md-12",
+              "grid-md-2": "MuiGrid-grid-md-2",
+              "grid-md-3": "MuiGrid-grid-md-3",
+              "grid-md-4": "MuiGrid-grid-md-4",
+              "grid-md-5": "MuiGrid-grid-md-5",
+              "grid-md-6": "MuiGrid-grid-md-6",
+              "grid-md-7": "MuiGrid-grid-md-7",
+              "grid-md-8": "MuiGrid-grid-md-8",
+              "grid-md-9": "MuiGrid-grid-md-9",
+              "grid-md-auto": "MuiGrid-grid-md-auto",
+              "grid-md-true": "MuiGrid-grid-md-true",
+              "grid-sm-1": "MuiGrid-grid-sm-1",
+              "grid-sm-10": "MuiGrid-grid-sm-10",
+              "grid-sm-11": "MuiGrid-grid-sm-11",
+              "grid-sm-12": "MuiGrid-grid-sm-12",
+              "grid-sm-2": "MuiGrid-grid-sm-2",
+              "grid-sm-3": "MuiGrid-grid-sm-3",
+              "grid-sm-4": "MuiGrid-grid-sm-4",
+              "grid-sm-5": "MuiGrid-grid-sm-5",
+              "grid-sm-6": "MuiGrid-grid-sm-6",
+              "grid-sm-7": "MuiGrid-grid-sm-7",
+              "grid-sm-8": "MuiGrid-grid-sm-8",
+              "grid-sm-9": "MuiGrid-grid-sm-9",
+              "grid-sm-auto": "MuiGrid-grid-sm-auto",
+              "grid-sm-true": "MuiGrid-grid-sm-true",
+              "grid-xl-1": "MuiGrid-grid-xl-1",
+              "grid-xl-10": "MuiGrid-grid-xl-10",
+              "grid-xl-11": "MuiGrid-grid-xl-11",
+              "grid-xl-12": "MuiGrid-grid-xl-12",
+              "grid-xl-2": "MuiGrid-grid-xl-2",
+              "grid-xl-3": "MuiGrid-grid-xl-3",
+              "grid-xl-4": "MuiGrid-grid-xl-4",
+              "grid-xl-5": "MuiGrid-grid-xl-5",
+              "grid-xl-6": "MuiGrid-grid-xl-6",
+              "grid-xl-7": "MuiGrid-grid-xl-7",
+              "grid-xl-8": "MuiGrid-grid-xl-8",
+              "grid-xl-9": "MuiGrid-grid-xl-9",
+              "grid-xl-auto": "MuiGrid-grid-xl-auto",
+              "grid-xl-true": "MuiGrid-grid-xl-true",
+              "grid-xs-1": "MuiGrid-grid-xs-1",
+              "grid-xs-10": "MuiGrid-grid-xs-10",
+              "grid-xs-11": "MuiGrid-grid-xs-11",
+              "grid-xs-12": "MuiGrid-grid-xs-12",
+              "grid-xs-2": "MuiGrid-grid-xs-2",
+              "grid-xs-3": "MuiGrid-grid-xs-3",
+              "grid-xs-4": "MuiGrid-grid-xs-4",
+              "grid-xs-5": "MuiGrid-grid-xs-5",
+              "grid-xs-6": "MuiGrid-grid-xs-6",
+              "grid-xs-7": "MuiGrid-grid-xs-7",
+              "grid-xs-8": "MuiGrid-grid-xs-8",
+              "grid-xs-9": "MuiGrid-grid-xs-9",
+              "grid-xs-auto": "MuiGrid-grid-xs-auto",
+              "grid-xs-true": "MuiGrid-grid-xs-true",
+              "item": "MuiGrid-item",
+              "justify-xs-center": "MuiGrid-justify-xs-center",
+              "justify-xs-flex-end": "MuiGrid-justify-xs-flex-end",
+              "justify-xs-space-around": "MuiGrid-justify-xs-space-around",
+              "justify-xs-space-between": "MuiGrid-justify-xs-space-between",
+              "justify-xs-space-evenly": "MuiGrid-justify-xs-space-evenly",
+              "root": "MuiGrid-root",
+              "spacing-xs-1": "MuiGrid-spacing-xs-1",
+              "spacing-xs-10": "MuiGrid-spacing-xs-10",
+              "spacing-xs-2": "MuiGrid-spacing-xs-2",
+              "spacing-xs-3": "MuiGrid-spacing-xs-3",
+              "spacing-xs-4": "MuiGrid-spacing-xs-4",
+              "spacing-xs-5": "MuiGrid-spacing-xs-5",
+              "spacing-xs-6": "MuiGrid-spacing-xs-6",
+              "spacing-xs-7": "MuiGrid-spacing-xs-7",
+              "spacing-xs-8": "MuiGrid-spacing-xs-8",
+              "spacing-xs-9": "MuiGrid-spacing-xs-9",
+              "wrap-xs-nowrap": "MuiGrid-wrap-xs-nowrap",
+              "wrap-xs-wrap-reverse": "MuiGrid-wrap-xs-wrap-reverse",
+              "zeroMinWidth": "MuiGrid-zeroMinWidth",
+            }
+          }
+          container={true}
+          justify="center"
+          style={
+            Object {
+              "flexGrow": 1,
+            }
+          }
+        >
+          <div
+            className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            style={
+              Object {
+                "flexGrow": 1,
+              }
+            }
+          >
+            <WithStyles(ForwardRef(CircularProgress))>
+              <ForwardRef(CircularProgress)
+                classes={
+                  Object {
+                    "circle": "MuiCircularProgress-circle",
+                    "circleDisableShrink": "MuiCircularProgress-circleDisableShrink",
+                    "circleIndeterminate": "MuiCircularProgress-circleIndeterminate",
+                    "circleStatic": "MuiCircularProgress-circleStatic",
+                    "colorPrimary": "MuiCircularProgress-colorPrimary",
+                    "colorSecondary": "MuiCircularProgress-colorSecondary",
+                    "indeterminate": "MuiCircularProgress-indeterminate",
+                    "root": "MuiCircularProgress-root",
+                    "static": "MuiCircularProgress-static",
+                    "svg": "MuiCircularProgress-svg",
+                  }
+                }
+              >
+                <div
+                  className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+                  role="progressbar"
+                  style={
+                    Object {
+                      "height": 40,
+                      "width": 40,
+                    }
+                  }
+                >
+                  <svg
+                    className="MuiCircularProgress-svg"
+                    viewBox="22 22 44 44"
+                  >
+                    <circle
+                      className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                      cx={44}
+                      cy={44}
+                      fill="none"
+                      r={20.2}
+                      strokeWidth={3.6}
+                      style={Object {}}
+                    />
+                  </svg>
+                </div>
+              </ForwardRef(CircularProgress)>
+            </WithStyles(ForwardRef(CircularProgress))>
+          </div>
+        </ForwardRef(Grid)>
+      </WithStyles(ForwardRef(Grid))>
+    </Loading>
+    <RecommandedMovies
+      matches={false}
+    >
+      <div
+        className="makeStyles-root-126"
+      >
+        Ceci est une liste de films inspirés de la search
+      </div>
+    </RecommandedMovies>
+  </div>
+</Movie>
+`;
+
+exports[`Movie should renders <MovieComments> in english 1`] = `
+<MovieComments
+  movieId="Dokku_obrash"
+  movieRating={5}
+  reviews={
+    Array [
+      Object {
+        "body": "That was actually really awesome",
+        "date": 1577118711809,
+        "id": "0123456789",
+        "name": "TestMan",
+        "stars": 4,
+      },
+    ]
+  }
+>
+  <div
+    className="makeStyles-containerRatingAndComment-128"
+  >
+    <Styled(MuiBox)
+      borderColor="transparent"
+      component="fieldset"
+    >
+      <fieldset
+        className="MuiBox-root MuiBox-root-141"
+      >
+        <div
+          className="makeStyles-movieRating-129"
+        >
+          Movie's rating
+        </div>
+        <WithStyles(ForwardRef(Rating))
+          emptyIcon={
+            <UNDEFINED
+              color="primary"
+            />
+          }
+          readOnly={true}
+          value={5}
+        >
+          <ForwardRef(Rating)
+            classes={
+              Object {
+                "decimal": "MuiRating-decimal",
+                "disabled": "Mui-disabled",
+                "focusVisible": "Mui-focusVisible",
+                "icon": "MuiRating-icon",
+                "iconActive": "MuiRating-iconActive",
+                "iconEmpty": "MuiRating-iconEmpty",
+                "iconFilled": "MuiRating-iconFilled",
+                "iconFocus": "MuiRating-iconFocus",
+                "iconHover": "MuiRating-iconHover",
+                "label": "MuiRating-label",
+                "pristine": "MuiRating-pristine",
+                "readOnly": "MuiRating-readOnly",
+                "root": "MuiRating-root",
+                "sizeLarge": "MuiRating-sizeLarge",
+                "sizeSmall": "MuiRating-sizeSmall",
+                "visuallyhidden": "MuiRating-visuallyhidden",
+              }
+            }
+            emptyIcon={
+              <UNDEFINED
+                color="primary"
+              />
+            }
+            readOnly={true}
+            value={5}
+          >
+            <span
+              aria-label="5 Stars"
+              className="MuiRating-root MuiRating-readOnly"
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+              role="img"
+            >
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={1}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={2}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={3}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={4}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={5}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+            </span>
+          </ForwardRef(Rating)>
+        </WithStyles(ForwardRef(Rating))>
+      </fieldset>
+    </Styled(MuiBox)>
+    <span
+      className="makeStyles-commentTitle-130"
+    >
+      Wanna say something about it ?
+    </span>
+    <WithStyles(ForwardRef(Container))
+      className="makeStyles-containerComment-131"
+      fixed={true}
+    >
+      <ForwardRef(Container)
+        className="makeStyles-containerComment-131"
+        classes={
+          Object {
+            "fixed": "MuiContainer-fixed",
+            "maxWidthLg": "MuiContainer-maxWidthLg",
+            "maxWidthMd": "MuiContainer-maxWidthMd",
+            "maxWidthSm": "MuiContainer-maxWidthSm",
+            "maxWidthXl": "MuiContainer-maxWidthXl",
+            "maxWidthXs": "MuiContainer-maxWidthXs",
+            "root": "MuiContainer-root",
+          }
+        }
+        fixed={true}
+      >
+        <div
+          className="MuiContainer-root makeStyles-containerComment-131 MuiContainer-fixed MuiContainer-maxWidthLg"
+        >
+          <div
+            className="makeStyles-containerPeople-132"
+            id="scrollComment"
+          >
+            <div
+              className="makeStyles-comment-134"
+              key="0123456789"
+            >
+              <span
+                style={
+                  Object {
+                    "fontSize": "1.1rem",
+                  }
+                }
+              >
+                TestMan
+                 - 
+                1577118711809
+                 -
+                 
+              </span>
+              <WithStyles(ForwardRef(Rating))
+                emptyIcon={
+                  <UNDEFINED
+                    color="primary"
+                    style={
+                      Object {
+                        "fontSize": "1.1rem",
+                      }
+                    }
+                  />
+                }
+                readOnly={true}
+                size="small"
+                value={4}
+              >
+                <ForwardRef(Rating)
+                  classes={
+                    Object {
+                      "decimal": "MuiRating-decimal",
+                      "disabled": "Mui-disabled",
+                      "focusVisible": "Mui-focusVisible",
+                      "icon": "MuiRating-icon",
+                      "iconActive": "MuiRating-iconActive",
+                      "iconEmpty": "MuiRating-iconEmpty",
+                      "iconFilled": "MuiRating-iconFilled",
+                      "iconFocus": "MuiRating-iconFocus",
+                      "iconHover": "MuiRating-iconHover",
+                      "label": "MuiRating-label",
+                      "pristine": "MuiRating-pristine",
+                      "readOnly": "MuiRating-readOnly",
+                      "root": "MuiRating-root",
+                      "sizeLarge": "MuiRating-sizeLarge",
+                      "sizeSmall": "MuiRating-sizeSmall",
+                      "visuallyhidden": "MuiRating-visuallyhidden",
+                    }
+                  }
+                  emptyIcon={
+                    <UNDEFINED
+                      color="primary"
+                      style={
+                        Object {
+                          "fontSize": "1.1rem",
+                        }
+                      }
+                    />
+                  }
+                  readOnly={true}
+                  size="small"
+                  value={4}
+                >
+                  <span
+                    aria-label="4 Stars"
+                    className="MuiRating-root MuiRating-sizeSmall MuiRating-readOnly"
+                    onMouseLeave={[Function]}
+                    onMouseMove={[Function]}
+                    role="img"
+                  >
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={1}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={2}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={3}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={4}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconEmpty"
+                      value={5}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconEmpty"
+                      >
+                        <ForwardRef
+                          color="primary"
+                          style={
+                            Object {
+                              "fontSize": "1.1rem",
+                            }
+                          }
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            color="primary"
+                            style={
+                              Object {
+                                "fontSize": "1.1rem",
+                              }
+                            }
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              color="primary"
+                              style={
+                                Object {
+                                  "fontSize": "1.1rem",
+                                }
+                              }
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                focusable="false"
+                                role="presentation"
+                                style={
+                                  Object {
+                                    "fontSize": "1.1rem",
+                                  }
+                                }
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                  </span>
+                </ForwardRef(Rating)>
+              </WithStyles(ForwardRef(Rating))>
+              <div
+                className="makeStyles-commentText-133"
+              >
+                That was actually really awesome
+              </div>
+            </div>
+          </div>
+          <div
+            className="makeStyles-personalCommentContainer-135"
+          >
+            <WithStyles(ForwardRef(TextField))
+              InputProps={
+                Object {
+                  "startAdornment": <ForwardRef(WithStyles)
+                    position="start"
+                  >
+                    <UNDEFINED />
+                  </ForwardRef(WithStyles)>,
+                }
+              }
+              className="makeStyles-textField-136"
+              error={false}
+              helperText={false}
+              inputProps={
+                Object {
+                  "maxLength": 1000,
+                }
+              }
+              label="Tell us what you think about the movie"
+              multiline={true}
+              onChange={[Function]}
+              value=""
+            >
+              <ForwardRef(TextField)
+                InputProps={
+                  Object {
+                    "startAdornment": <ForwardRef(WithStyles)
+                      position="start"
+                    >
+                      <UNDEFINED />
+                    </ForwardRef(WithStyles)>,
+                  }
+                }
+                className="makeStyles-textField-136"
+                classes={
+                  Object {
+                    "root": "MuiTextField-root",
+                  }
+                }
+                error={false}
+                helperText={false}
+                inputProps={
+                  Object {
+                    "maxLength": 1000,
+                  }
+                }
+                label="Tell us what you think about the movie"
+                multiline={true}
+                onChange={[Function]}
+                value=""
+              >
+                <WithStyles(ForwardRef(FormControl))
+                  className="MuiTextField-root makeStyles-textField-136"
+                  color="primary"
+                  disabled={false}
+                  error={false}
+                  fullWidth={false}
+                  required={false}
+                  variant="standard"
+                >
+                  <ForwardRef(FormControl)
+                    className="MuiTextField-root makeStyles-textField-136"
+                    classes={
+                      Object {
+                        "fullWidth": "MuiFormControl-fullWidth",
+                        "marginDense": "MuiFormControl-marginDense",
+                        "marginNormal": "MuiFormControl-marginNormal",
+                        "root": "MuiFormControl-root",
+                      }
+                    }
+                    color="primary"
+                    disabled={false}
+                    error={false}
+                    fullWidth={false}
+                    required={false}
+                    variant="standard"
+                  >
+                    <div
+                      className="MuiFormControl-root MuiTextField-root makeStyles-textField-136"
+                    >
+                      <WithStyles(ForwardRef(InputLabel))>
+                        <ForwardRef(InputLabel)
+                          classes={
+                            Object {
+                              "animated": "MuiInputLabel-animated",
+                              "asterisk": "MuiInputLabel-asterisk",
+                              "disabled": "Mui-disabled",
+                              "error": "Mui-error",
+                              "filled": "MuiInputLabel-filled",
+                              "focused": "Mui-focused",
+                              "formControl": "MuiInputLabel-formControl",
+                              "marginDense": "MuiInputLabel-marginDense",
+                              "outlined": "MuiInputLabel-outlined",
+                              "required": "Mui-required",
+                              "root": "MuiInputLabel-root",
+                              "shrink": "MuiInputLabel-shrink",
+                            }
+                          }
+                        >
+                          <WithStyles(ForwardRef(FormLabel))
+                            className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+                            classes={
+                              Object {
+                                "asterisk": "MuiInputLabel-asterisk",
+                                "disabled": "Mui-disabled",
+                                "error": "Mui-error",
+                                "focused": "Mui-focused",
+                                "required": "Mui-required",
+                              }
+                            }
+                            data-shrink={true}
+                          >
+                            <ForwardRef(FormLabel)
+                              className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+                              classes={
+                                Object {
+                                  "asterisk": "MuiFormLabel-asterisk MuiInputLabel-asterisk",
+                                  "colorSecondary": "MuiFormLabel-colorSecondary",
+                                  "disabled": "Mui-disabled Mui-disabled",
+                                  "error": "Mui-error Mui-error",
+                                  "filled": "MuiFormLabel-filled",
+                                  "focused": "Mui-focused Mui-focused",
+                                  "required": "Mui-required Mui-required",
+                                  "root": "MuiFormLabel-root",
+                                }
+                              }
+                              data-shrink={true}
+                            >
+                              <label
+                                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+                                data-shrink={true}
+                              >
+                                Tell us what you think about the movie
+                              </label>
+                            </ForwardRef(FormLabel)>
+                          </WithStyles(ForwardRef(FormLabel))>
+                        </ForwardRef(InputLabel)>
+                      </WithStyles(ForwardRef(InputLabel))>
+                      <WithStyles(ForwardRef(Input))
+                        autoFocus={false}
+                        fullWidth={false}
+                        inputProps={
+                          Object {
+                            "maxLength": 1000,
+                          }
+                        }
+                        multiline={true}
+                        onChange={[Function]}
+                        startAdornment={
+                          <ForwardRef(WithStyles)
+                            position="start"
+                          >
+                            <UNDEFINED />
+                          </ForwardRef(WithStyles)>
+                        }
+                        value=""
+                      >
+                        <ForwardRef(Input)
+                          autoFocus={false}
+                          classes={
+                            Object {
+                              "colorSecondary": "MuiInput-colorSecondary",
+                              "disabled": "Mui-disabled",
+                              "error": "Mui-error",
+                              "focused": "Mui-focused",
+                              "formControl": "MuiInput-formControl",
+                              "fullWidth": "MuiInput-fullWidth",
+                              "input": "MuiInput-input",
+                              "inputMarginDense": "MuiInput-inputMarginDense",
+                              "inputMultiline": "MuiInput-inputMultiline",
+                              "inputTypeSearch": "MuiInput-inputTypeSearch",
+                              "multiline": "MuiInput-multiline",
+                              "root": "MuiInput-root",
+                              "underline": "MuiInput-underline",
+                            }
+                          }
+                          fullWidth={false}
+                          inputProps={
+                            Object {
+                              "maxLength": 1000,
+                            }
+                          }
+                          multiline={true}
+                          onChange={[Function]}
+                          startAdornment={
+                            <ForwardRef(WithStyles)
+                              position="start"
+                            >
+                              <UNDEFINED />
+                            </ForwardRef(WithStyles)>
+                          }
+                          value=""
+                        >
+                          <WithStyles(ForwardRef(InputBase))
+                            autoFocus={false}
+                            classes={
+                              Object {
+                                "colorSecondary": "MuiInput-colorSecondary",
+                                "disabled": "Mui-disabled",
+                                "error": "Mui-error",
+                                "focused": "Mui-focused",
+                                "formControl": "MuiInput-formControl",
+                                "fullWidth": "MuiInput-fullWidth",
+                                "input": "MuiInput-input",
+                                "inputMarginDense": "MuiInput-inputMarginDense",
+                                "inputMultiline": "MuiInput-inputMultiline",
+                                "inputTypeSearch": "MuiInput-inputTypeSearch",
+                                "multiline": "MuiInput-multiline",
+                                "root": "MuiInput-root MuiInput-underline",
+                                "underline": null,
+                              }
+                            }
+                            fullWidth={false}
+                            inputComponent="input"
+                            inputProps={
+                              Object {
+                                "maxLength": 1000,
+                              }
+                            }
+                            multiline={true}
+                            onChange={[Function]}
+                            startAdornment={
+                              <ForwardRef(WithStyles)
+                                position="start"
+                              >
+                                <UNDEFINED />
+                              </ForwardRef(WithStyles)>
+                            }
+                            type="text"
+                            value=""
+                          >
+                            <ForwardRef(InputBase)
+                              autoFocus={false}
+                              classes={
+                                Object {
+                                  "adornedEnd": "MuiInputBase-adornedEnd",
+                                  "adornedStart": "MuiInputBase-adornedStart",
+                                  "colorSecondary": "MuiInputBase-colorSecondary MuiInput-colorSecondary",
+                                  "disabled": "Mui-disabled Mui-disabled",
+                                  "error": "Mui-error Mui-error",
+                                  "focused": "Mui-focused Mui-focused",
+                                  "formControl": "MuiInputBase-formControl MuiInput-formControl",
+                                  "fullWidth": "MuiInputBase-fullWidth MuiInput-fullWidth",
+                                  "input": "MuiInputBase-input MuiInput-input",
+                                  "inputAdornedEnd": "MuiInputBase-inputAdornedEnd",
+                                  "inputAdornedStart": "MuiInputBase-inputAdornedStart",
+                                  "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
+                                  "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
+                                  "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
+                                  "inputSelect": "MuiInputBase-inputSelect",
+                                  "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
+                                  "marginDense": "MuiInputBase-marginDense",
+                                  "multiline": "MuiInputBase-multiline MuiInput-multiline",
+                                  "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
+                                }
+                              }
+                              fullWidth={false}
+                              inputComponent="input"
+                              inputProps={
+                                Object {
+                                  "maxLength": 1000,
+                                }
+                              }
+                              multiline={true}
+                              onChange={[Function]}
+                              startAdornment={
+                                <ForwardRef(WithStyles)
+                                  position="start"
+                                >
+                                  <UNDEFINED />
+                                </ForwardRef(WithStyles)>
+                              }
+                              type="text"
+                              value=""
+                            >
+                              <div
+                                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline MuiInputBase-adornedStart"
+                                onClick={[Function]}
+                              >
+                                <WithStyles(ForwardRef(InputAdornment))
+                                  position="start"
+                                >
+                                  <ForwardRef(InputAdornment)
+                                    classes={
+                                      Object {
+                                        "disablePointerEvents": "MuiInputAdornment-disablePointerEvents",
+                                        "filled": "MuiInputAdornment-filled",
+                                        "hiddenLabel": "MuiInputAdornment-hiddenLabel",
+                                        "marginDense": "MuiInputAdornment-marginDense",
+                                        "positionEnd": "MuiInputAdornment-positionEnd",
+                                        "positionStart": "MuiInputAdornment-positionStart",
+                                        "root": "MuiInputAdornment-root",
+                                      }
+                                    }
+                                    position="start"
+                                  >
+                                    <div
+                                      className="MuiInputAdornment-root MuiInputAdornment-positionStart"
+                                    >
+                                      <ForwardRef>
+                                        <WithStyles(ForwardRef(SvgIcon))>
+                                          <ForwardRef(SvgIcon)
+                                            classes={
+                                              Object {
+                                                "colorAction": "MuiSvgIcon-colorAction",
+                                                "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                                "colorError": "MuiSvgIcon-colorError",
+                                                "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                                "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                                "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                                "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                                "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                                "root": "MuiSvgIcon-root",
+                                              }
+                                            }
+                                          >
+                                            <svg
+                                              aria-hidden="true"
+                                              className="MuiSvgIcon-root"
+                                              focusable="false"
+                                              role="presentation"
+                                              viewBox="0 0 24 24"
+                                            >
+                                              <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                                              />
+                                            </svg>
+                                          </ForwardRef(SvgIcon)>
+                                        </WithStyles(ForwardRef(SvgIcon))>
+                                      </ForwardRef>
+                                    </div>
+                                  </ForwardRef(InputAdornment)>
+                                </WithStyles(ForwardRef(InputAdornment))>
+                                <ForwardRef(TextareaAutosize)
+                                  aria-invalid={false}
+                                  autoFocus={false}
+                                  className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline MuiInputBase-inputAdornedStart"
+                                  disabled={false}
+                                  maxLength={1000}
+                                  onAnimationStart={[Function]}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={false}
+                                  value=""
+                                >
+                                  <textarea
+                                    aria-invalid={false}
+                                    autoFocus={false}
+                                    className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline MuiInputBase-inputAdornedStart"
+                                    disabled={false}
+                                    maxLength={1000}
+                                    onAnimationStart={[Function]}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    required={false}
+                                    rows={1}
+                                    style={
+                                      Object {
+                                        "height": 0,
+                                        "overflow": "hidden",
+                                      }
+                                    }
+                                    value=""
+                                  />
+                                  <textarea
+                                    aria-hidden={true}
+                                    className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline MuiInputBase-inputAdornedStart"
+                                    readOnly={true}
+                                    style={
+                                      Object {
+                                        "height": 0,
+                                        "left": 0,
+                                        "overflow": "hidden",
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "transform": "translateZ(0)",
+                                        "visibility": "hidden",
+                                      }
+                                    }
+                                    tabIndex={-1}
+                                  />
+                                </ForwardRef(TextareaAutosize)>
+                              </div>
+                            </ForwardRef(InputBase)>
+                          </WithStyles(ForwardRef(InputBase))>
+                        </ForwardRef(Input)>
+                      </WithStyles(ForwardRef(Input))>
+                    </div>
+                  </ForwardRef(FormControl)>
+                </WithStyles(ForwardRef(FormControl))>
+              </ForwardRef(TextField)>
+            </WithStyles(ForwardRef(TextField))>
+            <div
+              className="makeStyles-rateAndSendButton-137"
+            >
+              <div
+                className="makeStyles-rateIt-138"
+              >
+                <span
+                  style={
+                    Object {
+                      "marginRight": "0.2rem",
+                    }
+                  }
+                >
+                  Rate it :
+                </span>
+                <WithStyles(ForwardRef(Rating))
+                  emptyIcon={
+                    <UNDEFINED
+                      color="primary"
+                    />
+                  }
+                  name="simple-controlled"
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <ForwardRef(Rating)
+                    classes={
+                      Object {
+                        "decimal": "MuiRating-decimal",
+                        "disabled": "Mui-disabled",
+                        "focusVisible": "Mui-focusVisible",
+                        "icon": "MuiRating-icon",
+                        "iconActive": "MuiRating-iconActive",
+                        "iconEmpty": "MuiRating-iconEmpty",
+                        "iconFilled": "MuiRating-iconFilled",
+                        "iconFocus": "MuiRating-iconFocus",
+                        "iconHover": "MuiRating-iconHover",
+                        "label": "MuiRating-label",
+                        "pristine": "MuiRating-pristine",
+                        "readOnly": "MuiRating-readOnly",
+                        "root": "MuiRating-root",
+                        "sizeLarge": "MuiRating-sizeLarge",
+                        "sizeSmall": "MuiRating-sizeSmall",
+                        "visuallyhidden": "MuiRating-visuallyhidden",
+                      }
+                    }
+                    emptyIcon={
+                      <UNDEFINED
+                        color="primary"
+                      />
+                    }
+                    name="simple-controlled"
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <span
+                      aria-label={null}
+                      className="MuiRating-root"
+                      onMouseLeave={[Function]}
+                      onMouseMove={[Function]}
+                      role={null}
+                    >
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-1"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={1}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          1 Star
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-1"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={1}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-2"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={2}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          2 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-2"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={2}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-3"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={3}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          3 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-3"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={3}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-4"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={4}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          4 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-4"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={4}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-5"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={5}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          5 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-5"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={5}
+                      />
+                    </span>
+                  </ForwardRef(Rating)>
+                </WithStyles(ForwardRef(Rating))>
+              </div>
+              <WithStyles(ForwardRef(Button))
+                onClick={[Function]}
+                variant="contained"
+              >
+                <ForwardRef(Button)
+                  classes={
+                    Object {
+                      "colorInherit": "MuiButton-colorInherit",
+                      "contained": "MuiButton-contained",
+                      "containedPrimary": "MuiButton-containedPrimary",
+                      "containedSecondary": "MuiButton-containedSecondary",
+                      "containedSizeLarge": "MuiButton-containedSizeLarge",
+                      "containedSizeSmall": "MuiButton-containedSizeSmall",
+                      "disabled": "Mui-disabled",
+                      "endIcon": "MuiButton-endIcon",
+                      "focusVisible": "Mui-focusVisible",
+                      "fullWidth": "MuiButton-fullWidth",
+                      "iconSizeLarge": "MuiButton-iconSizeLarge",
+                      "iconSizeMedium": "MuiButton-iconSizeMedium",
+                      "iconSizeSmall": "MuiButton-iconSizeSmall",
+                      "label": "MuiButton-label",
+                      "outlined": "MuiButton-outlined",
+                      "outlinedPrimary": "MuiButton-outlinedPrimary",
+                      "outlinedSecondary": "MuiButton-outlinedSecondary",
+                      "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                      "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                      "root": "MuiButton-root",
+                      "sizeLarge": "MuiButton-sizeLarge",
+                      "sizeSmall": "MuiButton-sizeSmall",
+                      "startIcon": "MuiButton-startIcon",
+                      "text": "MuiButton-text",
+                      "textPrimary": "MuiButton-textPrimary",
+                      "textSecondary": "MuiButton-textSecondary",
+                      "textSizeLarge": "MuiButton-textSizeLarge",
+                      "textSizeSmall": "MuiButton-textSizeSmall",
+                    }
+                  }
+                  onClick={[Function]}
+                  variant="contained"
+                >
+                  <WithStyles(ForwardRef(ButtonBase))
+                    className="MuiButton-root MuiButton-contained"
+                    component="button"
+                    disabled={false}
+                    focusRipple={true}
+                    focusVisibleClassName="Mui-focusVisible"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <ForwardRef(ButtonBase)
+                      className="MuiButton-root MuiButton-contained"
+                      classes={
+                        Object {
+                          "disabled": "Mui-disabled",
+                          "focusVisible": "Mui-focusVisible",
+                          "root": "MuiButtonBase-root",
+                        }
+                      }
+                      component="button"
+                      disabled={false}
+                      focusRipple={true}
+                      focusVisibleClassName="Mui-focusVisible"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <button
+                        className="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onDragLeave={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <span
+                          className="MuiButton-label"
+                        >
+                          Send
+                        </span>
+                        <NoSsr>
+                          <WithStyles(undefined)
+                            center={false}
+                          >
+                            <ForwardRef(TouchRipple)
+                              center={false}
+                              classes={
+                                Object {
+                                  "child": "MuiTouchRipple-child",
+                                  "childLeaving": "MuiTouchRipple-childLeaving",
+                                  "childPulsate": "MuiTouchRipple-childPulsate",
+                                  "ripple": "MuiTouchRipple-ripple",
+                                  "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                  "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                  "root": "MuiTouchRipple-root",
+                                }
+                              }
+                            >
+                              <span
+                                className="MuiTouchRipple-root"
+                              >
+                                <TransitionGroup
+                                  childFactory={[Function]}
+                                  component={null}
+                                  exit={true}
+                                />
+                              </span>
+                            </ForwardRef(TouchRipple)>
+                          </WithStyles(undefined)>
+                        </NoSsr>
+                      </button>
+                    </ForwardRef(ButtonBase)>
+                  </WithStyles(ForwardRef(ButtonBase))>
+                </ForwardRef(Button)>
+              </WithStyles(ForwardRef(Button))>
+            </div>
+          </div>
+        </div>
+      </ForwardRef(Container)>
+    </WithStyles(ForwardRef(Container))>
+  </div>
+</MovieComments>
+`;
+
+exports[`Movie should renders <MovieComments> in french 1`] = `
+<MovieComments
+  movieId="Dokku_obrash"
+  movieRating={5}
+  reviews={
+    Array [
+      Object {
+        "body": "That was actually really awesome",
+        "date": 1577118711809,
+        "id": "0123456789",
+        "name": "TestMan",
+        "stars": 4,
+      },
+    ]
+  }
+>
+  <div
+    className="makeStyles-containerRatingAndComment-128"
+  >
+    <Styled(MuiBox)
+      borderColor="transparent"
+      component="fieldset"
+    >
+      <fieldset
+        className="MuiBox-root MuiBox-root-281"
+      >
+        <div
+          className="makeStyles-movieRating-129"
+        >
+          Note du film
+        </div>
+        <WithStyles(ForwardRef(Rating))
+          emptyIcon={
+            <UNDEFINED
+              color="primary"
+            />
+          }
+          readOnly={true}
+          value={5}
+        >
+          <ForwardRef(Rating)
+            classes={
+              Object {
+                "decimal": "MuiRating-decimal",
+                "disabled": "Mui-disabled",
+                "focusVisible": "Mui-focusVisible",
+                "icon": "MuiRating-icon",
+                "iconActive": "MuiRating-iconActive",
+                "iconEmpty": "MuiRating-iconEmpty",
+                "iconFilled": "MuiRating-iconFilled",
+                "iconFocus": "MuiRating-iconFocus",
+                "iconHover": "MuiRating-iconHover",
+                "label": "MuiRating-label",
+                "pristine": "MuiRating-pristine",
+                "readOnly": "MuiRating-readOnly",
+                "root": "MuiRating-root",
+                "sizeLarge": "MuiRating-sizeLarge",
+                "sizeSmall": "MuiRating-sizeSmall",
+                "visuallyhidden": "MuiRating-visuallyhidden",
+              }
+            }
+            emptyIcon={
+              <UNDEFINED
+                color="primary"
+              />
+            }
+            readOnly={true}
+            value={5}
+          >
+            <span
+              aria-label="5 Stars"
+              className="MuiRating-root MuiRating-readOnly"
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+              role="img"
+            >
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={1}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={2}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={3}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={4}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+              <IconContainer
+                className="MuiRating-icon MuiRating-iconFilled"
+                value={5}
+              >
+                <span
+                  className="MuiRating-icon MuiRating-iconFilled"
+                >
+                  <ForwardRef
+                    fontSize="inherit"
+                  >
+                    <WithStyles(ForwardRef(SvgIcon))
+                      fontSize="inherit"
+                    >
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
+                          }
+                        }
+                        fontSize="inherit"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                </span>
+              </IconContainer>
+            </span>
+          </ForwardRef(Rating)>
+        </WithStyles(ForwardRef(Rating))>
+      </fieldset>
+    </Styled(MuiBox)>
+    <span
+      className="makeStyles-commentTitle-130"
+    >
+      Quelque chose à dire à son propos ?
+    </span>
+    <WithStyles(ForwardRef(Container))
+      className="makeStyles-containerComment-131"
+      fixed={true}
+    >
+      <ForwardRef(Container)
+        className="makeStyles-containerComment-131"
+        classes={
+          Object {
+            "fixed": "MuiContainer-fixed",
+            "maxWidthLg": "MuiContainer-maxWidthLg",
+            "maxWidthMd": "MuiContainer-maxWidthMd",
+            "maxWidthSm": "MuiContainer-maxWidthSm",
+            "maxWidthXl": "MuiContainer-maxWidthXl",
+            "maxWidthXs": "MuiContainer-maxWidthXs",
+            "root": "MuiContainer-root",
+          }
+        }
+        fixed={true}
+      >
+        <div
+          className="MuiContainer-root makeStyles-containerComment-131 MuiContainer-fixed MuiContainer-maxWidthLg"
+        >
+          <div
+            className="makeStyles-containerPeople-132"
+            id="scrollComment"
+          >
+            <div
+              className="makeStyles-comment-134"
+              key="0123456789"
+            >
+              <span
+                style={
+                  Object {
+                    "fontSize": "1.1rem",
+                  }
+                }
+              >
+                TestMan
+                 - 
+                1577118711809
+                 -
+                 
+              </span>
+              <WithStyles(ForwardRef(Rating))
+                emptyIcon={
+                  <UNDEFINED
+                    color="primary"
+                    style={
+                      Object {
+                        "fontSize": "1.1rem",
+                      }
+                    }
+                  />
+                }
+                readOnly={true}
+                size="small"
+                value={4}
+              >
+                <ForwardRef(Rating)
+                  classes={
+                    Object {
+                      "decimal": "MuiRating-decimal",
+                      "disabled": "Mui-disabled",
+                      "focusVisible": "Mui-focusVisible",
+                      "icon": "MuiRating-icon",
+                      "iconActive": "MuiRating-iconActive",
+                      "iconEmpty": "MuiRating-iconEmpty",
+                      "iconFilled": "MuiRating-iconFilled",
+                      "iconFocus": "MuiRating-iconFocus",
+                      "iconHover": "MuiRating-iconHover",
+                      "label": "MuiRating-label",
+                      "pristine": "MuiRating-pristine",
+                      "readOnly": "MuiRating-readOnly",
+                      "root": "MuiRating-root",
+                      "sizeLarge": "MuiRating-sizeLarge",
+                      "sizeSmall": "MuiRating-sizeSmall",
+                      "visuallyhidden": "MuiRating-visuallyhidden",
+                    }
+                  }
+                  emptyIcon={
+                    <UNDEFINED
+                      color="primary"
+                      style={
+                        Object {
+                          "fontSize": "1.1rem",
+                        }
+                      }
+                    />
+                  }
+                  readOnly={true}
+                  size="small"
+                  value={4}
+                >
+                  <span
+                    aria-label="4 Stars"
+                    className="MuiRating-root MuiRating-sizeSmall MuiRating-readOnly"
+                    onMouseLeave={[Function]}
+                    onMouseMove={[Function]}
+                    role="img"
+                  >
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={1}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={2}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={3}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconFilled"
+                      value={4}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconFilled"
+                      >
+                        <ForwardRef
+                          fontSize="inherit"
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            fontSize="inherit"
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              fontSize="inherit"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
+                                focusable="false"
+                                role="presentation"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                    <IconContainer
+                      className="MuiRating-icon MuiRating-iconEmpty"
+                      value={5}
+                    >
+                      <span
+                        className="MuiRating-icon MuiRating-iconEmpty"
+                      >
+                        <ForwardRef
+                          color="primary"
+                          style={
+                            Object {
+                              "fontSize": "1.1rem",
+                            }
+                          }
+                        >
+                          <WithStyles(ForwardRef(SvgIcon))
+                            color="primary"
+                            style={
+                              Object {
+                                "fontSize": "1.1rem",
+                              }
+                            }
+                          >
+                            <ForwardRef(SvgIcon)
+                              classes={
+                                Object {
+                                  "colorAction": "MuiSvgIcon-colorAction",
+                                  "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                  "colorError": "MuiSvgIcon-colorError",
+                                  "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                  "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                  "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                  "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                  "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                  "root": "MuiSvgIcon-root",
+                                }
+                              }
+                              color="primary"
+                              style={
+                                Object {
+                                  "fontSize": "1.1rem",
+                                }
+                              }
+                            >
+                              <svg
+                                aria-hidden="true"
+                                className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                focusable="false"
+                                role="presentation"
+                                style={
+                                  Object {
+                                    "fontSize": "1.1rem",
+                                  }
+                                }
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                />
+                              </svg>
+                            </ForwardRef(SvgIcon)>
+                          </WithStyles(ForwardRef(SvgIcon))>
+                        </ForwardRef>
+                      </span>
+                    </IconContainer>
+                  </span>
+                </ForwardRef(Rating)>
+              </WithStyles(ForwardRef(Rating))>
+              <div
+                className="makeStyles-commentText-133"
+              >
+                That was actually really awesome
+              </div>
+            </div>
+          </div>
+          <div
+            className="makeStyles-personalCommentContainer-135"
+          >
+            <WithStyles(ForwardRef(TextField))
+              InputProps={
+                Object {
+                  "startAdornment": <ForwardRef(WithStyles)
+                    position="start"
+                  >
+                    <UNDEFINED />
+                  </ForwardRef(WithStyles)>,
+                }
+              }
+              className="makeStyles-textField-136"
+              error={false}
+              helperText={false}
+              inputProps={
+                Object {
+                  "maxLength": 1000,
+                }
+              }
+              label="Dis nous ce que tu penses du film"
+              multiline={true}
+              onChange={[Function]}
+              value=""
+            >
+              <ForwardRef(TextField)
+                InputProps={
+                  Object {
+                    "startAdornment": <ForwardRef(WithStyles)
+                      position="start"
+                    >
+                      <UNDEFINED />
+                    </ForwardRef(WithStyles)>,
+                  }
+                }
+                className="makeStyles-textField-136"
+                classes={
+                  Object {
+                    "root": "MuiTextField-root",
+                  }
+                }
+                error={false}
+                helperText={false}
+                inputProps={
+                  Object {
+                    "maxLength": 1000,
+                  }
+                }
+                label="Dis nous ce que tu penses du film"
+                multiline={true}
+                onChange={[Function]}
+                value=""
+              >
+                <WithStyles(ForwardRef(FormControl))
+                  className="MuiTextField-root makeStyles-textField-136"
+                  color="primary"
+                  disabled={false}
+                  error={false}
+                  fullWidth={false}
+                  required={false}
+                  variant="standard"
+                >
+                  <ForwardRef(FormControl)
+                    className="MuiTextField-root makeStyles-textField-136"
+                    classes={
+                      Object {
+                        "fullWidth": "MuiFormControl-fullWidth",
+                        "marginDense": "MuiFormControl-marginDense",
+                        "marginNormal": "MuiFormControl-marginNormal",
+                        "root": "MuiFormControl-root",
+                      }
+                    }
+                    color="primary"
+                    disabled={false}
+                    error={false}
+                    fullWidth={false}
+                    required={false}
+                    variant="standard"
+                  >
+                    <div
+                      className="MuiFormControl-root MuiTextField-root makeStyles-textField-136"
+                    >
+                      <WithStyles(ForwardRef(InputLabel))>
+                        <ForwardRef(InputLabel)
+                          classes={
+                            Object {
+                              "animated": "MuiInputLabel-animated",
+                              "asterisk": "MuiInputLabel-asterisk",
+                              "disabled": "Mui-disabled",
+                              "error": "Mui-error",
+                              "filled": "MuiInputLabel-filled",
+                              "focused": "Mui-focused",
+                              "formControl": "MuiInputLabel-formControl",
+                              "marginDense": "MuiInputLabel-marginDense",
+                              "outlined": "MuiInputLabel-outlined",
+                              "required": "Mui-required",
+                              "root": "MuiInputLabel-root",
+                              "shrink": "MuiInputLabel-shrink",
+                            }
+                          }
+                        >
+                          <WithStyles(ForwardRef(FormLabel))
+                            className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+                            classes={
+                              Object {
+                                "asterisk": "MuiInputLabel-asterisk",
+                                "disabled": "Mui-disabled",
+                                "error": "Mui-error",
+                                "focused": "Mui-focused",
+                                "required": "Mui-required",
+                              }
+                            }
+                            data-shrink={true}
+                          >
+                            <ForwardRef(FormLabel)
+                              className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+                              classes={
+                                Object {
+                                  "asterisk": "MuiFormLabel-asterisk MuiInputLabel-asterisk",
+                                  "colorSecondary": "MuiFormLabel-colorSecondary",
+                                  "disabled": "Mui-disabled Mui-disabled",
+                                  "error": "Mui-error Mui-error",
+                                  "filled": "MuiFormLabel-filled",
+                                  "focused": "Mui-focused Mui-focused",
+                                  "required": "Mui-required Mui-required",
+                                  "root": "MuiFormLabel-root",
+                                }
+                              }
+                              data-shrink={true}
+                            >
+                              <label
+                                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+                                data-shrink={true}
+                              >
+                                Dis nous ce que tu penses du film
+                              </label>
+                            </ForwardRef(FormLabel)>
+                          </WithStyles(ForwardRef(FormLabel))>
+                        </ForwardRef(InputLabel)>
+                      </WithStyles(ForwardRef(InputLabel))>
+                      <WithStyles(ForwardRef(Input))
+                        autoFocus={false}
+                        fullWidth={false}
+                        inputProps={
+                          Object {
+                            "maxLength": 1000,
+                          }
+                        }
+                        multiline={true}
+                        onChange={[Function]}
+                        startAdornment={
+                          <ForwardRef(WithStyles)
+                            position="start"
+                          >
+                            <UNDEFINED />
+                          </ForwardRef(WithStyles)>
+                        }
+                        value=""
+                      >
+                        <ForwardRef(Input)
+                          autoFocus={false}
+                          classes={
+                            Object {
+                              "colorSecondary": "MuiInput-colorSecondary",
+                              "disabled": "Mui-disabled",
+                              "error": "Mui-error",
+                              "focused": "Mui-focused",
+                              "formControl": "MuiInput-formControl",
+                              "fullWidth": "MuiInput-fullWidth",
+                              "input": "MuiInput-input",
+                              "inputMarginDense": "MuiInput-inputMarginDense",
+                              "inputMultiline": "MuiInput-inputMultiline",
+                              "inputTypeSearch": "MuiInput-inputTypeSearch",
+                              "multiline": "MuiInput-multiline",
+                              "root": "MuiInput-root",
+                              "underline": "MuiInput-underline",
+                            }
+                          }
+                          fullWidth={false}
+                          inputProps={
+                            Object {
+                              "maxLength": 1000,
+                            }
+                          }
+                          multiline={true}
+                          onChange={[Function]}
+                          startAdornment={
+                            <ForwardRef(WithStyles)
+                              position="start"
+                            >
+                              <UNDEFINED />
+                            </ForwardRef(WithStyles)>
+                          }
+                          value=""
+                        >
+                          <WithStyles(ForwardRef(InputBase))
+                            autoFocus={false}
+                            classes={
+                              Object {
+                                "colorSecondary": "MuiInput-colorSecondary",
+                                "disabled": "Mui-disabled",
+                                "error": "Mui-error",
+                                "focused": "Mui-focused",
+                                "formControl": "MuiInput-formControl",
+                                "fullWidth": "MuiInput-fullWidth",
+                                "input": "MuiInput-input",
+                                "inputMarginDense": "MuiInput-inputMarginDense",
+                                "inputMultiline": "MuiInput-inputMultiline",
+                                "inputTypeSearch": "MuiInput-inputTypeSearch",
+                                "multiline": "MuiInput-multiline",
+                                "root": "MuiInput-root MuiInput-underline",
+                                "underline": null,
+                              }
+                            }
+                            fullWidth={false}
+                            inputComponent="input"
+                            inputProps={
+                              Object {
+                                "maxLength": 1000,
+                              }
+                            }
+                            multiline={true}
+                            onChange={[Function]}
+                            startAdornment={
+                              <ForwardRef(WithStyles)
+                                position="start"
+                              >
+                                <UNDEFINED />
+                              </ForwardRef(WithStyles)>
+                            }
+                            type="text"
+                            value=""
+                          >
+                            <ForwardRef(InputBase)
+                              autoFocus={false}
+                              classes={
+                                Object {
+                                  "adornedEnd": "MuiInputBase-adornedEnd",
+                                  "adornedStart": "MuiInputBase-adornedStart",
+                                  "colorSecondary": "MuiInputBase-colorSecondary MuiInput-colorSecondary",
+                                  "disabled": "Mui-disabled Mui-disabled",
+                                  "error": "Mui-error Mui-error",
+                                  "focused": "Mui-focused Mui-focused",
+                                  "formControl": "MuiInputBase-formControl MuiInput-formControl",
+                                  "fullWidth": "MuiInputBase-fullWidth MuiInput-fullWidth",
+                                  "input": "MuiInputBase-input MuiInput-input",
+                                  "inputAdornedEnd": "MuiInputBase-inputAdornedEnd",
+                                  "inputAdornedStart": "MuiInputBase-inputAdornedStart",
+                                  "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
+                                  "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
+                                  "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
+                                  "inputSelect": "MuiInputBase-inputSelect",
+                                  "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
+                                  "marginDense": "MuiInputBase-marginDense",
+                                  "multiline": "MuiInputBase-multiline MuiInput-multiline",
+                                  "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
+                                }
+                              }
+                              fullWidth={false}
+                              inputComponent="input"
+                              inputProps={
+                                Object {
+                                  "maxLength": 1000,
+                                }
+                              }
+                              multiline={true}
+                              onChange={[Function]}
+                              startAdornment={
+                                <ForwardRef(WithStyles)
+                                  position="start"
+                                >
+                                  <UNDEFINED />
+                                </ForwardRef(WithStyles)>
+                              }
+                              type="text"
+                              value=""
+                            >
+                              <div
+                                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline MuiInputBase-adornedStart"
+                                onClick={[Function]}
+                              >
+                                <WithStyles(ForwardRef(InputAdornment))
+                                  position="start"
+                                >
+                                  <ForwardRef(InputAdornment)
+                                    classes={
+                                      Object {
+                                        "disablePointerEvents": "MuiInputAdornment-disablePointerEvents",
+                                        "filled": "MuiInputAdornment-filled",
+                                        "hiddenLabel": "MuiInputAdornment-hiddenLabel",
+                                        "marginDense": "MuiInputAdornment-marginDense",
+                                        "positionEnd": "MuiInputAdornment-positionEnd",
+                                        "positionStart": "MuiInputAdornment-positionStart",
+                                        "root": "MuiInputAdornment-root",
+                                      }
+                                    }
+                                    position="start"
+                                  >
+                                    <div
+                                      className="MuiInputAdornment-root MuiInputAdornment-positionStart"
+                                    >
+                                      <ForwardRef>
+                                        <WithStyles(ForwardRef(SvgIcon))>
+                                          <ForwardRef(SvgIcon)
+                                            classes={
+                                              Object {
+                                                "colorAction": "MuiSvgIcon-colorAction",
+                                                "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                                "colorError": "MuiSvgIcon-colorError",
+                                                "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                                "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                                "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                                "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                                "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                                "root": "MuiSvgIcon-root",
+                                              }
+                                            }
+                                          >
+                                            <svg
+                                              aria-hidden="true"
+                                              className="MuiSvgIcon-root"
+                                              focusable="false"
+                                              role="presentation"
+                                              viewBox="0 0 24 24"
+                                            >
+                                              <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                                              />
+                                            </svg>
+                                          </ForwardRef(SvgIcon)>
+                                        </WithStyles(ForwardRef(SvgIcon))>
+                                      </ForwardRef>
+                                    </div>
+                                  </ForwardRef(InputAdornment)>
+                                </WithStyles(ForwardRef(InputAdornment))>
+                                <ForwardRef(TextareaAutosize)
+                                  aria-invalid={false}
+                                  autoFocus={false}
+                                  className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline MuiInputBase-inputAdornedStart"
+                                  disabled={false}
+                                  maxLength={1000}
+                                  onAnimationStart={[Function]}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={false}
+                                  value=""
+                                >
+                                  <textarea
+                                    aria-invalid={false}
+                                    autoFocus={false}
+                                    className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline MuiInputBase-inputAdornedStart"
+                                    disabled={false}
+                                    maxLength={1000}
+                                    onAnimationStart={[Function]}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    required={false}
+                                    rows={1}
+                                    style={
+                                      Object {
+                                        "height": 0,
+                                        "overflow": "hidden",
+                                      }
+                                    }
+                                    value=""
+                                  />
+                                  <textarea
+                                    aria-hidden={true}
+                                    className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline MuiInputBase-inputAdornedStart"
+                                    readOnly={true}
+                                    style={
+                                      Object {
+                                        "height": 0,
+                                        "left": 0,
+                                        "overflow": "hidden",
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "transform": "translateZ(0)",
+                                        "visibility": "hidden",
+                                      }
+                                    }
+                                    tabIndex={-1}
+                                  />
+                                </ForwardRef(TextareaAutosize)>
+                              </div>
+                            </ForwardRef(InputBase)>
+                          </WithStyles(ForwardRef(InputBase))>
+                        </ForwardRef(Input)>
+                      </WithStyles(ForwardRef(Input))>
+                    </div>
+                  </ForwardRef(FormControl)>
+                </WithStyles(ForwardRef(FormControl))>
+              </ForwardRef(TextField)>
+            </WithStyles(ForwardRef(TextField))>
+            <div
+              className="makeStyles-rateAndSendButton-137"
+            >
+              <div
+                className="makeStyles-rateIt-138"
+              >
+                <span
+                  style={
+                    Object {
+                      "marginRight": "0.2rem",
+                    }
+                  }
+                >
+                  Note le :
+                </span>
+                <WithStyles(ForwardRef(Rating))
+                  emptyIcon={
+                    <UNDEFINED
+                      color="primary"
+                    />
+                  }
+                  name="simple-controlled"
+                  onChange={[Function]}
+                  value={0}
+                >
+                  <ForwardRef(Rating)
+                    classes={
+                      Object {
+                        "decimal": "MuiRating-decimal",
+                        "disabled": "Mui-disabled",
+                        "focusVisible": "Mui-focusVisible",
+                        "icon": "MuiRating-icon",
+                        "iconActive": "MuiRating-iconActive",
+                        "iconEmpty": "MuiRating-iconEmpty",
+                        "iconFilled": "MuiRating-iconFilled",
+                        "iconFocus": "MuiRating-iconFocus",
+                        "iconHover": "MuiRating-iconHover",
+                        "label": "MuiRating-label",
+                        "pristine": "MuiRating-pristine",
+                        "readOnly": "MuiRating-readOnly",
+                        "root": "MuiRating-root",
+                        "sizeLarge": "MuiRating-sizeLarge",
+                        "sizeSmall": "MuiRating-sizeSmall",
+                        "visuallyhidden": "MuiRating-visuallyhidden",
+                      }
+                    }
+                    emptyIcon={
+                      <UNDEFINED
+                        color="primary"
+                      />
+                    }
+                    name="simple-controlled"
+                    onChange={[Function]}
+                    value={0}
+                  >
+                    <span
+                      aria-label={null}
+                      className="MuiRating-root"
+                      onMouseLeave={[Function]}
+                      onMouseMove={[Function]}
+                      role={null}
+                    >
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-1"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={1}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          1 Star
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-1"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={1}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-2"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={2}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          2 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-2"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={2}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-3"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={3}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          3 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-3"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={3}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-4"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={4}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          4 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-4"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={4}
+                      />
+                      <label
+                        className="MuiRating-label"
+                        htmlFor="simple-controlled-5"
+                      >
+                        <IconContainer
+                          className="MuiRating-icon MuiRating-iconEmpty"
+                          value={5}
+                        >
+                          <span
+                            className="MuiRating-icon MuiRating-iconEmpty"
+                          >
+                            <ForwardRef
+                              color="primary"
+                            >
+                              <WithStyles(ForwardRef(SvgIcon))
+                                color="primary"
+                              >
+                                <ForwardRef(SvgIcon)
+                                  classes={
+                                    Object {
+                                      "colorAction": "MuiSvgIcon-colorAction",
+                                      "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                      "colorError": "MuiSvgIcon-colorError",
+                                      "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                      "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                      "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                      "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                      "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                      "root": "MuiSvgIcon-root",
+                                    }
+                                  }
+                                  color="primary"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    className="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                                    />
+                                  </svg>
+                                </ForwardRef(SvgIcon)>
+                              </WithStyles(ForwardRef(SvgIcon))>
+                            </ForwardRef>
+                          </span>
+                        </IconContainer>
+                        <span
+                          className="MuiRating-visuallyhidden"
+                        >
+                          5 Stars
+                        </span>
+                      </label>
+                      <input
+                        checked={false}
+                        className="MuiRating-visuallyhidden"
+                        id="simple-controlled-5"
+                        name="simple-controlled"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        type="radio"
+                        value={5}
+                      />
+                    </span>
+                  </ForwardRef(Rating)>
+                </WithStyles(ForwardRef(Rating))>
+              </div>
+              <WithStyles(ForwardRef(Button))
+                onClick={[Function]}
+                variant="contained"
+              >
+                <ForwardRef(Button)
+                  classes={
+                    Object {
+                      "colorInherit": "MuiButton-colorInherit",
+                      "contained": "MuiButton-contained",
+                      "containedPrimary": "MuiButton-containedPrimary",
+                      "containedSecondary": "MuiButton-containedSecondary",
+                      "containedSizeLarge": "MuiButton-containedSizeLarge",
+                      "containedSizeSmall": "MuiButton-containedSizeSmall",
+                      "disabled": "Mui-disabled",
+                      "endIcon": "MuiButton-endIcon",
+                      "focusVisible": "Mui-focusVisible",
+                      "fullWidth": "MuiButton-fullWidth",
+                      "iconSizeLarge": "MuiButton-iconSizeLarge",
+                      "iconSizeMedium": "MuiButton-iconSizeMedium",
+                      "iconSizeSmall": "MuiButton-iconSizeSmall",
+                      "label": "MuiButton-label",
+                      "outlined": "MuiButton-outlined",
+                      "outlinedPrimary": "MuiButton-outlinedPrimary",
+                      "outlinedSecondary": "MuiButton-outlinedSecondary",
+                      "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                      "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                      "root": "MuiButton-root",
+                      "sizeLarge": "MuiButton-sizeLarge",
+                      "sizeSmall": "MuiButton-sizeSmall",
+                      "startIcon": "MuiButton-startIcon",
+                      "text": "MuiButton-text",
+                      "textPrimary": "MuiButton-textPrimary",
+                      "textSecondary": "MuiButton-textSecondary",
+                      "textSizeLarge": "MuiButton-textSizeLarge",
+                      "textSizeSmall": "MuiButton-textSizeSmall",
+                    }
+                  }
+                  onClick={[Function]}
+                  variant="contained"
+                >
+                  <WithStyles(ForwardRef(ButtonBase))
+                    className="MuiButton-root MuiButton-contained"
+                    component="button"
+                    disabled={false}
+                    focusRipple={true}
+                    focusVisibleClassName="Mui-focusVisible"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <ForwardRef(ButtonBase)
+                      className="MuiButton-root MuiButton-contained"
+                      classes={
+                        Object {
+                          "disabled": "Mui-disabled",
+                          "focusVisible": "Mui-focusVisible",
+                          "root": "MuiButtonBase-root",
+                        }
+                      }
+                      component="button"
+                      disabled={false}
+                      focusRipple={true}
+                      focusVisibleClassName="Mui-focusVisible"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <button
+                        className="MuiButtonBase-root MuiButton-root MuiButton-contained"
+                        disabled={false}
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onDragLeave={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyUp={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <span
+                          className="MuiButton-label"
+                        >
+                          Envoyer
+                        </span>
+                        <NoSsr>
+                          <WithStyles(undefined)
+                            center={false}
+                          >
+                            <ForwardRef(TouchRipple)
+                              center={false}
+                              classes={
+                                Object {
+                                  "child": "MuiTouchRipple-child",
+                                  "childLeaving": "MuiTouchRipple-childLeaving",
+                                  "childPulsate": "MuiTouchRipple-childPulsate",
+                                  "ripple": "MuiTouchRipple-ripple",
+                                  "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                  "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                  "root": "MuiTouchRipple-root",
+                                }
+                              }
+                            >
+                              <span
+                                className="MuiTouchRipple-root"
+                              >
+                                <TransitionGroup
+                                  childFactory={[Function]}
+                                  component={null}
+                                  exit={true}
+                                />
+                              </span>
+                            </ForwardRef(TouchRipple)>
+                          </WithStyles(undefined)>
+                        </NoSsr>
+                      </button>
+                    </ForwardRef(ButtonBase)>
+                  </WithStyles(ForwardRef(ButtonBase))>
+                </ForwardRef(Button)>
+              </WithStyles(ForwardRef(Button))>
+            </div>
+          </div>
+        </div>
+      </ForwardRef(Container)>
+    </WithStyles(ForwardRef(Container))>
+  </div>
+</MovieComments>
+`;

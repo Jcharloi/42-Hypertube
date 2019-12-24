@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useIntl } from "react-intl";
 import React, { ReactElement, useState, useEffect } from "react";
 
@@ -9,6 +10,7 @@ import API from "../../util/api";
 import RecommandedMovies from "./MovieRecommanded";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
+import Loading from "../Routes/Loading";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -25,6 +27,7 @@ const Movie = (): ReactElement => {
   const [reviews, setReviews] = useState([
     { id: "", name: "", date: null, stars: 0, body: "" }
   ]);
+  const [dataDone, setDataDone] = useState(false);
   const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
@@ -51,6 +54,7 @@ const Movie = (): ReactElement => {
         .then(({ data: { infos, reviews: allReviews } }) => {
           setMovieInfos(infos);
           setReviews(allReviews);
+          setDataDone(true);
           socket.socket.emit("join-movie-room", movieId);
           socket.socket.on("New comments", initComments);
         })
@@ -67,74 +71,73 @@ const Movie = (): ReactElement => {
 
   return (
     <div className={matches ? classes.rootResponsive : classes.root}>
-      {!loading &&
-        (movieInfos.title ? (
-          <div
-            className={
-              matches
-                ? classes.movieContainerResponsive
-                : classes.movieContainer
-            }
-          >
-            <img
-              alt="backgroundMovie"
-              className={classes.backgroundMovie}
-              src="http://localhost:8080/public/background-movie.jpg"
-            />
-            <Container className={classes.containerPresentation}>
-              <div className={classes.containerMovie}>
-                <div className={classes.labelMovie}>{movieInfos.title}</div>
-                {movieInfos.creator && (
-                  <div className={classes.labelMovie}>
-                    {_t({ id: "movie.creator" })} {movieInfos.creator}
-                  </div>
-                )}
-                {movieInfos.description && (
-                  <div className={classes.labelMovie}>
-                    {_t({ id: "movie.description" })} {movieInfos.description}
-                  </div>
-                )}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent:
-                      movieInfos.prodDate && movieInfos.runTime
-                        ? "space-between"
-                        : "center",
-                    width: "80%",
-                    fontSize: "1rem"
-                  }}
-                >
-                  {movieInfos.prodDate && (
-                    <span>
-                      {_t({ id: "movie.prodDate" })} {movieInfos.prodDate}{" "}
-                    </span>
-                  )}
-                  {movieInfos.runTime && (
-                    <span>
-                      {_t({ id: "movie.runTime" })} {movieInfos.runTime}{" "}
-                    </span>
-                  )}
+      {!dataDone ? (
+        <Loading />
+      ) : movieInfos.title ? (
+        <div
+          className={
+            matches ? classes.movieContainerResponsive : classes.movieContainer
+          }
+        >
+          <img
+            alt="backgroundMovie"
+            className={classes.backgroundMovie}
+            src="http://localhost:8080/public/background-movie.jpg"
+          />
+          <Container className={classes.containerPresentation}>
+            <div className={classes.containerMovie}>
+              <div className={classes.labelMovie}>{movieInfos.title}</div>
+              {movieInfos.creator && (
+                <div className={classes.labelMovie}>
+                  {_t({ id: "movie.creator" })} {movieInfos.creator}
                 </div>
+              )}
+              {movieInfos.description && (
+                <div className={classes.labelMovie}>
+                  {_t({ id: "movie.description" })} {movieInfos.description}
+                </div>
+              )}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent:
+                    movieInfos.prodDate && movieInfos.runTime
+                      ? "space-between"
+                      : "center",
+                  width: "80%",
+                  fontSize: "1rem"
+                }}
+              >
+                {movieInfos.prodDate && (
+                  <span>
+                    {_t({ id: "movie.prodDate" })} {movieInfos.prodDate}{" "}
+                  </span>
+                )}
+                {movieInfos.runTime && (
+                  <span>
+                    {_t({ id: "movie.runTime" })} {movieInfos.runTime}{" "}
+                  </span>
+                )}
               </div>
-            </Container>
-            <MovieComments
-              movieId={movieId}
-              movieRating={movieInfos.stars}
-              reviews={reviews}
-            />
-          </div>
-        ) : (
-          <div
-            className={
-              matches
-                ? classes.movieDoesNotExistsResponsive
-                : classes.movieDoesNotExists
-            }
-          >
-            {_t({ id: "movie.error.invalid" })}
-          </div>
-        ))}
+            </div>
+          </Container>
+          <MovieComments
+            movieId={movieId}
+            movieRating={movieInfos.stars}
+            reviews={reviews}
+          />
+        </div>
+      ) : (
+        <div
+          className={
+            matches
+              ? classes.movieDoesNotExistsResponsive
+              : classes.movieDoesNotExists
+          }
+        >
+          {_t({ id: "movie.error.invalid" })}
+        </div>
+      )}
       <RecommandedMovies matches={matches} />
     </div>
   );
