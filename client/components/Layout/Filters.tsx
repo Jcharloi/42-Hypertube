@@ -7,10 +7,8 @@ import { useLocation } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import InputBase from "@material-ui/core/InputBase";
-import MenuItem from "@material-ui/core/MenuItem";
 import Rating from "@material-ui/lab/Rating";
 import SearchIcon from "@material-ui/icons/Search";
-import Select from "@material-ui/core/Select";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -21,7 +19,11 @@ import useDebounce from "../../hooks/useDebounce";
 
 import history from "../../helpers/history";
 
+import { ClickAwayEventTarget } from "../../models/models";
+
 import { useFiltersStyles } from "./styles";
+
+import FiltersSelect from "./Filters.select";
 
 const Filters = (): ReactElement => {
   const classes = useFiltersStyles({});
@@ -108,7 +110,7 @@ const Filters = (): ReactElement => {
         onClickAway={(e): void => {
           const {
             target: { id }
-          } = (e as unknown) as { target: { id: string } };
+          } = (e as unknown) as ClickAwayEventTarget;
           if (!String(id).includes("menuitem")) {
             setShowFilters(undefined);
           }
@@ -158,78 +160,10 @@ const Filters = (): ReactElement => {
                 <Typography id="collection-select">
                   {_t({ id: "layout.filters.collection" })}
                 </Typography>
-                <Select
-                  defaultValue={collections}
-                  displayEmpty
-                  renderValue={(e: string[]): string =>
-                    _t(
-                      { id: "layout.filters.selected_collections" },
-                      { count: e.length }
-                    )
-                  }
-                  autoWidth
-                  onChange={(e): void =>
-                    setcollections(e.target.value as string[])
-                  }
-                  aria-labelledby="collection-select"
-                  multiple
-                  value={collections || []}
-                  className={classes.collectionsSelectComponent}
-                >
-                  <MenuItem value="" disabled id="menuitem-default">
-                    {_t({ id: "layout.filters.select_collection" })}
-                  </MenuItem>
-                  <MenuItem value="feature_films" id="menuitem-feature_films">
-                    {_t({ id: "layout.filters.select_category.feature_films" })}
-                  </MenuItem>
-                  <MenuItem
-                    value="educationalfilms"
-                    id="menuitem-educationalfilms"
-                  >
-                    {_t({
-                      id: "layout.filters.select_category.educationalfilms"
-                    })}
-                  </MenuItem>
-                  <MenuItem
-                    value="opensource_movies"
-                    id="menuitem-opensource_movies"
-                  >
-                    {_t({
-                      id: "layout.filters.select_category.opensource_movies"
-                    })}
-                  </MenuItem>
-                  <MenuItem value="tvarchive" id="menuitem-tvarchive">
-                    {_t({ id: "layout.filters.select_category.tvarchive" })}
-                  </MenuItem>
-                  <MenuItem value="classic_tv" id="menuitem-classic_tv">
-                    {_t({ id: "layout.filters.select_category.classic_tv" })}
-                  </MenuItem>
-                  <MenuItem
-                    value="community_media"
-                    id="menuitem-community_media"
-                  >
-                    {_t({
-                      id: "layout.filters.select_category.community_media"
-                    })}
-                  </MenuItem>
-                  <MenuItem value="podcasts" id="menuitem-podcasts">
-                    {_t({ id: "layout.filters.select_category.podcasts" })}
-                  </MenuItem>
-                  <MenuItem value="youtubearchive" id="menuitem-youtubearchive">
-                    {_t({
-                      id: "layout.filters.select_category.youtubearchive"
-                    })}
-                  </MenuItem>
-                  <MenuItem
-                    value="additional_collections_video"
-                    id="menuitem-additional_collections_video"
-                  >
-                    {_t({
-                      id:
-                        "layout.filters.select_category.additional_collections_video"
-                    })}
-                  </MenuItem>
-                </Select>
+                <FiltersSelect
+                  collections={collections}
+                  setCollections={(value): void => setcollections(value)}
+                />
               </div>
               <div className={classes.filterContainer}>
                 <Typography id="rating-min">

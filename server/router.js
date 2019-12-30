@@ -10,8 +10,6 @@ const router = express.Router();
 
 router.get("/search", searchController.search);
 
-router.post("/inscription", signUpController.signUp);
-
 router.get("/check-token", (req, res) => {
   res.status(200).send({ validToken: true });
 });

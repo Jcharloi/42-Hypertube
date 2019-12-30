@@ -78,7 +78,7 @@ const Film = ({ film }: Props): ReactElement => {
           color="primary"
           variant="contained"
           fullWidth
-          onClick={(): void => history.push(`/movies/${film.identifier}`)}
+          onClick={(): void => history.push(`/movie/${film.identifier}`)}
         >
           {_t({ id: "search.film.watch" })}
         </Button>

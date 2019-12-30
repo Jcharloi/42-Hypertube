@@ -4,7 +4,7 @@ import EnzymeToJson from "enzyme-to-json";
 import { mount, configure } from "enzyme";
 
 import Search from "../components/Search";
-import Film from "../components/Search/Film";
+import Film from "../components/Search/Movie";
 import Thumbnail from "../components/Search/Thumbnail";
 
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
@@ -24,6 +24,18 @@ jest.mock("react-router-dom", () => ({
   })
 }));
 
+jest.mock("../hooks/useApi", () => (): {
+  data: unknown;
+  loading: boolean;
+  error: void;
+  setUrl: () => void;
+} => ({
+  data: [],
+  loading: false,
+  error: null,
+  setUrl: jest.fn()
+}));
+
 describe("Search", () => {
   const filmFixture = {
     title: "Film",
@@ -36,16 +48,30 @@ describe("Search", () => {
     identifier: "film-fixture"
   };
 
-  describe("search", () => {
+  describe("search en", () => {
     it("renders correctly", () => {
       const domNode = mountWithIntl(<Search />, "en");
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });
   });
 
-  describe("film", () => {
+  describe("film en", () => {
     it("renders correctly", () => {
       const domNode = mountWithIntl(<Film film={filmFixture} />, "en");
+      expect(EnzymeToJson(domNode)).toMatchSnapshot();
+    });
+  });
+
+  describe("search fr", () => {
+    it("renders correctly", () => {
+      const domNode = mountWithIntl(<Search />, "fr");
+      expect(EnzymeToJson(domNode)).toMatchSnapshot();
+    });
+  });
+
+  describe("film fr", () => {
+    it("renders correctly", () => {
+      const domNode = mountWithIntl(<Film film={filmFixture} />, "fr");
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });
   });

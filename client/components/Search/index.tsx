@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import InfiniteScroll from "react-infinite-scroller";
 
 import Thumbnail from "./Thumbnail";
-import Film from "./Film";
+import Film from "./Movie";
 
 import useApi from "../../hooks/useApi";
 

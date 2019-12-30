@@ -2,17 +2,9 @@ import { useEffect, useState } from "react";
 
 import API from "../util/api";
 
-import { Fixture } from "../models/models";
+import { Fixture, ApiRecord } from "../models/models";
 
-const useApi = (
-  initialUrl: string,
-  fixture?: Fixture
-): {
-  data: Record<string, unknown>;
-  loading: boolean;
-  error: {};
-  setUrl: (url: string) => void;
-} => {
+const useApi = (initialUrl: string, fixture?: Fixture): ApiRecord => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

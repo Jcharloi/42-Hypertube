@@ -7,13 +7,7 @@
 import { ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import Adapter from "enzyme-adapter-react-16";
-import {
-  configure,
-  mount,
-  shallow,
-  ReactWrapper,
-  ShallowWrapper
-} from "enzyme";
+import { configure, mount, ReactWrapper } from "enzyme";
 
 import enTranslation from "../../translations/en.json";
 import frTranslation from "../../translations/fr.json";
@@ -38,17 +32,4 @@ export const mountWithIntl = (
   });
 };
 
-// Doesn't work, I don't understand why
-// I followed instruction here: https://github.com/formatjs/react-intl/blob/master/docs/Testing-with-React-Intl.md#helper-function-1
-export const shallowWithIntl = (
-  node: ReactElement,
-  locale: string
-): ShallowWrapper => {
-  return shallow(node, {
-    wrappingComponent: IntlProvider,
-    wrappingComponentProps: {
-      messages: messages[locale],
-      locale
-    }
-  });
-};
+export default mountWithIntl;

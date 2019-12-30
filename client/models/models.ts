@@ -3,6 +3,13 @@ export interface Locale {
   setLocale: (locale: string) => void;
 }
 
+export interface ApiRecord {
+  data: Record<string, unknown>;
+  loading: boolean;
+  error: {};
+  setUrl: (url: string) => void;
+}
+
 export interface Fixture {
   data: {};
   loading: boolean;
@@ -34,4 +41,11 @@ export interface Filters {
   endYear: number;
   minRating: number;
   maxRating: number;
+}
+
+export interface ClickAwayEventTarget extends EventTarget {
+  addEventListener: () => boolean;
+  dispatchEvent: () => boolean;
+  removeEventListener: () => boolean;
+  target: { id: string };
 }

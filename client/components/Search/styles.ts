@@ -88,8 +88,3 @@ export const useThumbnailStyles = makeStyles((theme) => ({
     height: 140
   }
 }));
-
-export default {
-  useFilmStyles,
-  useThumbnailStyles
-};

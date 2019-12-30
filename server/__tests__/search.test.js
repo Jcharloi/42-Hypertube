@@ -1,8 +1,8 @@
 import searchHelper from "../Helpers/search";
 
-describe("search", () => {
-  describe("helper", () => {
-    it.only("should get data", async () => {
+describe("Search", () => {
+  describe("Helper/search main function", () => {
+    it("Should get the data", async () => {
       const filters = {
         query: "test",
         page: 1,

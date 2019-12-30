@@ -7,6 +7,7 @@ import App from "../components/App";
 configure({ adapter: new Adapter() });
 
 jest.mock("../helpers/history", () => {
+  // require after code makes the disable required
   // eslint-disable-next-line
   const { createBrowserHistory } = require("history");
 
@@ -18,7 +19,7 @@ jest.mock("../helpers/history", () => {
 });
 
 describe("App", () => {
-  it("renders correctly", async () => {
+  it("renders correctly", () => {
     const domNode = mount(<App />);
     expect(EnzymeToJson(domNode)).toMatchSnapshot();
   });

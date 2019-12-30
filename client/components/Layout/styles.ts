@@ -48,8 +48,3 @@ export const useFiltersStyles = makeStyles({
     float: "right"
   }
 });
-
-export default {
-  useLayoutStyles,
-  useFiltersStyles
-};
