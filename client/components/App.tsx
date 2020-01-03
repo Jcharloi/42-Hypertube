@@ -11,6 +11,7 @@ import frTranslation from "../translations/fr.json";
 import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
 import Authentication from "./Authentication/Authentication";
+import Profile from "./Profile/Profile";
 import Home from "./Home/Home";
 
 const messages: Record<string, Record<string, string>> = {
@@ -44,6 +45,12 @@ const App = (): ReactElement => {
               component={Authentication}
               requireAuth={false}
             />
+            <CustomRoute
+            exact
+            path="/profile"
+            component={Profile}
+            requireAuth={false}
+          />
             <Route exact path="/" component={Home} />
             <Route
               component={(): ReactElement => (

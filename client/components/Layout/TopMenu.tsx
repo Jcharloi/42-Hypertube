@@ -90,7 +90,7 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography
             onClick={(): void => redirectTitle()}
@@ -142,6 +142,7 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
           </div>
         </Toolbar>
       </AppBar>
+      <Toolbar />
       {renderMobileMenu}
       {renderMenu}
     </div>
