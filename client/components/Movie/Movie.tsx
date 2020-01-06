@@ -2,7 +2,7 @@
 import { useIntl } from "react-intl";
 import React, { ReactElement, useState, useEffect } from "react";
 
-import { useMediaQuery, Container } from "@material-ui/core";
+import { useMediaQuery, Paper } from "@material-ui/core";
 import useStyles from "./Movie.styles";
 
 import socket from "../../helpers/socket";
@@ -82,12 +82,7 @@ const Movie = (): ReactElement => {
             matches ? classes.movieContainerResponsive : classes.movieContainer
           }
         >
-          <img
-            alt="backgroundMovie"
-            className={classes.backgroundMovie}
-            src="http://localhost:8080/public/background-movie.jpg"
-          />
-          <Container className={classes.containerPresentation}>
+          <Paper className={classes.containerPresentation}>
             <div className={classes.containerMovie}>
               <div className={classes.labelMovie}>{movieInfos.title}</div>
               {movieInfos.creator && (
@@ -96,7 +91,7 @@ const Movie = (): ReactElement => {
                 </div>
               )}
               {movieInfos.description && (
-                <div className={classes.labelMovie}>
+                <div className={classes.labelMovie && classes.descriptionMovie}>
                   {_t({ id: "movie.description" })} {movieInfos.description}
                 </div>
               )}
@@ -123,7 +118,7 @@ const Movie = (): ReactElement => {
                 )}
               </div>
             </div>
-          </Container>
+          </Paper>
           {/* <MoviePlayer source="test" /> */}
           <MovieComments
             movieId={movieId}

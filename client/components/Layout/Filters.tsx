@@ -136,7 +136,7 @@ const Filters = (): ReactElement => {
             disablePortal
             anchorEl={showFilters}
             id="filter-popover"
-            placement="right-end"
+            placement="bottom"
             open={!!showFilters}
           >
             <Paper className={classes.filterContainerTop}>

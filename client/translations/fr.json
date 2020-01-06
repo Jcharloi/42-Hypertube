@@ -45,7 +45,7 @@
   "search.film.watch": "Regarder le film",
   "search.loading": "Chargement...",
   "search.film_count": "{count} films trouvés",
-  "search.details_placeholder": "Choisissez un film pour voir sa description.",
+  "search.details_placeholder": "Choisissez un film pour voir sa description",
   "layout.filters.search": "Cherchez un film, un auteur...",
   "layout.filters.production_year": "Année de production",
   "layout.filters.collection": "Collection",

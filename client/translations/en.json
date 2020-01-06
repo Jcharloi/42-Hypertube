@@ -45,7 +45,7 @@
   "search.film.watch": "Watch film",
   "search.loading": "Loading...",
   "search.film_count": "Found {count} movies",
-  "search.details_placeholder": "Select a film to view its description.",
+  "search.details_placeholder": "Select a film to view its description",
   "layout.filters.search": "Search a film, an author...",
   "layout.filters.production_year": "Production year",
   "layout.filters.collection": "Collection",

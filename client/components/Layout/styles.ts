@@ -4,7 +4,11 @@ export const useLayoutStyles = makeStyles(() => ({
   container: {
     display: "flex",
     flexDirection: "column",
-    height: "100%"
+    height: "100%",
+    border: "1px solid red",
+    background:
+      "no-repeat left bottom url('http://localhost:8080/public/wallpaper.png')",
+    backgroundSize: "cover"
   },
   bodyContainer: {
     height: "calc(100vh - 64px)"
@@ -42,6 +46,7 @@ export const useFiltersStyles = makeStyles({
     left: "8px"
   },
   input: {
+    width: "20rem",
     padding: "0 8px"
   },
   resetFilterButton: {

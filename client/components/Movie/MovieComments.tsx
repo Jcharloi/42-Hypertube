@@ -4,10 +4,10 @@ import Scroll from "react-scroll";
 
 import {
   Box,
-  Container,
   TextField,
   InputAdornment,
-  Button
+  Button,
+  Paper
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
@@ -107,7 +107,7 @@ const MovieComments = ({
       <span className={classes.commentTitle}>
         {_t({ id: "movie.comment.title" })}
       </span>
-      <Container fixed className={classes.containerComment}>
+      <Paper className={classes.containerComment}>
         {reviews.length > 0 ? (
           <div className={classes.containerPeople} id="scrollComment">
             {reviews.map(({ id, name, date, stars: nbStars, body }) => (
@@ -180,12 +180,12 @@ const MovieComments = ({
                 </span>
               )}
             </div>
-            <Button variant="contained" onClick={sendComment}>
+            <Button variant="contained" onClick={sendComment} color="primary">
               {_t({ id: "movie.comment.send" })}
             </Button>
           </div>
         </div>
-      </Container>
+      </Paper>
     </div>
   );
 };

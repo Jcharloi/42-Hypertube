@@ -91,7 +91,7 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography
             onClick={(): void => redirectTitle()}
@@ -101,10 +101,10 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
           >
             {_t({ id: "title" })}
           </Typography>
+          <div className={classes.grow} />
           <div className={classes.search}>
             <Filters />
           </div>
-          <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <LanguageButton locale={locale} setLocale={setLocale} />
             <IconButton

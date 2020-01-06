@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 import useApi from "../../hooks/useApi";
 
-import Authentication from "../Authentication/Authentication";
+import SignUp from "../Authentication/SignUp";
 
 const Home = (): ReactElement => {
   const {
@@ -18,7 +18,7 @@ const Home = (): ReactElement => {
     return <div>Loading</div>;
   }
   if (!validToken) {
-    return <Authentication />;
+    return <SignUp />;
   }
 
   return <div>Home sweet home;</div>;
