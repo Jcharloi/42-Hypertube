@@ -58,6 +58,7 @@ const useStyles = makeStyles(() =>
       flexWrap: "wrap"
     },
     rateIt: { display: "flex", alignItems: "center", flexWrap: "wrap" },
+    askRating: { marginRight: "0.2rem" },
     rateRequired: {
       width: "100%",
       display: "flex",

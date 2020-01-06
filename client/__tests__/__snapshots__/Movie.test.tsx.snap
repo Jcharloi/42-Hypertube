@@ -189,7 +189,7 @@ exports[`Movie should renders <Movie> in english 1`] = `
         </ForwardRef(Grid)>
       </WithStyles(ForwardRef(Grid))>
     </Loading>
-    <RecommandedMovies
+    <RecommendedMovies
       matches={false}
     >
       <div
@@ -197,7 +197,7 @@ exports[`Movie should renders <Movie> in english 1`] = `
       >
         Ceci est une liste de films inspirés de la search
       </div>
-    </RecommandedMovies>
+    </RecommendedMovies>
   </div>
 </Movie>
 `;
@@ -391,7 +391,7 @@ exports[`Movie should renders <Movie> in french 1`] = `
         </ForwardRef(Grid)>
       </WithStyles(ForwardRef(Grid))>
     </Loading>
-    <RecommandedMovies
+    <RecommendedMovies
       matches={false}
     >
       <div
@@ -399,7 +399,7 @@ exports[`Movie should renders <Movie> in french 1`] = `
       >
         Ceci est une liste de films inspirés de la search
       </div>
-    </RecommandedMovies>
+    </RecommendedMovies>
   </div>
 </Movie>
 `;
@@ -428,7 +428,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
       component="fieldset"
     >
       <fieldset
-        className="MuiBox-root MuiBox-root-141"
+        className="MuiBox-root MuiBox-root-142"
       >
         <div
           className="makeStyles-movieRating-129"
@@ -1474,11 +1474,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                 className="makeStyles-rateIt-138"
               >
                 <span
-                  style={
-                    Object {
-                      "marginRight": "0.2rem",
-                    }
-                  }
+                  className="makeStyles-askRating-139"
                 >
                   Rate it :
                 </span>
@@ -2019,7 +2015,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
       component="fieldset"
     >
       <fieldset
-        className="MuiBox-root MuiBox-root-281"
+        className="MuiBox-root MuiBox-root-282"
       >
         <div
           className="makeStyles-movieRating-129"
@@ -3065,11 +3061,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                 className="makeStyles-rateIt-138"
               >
                 <span
-                  style={
-                    Object {
-                      "marginRight": "0.2rem",
-                    }
-                  }
+                  className="makeStyles-askRating-139"
                 >
                   Note le :
                 </span>

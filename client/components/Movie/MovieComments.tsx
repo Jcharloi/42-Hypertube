@@ -163,7 +163,7 @@ const MovieComments = ({
           />
           <div className={classes.rateAndSendButton}>
             <div className={classes.rateIt}>
-              <span style={{ marginRight: "0.2rem" }}>
+              <span className={classes.askRating}>
                 {_t({ id: "movie.comment.askRating" })}
               </span>
               <Rating

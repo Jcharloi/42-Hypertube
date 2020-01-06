@@ -7,35 +7,39 @@ import ioConnection from "..";
 const getInfos = (req, res) => {
   Axios.get(`https://archive.org/metadata/${req.params.id}`)
     .then(async ({ data }) => {
-      let totalStars = 0;
-      let reviews = [];
-      if (data.reviews) {
-        data.reviews.forEach((review) => {
-          totalStars += parseInt(review.stars, 10);
-          reviews.push({
-            id: Date.parse(review.createdate),
-            name: review.reviewer,
-            date: Date.parse(review.reviewdate),
-            stars: parseInt(review.stars, 10),
-            body: review.reviewbody
+      if (Object.values(data).length > 0) {
+        let totalStars = 0;
+        let reviews = [];
+        if (data.reviews) {
+          data.reviews.forEach((review) => {
+            totalStars += parseInt(review.stars, 10);
+            reviews.push({
+              id: Date.parse(review.createdate),
+              name: review.reviewer,
+              date: Date.parse(review.reviewdate),
+              stars: parseInt(review.stars, 10),
+              body: review.reviewbody
+            });
           });
-        });
-      }
-      const infos = {
-        title: data.metadata.title,
-        description: data.metadata.description,
-        creator: data.metadata.creator,
-        prodDate: data.metadata.date,
-        runTime: data.metadata.ia_orig__runtime,
-        stars:
-          data.reviews && data.reviews.length > 0
-            ? Math.floor(totalStars / data.reviews.length)
-            : null
-      };
-      const ourReviews = await movieHelpers.findReviews(req.params.id);
-      if (typeof ourReviews !== "string") {
-        reviews = movieHelpers.sortReviews(reviews, ourReviews);
-        res.status(200).send({ infos, reviews });
+        }
+        const infos = {
+          title: data.metadata.title,
+          description: data.metadata.description,
+          creator: data.metadata.creator,
+          prodDate: data.metadata.date,
+          runTime: data.metadata.ia_orig__runtime,
+          stars:
+            data.reviews && data.reviews.length > 0
+              ? Math.floor(totalStars / data.reviews.length)
+              : null
+        };
+        const ourReviews = await movieHelpers.findReviews(req.params.id);
+        if (typeof ourReviews !== "string") {
+          reviews = movieHelpers.sortReviews(reviews, ourReviews);
+          res.status(200).send({ infos, reviews });
+        } else {
+          res.sendStatus(500);
+        }
       } else {
         res.sendStatus(500);
       }

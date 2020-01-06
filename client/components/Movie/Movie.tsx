@@ -7,10 +7,11 @@ import useStyles from "./Movie.styles";
 
 import socket from "../../helpers/socket";
 import API from "../../util/api";
-import RecommandedMovies from "./MovieRecommanded";
+import RecommendedMovies from "./MovieRecommended";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
 import Loading from "../Routes/Loading";
+// import MoviePlayer from "./MoviePlayer";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -36,9 +37,10 @@ const Movie = (): ReactElement => {
       let totalStars = reviewReceived.stars;
       let reviewsLength = 1;
       setReviews((reviewsHook) => {
-        reviewsHook.forEach((review) => {
-          totalStars += review.stars;
-        });
+        totalStars = reviewsHook.reduce(
+          (acc, review) => acc + review.stars,
+          reviewReceived.stars
+        );
         reviewsLength += reviewsHook.length;
         return [...reviewsHook, reviewReceived];
       });
@@ -60,6 +62,7 @@ const Movie = (): ReactElement => {
         })
         .catch((e) => {
           console.error(e);
+          setDataDone(true);
         });
       setLoading(false);
     }
@@ -121,6 +124,7 @@ const Movie = (): ReactElement => {
               </div>
             </div>
           </Container>
+          {/* <MoviePlayer source="test" /> */}
           <MovieComments
             movieId={movieId}
             movieRating={movieInfos.stars}
@@ -138,7 +142,7 @@ const Movie = (): ReactElement => {
           {_t({ id: "movie.error.invalid" })}
         </div>
       )}
-      <RecommandedMovies matches={matches} />
+      <RecommendedMovies matches={matches} />
     </div>
   );
 };
