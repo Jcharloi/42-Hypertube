@@ -11,7 +11,7 @@ import RecommendedMovies from "./MovieRecommended";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
 import Loading from "../Routes/Loading";
-// import MoviePlayer from "./MoviePlayer";
+import MoviePlayer from "./MoviePlayer";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -35,13 +35,13 @@ const Movie = (): ReactElement => {
   useEffect(() => {
     const initComments = (reviewReceived: Review): void => {
       let totalStars = reviewReceived.stars;
-      let reviewsLength = 1;
+      let reviewsLength: number;
       setReviews((reviewsHook) => {
         totalStars = reviewsHook.reduce(
           (acc, review) => acc + review.stars,
           reviewReceived.stars
         );
-        reviewsLength += reviewsHook.length;
+        reviewsLength = reviewsHook.length + 1;
         return [...reviewsHook, reviewReceived];
       });
       setMovieInfos((movieInfosHook) => {
@@ -119,7 +119,7 @@ const Movie = (): ReactElement => {
               </div>
             </div>
           </Paper>
-          {/* <MoviePlayer source="test" /> */}
+          <MoviePlayer source="test" />
           <MovieComments
             movieId={movieId}
             movieRating={movieInfos.stars}
