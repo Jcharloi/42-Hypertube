@@ -1,20 +1,21 @@
 import React, { ReactElement } from "react";
+import { useIntl } from "react-intl";
+
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
-import { useIntl } from "react-intl";
 import useStyles from "./TopMenu.styles";
 
 import history from "../../helpers/history";
 
+import Filters from "./Filters";
 import LanguageButton from "./LanguageButton";
+
 import { Locale } from "../../models/models";
 
 const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
@@ -101,17 +102,7 @@ const TopMenu = ({ locale, setLocale }: Locale): ReactElement => {
             {_t({ id: "title" })}
           </Typography>
           <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder={_t({ id: "search" })}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
+            <Filters />
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
