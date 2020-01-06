@@ -1,14 +1,21 @@
 import express from "express";
 import path from "path";
 
-import controllers from "./Controllers/signUp";
+import signUp from "./Controllers/signUp";
+import movie from "./Controllers/movie";
 
 const router = express.Router();
 
-router.post("/inscription", controllers.signUp);
 router.get("/check-token", (req, res) => {
-  res.status(200).send({ validToken: false });
+  res.status(200).send({ validToken: true });
 });
+
+/* Sign Up */
+router.post("/inscription", signUp.signUp);
+
+/* Movie */
+router.get("/movie/infos/:id", movie.getInfos);
+router.post("/movie/review", movie.receiveReviews);
 
 router.get("/data/avatar/:id", (req, res) => {
   const pictureName = req.params.id;

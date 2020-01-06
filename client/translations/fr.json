@@ -1,5 +1,5 @@
 {
-  "title": "Nethub",
+  "title": "Hypertube",
   "search": "Rechercher ...",
   "language.fr": "🇫🇷",
   "language.en": "🇬🇧",
@@ -27,5 +27,17 @@
   "authentication.signUp.error.picture.wrongType": "Désolé, nous acceptons que les formats .jpeg, .jpg, .png",
   "authentication.signUp.validForm.title": "Bienvenue",
   "authentication.signUp.validForm.checkEmail": "Maitenant t'as juste à valider ton email",
-  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher"
+  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher",
+
+  "movie.description": "Description du film : ",
+  "movie.creator": "Crée par : ",
+  "movie.prodDate": "Date de production : ",
+  "movie.runTime": "Durée : ",
+  "movie.rating": "Note du film",
+  "movie.comment.title": "Quelque chose à dire à son propos ?",
+  "movie.comment.none": "Il n'y a aucun commentaire pour l'instant, ajoute le tien !",
+  "movie.comment.label": "Dis nous ce que tu penses du film",
+  "movie.comment.askRating": "Note le :",
+  "movie.comment.send": "Envoyer",
+  "movie.error.invalid": "Désolé, ce film n'existe pas. Pourquoi pas en chercher un autre ?"
 }
