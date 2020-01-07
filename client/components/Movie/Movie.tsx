@@ -11,7 +11,7 @@ import RecommendedMovies from "./MovieRecommended";
 import MovieComments from "./MovieComments";
 import { Review } from "../../models/models";
 import Loading from "../Routes/Loading";
-// import MoviePlayer from "./MoviePlayer";
+import MoviePlayer from "./MoviePlayer";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -23,7 +23,8 @@ const Movie = (): ReactElement => {
     creator: "",
     prodDate: "",
     runTime: "",
-    stars: 0
+    stars: 0,
+    source: ""
   });
   const [reviews, setReviews] = useState([
     { id: "", name: "", date: null, stars: 0, body: "" }
@@ -35,13 +36,13 @@ const Movie = (): ReactElement => {
   useEffect(() => {
     const initComments = (reviewReceived: Review): void => {
       let totalStars = reviewReceived.stars;
-      let reviewsLength = 1;
+      let reviewsLength: number;
       setReviews((reviewsHook) => {
         totalStars = reviewsHook.reduce(
           (acc, review) => acc + review.stars,
           reviewReceived.stars
         );
-        reviewsLength += reviewsHook.length;
+        reviewsLength = reviewsHook.length + 1;
         return [...reviewsHook, reviewReceived];
       });
       setMovieInfos((movieInfosHook) => {
@@ -84,7 +85,13 @@ const Movie = (): ReactElement => {
         >
           <Paper className={classes.containerPresentation}>
             <div className={classes.containerMovie}>
-              <div className={classes.labelMovie}>{movieInfos.title}</div>
+              <div className={classes.movieTitleImage}>
+                <div className={classes.labelMovie}>{movieInfos.title}</div>
+                <img
+                  alt="Movie thumb"
+                  src={`http://archive.org/19/items/${movieId}/__ia_thumb.jpg`}
+                />
+              </div>
               {movieInfos.creator && (
                 <div className={classes.labelMovie}>
                   {_t({ id: "movie.creator" })} {movieInfos.creator}
@@ -119,7 +126,7 @@ const Movie = (): ReactElement => {
               </div>
             </div>
           </Paper>
-          {/* <MoviePlayer source="test" /> */}
+          <MoviePlayer movieId={movieId} source={movieInfos.source} />
           <MovieComments
             movieId={movieId}
             movieRating={movieInfos.stars}

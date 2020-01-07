@@ -21,7 +21,9 @@ const useStyles = makeStyles(() => ({
     borderRadius: "4px",
     height: "auto",
     maxHeight: "70vh",
-    padding: "2rem"
+    padding: "2rem",
+    maxWidth: "100%",
+    minWidth: "100%"
   },
   containerPeople: {
     marginTop: "1rem",
