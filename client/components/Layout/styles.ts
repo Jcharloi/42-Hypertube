@@ -1,17 +1,26 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useLayoutStyles = makeStyles(() => ({
+  background: {
+    position: "fixed",
+    height: "calc(100% - 64px)",
+    marginTop: 64,
+    top: 0,
+    left: 0,
+    width: "100%",
+    backgroundImage: "url('http://localhost:8080/public/wallpaper.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom left",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover"
+  },
   container: {
     display: "flex",
     flexDirection: "column",
-    height: "100%",
-    background:
-      "no-repeat left bottom url('http://localhost:8080/public/wallpaper.png')",
-    backgroundSize: "cover",
-    backgroundAttachment: "scroll"
+    height: "100%"
   },
   bodyContainer: {
-    height: "calc(100vh - 64px)"
+    height: "100%"
   }
 }));
 

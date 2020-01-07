@@ -78,8 +78,9 @@ describe("Search", () => {
 
   describe("thumbnail", () => {
     it("renders correctly", () => {
-      const domNode = mount(
-        <Thumbnail film={filmFixture} onClick={jest.fn()} />
+      const domNode = mountWithIntl(
+        <Thumbnail film={filmFixture} onClick={jest.fn()} />,
+        "en"
       );
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });

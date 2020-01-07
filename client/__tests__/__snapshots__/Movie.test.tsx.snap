@@ -189,11 +189,9 @@ exports[`Movie should renders <Movie> in english 1`] = `
         </ForwardRef(Grid)>
       </WithStyles(ForwardRef(Grid))>
     </Loading>
-    <RecommendedMovies
-      matches={false}
-    >
+    <RecommendedMovies>
       <div
-        className="makeStyles-root-127"
+        className="makeStyles-containerRecommended-124"
       >
         Ceci est une liste de films inspirés de la search
       </div>
@@ -391,11 +389,9 @@ exports[`Movie should renders <Movie> in french 1`] = `
         </ForwardRef(Grid)>
       </WithStyles(ForwardRef(Grid))>
     </Loading>
-    <RecommendedMovies
-      matches={false}
-    >
+    <RecommendedMovies>
       <div
-        className="makeStyles-root-127"
+        className="makeStyles-containerRecommended-124"
       >
         Ceci est une liste de films inspirés de la search
       </div>
@@ -421,17 +417,17 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
   }
 >
   <div
-    className="makeStyles-containerRatingAndComment-1"
+    className="makeStyles-containerRatingAndComment-125"
   >
     <Styled(MuiBox)
       borderColor="transparent"
       component="fieldset"
     >
       <fieldset
-        className="MuiBox-root MuiBox-root-15"
+        className="MuiBox-root MuiBox-root-139"
       >
         <div
-          className="makeStyles-movieRating-2"
+          className="makeStyles-movieRating-126"
         >
           Movie's rating
         </div>
@@ -711,15 +707,15 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
       </fieldset>
     </Styled(MuiBox)>
     <span
-      className="makeStyles-commentTitle-3"
+      className="makeStyles-commentTitle-127"
     >
       Wanna say something about it ?
     </span>
     <WithStyles(ForwardRef(Paper))
-      className="makeStyles-containerComment-4"
+      className="makeStyles-containerComment-128"
     >
       <ForwardRef(Paper)
-        className="makeStyles-containerComment-4"
+        className="makeStyles-containerComment-128"
         classes={
           Object {
             "elevation0": "MuiPaper-elevation0",
@@ -747,20 +743,21 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
             "elevation7": "MuiPaper-elevation7",
             "elevation8": "MuiPaper-elevation8",
             "elevation9": "MuiPaper-elevation9",
+            "outlined": "MuiPaper-outlined",
             "root": "MuiPaper-root",
             "rounded": "MuiPaper-rounded",
           }
         }
       >
         <div
-          className="MuiPaper-root MuiPaper-elevation1 makeStyles-containerComment-4 MuiPaper-rounded"
+          className="MuiPaper-root makeStyles-containerComment-128 MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
-            className="makeStyles-containerPeople-5"
+            className="makeStyles-containerPeople-129"
             id="scrollComment"
           >
             <div
-              className="makeStyles-comment-7"
+              className="makeStyles-comment-131"
               key="0123456789"
             >
               <span
@@ -1082,14 +1079,14 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                 </ForwardRef(Rating)>
               </WithStyles(ForwardRef(Rating))>
               <div
-                className="makeStyles-commentText-6"
+                className="makeStyles-commentText-130"
               >
                 That was actually really awesome
               </div>
             </div>
           </div>
           <div
-            className="makeStyles-personalCommentContainer-8"
+            className="makeStyles-personalCommentContainer-132"
           >
             <WithStyles(ForwardRef(TextField))
               InputProps={
@@ -1101,7 +1098,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                   </ForwardRef(WithStyles)>,
                 }
               }
-              className="makeStyles-textField-9"
+              className="makeStyles-textField-133"
               error={false}
               helperText={false}
               inputProps={
@@ -1124,7 +1121,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                     </ForwardRef(WithStyles)>,
                   }
                 }
-                className="makeStyles-textField-9"
+                className="makeStyles-textField-133"
                 classes={
                   Object {
                     "root": "MuiTextField-root",
@@ -1143,7 +1140,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                 value=""
               >
                 <WithStyles(ForwardRef(FormControl))
-                  className="MuiTextField-root makeStyles-textField-9"
+                  className="MuiTextField-root makeStyles-textField-133"
                   color="primary"
                   disabled={false}
                   error={false}
@@ -1152,7 +1149,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                   variant="standard"
                 >
                   <ForwardRef(FormControl)
-                    className="MuiTextField-root makeStyles-textField-9"
+                    className="MuiTextField-root makeStyles-textField-133"
                     classes={
                       Object {
                         "fullWidth": "MuiFormControl-fullWidth",
@@ -1169,7 +1166,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                     variant="standard"
                   >
                     <div
-                      className="MuiFormControl-root MuiTextField-root makeStyles-textField-9"
+                      className="MuiFormControl-root MuiTextField-root makeStyles-textField-133"
                     >
                       <WithStyles(ForwardRef(InputLabel))>
                         <ForwardRef(InputLabel)
@@ -1262,6 +1259,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                               "inputMarginDense": "MuiInput-inputMarginDense",
                               "inputMultiline": "MuiInput-inputMultiline",
                               "inputTypeSearch": "MuiInput-inputTypeSearch",
+                              "marginDense": "MuiInput-marginDense",
                               "multiline": "MuiInput-multiline",
                               "root": "MuiInput-root",
                               "underline": "MuiInput-underline",
@@ -1298,6 +1296,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                                 "inputMarginDense": "MuiInput-inputMarginDense",
                                 "inputMultiline": "MuiInput-inputMultiline",
                                 "inputTypeSearch": "MuiInput-inputTypeSearch",
+                                "marginDense": "MuiInput-marginDense",
                                 "multiline": "MuiInput-multiline",
                                 "root": "MuiInput-root MuiInput-underline",
                                 "underline": null,
@@ -1340,9 +1339,8 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                                   "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
                                   "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
                                   "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
-                                  "inputSelect": "MuiInputBase-inputSelect",
                                   "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
-                                  "marginDense": "MuiInputBase-marginDense",
+                                  "marginDense": "MuiInputBase-marginDense MuiInput-marginDense",
                                   "multiline": "MuiInputBase-multiline MuiInput-multiline",
                                   "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
                                 }
@@ -1486,13 +1484,13 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
               </ForwardRef(TextField)>
             </WithStyles(ForwardRef(TextField))>
             <div
-              className="makeStyles-rateAndSendButton-10"
+              className="makeStyles-rateAndSendButton-134"
             >
               <div
-                className="makeStyles-rateIt-11"
+                className="makeStyles-rateIt-135"
               >
                 <span
-                  className="makeStyles-askRating-12"
+                  className="makeStyles-askRating-136"
                 >
                   Rate it :
                 </span>
@@ -1896,6 +1894,7 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                       "containedSecondary": "MuiButton-containedSecondary",
                       "containedSizeLarge": "MuiButton-containedSizeLarge",
                       "containedSizeSmall": "MuiButton-containedSizeSmall",
+                      "disableElevation": "MuiButton-disableElevation",
                       "disabled": "Mui-disabled",
                       "endIcon": "MuiButton-endIcon",
                       "focusVisible": "Mui-focusVisible",
@@ -2033,17 +2032,17 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
   }
 >
   <div
-    className="makeStyles-containerRatingAndComment-1"
+    className="makeStyles-containerRatingAndComment-125"
   >
     <Styled(MuiBox)
       borderColor="transparent"
       component="fieldset"
     >
       <fieldset
-        className="MuiBox-root MuiBox-root-175"
+        className="MuiBox-root MuiBox-root-301"
       >
         <div
-          className="makeStyles-movieRating-2"
+          className="makeStyles-movieRating-126"
         >
           Note du film
         </div>
@@ -2323,15 +2322,15 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
       </fieldset>
     </Styled(MuiBox)>
     <span
-      className="makeStyles-commentTitle-3"
+      className="makeStyles-commentTitle-127"
     >
       Quelque chose à dire à son propos ?
     </span>
     <WithStyles(ForwardRef(Paper))
-      className="makeStyles-containerComment-4"
+      className="makeStyles-containerComment-128"
     >
       <ForwardRef(Paper)
-        className="makeStyles-containerComment-4"
+        className="makeStyles-containerComment-128"
         classes={
           Object {
             "elevation0": "MuiPaper-elevation0",
@@ -2359,20 +2358,21 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
             "elevation7": "MuiPaper-elevation7",
             "elevation8": "MuiPaper-elevation8",
             "elevation9": "MuiPaper-elevation9",
+            "outlined": "MuiPaper-outlined",
             "root": "MuiPaper-root",
             "rounded": "MuiPaper-rounded",
           }
         }
       >
         <div
-          className="MuiPaper-root MuiPaper-elevation1 makeStyles-containerComment-4 MuiPaper-rounded"
+          className="MuiPaper-root makeStyles-containerComment-128 MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
-            className="makeStyles-containerPeople-5"
+            className="makeStyles-containerPeople-129"
             id="scrollComment"
           >
             <div
-              className="makeStyles-comment-7"
+              className="makeStyles-comment-131"
               key="0123456789"
             >
               <span
@@ -2694,14 +2694,14 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                 </ForwardRef(Rating)>
               </WithStyles(ForwardRef(Rating))>
               <div
-                className="makeStyles-commentText-6"
+                className="makeStyles-commentText-130"
               >
                 That was actually really awesome
               </div>
             </div>
           </div>
           <div
-            className="makeStyles-personalCommentContainer-8"
+            className="makeStyles-personalCommentContainer-132"
           >
             <WithStyles(ForwardRef(TextField))
               InputProps={
@@ -2713,7 +2713,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                   </ForwardRef(WithStyles)>,
                 }
               }
-              className="makeStyles-textField-9"
+              className="makeStyles-textField-133"
               error={false}
               helperText={false}
               inputProps={
@@ -2736,7 +2736,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                     </ForwardRef(WithStyles)>,
                   }
                 }
-                className="makeStyles-textField-9"
+                className="makeStyles-textField-133"
                 classes={
                   Object {
                     "root": "MuiTextField-root",
@@ -2755,7 +2755,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                 value=""
               >
                 <WithStyles(ForwardRef(FormControl))
-                  className="MuiTextField-root makeStyles-textField-9"
+                  className="MuiTextField-root makeStyles-textField-133"
                   color="primary"
                   disabled={false}
                   error={false}
@@ -2764,7 +2764,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                   variant="standard"
                 >
                   <ForwardRef(FormControl)
-                    className="MuiTextField-root makeStyles-textField-9"
+                    className="MuiTextField-root makeStyles-textField-133"
                     classes={
                       Object {
                         "fullWidth": "MuiFormControl-fullWidth",
@@ -2781,7 +2781,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                     variant="standard"
                   >
                     <div
-                      className="MuiFormControl-root MuiTextField-root makeStyles-textField-9"
+                      className="MuiFormControl-root MuiTextField-root makeStyles-textField-133"
                     >
                       <WithStyles(ForwardRef(InputLabel))>
                         <ForwardRef(InputLabel)
@@ -2874,6 +2874,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                               "inputMarginDense": "MuiInput-inputMarginDense",
                               "inputMultiline": "MuiInput-inputMultiline",
                               "inputTypeSearch": "MuiInput-inputTypeSearch",
+                              "marginDense": "MuiInput-marginDense",
                               "multiline": "MuiInput-multiline",
                               "root": "MuiInput-root",
                               "underline": "MuiInput-underline",
@@ -2910,6 +2911,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                                 "inputMarginDense": "MuiInput-inputMarginDense",
                                 "inputMultiline": "MuiInput-inputMultiline",
                                 "inputTypeSearch": "MuiInput-inputTypeSearch",
+                                "marginDense": "MuiInput-marginDense",
                                 "multiline": "MuiInput-multiline",
                                 "root": "MuiInput-root MuiInput-underline",
                                 "underline": null,
@@ -2952,9 +2954,8 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                                   "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
                                   "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
                                   "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
-                                  "inputSelect": "MuiInputBase-inputSelect",
                                   "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
-                                  "marginDense": "MuiInputBase-marginDense",
+                                  "marginDense": "MuiInputBase-marginDense MuiInput-marginDense",
                                   "multiline": "MuiInputBase-multiline MuiInput-multiline",
                                   "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
                                 }
@@ -3098,13 +3099,13 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
               </ForwardRef(TextField)>
             </WithStyles(ForwardRef(TextField))>
             <div
-              className="makeStyles-rateAndSendButton-10"
+              className="makeStyles-rateAndSendButton-134"
             >
               <div
-                className="makeStyles-rateIt-11"
+                className="makeStyles-rateIt-135"
               >
                 <span
-                  className="makeStyles-askRating-12"
+                  className="makeStyles-askRating-136"
                 >
                   Note le :
                 </span>
@@ -3508,6 +3509,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                       "containedSecondary": "MuiButton-containedSecondary",
                       "containedSizeLarge": "MuiButton-containedSizeLarge",
                       "containedSizeSmall": "MuiButton-containedSizeSmall",
+                      "disableElevation": "MuiButton-disableElevation",
                       "disabled": "Mui-disabled",
                       "endIcon": "MuiButton-endIcon",
                       "focusVisible": "Mui-focusVisible",

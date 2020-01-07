@@ -18,7 +18,7 @@ exports[`Search film en renders correctly 1`] = `
   }
 >
   <div
-    className="makeStyles-container-62"
+    className="makeStyles-container-42"
   >
     <WithStyles(ForwardRef(Typography))
       variant="h3"
@@ -69,11 +69,11 @@ exports[`Search film en renders correctly 1`] = `
     </WithStyles(ForwardRef(Typography))>
     <img
       alt="thumb"
-      className="makeStyles-thumbnail-63"
+      className="makeStyles-thumbnail-43"
       src="https://archive.org/download/film-fixture/__ia_thumb.jpg"
     />
     <div
-      className="makeStyles-ratingContainer-64"
+      className="makeStyles-ratingContainer-44"
     >
       <WithStyles(ForwardRef(Rating))
         name="read-only"
@@ -30665,11 +30665,11 @@ exports[`Search film en renders correctly 1`] = `
       </ForwardRef(Typography)>
     </WithStyles(ForwardRef(Typography))>
     <WithStyles(ForwardRef(Typography))
-      className="makeStyles-descriptionContainer-65"
+      className="makeStyles-descriptionContainer-45"
       variant="caption"
     >
       <ForwardRef(Typography)
-        className="makeStyles-descriptionContainer-65"
+        className="makeStyles-descriptionContainer-45"
         classes={
           Object {
             "alignCenter": "MuiTypography-alignCenter",
@@ -30707,7 +30707,7 @@ exports[`Search film en renders correctly 1`] = `
         variant="caption"
       >
         <span
-          className="MuiTypography-root makeStyles-descriptionContainer-65 MuiTypography-caption"
+          className="MuiTypography-root makeStyles-descriptionContainer-45 MuiTypography-caption"
         >
           A film fixture
         </span>
@@ -30760,7 +30760,7 @@ exports[`Search film en renders correctly 1`] = `
     </WithStyles(ForwardRef(Typography))>
     <div>
       <WithStyles(ForwardRef(Chip))
-        className="makeStyles-tag-66"
+        className="makeStyles-tag-46"
         clickable={true}
         color="primary"
         key="tag1"
@@ -30768,7 +30768,7 @@ exports[`Search film en renders correctly 1`] = `
         onClick={[Function]}
       >
         <ForwardRef(Chip)
-          className="makeStyles-tag-66"
+          className="makeStyles-tag-46"
           classes={
             Object {
               "avatar": "MuiChip-avatar",
@@ -30809,7 +30809,7 @@ exports[`Search film en renders correctly 1`] = `
           onClick={[Function]}
         >
           <WithStyles(ForwardRef(ButtonBase))
-            className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+            className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
             component="div"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -30817,7 +30817,7 @@ exports[`Search film en renders correctly 1`] = `
             tabIndex={0}
           >
             <ForwardRef(ButtonBase)
-              className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               classes={
                 Object {
                   "disabled": "Mui-disabled",
@@ -30832,7 +30832,7 @@ exports[`Search film en renders correctly 1`] = `
               tabIndex={0}
             >
               <div
-                className="MuiButtonBase-root MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                className="MuiButtonBase-root MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onDragLeave={[Function]}
@@ -30889,7 +30889,7 @@ exports[`Search film en renders correctly 1`] = `
         </ForwardRef(Chip)>
       </WithStyles(ForwardRef(Chip))>
       <WithStyles(ForwardRef(Chip))
-        className="makeStyles-tag-66"
+        className="makeStyles-tag-46"
         clickable={true}
         color="primary"
         key="tag2"
@@ -30897,7 +30897,7 @@ exports[`Search film en renders correctly 1`] = `
         onClick={[Function]}
       >
         <ForwardRef(Chip)
-          className="makeStyles-tag-66"
+          className="makeStyles-tag-46"
           classes={
             Object {
               "avatar": "MuiChip-avatar",
@@ -30938,7 +30938,7 @@ exports[`Search film en renders correctly 1`] = `
           onClick={[Function]}
         >
           <WithStyles(ForwardRef(ButtonBase))
-            className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+            className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
             component="div"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -30946,7 +30946,7 @@ exports[`Search film en renders correctly 1`] = `
             tabIndex={0}
           >
             <ForwardRef(ButtonBase)
-              className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               classes={
                 Object {
                   "disabled": "Mui-disabled",
@@ -30961,7 +30961,7 @@ exports[`Search film en renders correctly 1`] = `
               tabIndex={0}
             >
               <div
-                className="MuiButtonBase-root MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                className="MuiButtonBase-root MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onDragLeave={[Function]}
@@ -31019,7 +31019,7 @@ exports[`Search film en renders correctly 1`] = `
       </WithStyles(ForwardRef(Chip))>
     </div>
     <div
-      className="makeStyles-buttonContainer-67"
+      className="makeStyles-buttonContainer-47"
     >
       <WithStyles(ForwardRef(Button))
         color="primary"
@@ -31036,6 +31036,7 @@ exports[`Search film en renders correctly 1`] = `
               "containedSecondary": "MuiButton-containedSecondary",
               "containedSizeLarge": "MuiButton-containedSizeLarge",
               "containedSizeSmall": "MuiButton-containedSizeSmall",
+              "disableElevation": "MuiButton-disableElevation",
               "disabled": "Mui-disabled",
               "endIcon": "MuiButton-endIcon",
               "focusVisible": "Mui-focusVisible",
@@ -31171,7 +31172,7 @@ exports[`Search film fr renders correctly 1`] = `
   }
 >
   <div
-    className="makeStyles-container-62"
+    className="makeStyles-container-42"
   >
     <WithStyles(ForwardRef(Typography))
       variant="h3"
@@ -31222,11 +31223,11 @@ exports[`Search film fr renders correctly 1`] = `
     </WithStyles(ForwardRef(Typography))>
     <img
       alt="thumb"
-      className="makeStyles-thumbnail-63"
+      className="makeStyles-thumbnail-43"
       src="https://archive.org/download/film-fixture/__ia_thumb.jpg"
     />
     <div
-      className="makeStyles-ratingContainer-64"
+      className="makeStyles-ratingContainer-44"
     >
       <WithStyles(ForwardRef(Rating))
         name="read-only"
@@ -61818,11 +61819,11 @@ exports[`Search film fr renders correctly 1`] = `
       </ForwardRef(Typography)>
     </WithStyles(ForwardRef(Typography))>
     <WithStyles(ForwardRef(Typography))
-      className="makeStyles-descriptionContainer-65"
+      className="makeStyles-descriptionContainer-45"
       variant="caption"
     >
       <ForwardRef(Typography)
-        className="makeStyles-descriptionContainer-65"
+        className="makeStyles-descriptionContainer-45"
         classes={
           Object {
             "alignCenter": "MuiTypography-alignCenter",
@@ -61860,7 +61861,7 @@ exports[`Search film fr renders correctly 1`] = `
         variant="caption"
       >
         <span
-          className="MuiTypography-root makeStyles-descriptionContainer-65 MuiTypography-caption"
+          className="MuiTypography-root makeStyles-descriptionContainer-45 MuiTypography-caption"
         >
           A film fixture
         </span>
@@ -61913,7 +61914,7 @@ exports[`Search film fr renders correctly 1`] = `
     </WithStyles(ForwardRef(Typography))>
     <div>
       <WithStyles(ForwardRef(Chip))
-        className="makeStyles-tag-66"
+        className="makeStyles-tag-46"
         clickable={true}
         color="primary"
         key="tag1"
@@ -61921,7 +61922,7 @@ exports[`Search film fr renders correctly 1`] = `
         onClick={[Function]}
       >
         <ForwardRef(Chip)
-          className="makeStyles-tag-66"
+          className="makeStyles-tag-46"
           classes={
             Object {
               "avatar": "MuiChip-avatar",
@@ -61962,7 +61963,7 @@ exports[`Search film fr renders correctly 1`] = `
           onClick={[Function]}
         >
           <WithStyles(ForwardRef(ButtonBase))
-            className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+            className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
             component="div"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -61970,7 +61971,7 @@ exports[`Search film fr renders correctly 1`] = `
             tabIndex={0}
           >
             <ForwardRef(ButtonBase)
-              className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               classes={
                 Object {
                   "disabled": "Mui-disabled",
@@ -61985,7 +61986,7 @@ exports[`Search film fr renders correctly 1`] = `
               tabIndex={0}
             >
               <div
-                className="MuiButtonBase-root MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                className="MuiButtonBase-root MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onDragLeave={[Function]}
@@ -62042,7 +62043,7 @@ exports[`Search film fr renders correctly 1`] = `
         </ForwardRef(Chip)>
       </WithStyles(ForwardRef(Chip))>
       <WithStyles(ForwardRef(Chip))
-        className="makeStyles-tag-66"
+        className="makeStyles-tag-46"
         clickable={true}
         color="primary"
         key="tag2"
@@ -62050,7 +62051,7 @@ exports[`Search film fr renders correctly 1`] = `
         onClick={[Function]}
       >
         <ForwardRef(Chip)
-          className="makeStyles-tag-66"
+          className="makeStyles-tag-46"
           classes={
             Object {
               "avatar": "MuiChip-avatar",
@@ -62091,7 +62092,7 @@ exports[`Search film fr renders correctly 1`] = `
           onClick={[Function]}
         >
           <WithStyles(ForwardRef(ButtonBase))
-            className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+            className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
             component="div"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -62099,7 +62100,7 @@ exports[`Search film fr renders correctly 1`] = `
             tabIndex={0}
           >
             <ForwardRef(ButtonBase)
-              className="MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              className="MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               classes={
                 Object {
                   "disabled": "Mui-disabled",
@@ -62114,7 +62115,7 @@ exports[`Search film fr renders correctly 1`] = `
               tabIndex={0}
             >
               <div
-                className="MuiButtonBase-root MuiChip-root makeStyles-tag-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                className="MuiButtonBase-root MuiChip-root makeStyles-tag-46 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onDragLeave={[Function]}
@@ -62172,7 +62173,7 @@ exports[`Search film fr renders correctly 1`] = `
       </WithStyles(ForwardRef(Chip))>
     </div>
     <div
-      className="makeStyles-buttonContainer-67"
+      className="makeStyles-buttonContainer-47"
     >
       <WithStyles(ForwardRef(Button))
         color="primary"
@@ -62189,6 +62190,7 @@ exports[`Search film fr renders correctly 1`] = `
               "containedSecondary": "MuiButton-containedSecondary",
               "containedSizeLarge": "MuiButton-containedSizeLarge",
               "containedSizeSmall": "MuiButton-containedSizeSmall",
+              "disableElevation": "MuiButton-disableElevation",
               "disabled": "Mui-disabled",
               "endIcon": "MuiButton-endIcon",
               "focusVisible": "Mui-focusVisible",
@@ -62309,16 +62311,48 @@ exports[`Search film fr renders correctly 1`] = `
 exports[`Search search en renders correctly 1`] = `
 <Search>
   <div
-    className="makeStyles-container-1"
+    className="makeStyles-thumbsContainer-3"
   >
-    <div
-      className="makeStyles-thumbsContainer-2"
+    <InfiniteScroll
+      element="div"
+      getScrollParent={null}
+      hasMore={false}
+      initialLoad={false}
+      isReverse={false}
+      loadMore={[Function]}
+      loader={null}
+      pageStart={0}
+      ref={null}
+      threshold={250}
+      useCapture={false}
+      useWindow={true}
+    >
+      <div />
+    </InfiniteScroll>
+  </div>
+  <WithStyles(ForwardRef(SnackbarContent))
+    className="makeStyles-snackbar-1"
+    message="Found 0 movies"
+  >
+    <ForwardRef(SnackbarContent)
+      className="makeStyles-snackbar-1"
+      classes={
+        Object {
+          "action": "MuiSnackbarContent-action",
+          "message": "MuiSnackbarContent-message",
+          "root": "MuiSnackbarContent-root",
+        }
+      }
+      message="Found 0 movies"
     >
       <WithStyles(ForwardRef(Paper))
-        className="makeStyles-infoSidebar-4"
+        className="MuiSnackbarContent-root makeStyles-snackbar-1"
+        elevation={6}
+        role="alert"
+        square={true}
       >
         <ForwardRef(Paper)
-          className="makeStyles-infoSidebar-4"
+          className="MuiSnackbarContent-root makeStyles-snackbar-1"
           classes={
             Object {
               "elevation0": "MuiPaper-elevation0",
@@ -62346,146 +62380,97 @@ exports[`Search search en renders correctly 1`] = `
               "elevation7": "MuiPaper-elevation7",
               "elevation8": "MuiPaper-elevation8",
               "elevation9": "MuiPaper-elevation9",
+              "outlined": "MuiPaper-outlined",
               "root": "MuiPaper-root",
               "rounded": "MuiPaper-rounded",
             }
           }
+          elevation={6}
+          role="alert"
+          square={true}
         >
           <div
-            className="MuiPaper-root MuiPaper-elevation1 makeStyles-infoSidebar-4 MuiPaper-rounded"
+            className="MuiPaper-root MuiSnackbarContent-root makeStyles-snackbar-1 MuiPaper-elevation6"
+            role="alert"
           >
-            <WithStyles(ForwardRef(Typography))>
-              <ForwardRef(Typography)
-                classes={
-                  Object {
-                    "alignCenter": "MuiTypography-alignCenter",
-                    "alignJustify": "MuiTypography-alignJustify",
-                    "alignLeft": "MuiTypography-alignLeft",
-                    "alignRight": "MuiTypography-alignRight",
-                    "body1": "MuiTypography-body1",
-                    "body2": "MuiTypography-body2",
-                    "button": "MuiTypography-button",
-                    "caption": "MuiTypography-caption",
-                    "colorError": "MuiTypography-colorError",
-                    "colorInherit": "MuiTypography-colorInherit",
-                    "colorPrimary": "MuiTypography-colorPrimary",
-                    "colorSecondary": "MuiTypography-colorSecondary",
-                    "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                    "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                    "displayBlock": "MuiTypography-displayBlock",
-                    "displayInline": "MuiTypography-displayInline",
-                    "gutterBottom": "MuiTypography-gutterBottom",
-                    "h1": "MuiTypography-h1",
-                    "h2": "MuiTypography-h2",
-                    "h3": "MuiTypography-h3",
-                    "h4": "MuiTypography-h4",
-                    "h5": "MuiTypography-h5",
-                    "h6": "MuiTypography-h6",
-                    "noWrap": "MuiTypography-noWrap",
-                    "overline": "MuiTypography-overline",
-                    "paragraph": "MuiTypography-paragraph",
-                    "root": "MuiTypography-root",
-                    "srOnly": "MuiTypography-srOnly",
-                    "subtitle1": "MuiTypography-subtitle1",
-                    "subtitle2": "MuiTypography-subtitle2",
-                  }
-                }
-              >
-                <p
-                  className="MuiTypography-root MuiTypography-body1"
-                >
-                  Found 0 movies
-                </p>
-              </ForwardRef(Typography)>
-            </WithStyles(ForwardRef(Typography))>
+            <div
+              className="MuiSnackbarContent-message"
+            >
+              Found 0 movies
+            </div>
           </div>
         </ForwardRef(Paper)>
       </WithStyles(ForwardRef(Paper))>
-      <InfiniteScroll
-        element="div"
-        getScrollParent={null}
-        hasMore={false}
-        initialLoad={false}
-        isReverse={false}
-        loadMore={[Function]}
-        loader={null}
-        pageStart={0}
-        ref={null}
-        threshold={250}
-        useCapture={false}
-        useWindow={false}
-      >
-        <div />
-      </InfiniteScroll>
-    </div>
-    <div
-      className="makeStyles-filmContainer-3"
-    >
-      <WithStyles(ForwardRef(Typography))
-        variant="h2"
-      >
-        <ForwardRef(Typography)
-          classes={
-            Object {
-              "alignCenter": "MuiTypography-alignCenter",
-              "alignJustify": "MuiTypography-alignJustify",
-              "alignLeft": "MuiTypography-alignLeft",
-              "alignRight": "MuiTypography-alignRight",
-              "body1": "MuiTypography-body1",
-              "body2": "MuiTypography-body2",
-              "button": "MuiTypography-button",
-              "caption": "MuiTypography-caption",
-              "colorError": "MuiTypography-colorError",
-              "colorInherit": "MuiTypography-colorInherit",
-              "colorPrimary": "MuiTypography-colorPrimary",
-              "colorSecondary": "MuiTypography-colorSecondary",
-              "colorTextPrimary": "MuiTypography-colorTextPrimary",
-              "colorTextSecondary": "MuiTypography-colorTextSecondary",
-              "displayBlock": "MuiTypography-displayBlock",
-              "displayInline": "MuiTypography-displayInline",
-              "gutterBottom": "MuiTypography-gutterBottom",
-              "h1": "MuiTypography-h1",
-              "h2": "MuiTypography-h2",
-              "h3": "MuiTypography-h3",
-              "h4": "MuiTypography-h4",
-              "h5": "MuiTypography-h5",
-              "h6": "MuiTypography-h6",
-              "noWrap": "MuiTypography-noWrap",
-              "overline": "MuiTypography-overline",
-              "paragraph": "MuiTypography-paragraph",
-              "root": "MuiTypography-root",
-              "srOnly": "MuiTypography-srOnly",
-              "subtitle1": "MuiTypography-subtitle1",
-              "subtitle2": "MuiTypography-subtitle2",
-            }
-          }
-          variant="h2"
-        >
-          <h2
-            className="MuiTypography-root MuiTypography-h2"
-          >
-            Select a film to view its description
-          </h2>
-        </ForwardRef(Typography)>
-      </WithStyles(ForwardRef(Typography))>
-    </div>
-  </div>
+    </ForwardRef(SnackbarContent)>
+  </WithStyles(ForwardRef(SnackbarContent))>
+  <WithStyles(ForwardRef(Snackbar))
+    className="makeStyles-snackbarLoading-2"
+    open={false}
+  >
+    <ForwardRef(Snackbar)
+      className="makeStyles-snackbarLoading-2"
+      classes={
+        Object {
+          "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
+          "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
+          "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
+          "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
+          "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
+          "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
+          "root": "MuiSnackbar-root",
+        }
+      }
+      open={false}
+    />
+  </WithStyles(ForwardRef(Snackbar))>
 </Search>
 `;
 
 exports[`Search search fr renders correctly 1`] = `
 <Search>
   <div
-    className="makeStyles-container-1"
+    className="makeStyles-thumbsContainer-3"
   >
-    <div
-      className="makeStyles-thumbsContainer-2"
+    <InfiniteScroll
+      element="div"
+      getScrollParent={null}
+      hasMore={false}
+      initialLoad={false}
+      isReverse={false}
+      loadMore={[Function]}
+      loader={null}
+      pageStart={0}
+      ref={null}
+      threshold={250}
+      useCapture={false}
+      useWindow={true}
+    >
+      <div />
+    </InfiniteScroll>
+  </div>
+  <WithStyles(ForwardRef(SnackbarContent))
+    className="makeStyles-snackbar-1"
+    message="0 films trouvés"
+  >
+    <ForwardRef(SnackbarContent)
+      className="makeStyles-snackbar-1"
+      classes={
+        Object {
+          "action": "MuiSnackbarContent-action",
+          "message": "MuiSnackbarContent-message",
+          "root": "MuiSnackbarContent-root",
+        }
+      }
+      message="0 films trouvés"
     >
       <WithStyles(ForwardRef(Paper))
-        className="makeStyles-infoSidebar-4"
+        className="MuiSnackbarContent-root makeStyles-snackbar-1"
+        elevation={6}
+        role="alert"
+        square={true}
       >
         <ForwardRef(Paper)
-          className="makeStyles-infoSidebar-4"
+          className="MuiSnackbarContent-root makeStyles-snackbar-1"
           classes={
             Object {
               "elevation0": "MuiPaper-elevation0",
@@ -62513,130 +62498,49 @@ exports[`Search search fr renders correctly 1`] = `
               "elevation7": "MuiPaper-elevation7",
               "elevation8": "MuiPaper-elevation8",
               "elevation9": "MuiPaper-elevation9",
+              "outlined": "MuiPaper-outlined",
               "root": "MuiPaper-root",
               "rounded": "MuiPaper-rounded",
             }
           }
+          elevation={6}
+          role="alert"
+          square={true}
         >
           <div
-            className="MuiPaper-root MuiPaper-elevation1 makeStyles-infoSidebar-4 MuiPaper-rounded"
+            className="MuiPaper-root MuiSnackbarContent-root makeStyles-snackbar-1 MuiPaper-elevation6"
+            role="alert"
           >
-            <WithStyles(ForwardRef(Typography))>
-              <ForwardRef(Typography)
-                classes={
-                  Object {
-                    "alignCenter": "MuiTypography-alignCenter",
-                    "alignJustify": "MuiTypography-alignJustify",
-                    "alignLeft": "MuiTypography-alignLeft",
-                    "alignRight": "MuiTypography-alignRight",
-                    "body1": "MuiTypography-body1",
-                    "body2": "MuiTypography-body2",
-                    "button": "MuiTypography-button",
-                    "caption": "MuiTypography-caption",
-                    "colorError": "MuiTypography-colorError",
-                    "colorInherit": "MuiTypography-colorInherit",
-                    "colorPrimary": "MuiTypography-colorPrimary",
-                    "colorSecondary": "MuiTypography-colorSecondary",
-                    "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                    "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                    "displayBlock": "MuiTypography-displayBlock",
-                    "displayInline": "MuiTypography-displayInline",
-                    "gutterBottom": "MuiTypography-gutterBottom",
-                    "h1": "MuiTypography-h1",
-                    "h2": "MuiTypography-h2",
-                    "h3": "MuiTypography-h3",
-                    "h4": "MuiTypography-h4",
-                    "h5": "MuiTypography-h5",
-                    "h6": "MuiTypography-h6",
-                    "noWrap": "MuiTypography-noWrap",
-                    "overline": "MuiTypography-overline",
-                    "paragraph": "MuiTypography-paragraph",
-                    "root": "MuiTypography-root",
-                    "srOnly": "MuiTypography-srOnly",
-                    "subtitle1": "MuiTypography-subtitle1",
-                    "subtitle2": "MuiTypography-subtitle2",
-                  }
-                }
-              >
-                <p
-                  className="MuiTypography-root MuiTypography-body1"
-                >
-                  0 films trouvés
-                </p>
-              </ForwardRef(Typography)>
-            </WithStyles(ForwardRef(Typography))>
+            <div
+              className="MuiSnackbarContent-message"
+            >
+              0 films trouvés
+            </div>
           </div>
         </ForwardRef(Paper)>
       </WithStyles(ForwardRef(Paper))>
-      <InfiniteScroll
-        element="div"
-        getScrollParent={null}
-        hasMore={false}
-        initialLoad={false}
-        isReverse={false}
-        loadMore={[Function]}
-        loader={null}
-        pageStart={0}
-        ref={null}
-        threshold={250}
-        useCapture={false}
-        useWindow={false}
-      >
-        <div />
-      </InfiniteScroll>
-    </div>
-    <div
-      className="makeStyles-filmContainer-3"
-    >
-      <WithStyles(ForwardRef(Typography))
-        variant="h2"
-      >
-        <ForwardRef(Typography)
-          classes={
-            Object {
-              "alignCenter": "MuiTypography-alignCenter",
-              "alignJustify": "MuiTypography-alignJustify",
-              "alignLeft": "MuiTypography-alignLeft",
-              "alignRight": "MuiTypography-alignRight",
-              "body1": "MuiTypography-body1",
-              "body2": "MuiTypography-body2",
-              "button": "MuiTypography-button",
-              "caption": "MuiTypography-caption",
-              "colorError": "MuiTypography-colorError",
-              "colorInherit": "MuiTypography-colorInherit",
-              "colorPrimary": "MuiTypography-colorPrimary",
-              "colorSecondary": "MuiTypography-colorSecondary",
-              "colorTextPrimary": "MuiTypography-colorTextPrimary",
-              "colorTextSecondary": "MuiTypography-colorTextSecondary",
-              "displayBlock": "MuiTypography-displayBlock",
-              "displayInline": "MuiTypography-displayInline",
-              "gutterBottom": "MuiTypography-gutterBottom",
-              "h1": "MuiTypography-h1",
-              "h2": "MuiTypography-h2",
-              "h3": "MuiTypography-h3",
-              "h4": "MuiTypography-h4",
-              "h5": "MuiTypography-h5",
-              "h6": "MuiTypography-h6",
-              "noWrap": "MuiTypography-noWrap",
-              "overline": "MuiTypography-overline",
-              "paragraph": "MuiTypography-paragraph",
-              "root": "MuiTypography-root",
-              "srOnly": "MuiTypography-srOnly",
-              "subtitle1": "MuiTypography-subtitle1",
-              "subtitle2": "MuiTypography-subtitle2",
-            }
-          }
-          variant="h2"
-        >
-          <h2
-            className="MuiTypography-root MuiTypography-h2"
-          >
-            Choisissez un film pour voir sa description
-          </h2>
-        </ForwardRef(Typography)>
-      </WithStyles(ForwardRef(Typography))>
-    </div>
-  </div>
+    </ForwardRef(SnackbarContent)>
+  </WithStyles(ForwardRef(SnackbarContent))>
+  <WithStyles(ForwardRef(Snackbar))
+    className="makeStyles-snackbarLoading-2"
+    open={false}
+  >
+    <ForwardRef(Snackbar)
+      className="makeStyles-snackbarLoading-2"
+      classes={
+        Object {
+          "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
+          "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
+          "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
+          "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
+          "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
+          "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
+          "root": "MuiSnackbar-root",
+        }
+      }
+      open={false}
+    />
+  </WithStyles(ForwardRef(Snackbar))>
 </Search>
 `;
 
@@ -62658,257 +62562,225 @@ exports[`Search thumbnail renders correctly 1`] = `
   }
   onClick={[MockFunction]}
 >
-  <WithStyles(ForwardRef(Card))
-    className="makeStyles-card-164"
-    onClick={[Function]}
+  <WithStyles(ForwardRef(Container))
+    className="makeStyles-container-175"
+    onClick={[MockFunction]}
   >
-    <ForwardRef(Card)
-      className="makeStyles-card-164"
+    <ForwardRef(Container)
+      className="makeStyles-container-175"
       classes={
         Object {
-          "root": "MuiCard-root",
+          "disableGutters": "MuiContainer-disableGutters",
+          "fixed": "MuiContainer-fixed",
+          "maxWidthLg": "MuiContainer-maxWidthLg",
+          "maxWidthMd": "MuiContainer-maxWidthMd",
+          "maxWidthSm": "MuiContainer-maxWidthSm",
+          "maxWidthXl": "MuiContainer-maxWidthXl",
+          "maxWidthXs": "MuiContainer-maxWidthXs",
+          "root": "MuiContainer-root",
         }
       }
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
-      <WithStyles(ForwardRef(Paper))
-        className="MuiCard-root makeStyles-card-164"
-        elevation={1}
-        onClick={[Function]}
+      <div
+        className="MuiContainer-root makeStyles-container-175 MuiContainer-maxWidthLg"
+        onClick={[MockFunction]}
       >
-        <ForwardRef(Paper)
-          className="MuiCard-root makeStyles-card-164"
-          classes={
-            Object {
-              "elevation0": "MuiPaper-elevation0",
-              "elevation1": "MuiPaper-elevation1",
-              "elevation10": "MuiPaper-elevation10",
-              "elevation11": "MuiPaper-elevation11",
-              "elevation12": "MuiPaper-elevation12",
-              "elevation13": "MuiPaper-elevation13",
-              "elevation14": "MuiPaper-elevation14",
-              "elevation15": "MuiPaper-elevation15",
-              "elevation16": "MuiPaper-elevation16",
-              "elevation17": "MuiPaper-elevation17",
-              "elevation18": "MuiPaper-elevation18",
-              "elevation19": "MuiPaper-elevation19",
-              "elevation2": "MuiPaper-elevation2",
-              "elevation20": "MuiPaper-elevation20",
-              "elevation21": "MuiPaper-elevation21",
-              "elevation22": "MuiPaper-elevation22",
-              "elevation23": "MuiPaper-elevation23",
-              "elevation24": "MuiPaper-elevation24",
-              "elevation3": "MuiPaper-elevation3",
-              "elevation4": "MuiPaper-elevation4",
-              "elevation5": "MuiPaper-elevation5",
-              "elevation6": "MuiPaper-elevation6",
-              "elevation7": "MuiPaper-elevation7",
-              "elevation8": "MuiPaper-elevation8",
-              "elevation9": "MuiPaper-elevation9",
-              "root": "MuiPaper-root",
-              "rounded": "MuiPaper-rounded",
-            }
-          }
-          elevation={1}
-          onClick={[Function]}
+        <div>
+          <img
+            alt="thumb"
+            src="https://archive.org/download/film-fixture/__ia_thumb.jpg"
+          />
+        </div>
+        <div
+          className="makeStyles-content-176"
         >
-          <div
-            className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-164 MuiPaper-rounded"
-            onClick={[Function]}
+          <WithStyles(ForwardRef(Typography))
+            variant="h5"
           >
-            <WithStyles(ForwardRef(CardActionArea))>
-              <ForwardRef(CardActionArea)
-                classes={
-                  Object {
-                    "focusHighlight": "MuiCardActionArea-focusHighlight",
-                    "focusVisible": "Mui-focusVisible",
-                    "root": "MuiCardActionArea-root",
-                  }
+            <ForwardRef(Typography)
+              classes={
+                Object {
+                  "alignCenter": "MuiTypography-alignCenter",
+                  "alignJustify": "MuiTypography-alignJustify",
+                  "alignLeft": "MuiTypography-alignLeft",
+                  "alignRight": "MuiTypography-alignRight",
+                  "body1": "MuiTypography-body1",
+                  "body2": "MuiTypography-body2",
+                  "button": "MuiTypography-button",
+                  "caption": "MuiTypography-caption",
+                  "colorError": "MuiTypography-colorError",
+                  "colorInherit": "MuiTypography-colorInherit",
+                  "colorPrimary": "MuiTypography-colorPrimary",
+                  "colorSecondary": "MuiTypography-colorSecondary",
+                  "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                  "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                  "displayBlock": "MuiTypography-displayBlock",
+                  "displayInline": "MuiTypography-displayInline",
+                  "gutterBottom": "MuiTypography-gutterBottom",
+                  "h1": "MuiTypography-h1",
+                  "h2": "MuiTypography-h2",
+                  "h3": "MuiTypography-h3",
+                  "h4": "MuiTypography-h4",
+                  "h5": "MuiTypography-h5",
+                  "h6": "MuiTypography-h6",
+                  "noWrap": "MuiTypography-noWrap",
+                  "overline": "MuiTypography-overline",
+                  "paragraph": "MuiTypography-paragraph",
+                  "root": "MuiTypography-root",
+                  "srOnly": "MuiTypography-srOnly",
+                  "subtitle1": "MuiTypography-subtitle1",
+                  "subtitle2": "MuiTypography-subtitle2",
                 }
+              }
+              variant="h5"
+            >
+              <h5
+                className="MuiTypography-root MuiTypography-h5"
               >
-                <WithStyles(ForwardRef(ButtonBase))
-                  className="MuiCardActionArea-root"
-                  focusVisibleClassName="Mui-focusVisible"
-                >
-                  <ForwardRef(ButtonBase)
-                    className="MuiCardActionArea-root"
-                    classes={
-                      Object {
-                        "disabled": "Mui-disabled",
-                        "focusVisible": "Mui-focusVisible",
-                        "root": "MuiButtonBase-root",
-                      }
-                    }
-                    focusVisibleClassName="Mui-focusVisible"
-                  >
-                    <button
-                      className="MuiButtonBase-root MuiCardActionArea-root"
-                      disabled={false}
-                      onBlur={[Function]}
-                      onDragLeave={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      onKeyUp={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      onTouchEnd={[Function]}
-                      onTouchMove={[Function]}
-                      onTouchStart={[Function]}
-                      tabIndex={0}
-                      type="button"
-                    >
-                      <WithStyles(ForwardRef(CardHeader))
-                        className="makeStyles-cardHeader-165"
-                        title="Film"
-                      >
-                        <ForwardRef(CardHeader)
-                          className="makeStyles-cardHeader-165"
-                          classes={
-                            Object {
-                              "action": "MuiCardHeader-action",
-                              "avatar": "MuiCardHeader-avatar",
-                              "content": "MuiCardHeader-content",
-                              "root": "MuiCardHeader-root",
-                              "subheader": "MuiCardHeader-subheader",
-                              "title": "MuiCardHeader-title",
-                            }
+                Film
+              </h5>
+            </ForwardRef(Typography)>
+          </WithStyles(ForwardRef(Typography))>
+          <WithStyles(ForwardRef(Typography))
+            className="makeStyles-filmInfo-177"
+          >
+            <ForwardRef(Typography)
+              className="makeStyles-filmInfo-177"
+              classes={
+                Object {
+                  "alignCenter": "MuiTypography-alignCenter",
+                  "alignJustify": "MuiTypography-alignJustify",
+                  "alignLeft": "MuiTypography-alignLeft",
+                  "alignRight": "MuiTypography-alignRight",
+                  "body1": "MuiTypography-body1",
+                  "body2": "MuiTypography-body2",
+                  "button": "MuiTypography-button",
+                  "caption": "MuiTypography-caption",
+                  "colorError": "MuiTypography-colorError",
+                  "colorInherit": "MuiTypography-colorInherit",
+                  "colorPrimary": "MuiTypography-colorPrimary",
+                  "colorSecondary": "MuiTypography-colorSecondary",
+                  "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                  "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                  "displayBlock": "MuiTypography-displayBlock",
+                  "displayInline": "MuiTypography-displayInline",
+                  "gutterBottom": "MuiTypography-gutterBottom",
+                  "h1": "MuiTypography-h1",
+                  "h2": "MuiTypography-h2",
+                  "h3": "MuiTypography-h3",
+                  "h4": "MuiTypography-h4",
+                  "h5": "MuiTypography-h5",
+                  "h6": "MuiTypography-h6",
+                  "noWrap": "MuiTypography-noWrap",
+                  "overline": "MuiTypography-overline",
+                  "paragraph": "MuiTypography-paragraph",
+                  "root": "MuiTypography-root",
+                  "srOnly": "MuiTypography-srOnly",
+                  "subtitle1": "MuiTypography-subtitle1",
+                  "subtitle2": "MuiTypography-subtitle2",
+                }
+              }
+            >
+              <p
+                className="MuiTypography-root makeStyles-filmInfo-177 MuiTypography-body1"
+              >
+                <span>
+                  By Film author
+                   
+                  - 
+                  1935
+                   - 
+                  <ForwardRef>
+                    <WithStyles(ForwardRef(SvgIcon))>
+                      <ForwardRef(SvgIcon)
+                        classes={
+                          Object {
+                            "colorAction": "MuiSvgIcon-colorAction",
+                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                            "colorError": "MuiSvgIcon-colorError",
+                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                            "root": "MuiSvgIcon-root",
                           }
-                          title="Film"
-                        >
-                          <div
-                            className="MuiCardHeader-root makeStyles-cardHeader-165"
-                          >
-                            <div
-                              className="MuiCardHeader-content"
-                            >
-                              <WithStyles(ForwardRef(Typography))
-                                className="MuiCardHeader-title"
-                                component="span"
-                                display="block"
-                                variant="h5"
-                              >
-                                <ForwardRef(Typography)
-                                  className="MuiCardHeader-title"
-                                  classes={
-                                    Object {
-                                      "alignCenter": "MuiTypography-alignCenter",
-                                      "alignJustify": "MuiTypography-alignJustify",
-                                      "alignLeft": "MuiTypography-alignLeft",
-                                      "alignRight": "MuiTypography-alignRight",
-                                      "body1": "MuiTypography-body1",
-                                      "body2": "MuiTypography-body2",
-                                      "button": "MuiTypography-button",
-                                      "caption": "MuiTypography-caption",
-                                      "colorError": "MuiTypography-colorError",
-                                      "colorInherit": "MuiTypography-colorInherit",
-                                      "colorPrimary": "MuiTypography-colorPrimary",
-                                      "colorSecondary": "MuiTypography-colorSecondary",
-                                      "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                                      "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                                      "displayBlock": "MuiTypography-displayBlock",
-                                      "displayInline": "MuiTypography-displayInline",
-                                      "gutterBottom": "MuiTypography-gutterBottom",
-                                      "h1": "MuiTypography-h1",
-                                      "h2": "MuiTypography-h2",
-                                      "h3": "MuiTypography-h3",
-                                      "h4": "MuiTypography-h4",
-                                      "h5": "MuiTypography-h5",
-                                      "h6": "MuiTypography-h6",
-                                      "noWrap": "MuiTypography-noWrap",
-                                      "overline": "MuiTypography-overline",
-                                      "paragraph": "MuiTypography-paragraph",
-                                      "root": "MuiTypography-root",
-                                      "srOnly": "MuiTypography-srOnly",
-                                      "subtitle1": "MuiTypography-subtitle1",
-                                      "subtitle2": "MuiTypography-subtitle2",
-                                    }
-                                  }
-                                  component="span"
-                                  display="block"
-                                  variant="h5"
-                                >
-                                  <span
-                                    className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-                                  >
-                                    Film
-                                  </span>
-                                </ForwardRef(Typography)>
-                              </WithStyles(ForwardRef(Typography))>
-                            </div>
-                          </div>
-                        </ForwardRef(CardHeader)>
-                      </WithStyles(ForwardRef(CardHeader))>
-                      <WithStyles(ForwardRef(CardMedia))
-                        className="makeStyles-media-166"
-                        image="https://archive.org/download/film-fixture/__ia_thumb.jpg"
-                        title="Film"
+                        }
                       >
-                        <ForwardRef(CardMedia)
-                          className="makeStyles-media-166"
-                          classes={
-                            Object {
-                              "img": "MuiCardMedia-img",
-                              "media": "MuiCardMedia-media",
-                              "root": "MuiCardMedia-root",
-                            }
-                          }
-                          image="https://archive.org/download/film-fixture/__ia_thumb.jpg"
-                          title="Film"
+                        <svg
+                          aria-hidden="true"
+                          className="MuiSvgIcon-root"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 24 24"
                         >
-                          <div
-                            className="MuiCardMedia-root makeStyles-media-166"
-                            style={
-                              Object {
-                                "backgroundImage": "url(\\"https://archive.org/download/film-fixture/__ia_thumb.jpg\\")",
-                              }
-                            }
-                            title="Film"
+                          <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                           />
-                        </ForwardRef(CardMedia)>
-                      </WithStyles(ForwardRef(CardMedia))>
-                      <span
-                        className="MuiCardActionArea-focusHighlight"
-                      />
-                      <NoSsr>
-                        <WithStyles(undefined)
-                          center={false}
-                        >
-                          <ForwardRef(TouchRipple)
-                            center={false}
-                            classes={
-                              Object {
-                                "child": "MuiTouchRipple-child",
-                                "childLeaving": "MuiTouchRipple-childLeaving",
-                                "childPulsate": "MuiTouchRipple-childPulsate",
-                                "ripple": "MuiTouchRipple-ripple",
-                                "ripplePulsate": "MuiTouchRipple-ripplePulsate",
-                                "rippleVisible": "MuiTouchRipple-rippleVisible",
-                                "root": "MuiTouchRipple-root",
-                              }
-                            }
-                          >
-                            <span
-                              className="MuiTouchRipple-root"
-                            >
-                              <TransitionGroup
-                                childFactory={[Function]}
-                                component={null}
-                                exit={true}
-                              />
-                            </span>
-                          </ForwardRef(TouchRipple)>
-                        </WithStyles(undefined)>
-                      </NoSsr>
-                    </button>
-                  </ForwardRef(ButtonBase)>
-                </WithStyles(ForwardRef(ButtonBase))>
-              </ForwardRef(CardActionArea)>
-            </WithStyles(ForwardRef(CardActionArea))>
-          </div>
-        </ForwardRef(Paper)>
-      </WithStyles(ForwardRef(Paper))>
-    </ForwardRef(Card)>
-  </WithStyles(ForwardRef(Card))>
+                          <path
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          />
+                        </svg>
+                      </ForwardRef(SvgIcon)>
+                    </WithStyles(ForwardRef(SvgIcon))>
+                  </ForwardRef>
+                  4.3
+                </span>
+              </p>
+            </ForwardRef(Typography)>
+          </WithStyles(ForwardRef(Typography))>
+          <WithStyles(ForwardRef(Typography))
+            variant="caption"
+          >
+            <ForwardRef(Typography)
+              classes={
+                Object {
+                  "alignCenter": "MuiTypography-alignCenter",
+                  "alignJustify": "MuiTypography-alignJustify",
+                  "alignLeft": "MuiTypography-alignLeft",
+                  "alignRight": "MuiTypography-alignRight",
+                  "body1": "MuiTypography-body1",
+                  "body2": "MuiTypography-body2",
+                  "button": "MuiTypography-button",
+                  "caption": "MuiTypography-caption",
+                  "colorError": "MuiTypography-colorError",
+                  "colorInherit": "MuiTypography-colorInherit",
+                  "colorPrimary": "MuiTypography-colorPrimary",
+                  "colorSecondary": "MuiTypography-colorSecondary",
+                  "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                  "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                  "displayBlock": "MuiTypography-displayBlock",
+                  "displayInline": "MuiTypography-displayInline",
+                  "gutterBottom": "MuiTypography-gutterBottom",
+                  "h1": "MuiTypography-h1",
+                  "h2": "MuiTypography-h2",
+                  "h3": "MuiTypography-h3",
+                  "h4": "MuiTypography-h4",
+                  "h5": "MuiTypography-h5",
+                  "h6": "MuiTypography-h6",
+                  "noWrap": "MuiTypography-noWrap",
+                  "overline": "MuiTypography-overline",
+                  "paragraph": "MuiTypography-paragraph",
+                  "root": "MuiTypography-root",
+                  "srOnly": "MuiTypography-srOnly",
+                  "subtitle1": "MuiTypography-subtitle1",
+                  "subtitle2": "MuiTypography-subtitle2",
+                }
+              }
+              variant="caption"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-caption"
+              >
+                A film fixture
+              </span>
+            </ForwardRef(Typography)>
+          </WithStyles(ForwardRef(Typography))>
+        </div>
+      </div>
+    </ForwardRef(Container)>
+  </WithStyles(ForwardRef(Container))>
 </Thumbnail>
 `;

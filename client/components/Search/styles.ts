@@ -4,52 +4,25 @@ export const useSearchStyles = makeStyles((theme) => ({
   snackbar: {
     bottom: theme.spacing(5),
     right: theme.spacing(5),
-    position: "absolute",
+    position: "fixed",
     width: "200px"
   },
   snackbarLoading: {
-    bottom: theme.spacing(12),
+    bottom: theme.spacing(5),
     right: theme.spacing(0),
-    position: "absolute",
+    position: "fixed",
     width: "200px"
   },
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    height: "100%"
-  },
   thumbsContainer: {
-    width: "100%",
+    overflow: "auto",
     position: "relative",
     display: "flex",
-    height: "100%",
+    width: "75%",
     alignItems: "center",
     flexDirection: "column",
     padding: theme.spacing(4),
     paddingBottom: 0,
-    overflowY: "scroll",
-    overflowX: "hidden",
-    paddingRight: "555px",
     zIndex: 1
-  },
-  filmContainer: {
-    flex: theme.spacing(2),
-    height: "100%",
-    overflowY: "auto",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  infoSidebar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: `${theme.spacing(4)}px 0`,
-    position: "sticky",
-    width: "200%",
-    top: 0,
-    zIndex: 1000,
-    height: "45px"
   }
 }));
 
@@ -97,7 +70,8 @@ export const useThumbnailStyles = makeStyles((theme) => ({
     transformOrigin: "0% 50%",
     transition: "transform 0.2s",
     "&:hover": {
-      transform: "scale(1.15)"
+      transform: "scale(1.15)",
+      backgroundColor: "rgba(255, 255, 255, 0.1)"
     }
   },
   content: {

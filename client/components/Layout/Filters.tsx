@@ -57,41 +57,43 @@ const Filters = (): ReactElement => {
   const debouncedMaxRating = useDebounce(maxRating, 500);
 
   useEffect(() => {
-    const timeout = setTimeout((): void => {
-      const queryParams = qs.stringify({
-        query: debouncedQueryField || undefined,
-        collections: debouncedCollections.length
-          ? debouncedCollections
-          : undefined,
-        startYear:
-          debouncedYearRange?.[0] === 1900 &&
-          debouncedYearRange?.[1] === moment().year()
-            ? undefined
-            : debouncedYearRange?.[0],
-        endYear:
-          debouncedYearRange?.[0] === 1900 &&
-          debouncedYearRange?.[1] === moment().year()
-            ? undefined
-            : debouncedYearRange?.[1],
-        minRating:
-          debouncedMinRating === 0 && debouncedMaxRating === 5
-            ? undefined
-            : debouncedMinRating,
-        maxRating:
-          debouncedMinRating === 0 && debouncedMaxRating === 5
-            ? undefined
-            : debouncedMaxRating
-      });
-
+    const queryParams = qs.stringify({
+      query: debouncedQueryField || undefined,
+      collections: debouncedCollections.length
+        ? debouncedCollections
+        : undefined,
+      startYear:
+        debouncedYearRange?.[0] === 1900 &&
+        debouncedYearRange?.[1] === moment().year()
+          ? undefined
+          : debouncedYearRange?.[0],
+      endYear:
+        debouncedYearRange?.[0] === 1900 &&
+        debouncedYearRange?.[1] === moment().year()
+          ? undefined
+          : debouncedYearRange?.[1],
+      minRating:
+        debouncedMinRating === 0 && debouncedMaxRating === 5
+          ? undefined
+          : debouncedMinRating,
+      maxRating:
+        debouncedMinRating === 0 && debouncedMaxRating === 5
+          ? undefined
+          : debouncedMaxRating
+    });
+    if (history.location.pathname === "/search" || debouncedQueryField) {
       history.push({
+        pathname: "/search",
         search: `?${queryParams}`
       });
-    }, 500);
-
-    return (): void => {
-      clearTimeout(timeout);
-    };
-  }, [queryField, yearRange, collections, minRating, maxRating]);
+    }
+  }, [
+    debouncedCollections,
+    debouncedMaxRating,
+    debouncedMinRating,
+    debouncedQueryField,
+    debouncedYearRange
+  ]);
 
   const resetFilter = (): void => {
     setqueryField("");
@@ -99,9 +101,6 @@ const Filters = (): ReactElement => {
     setcollections([]);
     setMinRating(0);
     setMaxRating(5);
-    history.push({
-      search: ""
-    });
   };
 
   return (
@@ -118,7 +117,7 @@ const Filters = (): ReactElement => {
       >
         <div>
           <InputBase
-            defaultValue={queryField}
+            value={queryField}
             aria-owns={showFilters ? "filter-popover" : undefined}
             aria-haspopup="true"
             onClick={(e): void => setShowFilters(e.currentTarget)}

@@ -4,10 +4,12 @@
  * These helper functions aim to address that and wrap a valid,
  * locale intl context around them of the language of your choice
  */
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import Adapter from "enzyme-adapter-react-16";
 import { configure, mount, ReactWrapper } from "enzyme";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core";
 
 import enTranslation from "../../translations/en.json";
 import frTranslation from "../../translations/fr.json";
@@ -19,12 +21,20 @@ const messages: Record<string, Record<string, string>> = {
   fr: frTranslation
 };
 
+const theme = createMuiTheme({});
+
+const WrappingComponents = ({ children, locale }: any): ReactElement => (
+  <IntlProvider locale={locale} messages={messages[locale]}>
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  </IntlProvider>
+);
+
 export const mountWithIntl = (
   node: ReactElement,
   locale: string
 ): ReactWrapper => {
   return mount(node, {
-    wrappingComponent: IntlProvider,
+    wrappingComponent: WrappingComponents,
     wrappingComponentProps: {
       messages: messages[locale],
       locale

@@ -4,7 +4,7 @@ import { Theme } from "@material-ui/core";
 const useStyles = makeStyles((theme: Theme) => ({
   containerRecommended: {
     borderLeft: "1px solid grey",
-    width: "30%",
+    width: "15%",
     height: "100%",
     [theme.breakpoints.down("md")]: {
       borderTop: "1px solid grey",

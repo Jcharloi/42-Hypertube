@@ -2,14 +2,11 @@ import React, { ReactElement, useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 
-import CircularProgress from "@material-ui/core/CircularProgress";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import Snackbar from "@material-ui/core/Snackbar";
-import Paper from "@material-ui/core/Paper";
 import InfiniteScroll from "react-infinite-scroller";
 
 import Thumbnail from "./Thumbnail";
-import Film from "./Movie";
 
 import useApi from "../../hooks/useApi";
 
@@ -22,7 +19,6 @@ const Search = (): ReactElement => {
   const history = useHistory();
   const location = useLocation();
   const { formatMessage: _t } = useIntl();
-  const [filmData, setFilmData] = useState(null);
   const [filmList, setFilmList] = useState([]);
   const [block, setBlock] = useState(false);
   const [page, setPage] = useState(1);
@@ -59,12 +55,11 @@ const Search = (): ReactElement => {
   }
 
   return (
-    <div className={classes.container}>
+    <>
       <div className={classes.thumbsContainer}>
         <InfiniteScroll
           initialLoad={false}
-          useWindow={false}
-          loadMore={false}
+          loadMore={loadMore}
           hasMore={!block && !loading && page * 10 < data.numFound}
         >
           {filmList.map((film) => (
@@ -86,7 +81,7 @@ const Search = (): ReactElement => {
       <Snackbar open={loading} className={classes.snackbarLoading}>
         <SnackbarContent message={_t({ id: "search.loading" })} />
       </Snackbar>
-    </div>
+    </>
   );
 };
 

@@ -39,6 +39,7 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <div className={classes.container}>
+        <div className={classes.background} />
         <TopMenu locale={locale} setLocale={setLocale} />
         <Box className={classes.bodyContainer}>{children}</Box>
       </div>
