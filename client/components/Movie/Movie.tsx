@@ -2,7 +2,7 @@
 import { useIntl } from "react-intl";
 import React, { ReactElement, useState, useEffect } from "react";
 
-import { useMediaQuery, Paper } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import useStyles from "./Movie.styles";
 
 import socket from "../../helpers/socket";
@@ -30,7 +30,6 @@ const Movie = (): ReactElement => {
     { id: "", name: "", date: null, stars: 0, body: "" }
   ]);
   const [dataDone, setDataDone] = useState(false);
-  const matches = useMediaQuery("(max-width:1200px)");
   const classes = useStyles({});
 
   useEffect(() => {
@@ -74,15 +73,11 @@ const Movie = (): ReactElement => {
   }, [loading, movieId]);
 
   return (
-    <div className={matches ? classes.rootResponsive : classes.root}>
+    <div className={classes.root}>
       {!dataDone ? (
         <Loading />
       ) : movieInfos.title ? (
-        <div
-          className={
-            matches ? classes.movieContainerResponsive : classes.movieContainer
-          }
-        >
+        <div className={classes.movieContainer}>
           <Paper className={classes.containerPresentation}>
             <div className={classes.containerMovie}>
               <div className={classes.movieTitleImage}>
@@ -134,17 +129,11 @@ const Movie = (): ReactElement => {
           />
         </div>
       ) : (
-        <div
-          className={
-            matches
-              ? classes.movieDoesNotExistsResponsive
-              : classes.movieDoesNotExists
-          }
-        >
+        <div className={classes.movieDoesNotExists}>
           {_t({ id: "movie.error.invalid" })}
         </div>
       )}
-      <RecommendedMovies matches={matches} />
+      <RecommendedMovies />
     </div>
   );
 };

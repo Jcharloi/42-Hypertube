@@ -1,15 +1,16 @@
 import { makeStyles } from "@material-ui/styles";
+import { Theme } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
-  root: {
-    border: "1px solid grey",
+const useStyles = makeStyles((theme: Theme) => ({
+  containerRecommended: {
+    borderLeft: "1px solid grey",
     width: "30%",
-    height: "100%"
-  },
-  rootResponsive: {
-    border: "1px solid grey",
-    width: "100%",
-    height: "70%"
+    height: "100%",
+    [theme.breakpoints.down("md")]: {
+      borderTop: "1px solid grey",
+      width: "100%",
+      height: "70%"
+    }
   }
 }));
 

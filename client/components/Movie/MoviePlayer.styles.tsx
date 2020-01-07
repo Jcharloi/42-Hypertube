@@ -2,13 +2,15 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   containerPlayer: {
+    marginTop: "5rem",
     display: "flex",
     justifyContent: "center",
     width: "100%",
     maxHeight: "30%"
   },
   player: {
-    width: "77%"
+    minWidth: "70%",
+    maxWidth: "70%"
   }
 }));
 
