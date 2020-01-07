@@ -17,6 +17,7 @@ import FourOhFour from "./FourOhFour";
 import SignIn from "./Authentication/SignIn";
 import SignUp from "./Authentication/SignUp";
 import ResetPassword from "./Authentication/ResetPassword";
+import Error from "./Error";
 
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
@@ -51,6 +52,7 @@ const App = (): ReactElement => {
             />
             <CustomRoute path="/search" component={Search} requireAuth />
             <CustomRoute path="/movie" component={Movie} requireAuth />
+            <Route exact path="/error" component={Error} requiredAuth />
             <Route exact path="/" component={Home} />
             <Route component={FourOhFour} />
           </Switch>

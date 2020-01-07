@@ -5,10 +5,10 @@ export const useLayoutStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     height: "100%",
-    border: "1px solid red",
     background:
       "no-repeat left bottom url('http://localhost:8080/public/wallpaper.png')",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    backgroundAttachment: "scroll"
   },
   bodyContainer: {
     height: "calc(100vh - 64px)"

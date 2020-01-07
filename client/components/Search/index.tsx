@@ -3,7 +3,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Typography from "@material-ui/core/Typography";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
+import Snackbar from "@material-ui/core/Snackbar";
 import Paper from "@material-ui/core/Paper";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -60,45 +61,31 @@ const Search = (): ReactElement => {
   return (
     <div className={classes.container}>
       <div className={classes.thumbsContainer}>
-        <Paper className={classes.infoSidebar}>
-          {loading ? (
-            <>
-              {_t({ id: "search.loading" })}
-              <CircularProgress />
-            </>
-          ) : (
-            <Typography>
-              {_t(
-                { id: "search.film_count" },
-                { count: Number(data.numFound || 0) }
-              )}
-            </Typography>
-          )}
-        </Paper>
         <InfiniteScroll
           initialLoad={false}
           useWindow={false}
-          loadMore={loadMore}
+          loadMore={false}
           hasMore={!block && !loading && page * 10 < data.numFound}
         >
           {filmList.map((film) => (
             <Thumbnail
               key={film.identifier}
               film={film}
-              onClick={(): void => setFilmData(film)}
+              onClick={(): void => history.push(`/movie/${film.identifier}`)}
             />
           ))}
         </InfiniteScroll>
       </div>
-      <div className={classes.filmContainer}>
-        {filmData ? (
-          <Film film={filmData} />
-        ) : (
-          <Typography variant="h2">
-            {_t({ id: "search.details_placeholder" })}
-          </Typography>
+      <SnackbarContent
+        className={classes.snackbar}
+        message={_t(
+          { id: "search.film_count" },
+          { count: Number(data.numFound || 0) }
         )}
-      </div>
+      />
+      <Snackbar open={loading} className={classes.snackbarLoading}>
+        <SnackbarContent message={_t({ id: "search.loading" })} />
+      </Snackbar>
     </div>
   );
 };

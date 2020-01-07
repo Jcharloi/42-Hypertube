@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
-    height: "150%",
+    height: "100%",
+    overflow: "auto",
     color: "#888888"
   },
   rootResponsive: {
