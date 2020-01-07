@@ -2,6 +2,8 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles(() => ({
   containerRatingAndComment: {
+    marginTop: "5rem",
+    marginBottom: "5rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

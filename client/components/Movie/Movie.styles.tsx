@@ -1,47 +1,33 @@
 import { makeStyles } from "@material-ui/styles";
+import { Theme } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
     height: "100%",
-    overflow: "auto",
-    color: "#888888"
-  },
-  rootResponsive: {
-    display: "flex",
-    flexDirection: "column",
-    height: "200%",
-    color: "#888888"
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column"
+    }
   },
   movieDoesNotExists: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "70%"
-  },
-  movieDoesNotExistsResponsive: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    height: "50%"
+    width: "70%",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      height: "50%"
+    }
   },
   movieContainer: {
     width: "70%",
-    border: "1px solid yellow",
+    overflowX: "hidden",
     display: "flex",
-    justifyContent: "space-evenly",
     alignItems: "center",
-    flexDirection: "column"
-  },
-  movieContainerResponsive: {
-    width: "100%",
-    height: "100%",
-    border: "1px solid yellow",
-    display: "flex",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    [theme.breakpoints.down("md")]: {
+      width: "100%"
+    }
   },
   movieTitleImage: {
     display: "flex",
@@ -51,6 +37,7 @@ const useStyles = makeStyles(() => ({
     marginBottom: "1rem"
   },
   containerPresentation: {
+    marginTop: "5rem",
     borderRadius: "4px",
     maxWidth: "60%",
     minWidth: "60%",

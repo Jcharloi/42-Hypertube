@@ -2,14 +2,11 @@ import React, { ReactElement } from "react";
 
 import useStyles from "./MovieRecommended.styles";
 
-interface Props {
-  matches: boolean;
-}
-
-const RecommendedMovies = ({ matches }: Props): ReactElement => {
+const RecommendedMovies = (): ReactElement => {
   const classes = useStyles({});
+
   return (
-    <div className={matches ? classes.rootResponsive : classes.root}>
+    <div className={classes.containerRecommended}>
       Ceci est une liste de films inspirés de la search
     </div>
   );
