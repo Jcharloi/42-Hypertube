@@ -42,9 +42,17 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     flexDirection: "column"
   },
+  movieTitleImage: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "90%",
+    marginBottom: "1rem"
+  },
   containerPresentation: {
     borderRadius: "4px",
     maxWidth: "60%",
+    minWidth: "60%",
     padding: "2rem"
   },
   containerMovie: {

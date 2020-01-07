@@ -62464,7 +62464,7 @@ exports[`Search search en renders correctly 1`] = `
           <h2
             className="MuiTypography-root MuiTypography-h2"
           >
-            Select a film to view its description.
+            Select a film to view its description
           </h2>
         </ForwardRef(Typography)>
       </WithStyles(ForwardRef(Typography))>
@@ -62631,7 +62631,7 @@ exports[`Search search fr renders correctly 1`] = `
           <h2
             className="MuiTypography-root MuiTypography-h2"
           >
-            Choisissez un film pour voir sa description.
+            Choisissez un film pour voir sa description
           </h2>
         </ForwardRef(Typography)>
       </WithStyles(ForwardRef(Typography))>

@@ -1,22 +1,28 @@
 import React, { ReactElement } from "react";
 
+import useStyles from "./MoviePlayer.styles";
+
 interface Props {
+  movieId: string;
   source: string;
 }
 
-const MoviePlayer = ({ source }: Props): ReactElement => {
+const MoviePlayer = ({ movieId, source }: Props): ReactElement => {
+  const classes = useStyles({});
+
   return (
     <>
-      <div className="container">
+      <div className={classes.containerPlayer}>
         <video
           controls
           //   crossOrigin
           playsInline
-          poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+          poster={`http://archive.org/19/items/${movieId}/__ia_thumb.jpg`}
           id="player"
+          className={classes.player}
         >
           <source
-            src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+            src={`http://archive.org/19/items/${movieId}/${source}`}
             // type="video/mp4"
           />
           <track
