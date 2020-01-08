@@ -6,7 +6,8 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     width: "100%",
-    maxHeight: "30%"
+    maxHeight: "50%",
+    minHeight: "50%"
   },
   player: {
     minWidth: "70%",

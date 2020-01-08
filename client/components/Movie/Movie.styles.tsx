@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme: Theme) =>
     containerPresentation: {
       marginTop: "5rem",
       borderRadius: "4px",
-      maxWidth: "60%",
-      minWidth: "60%",
+      maxWidth: "50%",
+      minWidth: "50%",
       padding: "2rem"
     },
     containerMovie: {
@@ -61,7 +61,8 @@ const useStyles = makeStyles((theme: Theme) =>
       overflowX: "hidden",
       marginBottom: "1rem",
       paddingRight: "1rem",
-      fontSize: "1rem"
+      fontSize: "1rem",
+      maxWidth: "95%"
     }
   })
 );

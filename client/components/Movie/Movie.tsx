@@ -35,13 +35,12 @@ const Movie = (): ReactElement => {
   useEffect(() => {
     const initComments = (reviewReceived: Review): void => {
       let totalStars = reviewReceived.stars;
-      let reviewsLength: number;
+      let reviewsLength = 1;
       setReviews((reviewsHook) => {
-        totalStars = reviewsHook.reduce(
-          (acc, review) => acc + review.stars,
-          reviewReceived.stars
-        );
-        reviewsLength = reviewsHook.length + 1;
+        totalStars = reviewsHook.reduce((acc, review) => {
+          if (review.stars > 0) reviewsLength += 1;
+          return acc + review.stars;
+        }, reviewReceived.stars);
         return [...reviewsHook, reviewReceived];
       });
       setMovieInfos((movieInfosHook) => {
