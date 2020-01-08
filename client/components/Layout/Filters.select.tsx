@@ -32,6 +32,7 @@ const FiltersSelect = ({
       multiple
       value={collections || []}
       className={classes.collectionsSelectComponent}
+      id="menuitem-main"
     >
       <MenuItem value="" disabled id="menuitem-default">
         {_t({ id: "layout.filters.select_collection" })}

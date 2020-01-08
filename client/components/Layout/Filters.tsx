@@ -110,6 +110,7 @@ const Filters = (): ReactElement => {
           const {
             target: { id }
           } = (e as unknown) as ClickAwayEventTarget;
+          console.log("clickaway", e);
           if (!String(id).includes("menuitem")) {
             setShowFilters(undefined);
           }

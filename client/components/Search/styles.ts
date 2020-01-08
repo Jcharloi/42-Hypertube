@@ -14,20 +14,20 @@ export const useSearchStyles = makeStyles((theme) => ({
     width: "200px"
   },
   thumbsContainer: {
+    border: "3px solid red",
     overflow: "auto",
     position: "relative",
     display: "flex",
-    width: "75%",
     alignItems: "center",
-    flexDirection: "column",
     padding: theme.spacing(4),
     paddingBottom: 0,
-    zIndex: 1
+    zIndex: 0
   }
 }));
 
 export const useFilmStyles = makeStyles((theme) => ({
   container: {
+    height: "100%",
     width: "100%",
     display: "flex",
     flexDirection: "column",

@@ -10,7 +10,7 @@ import frTranslation from "../translations/fr.json";
 
 import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
-import Home from "./Home/Home";
+import Home from "./Home";
 import Movie from "./Movie/Movie";
 import Search from "./Search";
 import FourOhFour from "./FourOhFour";

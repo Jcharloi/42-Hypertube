@@ -12,7 +12,8 @@ export const useLayoutStyles = makeStyles(() => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "bottom left",
     backgroundAttachment: "fixed",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    zIndex: -3
   },
   container: {
     display: "flex",
