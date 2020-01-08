@@ -115,6 +115,7 @@
     "react-router-dom": "^5.1.2",
     "react-scroll": "^1.7.14",
     "react-test-renderer": "^16.12.0",
+    "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",

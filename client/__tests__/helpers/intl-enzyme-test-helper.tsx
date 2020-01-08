@@ -16,6 +16,11 @@ import frTranslation from "../../translations/fr.json";
 
 configure({ adapter: new Adapter() });
 
+interface Props {
+  children: ReactElement;
+  locale: string;
+}
+
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
   fr: frTranslation
@@ -23,7 +28,7 @@ const messages: Record<string, Record<string, string>> = {
 
 const theme = createMuiTheme({});
 
-const WrappingComponents = ({ children, locale }: any): ReactElement => (
+const WrappingComponents = ({ children, locale }: Props): ReactElement => (
   <IntlProvider locale={locale} messages={messages[locale]}>
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </IntlProvider>
