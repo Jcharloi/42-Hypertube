@@ -743,14 +743,13 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
             "elevation7": "MuiPaper-elevation7",
             "elevation8": "MuiPaper-elevation8",
             "elevation9": "MuiPaper-elevation9",
-            "outlined": "MuiPaper-outlined",
             "root": "MuiPaper-root",
             "rounded": "MuiPaper-rounded",
           }
         }
       >
         <div
-          className="MuiPaper-root makeStyles-containerComment-128 MuiPaper-elevation1 MuiPaper-rounded"
+          className="MuiPaper-root MuiPaper-elevation1 makeStyles-containerComment-128 MuiPaper-rounded"
         >
           <div
             className="makeStyles-containerPeople-129"
@@ -1259,7 +1258,6 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                               "inputMarginDense": "MuiInput-inputMarginDense",
                               "inputMultiline": "MuiInput-inputMultiline",
                               "inputTypeSearch": "MuiInput-inputTypeSearch",
-                              "marginDense": "MuiInput-marginDense",
                               "multiline": "MuiInput-multiline",
                               "root": "MuiInput-root",
                               "underline": "MuiInput-underline",
@@ -1296,7 +1294,6 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                                 "inputMarginDense": "MuiInput-inputMarginDense",
                                 "inputMultiline": "MuiInput-inputMultiline",
                                 "inputTypeSearch": "MuiInput-inputTypeSearch",
-                                "marginDense": "MuiInput-marginDense",
                                 "multiline": "MuiInput-multiline",
                                 "root": "MuiInput-root MuiInput-underline",
                                 "underline": null,
@@ -1339,8 +1336,9 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                                   "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
                                   "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
                                   "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
+                                  "inputSelect": "MuiInputBase-inputSelect",
                                   "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
-                                  "marginDense": "MuiInputBase-marginDense MuiInput-marginDense",
+                                  "marginDense": "MuiInputBase-marginDense",
                                   "multiline": "MuiInputBase-multiline MuiInput-multiline",
                                   "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
                                 }
@@ -1894,7 +1892,6 @@ exports[`Movie should renders <MovieComments> in english 1`] = `
                       "containedSecondary": "MuiButton-containedSecondary",
                       "containedSizeLarge": "MuiButton-containedSizeLarge",
                       "containedSizeSmall": "MuiButton-containedSizeSmall",
-                      "disableElevation": "MuiButton-disableElevation",
                       "disabled": "Mui-disabled",
                       "endIcon": "MuiButton-endIcon",
                       "focusVisible": "Mui-focusVisible",
@@ -2039,7 +2036,7 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
       component="fieldset"
     >
       <fieldset
-        className="MuiBox-root MuiBox-root-301"
+        className="MuiBox-root MuiBox-root-299"
       >
         <div
           className="makeStyles-movieRating-126"
@@ -2358,14 +2355,13 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
             "elevation7": "MuiPaper-elevation7",
             "elevation8": "MuiPaper-elevation8",
             "elevation9": "MuiPaper-elevation9",
-            "outlined": "MuiPaper-outlined",
             "root": "MuiPaper-root",
             "rounded": "MuiPaper-rounded",
           }
         }
       >
         <div
-          className="MuiPaper-root makeStyles-containerComment-128 MuiPaper-elevation1 MuiPaper-rounded"
+          className="MuiPaper-root MuiPaper-elevation1 makeStyles-containerComment-128 MuiPaper-rounded"
         >
           <div
             className="makeStyles-containerPeople-129"
@@ -2874,7 +2870,6 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                               "inputMarginDense": "MuiInput-inputMarginDense",
                               "inputMultiline": "MuiInput-inputMultiline",
                               "inputTypeSearch": "MuiInput-inputTypeSearch",
-                              "marginDense": "MuiInput-marginDense",
                               "multiline": "MuiInput-multiline",
                               "root": "MuiInput-root",
                               "underline": "MuiInput-underline",
@@ -2911,7 +2906,6 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                                 "inputMarginDense": "MuiInput-inputMarginDense",
                                 "inputMultiline": "MuiInput-inputMultiline",
                                 "inputTypeSearch": "MuiInput-inputTypeSearch",
-                                "marginDense": "MuiInput-marginDense",
                                 "multiline": "MuiInput-multiline",
                                 "root": "MuiInput-root MuiInput-underline",
                                 "underline": null,
@@ -2954,8 +2948,9 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                                   "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
                                   "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
                                   "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
+                                  "inputSelect": "MuiInputBase-inputSelect",
                                   "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
-                                  "marginDense": "MuiInputBase-marginDense MuiInput-marginDense",
+                                  "marginDense": "MuiInputBase-marginDense",
                                   "multiline": "MuiInputBase-multiline MuiInput-multiline",
                                   "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
                                 }
@@ -3509,7 +3504,6 @@ exports[`Movie should renders <MovieComments> in french 1`] = `
                       "containedSecondary": "MuiButton-containedSecondary",
                       "containedSizeLarge": "MuiButton-containedSizeLarge",
                       "containedSizeSmall": "MuiButton-containedSizeSmall",
-                      "disableElevation": "MuiButton-disableElevation",
                       "disabled": "Mui-disabled",
                       "endIcon": "MuiButton-endIcon",
                       "focusVisible": "Mui-focusVisible",
