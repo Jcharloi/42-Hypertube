@@ -1,7 +1,26 @@
+import fs from "fs";
+import request from "request";
+
 import MovieCommentModel from "../Schemas/Movie";
 
 const timestampToDate = (month, day, year) => {
   return `${month}, ${day}, ${year}`;
+};
+
+const findReviews = async (movieId) => {
+  try {
+    const reviews = await MovieCommentModel.find({ movieId });
+    const ourReviews = [];
+    if (reviews.length > 0) {
+      reviews.forEach(({ _id, name, date, stars, body }) => {
+        ourReviews.push({ id: _id, name, date, stars, body });
+      });
+    }
+    return ourReviews;
+  } catch (e) {
+    console.error(e.message);
+    return e.message;
+  }
 };
 
 const sortReviews = (reviews, ourReviews) => {
@@ -21,20 +40,30 @@ const sortReviews = (reviews, ourReviews) => {
   return copyReviews;
 };
 
-const findReviews = async (movieId) => {
-  try {
-    const reviews = await MovieCommentModel.find({ movieId });
-    const ourReviews = [];
-    if (reviews.length > 0) {
-      reviews.forEach(({ _id, name, date, stars, body }) => {
-        ourReviews.push({ id: _id, name, date, stars, body });
-      });
+const createMovieFile = (url, dest, cb) => {
+  const file = fs.createWriteStream(dest);
+  const sendReq = request.get(url);
+  // Check request errors and status
+  sendReq.on("response", (response) => {
+    if (response.statusCode !== 200) {
+      return cb(`Response status was ${response.statusCode}`);
     }
-    return ourReviews;
-  } catch (e) {
-    console.error(e.message);
-    return e.message;
-  }
+    return 1;
+  });
+  sendReq.on("error", (err) => {
+    fs.unlink(dest);
+    cb(err.message);
+  });
+  // Write the video into the file
+  sendReq.pipe(file);
+  // Check writing errors and finish
+  file.on("finish", () => {
+    file.close(cb);
+  });
+  file.on("error", (err) => {
+    fs.unlink(dest);
+    cb(err.message);
+  });
 };
 
 const saveReview = async (comment) => {
@@ -54,4 +83,10 @@ const saveReview = async (comment) => {
   }
 };
 
-export default { timestampToDate, saveReview, sortReviews, findReviews };
+export default {
+  timestampToDate,
+  findReviews,
+  sortReviews,
+  createMovieFile,
+  saveReview
+};

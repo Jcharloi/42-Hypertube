@@ -2,13 +2,21 @@ import React, { ReactElement } from "react";
 
 import useStyles from "./MoviePlayer.styles";
 
+import API from "../../util/api";
+
 interface Props {
   movieId: string;
-  source: string;
+  extension: string;
 }
 
-const MoviePlayer = ({ movieId, source }: Props): ReactElement => {
+const MoviePlayer = ({ movieId, extension }: Props): ReactElement => {
   const classes = useStyles({});
+
+  const downloadMovie = (): void => {
+    API.get(`/movie/download/${movieId}`).catch((e) => {
+      console.log(e);
+    });
+  };
 
   return (
     <>
@@ -20,10 +28,11 @@ const MoviePlayer = ({ movieId, source }: Props): ReactElement => {
           poster={`http://archive.org/19/items/${movieId}/__ia_thumb.jpg`}
           id="player"
           className={classes.player}
+          onClick={downloadMovie}
         >
           <source
-            src={`http://archive.org/19/items/${movieId}/${source}`}
-            // type="video/mp4"
+            src={`http://localhost:8080/api/movie/streaming/${movieId}.${extension}`}
+            type={`video/${extension}`}
           />
           <track
             kind="captions"

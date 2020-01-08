@@ -35,11 +35,7 @@ const getInfos = (req, res) => {
             data.reviews && data.reviews.length > 0
               ? Math.floor(totalStars / reviewsLength)
               : null,
-          source: data.files.find(
-            ({ name }) =>
-              name.split(".")[name.split(".").length - 1] === "mp4" ||
-              name.split(".")[name.split(".").length - 1] === "webm"
-          ).name
+          extension: "mp4"
         };
         const ourReviews = await movieHelpers.findReviews(req.params.id);
         if (typeof ourReviews !== "string") {
@@ -48,6 +44,39 @@ const getInfos = (req, res) => {
         } else {
           res.sendStatus(500);
         }
+      } else {
+        res.sendStatus(500);
+      }
+    })
+    .catch((e) => {
+      console.error(e.message);
+      res.sendStatus(500);
+    });
+};
+
+const downloadVideo = (req, res) => {
+  const movieId = req.params.id;
+  Axios.get(`https://archive.org/metadata/${movieId}`)
+    .then(({ data }) => {
+      if (Object.values(data).length > 0) {
+        const extension = "mp4";
+        const url = `http://archive.org${data.dir}/${
+          data.files.find(
+            ({ name }) =>
+              name.split(".")[name.split(".").length - 1] === "mp4" ||
+              name.split(".")[name.split(".").length - 1] === "webm"
+          ).name
+        }`;
+        // console.log("URL : ", url);
+        const dest = `./server/data/movie/${movieId}.${extension}`;
+        movieHelpers.createMovieFile(url, dest, (err) => {
+          if (err) {
+            console.error(err);
+            res.sendStatus(500);
+          } else {
+            res.sendStatus(200);
+          }
+        });
       } else {
         res.sendStatus(500);
       }
@@ -97,4 +126,4 @@ const receiveReviews = (req, res) => {
     });
 };
 
-export default { receiveReviews, getInfos };
+export default { getInfos, downloadVideo, receiveReviews };
