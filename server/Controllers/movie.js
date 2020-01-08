@@ -11,9 +11,11 @@ const getInfos = (req, res) => {
       if (Object.values(data).length > 0) {
         let totalStars = 0;
         let reviews = [];
+        let reviewsLength = 0;
         if (data.reviews) {
           data.reviews.forEach((review) => {
             totalStars += parseInt(review.stars, 10);
+            if (review.stars > 0) reviewsLength += 1;
             reviews.push({
               id: Date.parse(review.createdate),
               name: review.reviewer,
@@ -31,7 +33,7 @@ const getInfos = (req, res) => {
           runTime: data.metadata.ia_orig__runtime,
           stars:
             data.reviews && data.reviews.length > 0
-              ? Math.floor(totalStars / data.reviews.length)
+              ? Math.floor(totalStars / reviewsLength)
               : null,
           source: data.files.find(
             ({ name }) =>
