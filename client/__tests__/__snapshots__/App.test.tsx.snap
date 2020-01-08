@@ -185,12 +185,6 @@ exports[`App renders correctly 1`] = `
                   "A400": "#303030",
                   "A700": "#616161",
                 },
-                "info": Object {
-                  "contrastText": "#fff",
-                  "dark": "#1976d2",
-                  "light": "#64b5f6",
-                  "main": "#2196f3",
-                },
                 "primary": Object {
                   "contrastText": "#000000",
                   "dark": "rgb(142, 145, 148)",
@@ -203,12 +197,6 @@ exports[`App renders correctly 1`] = `
                   "light": "rgb(128, 128, 128)",
                   "main": "#616161",
                 },
-                "success": Object {
-                  "contrastText": "rgba(0, 0, 0, 0.87)",
-                  "dark": "#388e3c",
-                  "light": "#81c784",
-                  "main": "#4caf50",
-                },
                 "text": Object {
                   "disabled": "rgba(0, 0, 0, 0.38)",
                   "hint": "rgba(0, 0, 0, 0.38)",
@@ -217,12 +205,6 @@ exports[`App renders correctly 1`] = `
                 },
                 "tonalOffset": 0.2,
                 "type": "light",
-                "warning": Object {
-                  "contrastText": "rgba(0, 0, 0, 0.87)",
-                  "dark": "#f57c00",
-                  "light": "#ffb74d",
-                  "main": "#ff9800",
-                },
               },
               "props": Object {},
               "shadows": Array [
@@ -316,35 +298,35 @@ exports[`App renders correctly 1`] = `
                   "fontSize": "6rem",
                   "fontWeight": 300,
                   "letterSpacing": "-0.01562em",
-                  "lineHeight": 1.167,
+                  "lineHeight": 1,
                 },
                 "h2": Object {
                   "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
                   "fontSize": "3.75rem",
                   "fontWeight": 300,
                   "letterSpacing": "-0.00833em",
-                  "lineHeight": 1.2,
+                  "lineHeight": 1,
                 },
                 "h3": Object {
                   "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
                   "fontSize": "3rem",
                   "fontWeight": 400,
                   "letterSpacing": "0em",
-                  "lineHeight": 1.167,
+                  "lineHeight": 1.04,
                 },
                 "h4": Object {
                   "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
                   "fontSize": "2.125rem",
                   "fontWeight": 400,
                   "letterSpacing": "0.00735em",
-                  "lineHeight": 1.235,
+                  "lineHeight": 1.17,
                 },
                 "h5": Object {
                   "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
                   "fontSize": "1.5rem",
                   "fontWeight": 400,
                   "letterSpacing": "0em",
-                  "lineHeight": 1.334,
+                  "lineHeight": 1.33,
                 },
                 "h6": Object {
                   "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
@@ -462,7 +444,6 @@ exports[`App renders correctly 1`] = `
                             "elevation7": "MuiPaper-elevation7",
                             "elevation8": "MuiPaper-elevation8",
                             "elevation9": "MuiPaper-elevation9",
-                            "outlined": "MuiPaper-outlined",
                             "root": "MuiPaper-root",
                             "rounded": "MuiPaper-rounded",
                           }
@@ -472,7 +453,7 @@ exports[`App renders correctly 1`] = `
                         square={true}
                       >
                         <header
-                          className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic makeStyles-appBar-4 MuiAppBar-colorPrimary MuiPaper-elevation4"
+                          className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic makeStyles-appBar-4 MuiAppBar-colorPrimary"
                         >
                           <WithStyles(ForwardRef(Toolbar))>
                             <ForwardRef(Toolbar)
@@ -556,7 +537,7 @@ exports[`App renders correctly 1`] = `
                                         <div>
                                           <WithStyles(ForwardRef(InputBase))
                                             aria-haspopup="true"
-                                            className="makeStyles-input-92"
+                                            className="makeStyles-input-91"
                                             inputProps={
                                               Object {
                                                 "aria-label": "search",
@@ -576,7 +557,7 @@ exports[`App renders correctly 1`] = `
                                           >
                                             <ForwardRef(InputBase)
                                               aria-haspopup="true"
-                                              className="makeStyles-input-92"
+                                              className="makeStyles-input-91"
                                               classes={
                                                 Object {
                                                   "adornedEnd": "MuiInputBase-adornedEnd",
@@ -593,6 +574,7 @@ exports[`App renders correctly 1`] = `
                                                   "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
                                                   "inputMarginDense": "MuiInputBase-inputMarginDense",
                                                   "inputMultiline": "MuiInputBase-inputMultiline",
+                                                  "inputSelect": "MuiInputBase-inputSelect",
                                                   "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                   "marginDense": "MuiInputBase-marginDense",
                                                   "multiline": "MuiInputBase-multiline",
@@ -618,7 +600,7 @@ exports[`App renders correctly 1`] = `
                                             >
                                               <div
                                                 aria-haspopup="true"
-                                                className="MuiInputBase-root makeStyles-input-92 MuiInputBase-adornedStart"
+                                                className="MuiInputBase-root makeStyles-input-91 MuiInputBase-adornedStart"
                                                 onClick={[Function]}
                                               >
                                                 <WithStyles(ForwardRef(InputAdornment))
@@ -726,7 +708,6 @@ exports[`App renders correctly 1`] = `
                                               "containedSecondary": "MuiButton-containedSecondary",
                                               "containedSizeLarge": "MuiButton-containedSizeLarge",
                                               "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                              "disableElevation": "MuiButton-disableElevation",
                                               "disabled": "Mui-disabled",
                                               "endIcon": "MuiButton-endIcon",
                                               "focusVisible": "Mui-focusVisible",
@@ -961,7 +942,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -1021,7 +1002,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -1081,7 +1062,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -1149,7 +1130,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -1296,7 +1277,6 @@ exports[`App renders correctly 1`] = `
                                                                     "elevation7": "MuiPaper-elevation7",
                                                                     "elevation8": "MuiPaper-elevation8",
                                                                     "elevation9": "MuiPaper-elevation9",
-                                                                    "outlined": "MuiPaper-outlined",
                                                                     "root": "MuiPaper-root MuiMenu-paper",
                                                                     "rounded": "MuiPaper-rounded",
                                                                   }
@@ -1312,7 +1292,7 @@ exports[`App renders correctly 1`] = `
                                                                 tabIndex="-1"
                                                               >
                                                                 <div
-                                                                  className="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                                  className="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                                   style={
                                                                     Object {
                                                                       "opacity": 0,
@@ -1846,7 +1826,6 @@ exports[`App renders correctly 1`] = `
                                               "containedSecondary": "MuiButton-containedSecondary",
                                               "containedSizeLarge": "MuiButton-containedSizeLarge",
                                               "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                              "disableElevation": "MuiButton-disableElevation",
                                               "disabled": "Mui-disabled",
                                               "endIcon": "MuiButton-endIcon",
                                               "focusVisible": "Mui-focusVisible",
@@ -2081,7 +2060,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -2141,7 +2120,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -2201,7 +2180,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -2269,7 +2248,7 @@ exports[`App renders correctly 1`] = `
                                                             tabindex="0"
                                                           />
                                                           <div
-                                                            class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                            class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                             style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                                             tabindex="-1"
                                                           >
@@ -2416,7 +2395,6 @@ exports[`App renders correctly 1`] = `
                                                                     "elevation7": "MuiPaper-elevation7",
                                                                     "elevation8": "MuiPaper-elevation8",
                                                                     "elevation9": "MuiPaper-elevation9",
-                                                                    "outlined": "MuiPaper-outlined",
                                                                     "root": "MuiPaper-root MuiMenu-paper",
                                                                     "rounded": "MuiPaper-rounded",
                                                                   }
@@ -2432,7 +2410,7 @@ exports[`App renders correctly 1`] = `
                                                                 tabIndex="-1"
                                                               >
                                                                 <div
-                                                                  className="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                                  className="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                                                   style={
                                                                     Object {
                                                                       "opacity": 0,
@@ -3086,7 +3064,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -3146,7 +3124,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -3206,7 +3184,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -3274,7 +3252,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -3421,7 +3399,6 @@ exports[`App renders correctly 1`] = `
                                               "elevation7": "MuiPaper-elevation7",
                                               "elevation8": "MuiPaper-elevation8",
                                               "elevation9": "MuiPaper-elevation9",
-                                              "outlined": "MuiPaper-outlined",
                                               "root": "MuiPaper-root MuiMenu-paper",
                                               "rounded": "MuiPaper-rounded",
                                             }
@@ -3437,7 +3414,7 @@ exports[`App renders correctly 1`] = `
                                           tabIndex="-1"
                                         >
                                           <div
-                                            className="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                            className="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                             style={
                                               Object {
                                                 "opacity": 0,
@@ -3928,7 +3905,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -3988,7 +3965,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -4048,7 +4025,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -4116,7 +4093,7 @@ exports[`App renders correctly 1`] = `
                                       tabindex="0"
                                     />
                                     <div
-                                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
                                       tabindex="-1"
                                     >
@@ -4263,7 +4240,6 @@ exports[`App renders correctly 1`] = `
                                               "elevation7": "MuiPaper-elevation7",
                                               "elevation8": "MuiPaper-elevation8",
                                               "elevation9": "MuiPaper-elevation9",
-                                              "outlined": "MuiPaper-outlined",
                                               "root": "MuiPaper-root MuiMenu-paper",
                                               "rounded": "MuiPaper-rounded",
                                             }
@@ -4279,7 +4255,7 @@ exports[`App renders correctly 1`] = `
                                           tabIndex="-1"
                                         >
                                           <div
-                                            className="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                            className="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
                                             style={
                                               Object {
                                                 "opacity": 0,
@@ -4627,7 +4603,7 @@ exports[`App renders correctly 1`] = `
               className="makeStyles-bodyContainer-3"
             >
               <div
-                className="MuiBox-root MuiBox-root-178 makeStyles-bodyContainer-3"
+                className="MuiBox-root MuiBox-root-177 makeStyles-bodyContainer-3"
               >
                 <Switch>
                   <Route
@@ -4691,13 +4667,13 @@ exports[`App renders correctly 1`] = `
                     >
                       <SignUp>
                         <div
-                          className="makeStyles-page-179"
+                          className="makeStyles-page-178"
                         >
                           <WithStyles(ForwardRef(Paper))
-                            className="makeStyles-paper-180"
+                            className="makeStyles-paper-179"
                           >
                             <ForwardRef(Paper)
-                              className="makeStyles-paper-180"
+                              className="makeStyles-paper-179"
                               classes={
                                 Object {
                                   "elevation0": "MuiPaper-elevation0",
@@ -4725,14 +4701,13 @@ exports[`App renders correctly 1`] = `
                                   "elevation7": "MuiPaper-elevation7",
                                   "elevation8": "MuiPaper-elevation8",
                                   "elevation9": "MuiPaper-elevation9",
-                                  "outlined": "MuiPaper-outlined",
                                   "root": "MuiPaper-root",
                                   "rounded": "MuiPaper-rounded",
                                 }
                               }
                             >
                               <div
-                                className="MuiPaper-root makeStyles-paper-180 MuiPaper-elevation1 MuiPaper-rounded"
+                                className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-179 MuiPaper-rounded"
                               >
                                 <WithStyles(ForwardRef(Grid))
                                   alignItems="center"
@@ -4857,13 +4832,13 @@ exports[`App renders correctly 1`] = `
                                       <div>
                                         <WithStyles(ForwardRef(Grid))
                                           alignItems="center"
-                                          className="makeStyles-titles-181"
+                                          className="makeStyles-titles-180"
                                           container={true}
                                           direction="column"
                                         >
                                           <ForwardRef(Grid)
                                             alignItems="center"
-                                            className="makeStyles-titles-181"
+                                            className="makeStyles-titles-180"
                                             classes={
                                               Object {
                                                 "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -4975,7 +4950,7 @@ exports[`App renders correctly 1`] = `
                                             direction="column"
                                           >
                                             <div
-                                              className="MuiGrid-root makeStyles-titles-181 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+                                              className="MuiGrid-root makeStyles-titles-180 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                                             >
                                               <WithStyles(ForwardRef(Grid))
                                                 item={true}
@@ -5153,11 +5128,11 @@ exports[`App renders correctly 1`] = `
                                                 </ForwardRef(Grid)>
                                               </WithStyles(ForwardRef(Grid))>
                                               <WithStyles(ForwardRef(Grid))
-                                                className="makeStyles-subtitle-182"
+                                                className="makeStyles-subtitle-181"
                                                 item={true}
                                               >
                                                 <ForwardRef(Grid)
-                                                  className="makeStyles-subtitle-182"
+                                                  className="makeStyles-subtitle-181"
                                                   classes={
                                                     Object {
                                                       "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -5268,7 +5243,7 @@ exports[`App renders correctly 1`] = `
                                                   item={true}
                                                 >
                                                   <div
-                                                    className="MuiGrid-root makeStyles-subtitle-182 MuiGrid-item"
+                                                    className="MuiGrid-root makeStyles-subtitle-181 MuiGrid-item"
                                                   >
                                                     <WithStyles(ForwardRef(Typography))
                                                       align="center"
@@ -5481,11 +5456,11 @@ exports[`App renders correctly 1`] = `
                                                   className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                                                 >
                                                   <WithStyles(ForwardRef(Grid))
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     item={true}
                                                   >
                                                     <ForwardRef(Grid)
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -5596,11 +5571,11 @@ exports[`App renders correctly 1`] = `
                                                       item={true}
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-item"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-item"
                                                       >
                                                         <WithStyles(ForwardRef(TextField))
                                                           autoFocus={true}
-                                                          className="makeStyles-textInput-290"
+                                                          className="makeStyles-textInput-289"
                                                           error={false}
                                                           helperText=""
                                                           inputProps={
@@ -5616,7 +5591,7 @@ exports[`App renders correctly 1`] = `
                                                         >
                                                           <ForwardRef(TextField)
                                                             autoFocus={true}
-                                                            className="makeStyles-textInput-290"
+                                                            className="makeStyles-textInput-289"
                                                             classes={
                                                               Object {
                                                                 "root": "MuiTextField-root",
@@ -5636,7 +5611,7 @@ exports[`App renders correctly 1`] = `
                                                             variant="filled"
                                                           >
                                                             <WithStyles(ForwardRef(FormControl))
-                                                              className="MuiTextField-root makeStyles-textInput-290"
+                                                              className="MuiTextField-root makeStyles-textInput-289"
                                                               color="primary"
                                                               disabled={false}
                                                               error={false}
@@ -5645,7 +5620,7 @@ exports[`App renders correctly 1`] = `
                                                               variant="filled"
                                                             >
                                                               <ForwardRef(FormControl)
-                                                                className="MuiTextField-root makeStyles-textInput-290"
+                                                                className="MuiTextField-root makeStyles-textInput-289"
                                                                 classes={
                                                                   Object {
                                                                     "fullWidth": "MuiFormControl-fullWidth",
@@ -5662,7 +5637,7 @@ exports[`App renders correctly 1`] = `
                                                                 variant="filled"
                                                               >
                                                                 <div
-                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-290"
+                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-289"
                                                                 >
                                                                   <WithStyles(ForwardRef(InputLabel))>
                                                                     <ForwardRef(InputLabel)
@@ -5751,6 +5726,7 @@ exports[`App renders correctly 1`] = `
                                                                           "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                           "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                           "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                          "inputSelect": "MuiFilledInput-inputSelect",
                                                                           "marginDense": "MuiFilledInput-marginDense",
                                                                           "multiline": "MuiFilledInput-multiline",
                                                                           "root": "MuiFilledInput-root",
@@ -5784,6 +5760,7 @@ exports[`App renders correctly 1`] = `
                                                                             "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                             "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                             "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                            "inputSelect": "MuiFilledInput-inputSelect",
                                                                             "marginDense": "MuiFilledInput-marginDense",
                                                                             "multiline": "MuiFilledInput-multiline",
                                                                             "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -5821,6 +5798,7 @@ exports[`App renders correctly 1`] = `
                                                                               "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                                               "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                                               "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                                              "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                                               "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                                               "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                                               "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -5873,11 +5851,11 @@ exports[`App renders correctly 1`] = `
                                                     </ForwardRef(Grid)>
                                                   </WithStyles(ForwardRef(Grid))>
                                                   <WithStyles(ForwardRef(Grid))
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     item={true}
                                                   >
                                                     <ForwardRef(Grid)
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -5988,10 +5966,10 @@ exports[`App renders correctly 1`] = `
                                                       item={true}
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-item"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-item"
                                                       >
                                                         <WithStyles(ForwardRef(TextField))
-                                                          className="makeStyles-textInput-290"
+                                                          className="makeStyles-textInput-289"
                                                           error={false}
                                                           helperText=""
                                                           inputProps={
@@ -6007,7 +5985,7 @@ exports[`App renders correctly 1`] = `
                                                           variant="filled"
                                                         >
                                                           <ForwardRef(TextField)
-                                                            className="makeStyles-textInput-290"
+                                                            className="makeStyles-textInput-289"
                                                             classes={
                                                               Object {
                                                                 "root": "MuiTextField-root",
@@ -6028,7 +6006,7 @@ exports[`App renders correctly 1`] = `
                                                             variant="filled"
                                                           >
                                                             <WithStyles(ForwardRef(FormControl))
-                                                              className="MuiTextField-root makeStyles-textInput-290"
+                                                              className="MuiTextField-root makeStyles-textInput-289"
                                                               color="primary"
                                                               disabled={false}
                                                               error={false}
@@ -6037,7 +6015,7 @@ exports[`App renders correctly 1`] = `
                                                               variant="filled"
                                                             >
                                                               <ForwardRef(FormControl)
-                                                                className="MuiTextField-root makeStyles-textInput-290"
+                                                                className="MuiTextField-root makeStyles-textInput-289"
                                                                 classes={
                                                                   Object {
                                                                     "fullWidth": "MuiFormControl-fullWidth",
@@ -6054,7 +6032,7 @@ exports[`App renders correctly 1`] = `
                                                                 variant="filled"
                                                               >
                                                                 <div
-                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-290"
+                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-289"
                                                                 >
                                                                   <WithStyles(ForwardRef(InputLabel))>
                                                                     <ForwardRef(InputLabel)
@@ -6144,6 +6122,7 @@ exports[`App renders correctly 1`] = `
                                                                           "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                           "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                           "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                          "inputSelect": "MuiFilledInput-inputSelect",
                                                                           "marginDense": "MuiFilledInput-marginDense",
                                                                           "multiline": "MuiFilledInput-multiline",
                                                                           "root": "MuiFilledInput-root",
@@ -6178,6 +6157,7 @@ exports[`App renders correctly 1`] = `
                                                                             "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                             "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                             "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                            "inputSelect": "MuiFilledInput-inputSelect",
                                                                             "marginDense": "MuiFilledInput-marginDense",
                                                                             "multiline": "MuiFilledInput-multiline",
                                                                             "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -6215,6 +6195,7 @@ exports[`App renders correctly 1`] = `
                                                                               "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                                               "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                                               "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                                              "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                                               "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                                               "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                                               "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -6267,11 +6248,11 @@ exports[`App renders correctly 1`] = `
                                                     </ForwardRef(Grid)>
                                                   </WithStyles(ForwardRef(Grid))>
                                                   <WithStyles(ForwardRef(Grid))
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     item={true}
                                                   >
                                                     <ForwardRef(Grid)
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -6382,10 +6363,10 @@ exports[`App renders correctly 1`] = `
                                                       item={true}
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-item"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-item"
                                                       >
                                                         <WithStyles(ForwardRef(TextField))
-                                                          className="makeStyles-textInput-290"
+                                                          className="makeStyles-textInput-289"
                                                           error={false}
                                                           helperText=""
                                                           inputProps={
@@ -6400,7 +6381,7 @@ exports[`App renders correctly 1`] = `
                                                           variant="filled"
                                                         >
                                                           <ForwardRef(TextField)
-                                                            className="makeStyles-textInput-290"
+                                                            className="makeStyles-textInput-289"
                                                             classes={
                                                               Object {
                                                                 "root": "MuiTextField-root",
@@ -6420,7 +6401,7 @@ exports[`App renders correctly 1`] = `
                                                             variant="filled"
                                                           >
                                                             <WithStyles(ForwardRef(FormControl))
-                                                              className="MuiTextField-root makeStyles-textInput-290"
+                                                              className="MuiTextField-root makeStyles-textInput-289"
                                                               color="primary"
                                                               disabled={false}
                                                               error={false}
@@ -6429,7 +6410,7 @@ exports[`App renders correctly 1`] = `
                                                               variant="filled"
                                                             >
                                                               <ForwardRef(FormControl)
-                                                                className="MuiTextField-root makeStyles-textInput-290"
+                                                                className="MuiTextField-root makeStyles-textInput-289"
                                                                 classes={
                                                                   Object {
                                                                     "fullWidth": "MuiFormControl-fullWidth",
@@ -6446,7 +6427,7 @@ exports[`App renders correctly 1`] = `
                                                                 variant="filled"
                                                               >
                                                                 <div
-                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-290"
+                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-289"
                                                                 >
                                                                   <WithStyles(ForwardRef(InputLabel))>
                                                                     <ForwardRef(InputLabel)
@@ -6535,6 +6516,7 @@ exports[`App renders correctly 1`] = `
                                                                           "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                           "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                           "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                          "inputSelect": "MuiFilledInput-inputSelect",
                                                                           "marginDense": "MuiFilledInput-marginDense",
                                                                           "multiline": "MuiFilledInput-multiline",
                                                                           "root": "MuiFilledInput-root",
@@ -6568,6 +6550,7 @@ exports[`App renders correctly 1`] = `
                                                                             "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                             "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                             "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                            "inputSelect": "MuiFilledInput-inputSelect",
                                                                             "marginDense": "MuiFilledInput-marginDense",
                                                                             "multiline": "MuiFilledInput-multiline",
                                                                             "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -6605,6 +6588,7 @@ exports[`App renders correctly 1`] = `
                                                                               "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                                               "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                                               "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                                              "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                                               "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                                               "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                                               "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -6657,11 +6641,11 @@ exports[`App renders correctly 1`] = `
                                                     </ForwardRef(Grid)>
                                                   </WithStyles(ForwardRef(Grid))>
                                                   <WithStyles(ForwardRef(Grid))
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     item={true}
                                                   >
                                                     <ForwardRef(Grid)
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -6772,10 +6756,10 @@ exports[`App renders correctly 1`] = `
                                                       item={true}
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-item"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-item"
                                                       >
                                                         <WithStyles(ForwardRef(TextField))
-                                                          className="makeStyles-textInput-290"
+                                                          className="makeStyles-textInput-289"
                                                           error={false}
                                                           helperText=""
                                                           inputProps={
@@ -6790,7 +6774,7 @@ exports[`App renders correctly 1`] = `
                                                           variant="filled"
                                                         >
                                                           <ForwardRef(TextField)
-                                                            className="makeStyles-textInput-290"
+                                                            className="makeStyles-textInput-289"
                                                             classes={
                                                               Object {
                                                                 "root": "MuiTextField-root",
@@ -6810,7 +6794,7 @@ exports[`App renders correctly 1`] = `
                                                             variant="filled"
                                                           >
                                                             <WithStyles(ForwardRef(FormControl))
-                                                              className="MuiTextField-root makeStyles-textInput-290"
+                                                              className="MuiTextField-root makeStyles-textInput-289"
                                                               color="primary"
                                                               disabled={false}
                                                               error={false}
@@ -6819,7 +6803,7 @@ exports[`App renders correctly 1`] = `
                                                               variant="filled"
                                                             >
                                                               <ForwardRef(FormControl)
-                                                                className="MuiTextField-root makeStyles-textInput-290"
+                                                                className="MuiTextField-root makeStyles-textInput-289"
                                                                 classes={
                                                                   Object {
                                                                     "fullWidth": "MuiFormControl-fullWidth",
@@ -6836,7 +6820,7 @@ exports[`App renders correctly 1`] = `
                                                                 variant="filled"
                                                               >
                                                                 <div
-                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-290"
+                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-289"
                                                                 >
                                                                   <WithStyles(ForwardRef(InputLabel))>
                                                                     <ForwardRef(InputLabel)
@@ -6925,6 +6909,7 @@ exports[`App renders correctly 1`] = `
                                                                           "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                           "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                           "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                          "inputSelect": "MuiFilledInput-inputSelect",
                                                                           "marginDense": "MuiFilledInput-marginDense",
                                                                           "multiline": "MuiFilledInput-multiline",
                                                                           "root": "MuiFilledInput-root",
@@ -6958,6 +6943,7 @@ exports[`App renders correctly 1`] = `
                                                                             "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                             "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                             "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                            "inputSelect": "MuiFilledInput-inputSelect",
                                                                             "marginDense": "MuiFilledInput-marginDense",
                                                                             "multiline": "MuiFilledInput-multiline",
                                                                             "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -6995,6 +6981,7 @@ exports[`App renders correctly 1`] = `
                                                                               "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                                               "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                                               "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                                              "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                                               "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                                               "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                                               "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -7047,11 +7034,11 @@ exports[`App renders correctly 1`] = `
                                                     </ForwardRef(Grid)>
                                                   </WithStyles(ForwardRef(Grid))>
                                                   <WithStyles(ForwardRef(Grid))
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     item={true}
                                                   >
                                                     <ForwardRef(Grid)
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -7162,10 +7149,10 @@ exports[`App renders correctly 1`] = `
                                                       item={true}
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-item"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-item"
                                                       >
                                                         <WithStyles(ForwardRef(TextField))
-                                                          className="makeStyles-textInput-290"
+                                                          className="makeStyles-textInput-289"
                                                           error={false}
                                                           helperText=""
                                                           inputProps={
@@ -7180,7 +7167,7 @@ exports[`App renders correctly 1`] = `
                                                           variant="filled"
                                                         >
                                                           <ForwardRef(TextField)
-                                                            className="makeStyles-textInput-290"
+                                                            className="makeStyles-textInput-289"
                                                             classes={
                                                               Object {
                                                                 "root": "MuiTextField-root",
@@ -7200,7 +7187,7 @@ exports[`App renders correctly 1`] = `
                                                             variant="filled"
                                                           >
                                                             <WithStyles(ForwardRef(FormControl))
-                                                              className="MuiTextField-root makeStyles-textInput-290"
+                                                              className="MuiTextField-root makeStyles-textInput-289"
                                                               color="primary"
                                                               disabled={false}
                                                               error={false}
@@ -7209,7 +7196,7 @@ exports[`App renders correctly 1`] = `
                                                               variant="filled"
                                                             >
                                                               <ForwardRef(FormControl)
-                                                                className="MuiTextField-root makeStyles-textInput-290"
+                                                                className="MuiTextField-root makeStyles-textInput-289"
                                                                 classes={
                                                                   Object {
                                                                     "fullWidth": "MuiFormControl-fullWidth",
@@ -7226,7 +7213,7 @@ exports[`App renders correctly 1`] = `
                                                                 variant="filled"
                                                               >
                                                                 <div
-                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-290"
+                                                                  className="MuiFormControl-root MuiTextField-root makeStyles-textInput-289"
                                                                 >
                                                                   <WithStyles(ForwardRef(InputLabel))>
                                                                     <ForwardRef(InputLabel)
@@ -7315,6 +7302,7 @@ exports[`App renders correctly 1`] = `
                                                                           "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                           "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                           "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                          "inputSelect": "MuiFilledInput-inputSelect",
                                                                           "marginDense": "MuiFilledInput-marginDense",
                                                                           "multiline": "MuiFilledInput-multiline",
                                                                           "root": "MuiFilledInput-root",
@@ -7348,6 +7336,7 @@ exports[`App renders correctly 1`] = `
                                                                             "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                                             "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                                             "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                            "inputSelect": "MuiFilledInput-inputSelect",
                                                                             "marginDense": "MuiFilledInput-marginDense",
                                                                             "multiline": "MuiFilledInput-multiline",
                                                                             "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -7385,6 +7374,7 @@ exports[`App renders correctly 1`] = `
                                                                               "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                                               "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                                               "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                                              "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                                               "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                                               "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                                               "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -7438,13 +7428,13 @@ exports[`App renders correctly 1`] = `
                                                   </WithStyles(ForwardRef(Grid))>
                                                   <WithStyles(ForwardRef(Grid))
                                                     alignItems="center"
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     container={true}
                                                     direction="column"
                                                   >
                                                     <ForwardRef(Grid)
                                                       alignItems="center"
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -7556,7 +7546,7 @@ exports[`App renders correctly 1`] = `
                                                       direction="column"
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                                                       >
                                                         <WithStyles(ForwardRef(Grid))
                                                           item={true}
@@ -7881,7 +7871,6 @@ exports[`App renders correctly 1`] = `
                                                                         "containedSecondary": "MuiButton-containedSecondary",
                                                                         "containedSizeLarge": "MuiButton-containedSizeLarge",
                                                                         "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                                                        "disableElevation": "MuiButton-disableElevation",
                                                                         "disabled": "Mui-disabled",
                                                                         "endIcon": "MuiButton-endIcon",
                                                                         "focusVisible": "Mui-focusVisible",
@@ -8038,11 +8027,11 @@ exports[`App renders correctly 1`] = `
                                                     </ForwardRef(Grid)>
                                                   </WithStyles(ForwardRef(Grid))>
                                                   <WithStyles(ForwardRef(Grid))
-                                                    className="makeStyles-item-289"
+                                                    className="makeStyles-item-288"
                                                     item={true}
                                                   >
                                                     <ForwardRef(Grid)
-                                                      className="makeStyles-item-289"
+                                                      className="makeStyles-item-288"
                                                       classes={
                                                         Object {
                                                           "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -8153,10 +8142,10 @@ exports[`App renders correctly 1`] = `
                                                       item={true}
                                                     >
                                                       <div
-                                                        className="MuiGrid-root makeStyles-item-289 MuiGrid-item"
+                                                        className="MuiGrid-root makeStyles-item-288 MuiGrid-item"
                                                       >
                                                         <div
-                                                          className="makeStyles-circularProgressContainer-292"
+                                                          className="makeStyles-circularProgressContainer-291"
                                                         >
                                                           <WithStyles(ForwardRef(Button))
                                                             color="primary"
@@ -8174,7 +8163,6 @@ exports[`App renders correctly 1`] = `
                                                                   "containedSecondary": "MuiButton-containedSecondary",
                                                                   "containedSizeLarge": "MuiButton-containedSizeLarge",
                                                                   "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                                                  "disableElevation": "MuiButton-disableElevation",
                                                                   "disabled": "Mui-disabled",
                                                                   "endIcon": "MuiButton-endIcon",
                                                                   "focusVisible": "Mui-focusVisible",

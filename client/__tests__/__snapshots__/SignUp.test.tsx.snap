@@ -37,14 +37,13 @@ exports[`SignUp should render <SignUp> in english 1`] = `
             "elevation7": "MuiPaper-elevation7",
             "elevation8": "MuiPaper-elevation8",
             "elevation9": "MuiPaper-elevation9",
-            "outlined": "MuiPaper-outlined",
             "root": "MuiPaper-root",
             "rounded": "MuiPaper-rounded",
           }
         }
       >
         <div
-          className="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+          className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-2 MuiPaper-rounded"
         >
           <WithStyles(ForwardRef(Grid))
             alignItems="center"
@@ -793,11 +792,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                             className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                           >
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -908,11 +907,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
                                     autoFocus={true}
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -928,7 +927,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                   >
                                     <ForwardRef(TextField)
                                       autoFocus={true}
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -948,7 +947,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -957,7 +956,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -974,7 +973,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -1063,6 +1062,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -1096,6 +1096,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -1133,6 +1134,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -1185,11 +1187,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -1300,10 +1302,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -1319,7 +1321,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -1340,7 +1342,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -1349,7 +1351,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -1366,7 +1368,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -1456,6 +1458,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -1490,6 +1493,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -1527,6 +1531,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -1579,11 +1584,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -1694,10 +1699,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -1712,7 +1717,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -1732,7 +1737,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -1741,7 +1746,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -1758,7 +1763,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -1847,6 +1852,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -1880,6 +1886,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -1917,6 +1924,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -1969,11 +1977,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -2084,10 +2092,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -2102,7 +2110,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -2122,7 +2130,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -2131,7 +2139,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -2148,7 +2156,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -2237,6 +2245,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -2270,6 +2279,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -2307,6 +2317,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -2359,11 +2370,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -2474,10 +2485,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -2492,7 +2503,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -2512,7 +2523,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -2521,7 +2532,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -2538,7 +2549,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -2627,6 +2638,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -2660,6 +2672,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -2697,6 +2710,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -2750,13 +2764,13 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
                               alignItems="center"
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               container={true}
                               direction="column"
                             >
                               <ForwardRef(Grid)
                                 alignItems="center"
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -2868,7 +2882,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 direction="column"
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                                 >
                                   <WithStyles(ForwardRef(Grid))
                                     item={true}
@@ -3193,7 +3207,6 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                   "containedSecondary": "MuiButton-containedSecondary",
                                                   "containedSizeLarge": "MuiButton-containedSizeLarge",
                                                   "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                                  "disableElevation": "MuiButton-disableElevation",
                                                   "disabled": "Mui-disabled",
                                                   "endIcon": "MuiButton-endIcon",
                                                   "focusVisible": "Mui-focusVisible",
@@ -3350,11 +3363,11 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -3465,10 +3478,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <div
-                                    className="makeStyles-circularProgressContainer-172"
+                                    className="makeStyles-circularProgressContainer-171"
                                   >
                                     <WithStyles(ForwardRef(Button))
                                       color="primary"
@@ -3486,7 +3499,6 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                             "containedSecondary": "MuiButton-containedSecondary",
                                             "containedSizeLarge": "MuiButton-containedSizeLarge",
                                             "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                            "disableElevation": "MuiButton-disableElevation",
                                             "disabled": "Mui-disabled",
                                             "endIcon": "MuiButton-endIcon",
                                             "focusVisible": "Mui-focusVisible",
@@ -3654,14 +3666,13 @@ exports[`SignUp should render <SignUp> in french 1`] = `
             "elevation7": "MuiPaper-elevation7",
             "elevation8": "MuiPaper-elevation8",
             "elevation9": "MuiPaper-elevation9",
-            "outlined": "MuiPaper-outlined",
             "root": "MuiPaper-root",
             "rounded": "MuiPaper-rounded",
           }
         }
       >
         <div
-          className="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+          className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-2 MuiPaper-rounded"
         >
           <WithStyles(ForwardRef(Grid))
             alignItems="center"
@@ -4410,11 +4421,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                             className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                           >
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -4525,11 +4536,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
                                     autoFocus={true}
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -4545,7 +4556,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                   >
                                     <ForwardRef(TextField)
                                       autoFocus={true}
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -4565,7 +4576,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -4574,7 +4585,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -4591,7 +4602,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -4680,6 +4691,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -4713,6 +4725,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -4750,6 +4763,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -4802,11 +4816,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -4917,10 +4931,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -4936,7 +4950,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -4957,7 +4971,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -4966,7 +4980,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -4983,7 +4997,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -5073,6 +5087,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -5107,6 +5122,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -5144,6 +5160,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -5196,11 +5213,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -5311,10 +5328,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -5329,7 +5346,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -5349,7 +5366,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -5358,7 +5375,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -5375,7 +5392,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -5464,6 +5481,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -5497,6 +5515,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -5534,6 +5553,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -5586,11 +5606,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -5701,10 +5721,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -5719,7 +5739,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -5739,7 +5759,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -5748,7 +5768,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -5765,7 +5785,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -5854,6 +5874,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -5887,6 +5908,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -5924,6 +5946,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -5976,11 +5999,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -6091,10 +6114,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <WithStyles(ForwardRef(TextField))
-                                    className="makeStyles-textInput-170"
+                                    className="makeStyles-textInput-169"
                                     error={false}
                                     helperText=""
                                     inputProps={
@@ -6109,7 +6132,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                     variant="filled"
                                   >
                                     <ForwardRef(TextField)
-                                      className="makeStyles-textInput-170"
+                                      className="makeStyles-textInput-169"
                                       classes={
                                         Object {
                                           "root": "MuiTextField-root",
@@ -6129,7 +6152,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                       variant="filled"
                                     >
                                       <WithStyles(ForwardRef(FormControl))
-                                        className="MuiTextField-root makeStyles-textInput-170"
+                                        className="MuiTextField-root makeStyles-textInput-169"
                                         color="primary"
                                         disabled={false}
                                         error={false}
@@ -6138,7 +6161,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                         variant="filled"
                                       >
                                         <ForwardRef(FormControl)
-                                          className="MuiTextField-root makeStyles-textInput-170"
+                                          className="MuiTextField-root makeStyles-textInput-169"
                                           classes={
                                             Object {
                                               "fullWidth": "MuiFormControl-fullWidth",
@@ -6155,7 +6178,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           variant="filled"
                                         >
                                           <div
-                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-170"
+                                            className="MuiFormControl-root MuiTextField-root makeStyles-textInput-169"
                                           >
                                             <WithStyles(ForwardRef(InputLabel))>
                                               <ForwardRef(InputLabel)
@@ -6244,6 +6267,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                     "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                     "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                     "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                    "inputSelect": "MuiFilledInput-inputSelect",
                                                     "marginDense": "MuiFilledInput-marginDense",
                                                     "multiline": "MuiFilledInput-multiline",
                                                     "root": "MuiFilledInput-root",
@@ -6277,6 +6301,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                       "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
                                                       "inputMarginDense": "MuiFilledInput-inputMarginDense",
                                                       "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                      "inputSelect": "MuiFilledInput-inputSelect",
                                                       "marginDense": "MuiFilledInput-marginDense",
                                                       "multiline": "MuiFilledInput-multiline",
                                                       "root": "MuiFilledInput-root MuiFilledInput-underline",
@@ -6314,6 +6339,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                         "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
                                                         "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
                                                         "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                        "inputSelect": "MuiInputBase-inputSelect MuiFilledInput-inputSelect",
                                                         "inputTypeSearch": "MuiInputBase-inputTypeSearch",
                                                         "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
                                                         "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
@@ -6367,13 +6393,13 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
                               alignItems="center"
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               container={true}
                               direction="column"
                             >
                               <ForwardRef(Grid)
                                 alignItems="center"
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -6485,7 +6511,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 direction="column"
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                                 >
                                   <WithStyles(ForwardRef(Grid))
                                     item={true}
@@ -6810,7 +6836,6 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                   "containedSecondary": "MuiButton-containedSecondary",
                                                   "containedSizeLarge": "MuiButton-containedSizeLarge",
                                                   "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                                  "disableElevation": "MuiButton-disableElevation",
                                                   "disabled": "Mui-disabled",
                                                   "endIcon": "MuiButton-endIcon",
                                                   "focusVisible": "Mui-focusVisible",
@@ -6967,11 +6992,11 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                               </ForwardRef(Grid)>
                             </WithStyles(ForwardRef(Grid))>
                             <WithStyles(ForwardRef(Grid))
-                              className="makeStyles-item-169"
+                              className="makeStyles-item-168"
                               item={true}
                             >
                               <ForwardRef(Grid)
-                                className="makeStyles-item-169"
+                                className="makeStyles-item-168"
                                 classes={
                                   Object {
                                     "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -7082,10 +7107,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                 item={true}
                               >
                                 <div
-                                  className="MuiGrid-root makeStyles-item-169 MuiGrid-item"
+                                  className="MuiGrid-root makeStyles-item-168 MuiGrid-item"
                                 >
                                   <div
-                                    className="makeStyles-circularProgressContainer-172"
+                                    className="makeStyles-circularProgressContainer-171"
                                   >
                                     <WithStyles(ForwardRef(Button))
                                       color="primary"
@@ -7103,7 +7128,6 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                             "containedSecondary": "MuiButton-containedSecondary",
                                             "containedSizeLarge": "MuiButton-containedSizeLarge",
                                             "containedSizeSmall": "MuiButton-containedSizeSmall",
-                                            "disableElevation": "MuiButton-disableElevation",
                                             "disabled": "Mui-disabled",
                                             "endIcon": "MuiButton-endIcon",
                                             "focusVisible": "Mui-focusVisible",
