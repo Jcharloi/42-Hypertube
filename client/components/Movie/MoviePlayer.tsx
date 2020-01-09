@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 
 import useStyles from "./MoviePlayer.styles";
 
@@ -10,20 +10,29 @@ interface Props {
 }
 
 const MoviePlayer = ({ movieId, extension }: Props): ReactElement => {
+  const [controlVideo, setControlVideo] = useState(false);
   const classes = useStyles({});
 
   const downloadMovie = (): void => {
-    API.get(`/movie/download/${movieId}`).catch((e) => {
-      console.log(e);
-    });
+    API.get(`/movie/download/${movieId}`)
+      .then(() => {
+        if (!controlVideo) {
+          const audioPlayer: any = document.getElementById("player");
+          // audioPlayer.play();
+          setControlVideo(true);
+          console.log("Playing !");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
     <>
       <div className={classes.containerPlayer}>
         <video
-          controls
-          //   crossOrigin
+          controls={controlVideo}
           playsInline
           poster={`http://archive.org/19/items/${movieId}/__ia_thumb.jpg`}
           id="player"

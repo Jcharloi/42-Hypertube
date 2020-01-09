@@ -1,4 +1,5 @@
 import Axios from "axios";
+import fs from "fs";
 
 import movieHelpers from "../Helpers/movie";
 import mongoose from "../mongo";
@@ -25,6 +26,14 @@ const getInfos = (req, res) => {
             });
           });
         }
+        const videoObject = data.files.find(
+          ({ name }) =>
+            name.split(".")[name.split(".").length - 1] === "mp4" ||
+            name.split(".")[name.split(".").length - 1] === "webm"
+        );
+        const extension = videoObject.name.split(".")[
+          videoObject.name.split(".").length - 1
+        ];
         const infos = {
           title: data.metadata.title,
           description: data.metadata.description,
@@ -35,8 +44,12 @@ const getInfos = (req, res) => {
             data.reviews && data.reviews.length > 0
               ? Math.floor(totalStars / reviewsLength)
               : null,
-          extension: "mp4"
+          extension
         };
+        const dest = `./server/data/movie/${movieId}.${extension}`;
+        if (!fs.existsSync(dest)) {
+          fs.createWriteStream(dest);
+        }
         const ourReviews = await movieHelpers.findReviews(req.params.id);
         if (typeof ourReviews !== "string") {
           reviews = movieHelpers.sortReviews(reviews, ourReviews);
@@ -59,24 +72,39 @@ const downloadVideo = (req, res) => {
   Axios.get(`https://archive.org/metadata/${movieId}`)
     .then(({ data }) => {
       if (Object.values(data).length > 0) {
-        const extension = "mp4";
-        const url = `http://archive.org${data.dir}/${
-          data.files.find(
-            ({ name }) =>
-              name.split(".")[name.split(".").length - 1] === "mp4" ||
-              name.split(".")[name.split(".").length - 1] === "webm"
-          ).name
-        }`;
-        // console.log("URL : ", url);
+        const videoObject = data.files.find(
+          ({ name }) =>
+            name.split(".")[name.split(".").length - 1] === "mp4" ||
+            name.split(".")[name.split(".").length - 1] === "webm"
+        );
+        const source = videoObject.name;
+        // const sourceSize = parseInt(videoObject.size, 10);
+        const extension = videoObject.name.split(".")[
+          videoObject.name.split(".").length - 1
+        ];
         const dest = `./server/data/movie/${movieId}.${extension}`;
-        movieHelpers.createMovieFile(url, dest, (err) => {
-          if (err) {
-            console.error(err);
-            res.sendStatus(500);
-          } else {
-            res.sendStatus(200);
-          }
-        });
+        const stats = fs.statSync(dest);
+        // console.log(
+        //   "Original file size: ",
+        //   sourceSize,
+        //   "Downloaded file size : ",
+        //   stats.size,
+        //   "extension : ",
+        //   extension
+        // );
+        if (stats.size === 0) {
+          const url = `http://archive.org${data.dir}/${source}`;
+          movieHelpers.createMovieFile(url, dest, (err) => {
+            if (err) {
+              console.error(err);
+              res.sendStatus(500);
+            } else {
+              res.sendStatus(200);
+            }
+          });
+        } else {
+          res.sendStatus(200);
+        }
       } else {
         res.sendStatus(500);
       }
