@@ -41,7 +41,7 @@ const sortReviews = (reviews, ourReviews) => {
 };
 
 const createMovieFile = (url, dest, cb) => {
-  const file = fs.createWriteStream(dest);
+  const file = fs.WriteStream(dest);
   const sendReq = request.get(url);
   // Check request errors and status
   sendReq.on("response", (response) => {

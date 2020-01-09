@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
     minHeight: "50%"
   },
   player: {
+    cursor: "pointer",
     minWidth: "70%",
     maxWidth: "70%"
   }
