@@ -34,6 +34,7 @@ const getInfos = (req, res) => {
         const extension = videoObject.name.split(".")[
           videoObject.name.split(".").length - 1
         ];
+        const size = parseInt(videoObject.size, 10);
         const infos = {
           title: data.metadata.title,
           description: data.metadata.description,
@@ -44,7 +45,8 @@ const getInfos = (req, res) => {
             data.reviews && data.reviews.length > 0
               ? Math.floor(totalStars / reviewsLength)
               : null,
-          extension
+          extension,
+          size
         };
         const dest = `./server/data/movie/${movieId}.${extension}`;
         if (!fs.existsSync(dest)) {

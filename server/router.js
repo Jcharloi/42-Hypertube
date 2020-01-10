@@ -19,9 +19,30 @@ router.post("/inscription", signUpController.signUp);
 /* Movie */
 router.get("/movie/infos/:id", movieControllers.getInfos);
 router.get("/movie/download/:id", movieControllers.downloadVideo);
-router.get("/movie/streaming/:id", (req, res) => {
+router.get("/movie/streaming/:id/:size", (req, res) => {
   const movieName = req.params.id;
-  const absolutePath = path.resolve(`./server/data/movie/${movieName}`);
+  // const movieSize = req.params.size;
+  const dest = `./server/data/movie/${movieName}`;
+  const absolutePath = path.resolve(dest);
+
+  // res.oldWriteHead = res.writeHead;
+  // res.writeHead = (statusCode, headers) => {
+  //   res.setHeader(
+  //     "content-type",
+  //     `${movieName.split(".")[movieName.split(".").length - 1]}`
+  //   );
+  //   res.setHeader("content-range", `bytes 0-`);
+  //   res.setHeader("content-length", 0);
+  //   res.oldWriteHead(statusCode, headers);
+  // };
+  // res.status(200).sendFile(absolutePath, {
+  //   headers: {
+  //     "Content-Type": "mp4",
+  //     "Content-Length": fs.statSync(dest).size,
+  //     "Accept-Range": "bytes",
+  //     "Content-Range": `bytes -${fs.statSync(dest).size}`
+  //   }
+  // });
   res.status(200).sendFile(absolutePath);
 });
 router.post("/movie/review", movieControllers.receiveReviews);
