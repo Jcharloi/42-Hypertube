@@ -24,7 +24,8 @@ const Movie = (): ReactElement => {
     prodDate: "",
     runTime: "",
     stars: 0,
-    extension: ""
+    extension: "",
+    size: 0
   });
   const [reviews, setReviews] = useState([
     { id: "", name: "", date: null, stars: 0, body: "" }
@@ -120,7 +121,11 @@ const Movie = (): ReactElement => {
               </div>
             </div>
           </Paper>
-          <MoviePlayer movieId={movieId} extension={movieInfos.extension} />
+          <MoviePlayer
+            movieId={movieId}
+            extension={movieInfos.extension}
+            size={movieInfos.size}
+          />
           <MovieComments
             movieId={movieId}
             movieRating={movieInfos.stars}
