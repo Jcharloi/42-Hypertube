@@ -1,50 +1,106 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useLayoutStyles = makeStyles(() => ({
-  container: {
+export const useLayoutStyles = makeStyles((theme) => ({
+  mainContainer: {
     display: "flex",
     flexDirection: "column",
+    width: "100%",
     height: "100%"
   },
-  bodyContainer: {
-    height: "calc(100vh - 64px)"
+  contentContainer: {
+    position: "relative",
+    width: "100%",
+    flexGrow: 1,
+    backgroundImage: "url('http://localhost:8080/public/wallpaper.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom left",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover"
+  },
+  filtersContainer: {
+    position: "absolute",
+    zIndex: 1000,
+    top: theme.spacing(-1.5),
+    right: theme.spacing(4),
+    width: "20rem",
+    [theme.breakpoints.down("xs")]: {
+      position: "relative",
+      width: "100%",
+      right: 0
+    }
   }
 }));
 
-export const useFiltersStyles = makeStyles({
-  noFiltersHolder: {
+export const useHeaderStyles = makeStyles((theme) => ({
+  titleLink: {
+    textDecoration: "none",
+    color: theme.palette.text.primary
+  },
+  buttonsMenu: {
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      flexGrow: 1,
+      justifyContent: "flex-end"
+    }
+  },
+  title: {
+    flexGrow: 1,
+    [theme.breakpoints.down("xs")]: {
+      display: "none"
+    }
+  },
+  headerContent: {
     display: "flex",
     alignItems: "center",
-    position: "absolute",
-    top: "0",
-    left: "100%",
-    height: "100%"
+    [theme.breakpoints.down("xs")]: {
+      width: "100%"
+    }
   },
-  filterContainerTop: {
-    padding: "24px 24px",
-    paddingBottom: 48,
+  searchInput: {
+    background: theme.palette.secondary.main,
+    height: theme.spacing(5),
+    width: "20rem"
+  },
+  flagIcon: {
+    lineHeight: 0
+  },
+  inputLabel: {
+    marginRight: theme.spacing(1)
+  },
+  headerButtons: {
+    color: theme.palette.secondary.main,
+    marginLeft: theme.spacing(1),
+    height: theme.spacing(6),
+    width: theme.spacing(6),
+    "&:hover": {
+      background: theme.palette.primary.main
+    }
+  }
+}));
+
+export const useFiltersStyles = makeStyles((theme) => ({
+  container: {
     width: "100%",
-    marginBottom: 24
-  },
-  filterContainer: {
-    margin: "8px 0"
+    padding: theme.spacing(4, 3, 6.5, 3)
   },
   yearRangeLabel: {
-    marginBottom: "40px"
+    marginBottom: theme.spacing(5)
   },
-  collectionsSelect: {},
-  collectionsSelectComponent: {
+  collectionsContainer: {
+    marginBottom: theme.spacing(2),
     width: "100%"
   },
-  cancel: {
-    position: "absolute",
-    top: "8px",
-    left: "8px"
+  filtersComponent: {
+    width: "100%"
   },
-  input: {
-    padding: "0 8px"
+  ratingContainer: {
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      justifyContent: "space-evenly"
+    }
   },
   resetFilterButton: {
     float: "right"
   }
-});
+}));

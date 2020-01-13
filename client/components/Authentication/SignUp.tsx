@@ -118,10 +118,48 @@ const SignUp = (): ReactElement => {
   };
 
   return (
-    <Paper className={classes.page}>
-      <Grid container direction="column" alignItems="center">
-        {!userIsRegistered && (
-          <div>
+    <div className={classes.page}>
+      <Paper className={classes.paper}>
+        <Grid container direction="column" alignItems="center">
+          {!userIsRegistered && (
+            <div>
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                className={classes.titles}
+              >
+                <Grid item>
+                  <Typography variant="h3" align="center">
+                    {_t({ id: "authentication.signUp.title" })}
+                    <span role="img" aria-label="Eyes">
+                      {" "}
+                      👀
+                    </span>
+                  </Typography>
+                </Grid>
+                <Grid item className={classes.subtitle}>
+                  <Typography variant="subtitle1" align="center">
+                    {_t({ id: "authentication.signUp.subtitle" })}
+                    <span role="img" aria-label="Eyes">
+                      {" "}
+                      🤭
+                    </span>
+                  </Typography>
+                </Grid>
+              </Grid>
+
+              <SignUpForm
+                handleInputChange={handleInputChange}
+                handleSubmit={handleSubmit}
+                userInfo={userInfo}
+                userError={userError}
+                waitingRes={waitingRes}
+              />
+            </div>
+          )}
+
+          {userIsRegistered && (
             <Grid
               container
               direction="column"
@@ -129,89 +167,58 @@ const SignUp = (): ReactElement => {
               className={classes.titles}
             >
               <Grid item>
-                <Typography variant="h3" align="center">
-                  {_t({ id: "authentication.signUp.title" })}
-                  <span role="img" aria-label="Eyes">
+                <Typography variant="h4" align="center">
+                  {`${_t({ id: "authentication.signUp.validForm.title" })} ${
+                    userInfo.firstName
+                  }`}
+                  <span role="img" aria-label="Waving hand">
                     {" "}
-                    👀
+                    👋🏻
                   </span>
                 </Typography>
               </Grid>
-              <Grid item className={classes.subtitle}>
-                <Typography variant="subtitle1" align="center">
-                  {_t({ id: "authentication.signUp.subtitle" })}
-                  <span role="img" aria-label="Eyes">
-                    {" "}
-                    🤭
-                  </span>
-                </Typography>
-              </Grid>
-            </Grid>
-
-            <SignUpForm
-              handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
-              userInfo={userInfo}
-              userError={userError}
-              waitingRes={waitingRes}
-            />
-          </div>
-        )}
-
-        {userIsRegistered && (
-          <Grid
-            container
-            direction="column"
-            alignItems="center"
-            className={classes.titles}
-          >
-            <Grid item>
-              <Typography variant="h4" align="center">
-                {`${_t({ id: "authentication.signUp.validForm.title" })} ${
-                  userInfo.firstName
-                }`}
-                <span role="img" aria-label="Waving hand">
-                  {" "}
-                  👋🏻
-                </span>
-              </Typography>
-            </Grid>
-            <Grid container direction="row" justify="center">
-              <Grid item>
-                <Avatar className={classes.emailRound}>
-                  <EmailIcon color="secondary" className={classes.emailIcon} />
-                </Avatar>
-              </Grid>
-              <Grid item>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  className={classes.randomWrapper}
-                >
-                  <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1" align="center">
-                      {_t({ id: "authentication.signUp.validForm.checkEmail" })}
-                    </Typography>
-                  </Grid>
-                  <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1" align="center">
-                      {_t({
-                        id: "authentication.signUp.validForm.bingeWatching"
-                      })}
-                      <span role="img" aria-label="Shush guy">
-                        {" "}
-                        🤫
-                      </span>
-                    </Typography>
+              <Grid container direction="row" justify="center">
+                <Grid item>
+                  <Avatar className={classes.emailRound}>
+                    <EmailIcon
+                      color="secondary"
+                      className={classes.emailIcon}
+                    />
+                  </Avatar>
+                </Grid>
+                <Grid item>
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    className={classes.randomWrapper}
+                  >
+                    <Grid item className={classes.subtitle}>
+                      <Typography variant="subtitle1" align="center">
+                        {_t({
+                          id: "authentication.signUp.validForm.checkEmail"
+                        })}
+                      </Typography>
+                    </Grid>
+                    <Grid item className={classes.subtitle}>
+                      <Typography variant="subtitle1" align="center">
+                        {_t({
+                          id: "authentication.signUp.validForm.bingeWatching"
+                        })}
+                        <span role="img" aria-label="Shush guy">
+                          {" "}
+                          🤫
+                        </span>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        )}
-      </Grid>
-    </Paper>
+          )}
+        </Grid>
+      </Paper>
+    </div>
   );
 };
 export default SignUp;

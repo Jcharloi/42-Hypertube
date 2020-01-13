@@ -5,7 +5,8 @@ import mongoose from "../mongo";
 import ioConnection from "..";
 
 const getInfos = (req, res) => {
-  Axios.get(`https://archive.org/metadata/${req.params.id}`)
+  const movieId = req.params.id;
+  Axios.get(`https://archive.org/metadata/${movieId}`)
     .then(async ({ data }) => {
       if (Object.values(data).length > 0) {
         let totalStars = 0;
@@ -31,7 +32,12 @@ const getInfos = (req, res) => {
           stars:
             data.reviews && data.reviews.length > 0
               ? Math.floor(totalStars / data.reviews.length)
-              : null
+              : null,
+          source: data.files.find(
+            ({ name }) =>
+              name.split(".")[name.split(".").length - 1] === "mp4" ||
+              name.split(".")[name.split(".").length - 1] === "webm"
+          ).name
         };
         const ourReviews = await movieHelpers.findReviews(req.params.id);
         if (typeof ourReviews !== "string") {
