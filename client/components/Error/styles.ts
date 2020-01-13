@@ -1,20 +1,26 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useErrorStyles = makeStyles(() => ({
+const useFourOhFourStyles = makeStyles((theme) => ({
   container: {
+    height: "100%",
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    height: "100%",
-    userSelect: "none"
+    fontFamily: "Poppins"
   },
-  errorWrapper: {
-    padding: 16,
+  error: {
+    fontFamily: "Poppins",
+    padding: theme.spacing(5),
+    width: "100%",
     display: "flex",
-    position: "relative",
-    backgroundColor: "#fff"
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  linkMenu: {
+    color: theme.palette.text.primary,
+    cursor: "pointer"
   }
 }));
 
-export default useErrorStyles;
+export default useFourOhFourStyles;

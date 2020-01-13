@@ -62,5 +62,11 @@
   "layout.filters.select_category.additional_collections_video": "Videos additionnelles",
   "layout.filters.select.minrating": "Note minimale",
   "layout.filters.select.maxrating": "Note maximale",
-  "layout.filters.select.reset": "Reinitialiser les filtres"
+  "layout.filters.select.reset": "Reinitialiser les filtres",
+  "fourOhFour.title": "404",
+  "fourOhFour.content": "Page non trouvée",
+  "fourOhFour.link_menu": "Accueil",
+  "error.title": "Oups...",
+  "error.content": "Quelque chose est cassé",
+  "error.link_menu": "Accueil"
 }
