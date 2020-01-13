@@ -1,46 +1,33 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useSearchStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    height: "100%"
+  snackbar: {
+    bottom: theme.spacing(5),
+    right: theme.spacing(5),
+    position: "fixed",
+    width: "200px"
+  },
+  snackbarLoading: {
+    bottom: theme.spacing(5),
+    right: theme.spacing(0),
+    position: "fixed",
+    width: "200px"
   },
   thumbsContainer: {
+    border: "3px solid red",
+    overflow: "auto",
     position: "relative",
     display: "flex",
-    height: "100%",
     alignItems: "center",
-    flexDirection: "column",
-    flex: 4,
-    padding: theme.spacing(2),
-    paddingTop: 0,
-    marginBottom: theme.spacing(2),
-    overflowY: "scroll",
-    overflowX: "hidden"
-  },
-  filmContainer: {
-    flex: theme.spacing(2),
-    height: "100%",
-    overflowY: "auto",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  infoSidebar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: `${theme.spacing(4)}px 0`,
-    position: "sticky",
-    width: "200%",
-    top: 0,
-    zIndex: 1000,
-    height: "45px"
+    padding: theme.spacing(4),
+    paddingBottom: 0,
+    zIndex: 0
   }
 }));
 
 export const useFilmStyles = makeStyles((theme) => ({
   container: {
+    height: "100%",
     width: "100%",
     display: "flex",
     flexDirection: "column",
@@ -76,15 +63,25 @@ export const useFilmStyles = makeStyles((theme) => ({
 }));
 
 export const useThumbnailStyles = makeStyles((theme) => ({
-  card: {
-    width: "100%",
-    minHeight: "204px",
-    marginBottom: theme.spacing(2)
+  container: {
+    cursor: "pointer",
+    display: "flex",
+    padding: `${theme.spacing(2)}px 0`,
+    transformOrigin: "0% 50%",
+    transition: "transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.15)",
+      backgroundColor: "rgba(255, 255, 255, 0.1)"
+    }
   },
-  cardHeader: {
-    textAlign: "center"
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    paddingLeft: theme.spacing(1)
   },
-  media: {
-    height: 140
+  filmInfo: {
+    lineHeight: "initial",
+    display: "flex",
+    alignItems: "flex-end"
   }
 }));

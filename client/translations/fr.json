@@ -3,7 +3,7 @@
   "search": "Rechercher ...",
   "language.fr": "🇫🇷",
   "language.en": "🇬🇧",
-  "profile": "Mon profile",
+  "profile": "Mon profil",
   "disconnect": "Se déconnecter",
   "authentication.signUp.title": "Qui es-tu ?",
   "authentication.signUp.subtitle": "Pour pouvoir accéder à tous nos films, il va falloir s'inscrire",
@@ -45,7 +45,7 @@
   "search.film.watch": "Regarder le film",
   "search.loading": "Chargement...",
   "search.film_count": "{count} films trouvés",
-  "search.details_placeholder": "Choisissez un film pour voir sa description.",
+  "search.details_placeholder": "Choisissez un film pour voir sa description",
   "layout.filters.search": "Cherchez un film, un auteur...",
   "layout.filters.production_year": "Année de production",
   "layout.filters.collection": "Collection",
@@ -62,5 +62,11 @@
   "layout.filters.select_category.additional_collections_video": "Videos additionnelles",
   "layout.filters.select.minrating": "Note minimale",
   "layout.filters.select.maxrating": "Note maximale",
-  "layout.filters.select.reset": "Reinitialiser les filtres"
+  "layout.filters.select.reset": "Reinitialiser les filtres",
+  "fourOhFour.title": "404",
+  "fourOhFour.content": "Page non trouvée",
+  "fourOhFour.link_menu": "Accueil",
+  "error.title": "Oups...",
+  "error.content": "Quelque chose est cassé",
+  "error.link_menu": "Accueil"
 }

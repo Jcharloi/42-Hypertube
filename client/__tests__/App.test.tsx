@@ -6,6 +6,18 @@ import App from "../components/App";
 
 configure({ adapter: new Adapter() });
 
+jest.mock("../hooks/useApi", () => (): {
+  data: unknown;
+  loading: boolean;
+  error: void;
+  setUrl: () => void;
+} => ({
+  data: [],
+  loading: false,
+  error: null,
+  setUrl: jest.fn()
+}));
+
 jest.mock("../helpers/history", () => {
   // require after code makes the disable required
   // eslint-disable-next-line

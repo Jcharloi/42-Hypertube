@@ -1,7 +1,7 @@
 import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import EnzymeToJson from "enzyme-to-json";
-import { mount, configure } from "enzyme";
+import { configure } from "enzyme";
 
 import Search from "../components/Search";
 import Film from "../components/Search/Movie";
@@ -78,8 +78,9 @@ describe("Search", () => {
 
   describe("thumbnail", () => {
     it("renders correctly", () => {
-      const domNode = mount(
-        <Thumbnail film={filmFixture} onClick={jest.fn()} />
+      const domNode = mountWithIntl(
+        <Thumbnail film={filmFixture} onClick={jest.fn()} />,
+        "en"
       );
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });

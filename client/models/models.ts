@@ -44,8 +44,5 @@ export interface Filters {
 }
 
 export interface ClickAwayEventTarget extends EventTarget {
-  addEventListener: () => boolean;
-  dispatchEvent: () => boolean;
-  removeEventListener: () => boolean;
   target: { id: string };
 }

@@ -45,7 +45,7 @@
   "search.film.watch": "Watch film",
   "search.loading": "Loading...",
   "search.film_count": "Found {count} movies",
-  "search.details_placeholder": "Select a film to view its description.",
+  "search.details_placeholder": "Select a film to view its description",
   "layout.filters.search": "Search a film, an author...",
   "layout.filters.production_year": "Production year",
   "layout.filters.collection": "Collection",
@@ -62,5 +62,11 @@
   "layout.filters.select_category.additional_collections_video": "Additional collections videos",
   "layout.filters.select.minrating": "Min. rating",
   "layout.filters.select.maxrating": "Max. rating",
-  "layout.filters.select.reset": "Reset filter"
+  "layout.filters.select.reset": "Reset filter",
+  "fourOhFour.title": "404",
+  "fourOhFour.content": "Page not found",
+  "fourOhFour.link_menu": "Go back",
+  "error.title": "Oops...",
+  "error.content": "Something went wrong",
+  "error.link_menu": "Go back"
 }
