@@ -46,11 +46,11 @@ const App = (): ReactElement => {
               requireAuth={false}
             />
             <CustomRoute
-            exact
-            path="/profile"
-            component={Profile}
-            requireAuth={false}
-          />
+              exact
+              path="/profile"
+              component={Profile}
+              requireAuth={false}
+            />
             <Route exact path="/" component={Home} />
             <Route
               component={(): ReactElement => (

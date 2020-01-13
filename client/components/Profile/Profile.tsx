@@ -1,10 +1,12 @@
-import React, { ReactElement, ChangeEvent, FormEvent } from "react";
-import { useIntl } from "react-intl";
+import React, { ReactElement } from "react";
 
-const Profile= (): ReactElement => {
-    return (
-        <p>test</p>
-    )
-}
+const Profile = (): ReactElement => {
+  return (
+    <div>
+      <p>test</p>
+      <p>test2</p>
+    </div>
+  );
+};
 
 export default Profile;

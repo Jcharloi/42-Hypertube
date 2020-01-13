@@ -56,7 +56,7 @@ exports[`App renders correctly 1`] = `
             className="makeStyles-grow-1"
           >
             <WithStyles(ForwardRef(AppBar))
-              position="static"
+              position="fixed"
             >
               <ForwardRef(AppBar)
                 classes={
@@ -72,16 +72,16 @@ exports[`App renders correctly 1`] = `
                     "root": "MuiAppBar-root",
                   }
                 }
-                position="static"
+                position="fixed"
               >
                 <WithStyles(ForwardRef(Paper))
-                  className="MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary"
+                  className="MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
                   component="header"
                   elevation={4}
                   square={true}
                 >
                   <ForwardRef(Paper)
-                    className="MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary"
+                    className="MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
                     classes={
                       Object {
                         "elevation0": "MuiPaper-elevation0",
@@ -118,7 +118,7 @@ exports[`App renders correctly 1`] = `
                     square={true}
                   >
                     <header
-                      className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary"
+                      className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
                     >
                       <WithStyles(ForwardRef(Toolbar))>
                         <ForwardRef(Toolbar)
@@ -396,12 +396,10 @@ exports[`App renders correctly 1`] = `
                                             <span
                                               className="MuiButton-label"
                                             >
-                                              <span
-                                                aria-label="flag"
-                                                role="img"
-                                              >
-                                                🇬🇧
-                                              </span>
+                                              <img
+                                                alt="en flag"
+                                                src="http://localhost:8080/en.png"
+                                              />
                                             </span>
                                             <NoSsr>
                                               <WithStyles(undefined)
@@ -1514,12 +1512,10 @@ exports[`App renders correctly 1`] = `
                                             <span
                                               className="MuiButton-label"
                                             >
-                                              <span
-                                                aria-label="flag"
-                                                role="img"
-                                              >
-                                                🇬🇧
-                                              </span>
+                                              <img
+                                                alt="en flag"
+                                                src="http://localhost:8080/en.png"
+                                              />
                                             </span>
                                             <NoSsr>
                                               <WithStyles(undefined)
@@ -2536,6 +2532,22 @@ exports[`App renders correctly 1`] = `
                 </WithStyles(ForwardRef(Paper))>
               </ForwardRef(AppBar)>
             </WithStyles(ForwardRef(AppBar))>
+            <WithStyles(ForwardRef(Toolbar))>
+              <ForwardRef(Toolbar)
+                classes={
+                  Object {
+                    "dense": "MuiToolbar-dense",
+                    "gutters": "MuiToolbar-gutters",
+                    "regular": "MuiToolbar-regular",
+                    "root": "MuiToolbar-root",
+                  }
+                }
+              >
+                <div
+                  className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+                />
+              </ForwardRef(Toolbar)>
+            </WithStyles(ForwardRef(Toolbar))>
             <WithStyles(ForwardRef(Menu))
               anchorEl={null}
               anchorOrigin={
