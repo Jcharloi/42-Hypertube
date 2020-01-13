@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactElement } from "react";
+import React, { ReactElement } from "react";
 
 import moment from "moment";
 import _ from "lodash";
@@ -11,12 +11,11 @@ import Rating from "@material-ui/lab/Rating";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 
-import { Film as FilmInterface } from "../../models/models";
-
 import { useFilmStyles } from "./styles";
 
 const film = {
   title: "fee",
+  // eslint-disable-next-line
   avg_rating: "4.33",
   date: moment().format(),
   creator: "me",

@@ -23,7 +23,15 @@ const messages: Record<string, Record<string, string>> = {
 
 const theme = createMuiTheme({});
 
-const WrappingComponents = ({ children, locale }: any): ReactElement => (
+interface WrappingComponentsInterface {
+  children: ReactElement[];
+  locale: string;
+}
+
+const WrappingComponents = ({
+  children,
+  locale
+}: WrappingComponentsInterface): ReactElement => (
   <IntlProvider locale={locale} messages={messages[locale]}>
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </IntlProvider>

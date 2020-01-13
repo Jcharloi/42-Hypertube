@@ -19,18 +19,29 @@ import SignUp from "./Authentication/SignUp";
 import ResetPassword from "./Authentication/ResetPassword";
 import Error from "./Error";
 
+import useLocaleStorage from "../hooks/useLocaleStorage";
+
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
   fr: frTranslation
 };
 
 const App = (): ReactElement => {
-  const [locale, setLocale] = React.useState("en");
+  const [localStorageData, setItem] = useLocaleStorage();
+  if (!localStorageData.language) {
+    setItem("language", "en");
+  }
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]}>
+    <IntlProvider
+      locale={localStorageData.language}
+      messages={messages[localStorageData.language]}
+    >
       <Router history={history}>
-        <Layout locale={locale} setLocale={setLocale}>
+        <Layout
+          locale={localStorageData.language}
+          setLocale={(locale: string): void => setItem("language", locale)}
+        >
           <Switch>
             <CustomRoute
               exact

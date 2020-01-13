@@ -26,17 +26,11 @@ const FiltersSelect = ({
       renderValue={(e: string[]): string =>
         _t({ id: "layout.filters.selected_collections" }, { count: e.length })
       }
-      autoWidth
       onChange={(e): void => setCollections(e.target.value as string[])}
-      aria-labelledby="collection-select"
       multiple
       value={collections || []}
-      className={classes.collectionsSelectComponent}
-      id="menuitem-main"
+      className={classes.filtersComponent}
     >
-      <MenuItem value="" disabled id="menuitem-default">
-        {_t({ id: "layout.filters.select_collection" })}
-      </MenuItem>
       <MenuItem value="feature_films" id="menuitem-feature_films">
         {_t({ id: "layout.filters.select_category.feature_films" })}
       </MenuItem>

@@ -6,7 +6,7 @@ import { Fixture, ApiRecord } from "../models/models";
 
 const useApi = (initialUrl: string, fixture?: Fixture): ApiRecord => {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!initialUrl);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(initialUrl);
 
