@@ -1,12 +1,12 @@
-import Axios from "axios";
+// import Axios from "axios";
 
-import movieHelpers from "../Helpers/movie";
-import mongoose from "../mongo";
+// import movieHelpers from "../Helpers/movie";
+// import mongoose from "../mongo";
 import UserModel from "../Schemas/User";
-import ioConnection from "..";
-import { CustomConsole } from "@jest/console";
+// import ioConnection from "..";
+// import { CustomConsole } from "@jest/console";
 
-const usernameIsFree = async username => {
+const usernameIsFree = async (username) => {
   try {
     const users = await UserModel.findOne({ username });
     return users === null;

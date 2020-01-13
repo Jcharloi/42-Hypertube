@@ -52,15 +52,15 @@ app.get("*", (req, res) => {
   res.render("index");
 });
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   console.log("A user connected");
 
-  socket.on("join-movie-room", movieId => {
+  socket.on("join-movie-room", (movieId) => {
     console.log("Joined movie room");
     socket.join(movieId);
   });
 
-  socket.on("leave-movie-room", movieId => {
+  socket.on("leave-movie-room", (movieId) => {
     console.log("Left movie room");
     socket.leave(movieId);
   });
