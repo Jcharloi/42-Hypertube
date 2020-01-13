@@ -9,6 +9,13 @@ exports[`App renders correctly 1`] = `
     locale="en"
     messages={
       Object {
+        "authentication.SignIn.forgotPassword": "Forgot your password ?",
+        "authentication.SignIn.login": "Login",
+        "authentication.SignIn.password": "Password",
+        "authentication.SignIn.signUpButton": "Sign Up !",
+        "authentication.SignIn.signUpMessage": "First time here ? ",
+        "authentication.SignIn.title": "Welcome back ",
+        "authentication.SignIn.username": "Username",
         "authentication.error.required": "This field is required",
         "authentication.signUp.email": "Your email (so we can spam you)",
         "authentication.signUp.error.email.invalid": "Email is invalid",

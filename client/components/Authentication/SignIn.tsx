@@ -54,14 +54,14 @@ const SignIn = (): ReactElement => {
       <Paper className={classes.signUpPage}>
         <Grid container alignItems="center" className={classes.height}>
           <Typography variant="subtitle1">
-            First time here ?{" "}
+            {_t({ id: "authentication.SignIn.signUpMessage" })}
             <span role="img" aria-label="baby">
               👶🏻
             </span>
           </Typography>
           <Link to="/sign-up" className={classes.niceLink}>
             <Button color="secondary" className={classes.signUpButton}>
-              Sign Up !
+              {_t({ id: "authentication.SignIn.signUpButton" })}
             </Button>
           </Link>
         </Grid>
@@ -70,7 +70,7 @@ const SignIn = (): ReactElement => {
       <Paper className={classes.signInPage}>
         <Grid container direction="column" alignItems="center">
           <Typography variant="h5" className={classes.item}>
-            Welcome back{" "}
+            {_t({ id: "authentication.SignIn.title" })}
             <span role="img" aria-label="pop-corn">
               🍿
             </span>
@@ -90,7 +90,7 @@ const SignIn = (): ReactElement => {
                   id="username"
                   autoComplete="username"
                   onChange={handleInputChange}
-                  label="username" // todo: use i18n
+                  label={_t({ id: "authentication.SignIn.username" })}
                   variant="filled"
                   className={classes.textInput}
                   inputProps={{ maxLength: 30 }}
@@ -110,7 +110,7 @@ const SignIn = (): ReactElement => {
                   id="password"
                   autoComplete="current-password"
                   onChange={handleInputChange}
-                  label="password" // todo: use i18n
+                  label={_t({ id: "authentication.SignIn.password" })}
                   variant="filled"
                   className={classes.textInput}
                   inputProps={{ maxLength: 1028 }}
@@ -123,7 +123,7 @@ const SignIn = (): ReactElement => {
                     color="secondary"
                     className={classes.forgotPasswordButton}
                   >
-                    Forgot your password ?
+                    {_t({ id: "authentication.SignIn.forgotPassword" })}
                   </Button>
                 </Link>
               </Grid>
@@ -134,7 +134,7 @@ const SignIn = (): ReactElement => {
                   variant="contained"
                   size="large"
                 >
-                  Login
+                  {_t({ id: "authentication.SignIn.login" })}
                 </Button>
               </Grid>
             </Grid>

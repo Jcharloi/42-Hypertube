@@ -5,9 +5,7 @@
   "language.en": "🇬🇧",
   "profile": "Mon profile",
   "disconnect": "Se déconnecter",
-
   "authentication.error.required": "Ce champ est requis",
-
   "authentication.signUp.title": "Qui es-tu ?",
   "authentication.signUp.subtitle": "Pour pouvoir accéder à tous nos films, il va falloir s'inscrire",
   "authentication.signUp.username": "Ton petit pseudo",
@@ -28,5 +26,12 @@
   "authentication.signUp.error.picture.wrongType": "Désolé, nous acceptons que les formats .jpeg, .jpg, .png",
   "authentication.signUp.validForm.title": "Bienvenue",
   "authentication.signUp.validForm.checkEmail": "Maitenant t'as juste à valider ton email",
-  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher"
+  "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher",
+  "authentication.SignIn.signUpMessage": "C'est ta premiere visite ? ",
+  "authentication.SignIn.signUpButton": "Je m'inscrit",
+  "authentication.SignIn.title": "Bienvenue ",
+  "authentication.SignIn.username": "Nom d'utilisateur",
+  "authentication.SignIn.password": "Mot de passe",
+  "authentication.SignIn.forgotPassword": "Mot de passe oublié ?",
+  "authentication.SignIn.login": "Connexion"
 }

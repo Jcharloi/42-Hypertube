@@ -5,9 +5,7 @@
   "language.en": "🇬🇧",
   "profile": "My profile",
   "disconnect": "Disconnect",
-
   "authentication.error.required": "This field is required",
-
   "authentication.signUp.title": "Who are you ?",
   "authentication.signUp.subtitle": "To access all our film, you're gonna have to register",
   "authentication.signUp.username": "Your little username",
@@ -28,5 +26,12 @@
   "authentication.signUp.error.picture.wrongType": "Sorry, we only accept .jpeg, .jpg et .png",
   "authentication.signUp.validForm.title": "Nice to meet you",
   "authentication.signUp.validForm.checkEmail": "Now you just need to validate your email",
-  "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content"
+  "authentication.signUp.validForm.bingeWatching": "Then you can start binge watching our content",
+  "authentication.SignIn.signUpMessage": "First time here ? ",
+  "authentication.SignIn.signUpButton": "Sign Up !",
+  "authentication.SignIn.title": "Welcome back ",
+  "authentication.SignIn.username": "Username",
+  "authentication.SignIn.password": "Password",
+  "authentication.SignIn.forgotPassword": "Forgot your password ?",
+  "authentication.SignIn.login": "Login"
 }
