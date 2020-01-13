@@ -7,7 +7,13 @@ import SignIn from "./SignIn";
 import ResetPassword from "./ResetPassword";
 
 const Authentication = (): ReactElement => (
-  <Grid container alignItems="center" justify="center" style={{ flexGrow: 1 }}>
+  <Grid
+    container
+    alignItems="center"
+    justify="center"
+    direction="column"
+    style={{ flexGrow: 1, padding: "8px" }}
+  >
     <CustomRoute exact path="/" component={SignIn} requireAuth={false} />
     <CustomRoute exact path="/sign-up" component={SignUp} requireAuth={false} />
     <CustomRoute

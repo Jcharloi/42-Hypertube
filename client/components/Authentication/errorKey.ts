@@ -1,5 +1,7 @@
+// General error keys
+export const requiredErrorKey = "authentication.error.required";
+
 // <SignUp> error keys
-export const requiredErrorKey = "authentication.signUp.error.required";
 export const requiredPictureErrorKey =
   "authentication.signUp.error.required.picture";
 export const emailInvalidErrorKey = "authentication.signUp.error.email.invalid";

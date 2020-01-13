@@ -6,6 +6,8 @@
   "profile": "Mon profile",
   "disconnect": "Se déconnecter",
 
+  "authentication.error.required": "Ce champ est requis",
+
   "authentication.signUp.title": "Qui es-tu ?",
   "authentication.signUp.subtitle": "Pour pouvoir accéder à tous nos films, il va falloir s'inscrire",
   "authentication.signUp.username": "Ton petit pseudo",
@@ -17,7 +19,6 @@
   "authentication.signUp.uploadButton": "Upload",
   "authentication.signUp.sendButton": "Je m'inscris sur ce site cool",
   "authentication.signUp.sendButton.waiting": "Envoi de tes précieuses données en cours",
-  "authentication.signUp.error.required": "Ce champ est requis",
   "authentication.signUp.error.required.picture": "Ne sois pas timide, tu dois fournir une photo de profil",
   "authentication.signUp.error.username.taken": "Mince, ce nom d'utilisateur n'est pas disponible",
   "authentication.signUp.error.email.invalid": "Adresse email incorrecte",

@@ -6,6 +6,8 @@
   "profile": "My profile",
   "disconnect": "Disconnect",
 
+  "authentication.error.required": "This field is required",
+
   "authentication.signUp.title": "Who are you ?",
   "authentication.signUp.subtitle": "To access all our film, you're gonna have to register",
   "authentication.signUp.username": "Your little username",
@@ -17,7 +19,6 @@
   "authentication.signUp.uploadButton": "Upload",
   "authentication.signUp.sendButton": "I register on this awesome website",
   "authentication.signUp.sendButton.waiting": "Sending all your precious data",
-  "authentication.signUp.error.required": "This field is required",
   "authentication.signUp.error.required.picture": "Don't be shy, you need to upload a profile picture",
   "authentication.signUp.error.username.taken": "Damn, this username is not available",
   "authentication.signUp.error.email.invalid": "Email is invalid",
