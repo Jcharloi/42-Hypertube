@@ -62,6 +62,7 @@ io.on("connection", (socket) => {
 
   socket.on("leave-movie-room", (movieId) => {
     console.log("Left movie room");
+
     socket.leave(movieId);
   });
 });

@@ -21,7 +21,7 @@ router.post("/inscription", signUpController.signUp);
 /* Movie */
 router.get("/movie/infos/:id", movie.getInfos);
 router.post("/movie/review", movie.receiveReviews);
-router.post("/profile/get", profile.getProfile);
+router.get("/user/:username", profile.getProfile);
 
 router.get("/data/avatar/:id", (req, res) => {
   const pictureName = req.params.id;
