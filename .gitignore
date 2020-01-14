@@ -3,3 +3,5 @@ dist/
 data/
 .eslintcache
 .DS_STORE
+.env
+.vscode
