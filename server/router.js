@@ -24,8 +24,9 @@ router.post("/movie/review", movie.receiveReviews);
 router.get("/user/:username", profile.getProfile);
 
 router.get("/data/avatar/:id", (req, res) => {
+  console.log("ICI");
   const pictureName = req.params.id;
-  const absolutePath = path.resolve(`./data/avatar/${pictureName}`);
+  const absolutePath = path.resolve(`./server/data/avatar/${pictureName}`);
   res.status(200).sendFile(absolutePath);
 });
 

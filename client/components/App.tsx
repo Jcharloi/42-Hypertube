@@ -64,6 +64,7 @@ const App = (): ReactElement => {
             />
             <CustomRoute
               exact
+              sensitive
               path="/profile/:username"
               component={Profile}
               requireAuth

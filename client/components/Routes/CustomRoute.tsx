@@ -6,6 +6,7 @@ import { Fixture } from "../../models/models";
 
 interface Props {
   exact?: boolean;
+  sensitive?: boolean;
   component: ElementType;
   path?: string;
   requireAuth: boolean;
@@ -15,6 +16,7 @@ interface Props {
 const CustomRoute = ({
   component: Component,
   path,
+  sensitive,
   exact,
   requireAuth,
   fixture
@@ -28,6 +30,7 @@ const CustomRoute = ({
   return (
     <Route
       path={path}
+      // sensitive
       exact={exact}
       render={(props): ReactElement => {
         if (error) return <div>Error</div>;
