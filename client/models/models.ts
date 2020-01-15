@@ -37,10 +37,8 @@ export interface Film {
 export interface Filters {
   query: string;
   collections: string[];
-  startYear: number;
-  endYear: number;
+  year: number;
   minRating: number;
-  maxRating: number;
 }
 
 export interface ClickAwayEventTarget extends EventTarget {

@@ -1,22 +1,18 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import moment from "moment";
+import _ from "lodash";
 import qs from "qs";
 import { useIntl } from "react-intl";
 import { useLocation } from "react-router-dom";
+import { Button, Typography, Paper, Select, MenuItem } from "@material-ui/core";
+import { Rating } from "@material-ui/lab";
 
-import Button from "@material-ui/core/Button";
-import Rating from "@material-ui/lab/Rating";
-import Slider from "@material-ui/core/Slider";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
+import FiltersSelect from "./Filters.select";
 
 import useDebounce from "../../hooks/useDebounce";
-
 import history from "../../helpers/history";
 
 import { useFiltersStyles } from "./styles";
-
-import FiltersSelect from "./Filters.select";
 
 interface Props {
   searchQuery: string;
@@ -29,20 +25,14 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
 
   const searchParams = qs.parse(location.search.slice(1));
   const [queryField, setqueryField] = useState(
-    searchParams.query || searchQuery
+    searchParams.query || searchQuery || ""
   );
-  const [yearRange, setYearRange] = useState([
-    Number(searchParams.startYear) || 1900,
-    Number(searchParams.endYear) || moment().year()
-  ]);
+  const [yearRange, setYearRange] = useState(searchParams.year || "");
   const [collections, setcollections] = useState(
     searchParams.collections || []
   );
   const [minRating, setMinRating] = useState(
     Number(searchParams.minRating) || 0
-  );
-  const [maxRating, setMaxRating] = useState(
-    Number(searchParams.maxRating) || 5
   );
 
   const debouncedQueryField = useDebounce(queryField, 500);
@@ -52,7 +42,6 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
     500
   ) as string[];
   const debouncedMinRating = useDebounce(minRating, 500);
-  const debouncedMaxRating = useDebounce(maxRating, 500);
 
   useEffect(() => {
     setqueryField(searchQuery);
@@ -64,25 +53,10 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
       collections: debouncedCollections.length
         ? debouncedCollections
         : undefined,
-      startYear:
-        debouncedYearRange?.[0] === 1900 &&
-        debouncedYearRange?.[1] === moment().year()
-          ? undefined
-          : debouncedYearRange?.[0],
-      endYear:
-        debouncedYearRange?.[0] === 1900 &&
-        debouncedYearRange?.[1] === moment().year()
-          ? undefined
-          : debouncedYearRange?.[1],
-      minRating:
-        debouncedMinRating === 0 && debouncedMaxRating === 5
-          ? undefined
-          : debouncedMinRating,
-      maxRating:
-        debouncedMinRating === 0 && debouncedMaxRating === 5
-          ? undefined
-          : debouncedMaxRating
+      year: yearRange || undefined,
+      minRating: debouncedMinRating === 0 ? undefined : debouncedMinRating
     });
+
     if (history.location.pathname === "/search" || debouncedQueryField) {
       history.push({
         pathname: "/search",
@@ -91,7 +65,6 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
     }
   }, [
     debouncedCollections,
-    debouncedMaxRating,
     debouncedMinRating,
     debouncedQueryField,
     debouncedYearRange
@@ -99,26 +72,37 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
 
   const resetFilter = (): void => {
     setqueryField("");
-    setYearRange([1900, moment().year()]);
+    setYearRange(undefined);
     setcollections([]);
     setMinRating(0);
-    setMaxRating(5);
   };
 
   return (
     <Paper className={classes.container}>
       <div>
-        <Typography className={classes.yearRangeLabel}>
-          {_t({ id: "layout.filters.production_year" })}
-        </Typography>
-        <Slider
-          defaultValue={yearRange}
-          value={yearRange || [1900, moment().year()]}
-          min={1900}
-          max={moment().year()}
-          onChange={(e, value): void => setYearRange(value as number[])}
-          valueLabelDisplay="on"
-        />
+        <Typography>{_t({ id: "layout.filters.production_year" })}</Typography>
+        <Select
+          value={yearRange}
+          onChange={(e): void => setYearRange(e.target.value)}
+          className={classes.collectionsContainer}
+          inputProps={{ style: { border: "1px solid blue" } }}
+        >
+          {_.rangeRight(1900, moment().year()).map((year: number) => (
+            <MenuItem
+              className={classes.yearItem}
+              id={`menuitem-year${year}`}
+              value={year}
+            >
+              {year}
+            </MenuItem>
+          ))}
+          <MenuItem
+            disabled
+            className={classes.yearItem}
+            id="menuitem-yeardefault"
+            value=""
+          />
+        </Select>
       </div>
       <div className={classes.collectionsContainer}>
         <Typography>{_t({ id: "layout.filters.collection" })}</Typography>
@@ -137,16 +121,6 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
             value={minRating || 0}
             onChange={(e, value): void => setMinRating(value)}
             name="ratingmin"
-          />
-        </div>
-        <div>
-          <Typography>
-            {_t({ id: "layout.filters.select.maxrating" })}
-          </Typography>
-          <Rating
-            name="ratingmax"
-            value={maxRating || 5}
-            onChange={(e, value): void => setMaxRating(value)}
           />
         </div>
       </div>

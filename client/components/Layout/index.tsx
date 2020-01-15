@@ -1,4 +1,6 @@
 import React, { useState, ReactElement } from "react";
+import qs from "qs";
+import { useLocation } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 import { ClickAwayListener, Box } from "@material-ui/core";
@@ -56,8 +58,10 @@ export const theme = createMuiTheme({
 
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
   const classes = useLayoutStyles({});
+  const location = useLocation();
+  const { query: searchQueryParam } = qs.parse(location.search.slice(1));
   const [expandedFilters, setExpandedFilters] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(searchQueryParam || "");
 
   const onClickAway = (e: ClickAwayEventTarget): void => {
     const id = String(e.target?.id);
@@ -78,13 +82,17 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
           onExpand={(): void => setExpandedFilters(true)}
         />
         <Box className={classes.contentContainer}>
-          {expandedFilters && (
+          {true && (
             <ClickAwayListener
               onClickAway={(e): void =>
                 onClickAway((e as unknown) as ClickAwayEventTarget)
               }
             >
-              <Box className={classes.filtersContainer}>
+              <Box
+                className={`${classes.filtersContainer} ${
+                  expandedFilters ? "" : classes.hiddenFilters
+                }`}
+              >
                 <Filters searchQuery={searchQuery} />
               </Box>
             </ClickAwayListener>

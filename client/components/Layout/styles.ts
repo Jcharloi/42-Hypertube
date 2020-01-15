@@ -17,6 +17,9 @@ export const useLayoutStyles = makeStyles((theme) => ({
     backgroundAttachment: "fixed",
     backgroundSize: "cover"
   },
+  hiddenFilters: {
+    display: "none"
+  },
   filtersContainer: {
     position: "absolute",
     zIndex: 1000,
@@ -83,15 +86,17 @@ export const useFiltersStyles = makeStyles((theme) => ({
     width: "100%",
     padding: theme.spacing(4, 3, 6.5, 3)
   },
-  yearRangeLabel: {
-    marginBottom: theme.spacing(5)
-  },
   collectionsContainer: {
     marginBottom: theme.spacing(2),
     width: "100%"
   },
   filtersComponent: {
     width: "100%"
+  },
+  yearItem: {
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center"
   },
   ratingContainer: {
     marginBottom: theme.spacing(2),
