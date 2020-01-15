@@ -1,6 +1,7 @@
 import React, { useState, ReactElement } from "react";
+import qs from "qs";
 import { useIntl } from "react-intl";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   AppBar,
   Typography,
@@ -10,9 +11,7 @@ import {
   MenuItem,
   OutlinedInput
 } from "@material-ui/core";
-
-import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import { Search, AccountCircle } from "@material-ui/icons";
 
 import { useHeaderStyles } from "./styles";
 
@@ -33,6 +32,8 @@ const Header = ({
   const { formatMessage: _t } = useIntl();
   const [localeAnchorEl, setLocaleAnchor] = useState(undefined);
   const [profileMenuAnchor, setProfileMenuAnchor] = useState(undefined);
+  const location = useLocation();
+  const { query } = qs.parse(location.search.slice(1)) || "";
 
   const setNewLocale = (newLocale: string): void => {
     setLocale(newLocale);
@@ -53,11 +54,12 @@ const Header = ({
         </Typography>
         <div className={classes.headerContent}>
           <OutlinedInput
+            defaultValue={query}
             onChange={(e): void => onSearchChange(e.target.value)}
             onClick={onExpand}
             placeholder={_t({ id: "layout.filters.search" })}
             className={classes.searchInput}
-            startAdornment={<SearchIcon className={classes.inputLabel} />}
+            startAdornment={<Search className={classes.inputLabel} />}
             labelWidth={0}
             id="menuitem-search"
           />

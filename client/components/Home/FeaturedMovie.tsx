@@ -1,15 +1,10 @@
 import React, { ReactElement } from "react";
-
 import moment from "moment";
 import _ from "lodash";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
-
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Rating from "@material-ui/lab/Rating";
-import Chip from "@material-ui/core/Chip";
-import Paper from "@material-ui/core/Paper";
+import { Button, Typography, Chip, Paper } from "@material-ui/core";
+import { Rating } from "@material-ui/lab";
 
 import { useFilmStyles } from "./styles";
 
