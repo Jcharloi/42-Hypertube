@@ -1,17 +1,18 @@
 import React, { useState, ReactElement } from "react";
-import qs from "qs";
 import { useIntl } from "react-intl";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
+  Box,
   AppBar,
   Typography,
   IconButton,
   Toolbar,
   Menu,
   MenuItem,
-  OutlinedInput
+  OutlinedInput,
+  Switch
 } from "@material-ui/core";
-import { Search, AccountCircle } from "@material-ui/icons";
+import { Search, AccountCircle, Movie, Tv } from "@material-ui/icons";
 
 import { useHeaderStyles } from "./styles";
 
@@ -20,20 +21,24 @@ interface Props {
   setLocale: (locale: string) => void;
   onExpand: () => void;
   onSearchChange: (query: string) => void;
+  onMediaTypeChange: (newMediaType: string) => void;
+  mediaType: string;
+  searchQuery: string;
 }
 
 const Header = ({
   locale,
   setLocale,
   onExpand,
-  onSearchChange
+  onSearchChange,
+  onMediaTypeChange,
+  mediaType,
+  searchQuery
 }: Props): ReactElement => {
   const classes = useHeaderStyles({});
   const { formatMessage: _t } = useIntl();
   const [localeAnchorEl, setLocaleAnchor] = useState(undefined);
   const [profileMenuAnchor, setProfileMenuAnchor] = useState(undefined);
-  const location = useLocation();
-  const { query } = qs.parse(location.search.slice(1)) || "";
 
   const setNewLocale = (newLocale: string): void => {
     setLocale(newLocale);
@@ -42,6 +47,11 @@ const Header = ({
 
   const onMenuProfile = (): void => {
     setProfileMenuAnchor(undefined);
+  };
+
+  const onToggleSwitch = (): void => {
+    if (mediaType === "movies") onMediaTypeChange("shows");
+    else onMediaTypeChange("movies");
   };
 
   return (
@@ -53,8 +63,26 @@ const Header = ({
           </Link>
         </Typography>
         <div className={classes.headerContent}>
+          <Box className={classes.toggleContent} onClick={onToggleSwitch}>
+            <Tv />
+            <Switch
+              color="default"
+              checked={mediaType === "movies"}
+              classes={{
+                thumb:
+                  mediaType === "movies"
+                    ? classes.switchMovies
+                    : classes.switchShows,
+                track:
+                  mediaType === "movies"
+                    ? classes.switchMovies
+                    : classes.switchShows
+              }}
+            />
+            <Movie />
+          </Box>
           <OutlinedInput
-            defaultValue={query}
+            value={searchQuery}
             onChange={(e): void => onSearchChange(e.target.value)}
             onClick={onExpand}
             placeholder={_t({ id: "layout.filters.search" })}

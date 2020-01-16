@@ -23,8 +23,8 @@ const FiltersSelect = ({
       value={collections}
       className={classes.filtersComponent}
     >
-      <MenuItem disabled value="" id="menuitem-default">
-        {_t({ id: "layout.filters.select_collection" })}
+      <MenuItem value="" id="menuitem-default">
+        {_t({ id: "layout.filters.all" })}
       </MenuItem>
       <MenuItem value="Action" id="menuitem-action">
         {_t({ id: "layout.filters.select_category.action" })}

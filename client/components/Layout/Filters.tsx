@@ -16,9 +16,11 @@ import { useFiltersStyles } from "./styles";
 
 interface Props {
   searchQuery: string;
+  mediaType: string;
+  onReset: () => void;
 }
 
-const Filters = ({ searchQuery }: Props): ReactElement => {
+const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
   const classes = useFiltersStyles({});
   const location = useLocation();
   const { formatMessage: _t } = useIntl();
@@ -35,6 +37,7 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
     Number(searchParams.minRating) || 0
   );
 
+  const debouncedMediaType = useDebounce(mediaType, 500);
   const debouncedQueryField = useDebounce(queryField, 500);
   const debouncedYearRange: number[] = useDebounce(yearRange, 500) as number[];
   const debouncedCollections: string[] = useDebounce(
@@ -57,13 +60,18 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
       minRating: debouncedMinRating === 0 ? undefined : debouncedMinRating
     });
 
-    if (history.location.pathname === "/search" || debouncedQueryField) {
+    if (
+      history.location.pathname === "/shows" ||
+      history.location.pathname === "/movies" ||
+      debouncedQueryField
+    ) {
       history.push({
-        pathname: "/search",
+        pathname: `/${debouncedMediaType}`,
         search: `?${queryParams}`
       });
     }
   }, [
+    debouncedMediaType,
     debouncedCollections,
     debouncedMinRating,
     debouncedQueryField,
@@ -72,38 +80,44 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
 
   const resetFilter = (): void => {
     setqueryField("");
-    setYearRange(undefined);
+    setYearRange("");
     setcollections([]);
     setMinRating(0);
+    onReset();
   };
 
   return (
     <Paper className={classes.container}>
-      <div>
-        <Typography>{_t({ id: "layout.filters.production_year" })}</Typography>
-        <Select
-          value={yearRange}
-          onChange={(e): void => setYearRange(e.target.value)}
-          className={classes.collectionsContainer}
-          inputProps={{ style: { border: "1px solid blue" } }}
-        >
-          {_.rangeRight(1900, moment().year()).map((year: number) => (
+      {mediaType === "movies" && (
+        <div>
+          <Typography>
+            {_t({ id: "layout.filters.production_year" })}
+          </Typography>
+          <Select
+            value={yearRange}
+            onChange={(e): void => setYearRange(e.target.value)}
+            className={classes.collectionsContainer}
+          >
             <MenuItem
               className={classes.yearItem}
-              id={`menuitem-year${year}`}
-              value={year}
+              id="menuitem-yeardefault"
+              value=""
             >
-              {year}
+              {_t({ id: "layout.filters.all" })}
             </MenuItem>
-          ))}
-          <MenuItem
-            disabled
-            className={classes.yearItem}
-            id="menuitem-yeardefault"
-            value=""
-          />
-        </Select>
-      </div>
+            {_.rangeRight(1900, moment().year()).map((year: number) => (
+              <MenuItem
+                className={classes.yearItem}
+                id={`menuitem-year${year}`}
+                value={year}
+                key={`menuitem-year${year}`}
+              >
+                {year}
+              </MenuItem>
+            ))}
+          </Select>
+        </div>
+      )}
       <div className={classes.collectionsContainer}>
         <Typography>{_t({ id: "layout.filters.collection" })}</Typography>
         <FiltersSelect
@@ -111,19 +125,21 @@ const Filters = ({ searchQuery }: Props): ReactElement => {
           setCollections={(value): void => setcollections(value)}
         />
       </div>
-      <div className={classes.ratingContainer}>
-        <div>
-          <Typography>
-            {_t({ id: "layout.filters.select.minrating" })}
-          </Typography>
-          <Rating
-            defaultValue={minRating}
-            value={minRating || 0}
-            onChange={(e, value): void => setMinRating(value)}
-            name="ratingmin"
-          />
+      {mediaType === "movies" && (
+        <div className={classes.ratingContainer}>
+          <div>
+            <Typography>
+              {_t({ id: "layout.filters.select.minrating" })}
+            </Typography>
+            <Rating
+              defaultValue={minRating}
+              value={minRating || 0}
+              onChange={(e, value): void => setMinRating(value)}
+              name="ratingmin"
+            />
+          </div>
         </div>
-      </div>
+      )}
       <Button onClick={resetFilter} className={classes.resetFilterButton}>
         {_t({ id: "layout.filters.select.reset" })}
       </Button>

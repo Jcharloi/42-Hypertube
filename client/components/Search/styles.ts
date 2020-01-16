@@ -90,17 +90,37 @@ export const useThumbnailStyles = makeStyles((theme) => ({
   metaInfos: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    width: "100%"
   },
   rating: {
     display: "flex",
     marginBottom: theme.spacing(1)
+  },
+  watchButton: {
+    width: "75%"
   },
   ratingIcon: {
     color: yellow[500]
   },
   tag: {
     margin: theme.spacing(0.5)
+  },
+  altContainer: {
+    height: 450,
+    width: 300,
+    padding: theme.spacing(2),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  noMediaContainer: {
+    textAlign: "center",
+    marginTop: theme.spacing(5)
+  },
+  noMedia: {
+    width: "20rem",
+    height: "20rem"
   }
 }));
 
