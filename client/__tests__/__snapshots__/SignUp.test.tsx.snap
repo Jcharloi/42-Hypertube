@@ -282,13 +282,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                     className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                   >
                     <WithStyles(ForwardRef(Grid))
-                      alignItems="center"
                       className="makeStyles-titles-4"
                       container={true}
-                      direction="column"
                     >
                       <ForwardRef(Grid)
-                        alignItems="center"
                         className="makeStyles-titles-4"
                         classes={
                           Object {
@@ -398,10 +395,9 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                           }
                         }
                         container={true}
-                        direction="column"
                       >
                         <div
-                          className="MuiGrid-root makeStyles-titles-4 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+                          className="MuiGrid-root makeStyles-titles-4 MuiGrid-container"
                         >
                           <WithStyles(ForwardRef(Grid))
                             item={true}
@@ -4140,13 +4136,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                     className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
                   >
                     <WithStyles(ForwardRef(Grid))
-                      alignItems="center"
                       className="makeStyles-titles-4"
                       container={true}
-                      direction="column"
                     >
                       <ForwardRef(Grid)
-                        alignItems="center"
                         className="makeStyles-titles-4"
                         classes={
                           Object {
@@ -4256,10 +4249,9 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                           }
                         }
                         container={true}
-                        direction="column"
                       >
                         <div
-                          className="MuiGrid-root makeStyles-titles-4 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+                          className="MuiGrid-root makeStyles-titles-4 MuiGrid-container"
                         >
                           <WithStyles(ForwardRef(Grid))
                             item={true}

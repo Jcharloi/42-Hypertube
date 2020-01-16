@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: `${theme.spacing(0.5)}px`
   },
   titles: {
-    margin: `${theme.spacing(3)}px 0px ${theme.spacing(5)}px`
+    margin: `${theme.spacing(3)}px 0px ${theme.spacing(5)}px`,
+    flexDirection: "column",
+    alignItems: "center"
   },
   subtitle: {
     marginTop: `${theme.spacing(1)}px`
@@ -35,7 +37,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "50px"
   },
   randomWrapper: {
-    height: "100%"
+    height: "100%",
+    FlexDirection: "column",
+    justifyContent: "center"
   }
 }));
 

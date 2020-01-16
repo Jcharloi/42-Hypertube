@@ -122,12 +122,7 @@ const SignUp = (): ReactElement => {
       {!userIsRegistered && (
         <Paper className={classes.paper}>
           <Grid container direction="column" alignItems="center">
-            <Grid
-              container
-              direction="column"
-              alignItems="center"
-              className={classes.titles}
-            >
+            <Grid container className={classes.titles}>
               <Grid item>
                 <Typography variant="h3" align="center">
                   {_t({ id: "authentication.signUp.title" })}
@@ -161,12 +156,7 @@ const SignUp = (): ReactElement => {
 
       {userIsRegistered && (
         <Paper className={classes.registerPage}>
-          <Grid
-            container
-            direction="column"
-            alignItems="center"
-            className={classes.titles}
-          >
+          <Grid container className={classes.titles}>
             <Grid item>
               <Typography variant="h4" align="center">
                 {`${_t({ id: "authentication.signUp.validForm.title" })} ${
@@ -178,19 +168,14 @@ const SignUp = (): ReactElement => {
                 </span>
               </Typography>
             </Grid>
-            <Grid container direction="row" justify="center">
+            <Grid container justify="center">
               <Grid item>
                 <Avatar className={classes.emailRound}>
                   <EmailIcon color="secondary" className={classes.emailIcon} />
                 </Avatar>
               </Grid>
               <Grid item>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  className={classes.randomWrapper}
-                >
+                <Grid container className={classes.randomWrapper}>
                   <Grid item className={classes.subtitle}>
                     <Typography variant="subtitle1" align="center">
                       {_t({
