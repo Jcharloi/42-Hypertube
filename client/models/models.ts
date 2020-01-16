@@ -44,3 +44,16 @@ export interface Filters {
 export interface ClickAwayEventTarget extends EventTarget {
   target: { id: string };
 }
+
+export interface ApiData {
+  loading: boolean;
+  error: unknown;
+  setUrl: Function;
+}
+
+export interface SearchData extends ApiData {
+  data: {
+    medias: Record<string, string | number>[];
+    nextPage: boolean;
+  };
+}

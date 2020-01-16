@@ -61,7 +61,8 @@ const App = (): ReactElement => {
               component={ResetPassword}
               requireAuth={false}
             />
-            <CustomRoute path="/search" component={Search} requireAuth />
+            <CustomRoute path="/shows" component={Search} requireAuth />
+            <CustomRoute path="/movies" component={Search} requireAuth />
             <CustomRoute path="/movie" component={Movie} requireAuth />
             <Route exact path="/error" component={Error} requiredAuth />
             <Route exact path="/" component={Home} />

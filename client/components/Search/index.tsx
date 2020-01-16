@@ -10,9 +10,12 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import StarIcon from "@material-ui/icons/Star";
 import { Button, Chip } from "@material-ui/core";
+import Image from "material-ui-image";
+import Card from "@material-ui/core/Card";
 
 import useApi from "../../hooks/useApi";
 import { formatQueryUrl } from "./service";
+import { SearchData } from "../../models/models";
 
 import useSearchStyles from "./styles";
 
@@ -24,38 +27,33 @@ const Search = (): ReactElement => {
   const [page, setPage] = useState(1);
   const history = useHistory();
   const location = useLocation();
-  const { data, loading, error, setUrl } = useApi(
-    formatQueryUrl(location.search, 1)
-  );
+  const mediaType = location.pathname.includes("movies") ? "movies" : "shows";
+  const { data, loading, error, setUrl }: SearchData = (useApi(
+    formatQueryUrl(location.search, 1, mediaType)
+  ) as unknown) as SearchData;
 
   useEffect(() => {
     if (!loading && !block) {
       setPage(1);
       setFilmList([]);
-      setUrl(formatQueryUrl(location.search, 1));
+      setUrl(formatQueryUrl(location.search, 1, mediaType));
     }
-  }, [location.search]);
+  }, [location.search, location.pathname]);
 
   useEffect(() => {
-    if (data?.movies) {
-      const movies = data.movies as Record<string, unknown>[];
-
-      setFilmList(() => [...filmList, ...movies]);
+    if (data && data.medias?.length) {
+      setFilmList(() => [...filmList, ...data.medias]);
       setBlock(false);
     }
   }, [data]);
 
   const loadMore = (): void => {
-    if (data.movie_count <= page * 10) {
+    if (!data.nextPage) {
       return;
     }
     setBlock(true);
     setPage(page + 1);
-    setUrl(formatQueryUrl(location.search, page + 1));
-  };
-
-  const searchTag = (genre: string): void => {
-    console.log(genre);
+    setUrl(formatQueryUrl(location.search, page + 1, mediaType));
   };
 
   if (error) {
@@ -68,45 +66,72 @@ const Search = (): ReactElement => {
         className={classes.container}
         initialLoad={false}
         loadMore={loadMore}
-        hasMore={data.movie_count > page * 10}
+        hasMore={data.nextPage}
       >
-        {filmList.map((movie) => (
-          <div className={classes.thumbnailContainer}>
+        {!filmList.length && !loading && (
+          <div className={classes.noMediaContainer}>
             <img
-              src={movie.large_cover_image}
-              width={300}
-              height={450}
-              alt={movie.title_english}
+              src="http://localhost:8080/public/no-media.png"
+              alt="no-media"
+              className={classes.noMedia}
+            />
+            <Typography variant="h5">
+              {_t({ id: "search.no_media" })}
+            </Typography>
+          </div>
+        )}
+        {filmList.map((media) => (
+          <div className={classes.thumbnailContainer}>
+            <Image
+              animationDuration={500}
+              src={media.cover}
+              color="rgba(0,0,0,0)"
+              imageStyle={{ width: 300, height: 450 }}
+              style={{ width: 300, height: 450 }}
+              disableSpinner
+              errorIcon={
+                <Card className={classes.altContainer}>
+                  <Typography variant="h4">{media.title}</Typography>
+                </Card>
+              }
             />
             <div className={classes.thumbnailOverlay}>
-              <Typography variant="h5">{movie.title_english}</Typography>
-              <Typography variant="h6">{movie.year}</Typography>
+              <Typography variant="h5">{media.title}</Typography>
+              <Typography variant="h6">{media.year}</Typography>
               <Typography variant="caption" className={classes.summary}>
-                {movie.summary}
+                {media.summary}
               </Typography>
               <div className={classes.metaInfos}>
-                <Typography>
-                  {movie.genres.map((genre: string) => (
-                    <Chip
-                      className={classes.tag}
-                      label={genre}
-                      clickable
-                      color="primary"
-                      onClick={(): void => searchTag(genre)}
-                    />
-                  ))}
-                </Typography>
+                {media.genres && (
+                  <div>
+                    {media.genres.map((genre: string) => (
+                      <Chip
+                        className={classes.tag}
+                        label={genre}
+                        clickable
+                        color="primary"
+                      />
+                    ))}
+                  </div>
+                )}
                 <Typography className={classes.rating}>
-                  {movie.rating / 2} <StarIcon className={classes.ratingIcon} />{" "}
-                  - {movie.runtime} mins
+                  {media.rating} <StarIcon className={classes.ratingIcon} />
+                  {media.runtime && <span>- {media.runtime} mins</span>}
                 </Typography>
                 <Button
                   color="primary"
                   variant="contained"
-                  fullWidth
-                  onClick={(): void => history.push(`/movie/${movie.movie_id}`)}
+                  className={classes.watchButton}
+                  onClick={(): void =>
+                    history.push(`/${mediaType.slice(0, -1)}/${media.id}`)
+                  }
                 >
-                  {_t({ id: "search.film.watch" })}
+                  {_t({
+                    id:
+                      mediaType === "movies"
+                        ? "search.film.watch"
+                        : "search.film.watch_show"
+                  })}
                 </Button>
               </div>
             </div>

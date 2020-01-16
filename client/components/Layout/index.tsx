@@ -51,6 +51,9 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
   const { query: searchQueryParam } = qs.parse(location.search.slice(1));
   const [expandedFilters, setExpandedFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState(searchQueryParam || "");
+  const [mediaType, setMediaType] = useState(
+    location.pathname.includes("movies") ? "movies" : "shows"
+  );
 
   const onClickAway = (e: ClickAwayEventTarget): void => {
     const id = String(e.target?.id);
@@ -67,8 +70,11 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
         <Header
           locale={locale}
           setLocale={setLocale}
+          searchQuery={searchQuery}
           onSearchChange={(query): void => setSearchQuery(query)}
           onExpand={(): void => setExpandedFilters(true)}
+          onMediaTypeChange={(newMediaType): void => setMediaType(newMediaType)}
+          mediaType={mediaType}
         />
         <Box className={classes.contentContainer}>
           {true && (
@@ -82,7 +88,11 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
                   expandedFilters ? "" : classes.hiddenFilters
                 }`}
               >
-                <Filters searchQuery={searchQuery} />
+                <Filters
+                  searchQuery={searchQuery}
+                  mediaType={mediaType}
+                  onReset={(): void => setSearchQuery("")}
+                />
               </Box>
             </ClickAwayListener>
           )}
