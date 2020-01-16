@@ -57,7 +57,7 @@ export const useHeaderStyles = makeStyles((theme) => ({
     }
   },
   searchInput: {
-    background: theme.palette.secondary.main,
+    background: theme.palette.grey[700],
     height: theme.spacing(5),
     width: "20rem"
   },
@@ -68,12 +68,12 @@ export const useHeaderStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1)
   },
   headerButtons: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.grey[700],
     marginLeft: theme.spacing(1),
     height: theme.spacing(6),
     width: theme.spacing(6),
     "&:hover": {
-      background: theme.palette.primary.main
+      background: theme.palette.grey[800]
     }
   }
 }));

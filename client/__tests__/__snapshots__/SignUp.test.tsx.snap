@@ -3706,9 +3706,10 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                     className="MuiGrid-root makeStyles-item-170 MuiGrid-item"
                                   >
                                     <div
-                                      className="makeStyles-circularProgressContainer-173"
+                                      className="makeStyles-circularProgressContainer-174"
                                     >
                                       <WithStyles(ForwardRef(Button))
+                                        className="makeStyles-sendButton-173"
                                         color="primary"
                                         disabled={false}
                                         size="large"
@@ -3716,6 +3717,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                         variant="contained"
                                       >
                                         <ForwardRef(Button)
+                                          className="makeStyles-sendButton-173"
                                           classes={
                                             Object {
                                               "colorInherit": "MuiButton-colorInherit",
@@ -3756,7 +3758,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                           variant="contained"
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                                            className="MuiButton-root MuiButton-contained makeStyles-sendButton-173 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
                                             component="button"
                                             disabled={false}
                                             focusRipple={true}
@@ -3764,7 +3766,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                             type="submit"
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                                              className="MuiButton-root MuiButton-contained makeStyles-sendButton-173 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -3779,7 +3781,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                               type="submit"
                                             >
                                               <button
-                                                className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                                                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-sendButton-173 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
                                                 disabled={false}
                                                 onBlur={[Function]}
                                                 onDragLeave={[Function]}
@@ -7562,9 +7564,10 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                     className="MuiGrid-root makeStyles-item-170 MuiGrid-item"
                                   >
                                     <div
-                                      className="makeStyles-circularProgressContainer-173"
+                                      className="makeStyles-circularProgressContainer-174"
                                     >
                                       <WithStyles(ForwardRef(Button))
+                                        className="makeStyles-sendButton-173"
                                         color="primary"
                                         disabled={false}
                                         size="large"
@@ -7572,6 +7575,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                         variant="contained"
                                       >
                                         <ForwardRef(Button)
+                                          className="makeStyles-sendButton-173"
                                           classes={
                                             Object {
                                               "colorInherit": "MuiButton-colorInherit",
@@ -7612,7 +7616,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                           variant="contained"
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                                            className="MuiButton-root MuiButton-contained makeStyles-sendButton-173 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
                                             component="button"
                                             disabled={false}
                                             focusRipple={true}
@@ -7620,7 +7624,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                             type="submit"
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                                              className="MuiButton-root MuiButton-contained makeStyles-sendButton-173 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -7635,7 +7639,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                               type="submit"
                                             >
                                               <button
-                                                className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
+                                                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-sendButton-173 MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
                                                 disabled={false}
                                                 onBlur={[Function]}
                                                 onDragLeave={[Function]}

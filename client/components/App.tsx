@@ -14,7 +14,6 @@ import Home from "./Home";
 import Movie from "./Movie/Movie";
 import Search from "./Search";
 import FourOhFour from "./FourOhFour";
-import SignIn from "./Authentication/SignIn";
 import SignUp from "./Authentication/SignUp";
 import ResetPassword from "./Authentication/ResetPassword";
 import Error from "./Error";
