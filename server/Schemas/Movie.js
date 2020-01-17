@@ -3,6 +3,7 @@ import mongoose from "../mongo";
 const commentSchema = new mongoose.Schema({
   _id: String,
   movieId: { type: String, required: true },
+  movieName: { type: String, required: true },
   name: { type: String, required: true },
   date: { type: Number, required: true },
   stars: {
@@ -14,6 +15,15 @@ const commentSchema = new mongoose.Schema({
   body: { type: String, required: true }
 });
 
-const MovieCommentModel = mongoose.model("movieComments", commentSchema);
+const userHistory = new mongoose.Schema({
+  _id: String,
+  userId: { type: String, required: true },
+  movieId: { type: String, required: true },
+  movieName: { type: String, required: true },
+  date: { type: Number, required: true }
+});
 
-export default MovieCommentModel;
+const MovieCommentModel = mongoose.model("movieComments", commentSchema);
+const UserHistoryModel = mongoose.model("userHistory", userHistory);
+
+export default { MovieCommentModel, UserHistoryModel };

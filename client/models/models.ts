@@ -16,6 +16,21 @@ export interface Fixture {
   error: {};
 }
 
+export interface MovieInfos {
+  title: string;
+  description: string;
+  creator: string;
+  runTime: number;
+  prodDate: string;
+  imdbRating: number;
+  poster: string;
+}
+
+export interface Reviews {
+  movieRating: number;
+  review: Array<Review>;
+}
+
 export interface Review {
   id: string;
   name: string;

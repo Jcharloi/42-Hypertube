@@ -1,57 +1,43 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useState } from "react";
+import { useIntl } from "react-intl";
 
+import PlayCircleFilledOutlinedIcon from "@material-ui/icons/PlayCircleFilledOutlined";
 import useStyles from "./MoviePlayer.styles";
 
 import API from "../../util/api";
 
 interface Props {
   movieId: string;
-  extension: string;
-  size: number;
+  source: string;
 }
 
-const MoviePlayer = ({ movieId, extension, size }: Props): ReactElement => {
-  const [controlVideo, setControlVideo] = useState(false);
-  const [sourceVideo, setSourceVideo] = useState("");
-  const [goSource, setGoSource] = useState(true);
+const MoviePlayer = ({ movieId, source }: Props): ReactElement => {
+  const { formatMessage: _t } = useIntl();
+  const [brokenPlayer, setBrokenPlayer] = useState(false);
   const classes = useStyles({});
 
   const downloadMovie = (): void => {
-    API.get(`/movie/download/${movieId}`)
-      .then(() => {
-        if (!controlVideo) {
-          setControlVideo(true);
-        }
-        setGoSource(true);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    API.get(`/movie/download/${movieId}`).catch((e) => {
+      if (e.response.status === 409) {
+        setBrokenPlayer(true);
+      }
+      console.log(e);
+    });
   };
 
-  useEffect(() => {
-    if (goSource) {
-      setSourceVideo(
-        `http://localhost:8080/api/movie/streaming/${movieId}.${extension}/${size}`
-      );
-      const audioPlayer: any = document.getElementById("player");
-      audioPlayer.play();
-      setGoSource(false);
-    }
-  });
-
   return (
-    <>
-      <div className={classes.containerPlayer}>
+    <div className={classes.containerPlayer}>
+      {brokenPlayer && (
+        <div className={classes.playerBroken}>{_t({ id: "movie.error" })}</div>
+      )}
+      {!brokenPlayer && source ? (
         <video
-          controls={controlVideo}
+          controls
           playsInline
-          poster={`http://archive.org/19/items/${movieId}/__ia_thumb.jpg`}
           id="player"
-          className={classes.player}
-          onClick={downloadMovie}
+          className={classes.video}
+          src={source}
         >
-          <source src={sourceVideo} type={`video/${extension}`} />
           <track
             kind="captions"
             label="English"
@@ -66,8 +52,17 @@ const MoviePlayer = ({ movieId, extension, size }: Props): ReactElement => {
             src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
           />
         </video>
-      </div>
-    </>
+      ) : (
+        !brokenPlayer && (
+          <div className={classes.playerLoader}>
+            <PlayCircleFilledOutlinedIcon
+              onClick={downloadMovie}
+              className={classes.playerIcon}
+            />
+          </div>
+        )
+      )}
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-import fs from "fs";
-import request from "request";
+import torrentStream from "torrent-stream";
 
-import MovieCommentModel from "../Schemas/Movie";
+import MovieModels from "../Schemas/Movie";
+import ioConnection from "..";
 
 const timestampToDate = (month, day, year) => {
   return `${month}, ${day}, ${year}`;
@@ -9,11 +9,23 @@ const timestampToDate = (month, day, year) => {
 
 const findReviews = async (movieId) => {
   try {
-    const reviews = await MovieCommentModel.find({ movieId });
-    const ourReviews = [];
+    const reviews = await MovieModels.MovieCommentModel.find({ movieId });
+    const ourReviews = { movieRating: 0, review: [] };
     if (reviews.length > 0) {
+      let totalStars = 0;
       reviews.forEach(({ _id, name, date, stars, body }) => {
-        ourReviews.push({ id: _id, name, date, stars, body });
+        totalStars += stars;
+        ourReviews.review.push({ id: _id, name, date, stars, body });
+      });
+      ourReviews.movieRating = Math.floor(totalStars / reviews.length);
+      ourReviews.review.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
+      ourReviews.review.forEach(({ date }, index) => {
+        const fullDate = String(new Date(date)).split(" ");
+        ourReviews.review[index].date = timestampToDate(
+          fullDate[1],
+          fullDate[2],
+          fullDate[3]
+        );
       });
     }
     return ourReviews;
@@ -23,54 +35,94 @@ const findReviews = async (movieId) => {
   }
 };
 
-const sortReviews = (reviews, ourReviews) => {
-  const copyReviews = reviews;
-  copyReviews.push(...ourReviews);
-  if (copyReviews.length > 1) {
-    copyReviews.sort((reviewA, reviewB) => reviewA.date - reviewB.date);
+const logHistory = async (history) => {
+  try {
+    const userHistory = await MovieModels.UserHistoryModel.find({
+      movieName: history.movieName,
+      userId: history.userId
+    });
+    if (userHistory.length > 0) {
+      await MovieModels.UserHistoryModel.findOneAndUpdate(
+        {
+          movieName: history.movieName,
+          userId: history.userId
+        },
+        { ...history, _id: userHistory[0]._id },
+        { useFindAndModify: false }
+      );
+    } else {
+      await MovieModels.UserHistoryModel.create({
+        _id: history._id,
+        userId: history.userId,
+        movieId: history.movieId,
+        movieName: history.movieName,
+        date: history.date
+      });
+    }
+    return true;
+  } catch (e) {
+    console.error(e.message);
+    return e.message;
   }
-  copyReviews.forEach(({ date }, index) => {
-    const fullDate = String(new Date(date)).split(" ");
-    copyReviews[index].date = timestampToDate(
-      fullDate[1],
-      fullDate[2],
-      fullDate[3]
-    );
-  });
-  return copyReviews;
 };
 
-const createMovieFile = (url, dest, cb) => {
-  const file = fs.WriteStream(dest);
-  const sendReq = request.get(url);
-  // Check request errors and status
-  sendReq.on("response", (response) => {
-    if (response.statusCode !== 200) {
-      return cb(`Response status was ${response.statusCode}`);
+const downloadVideo = (movieId, magnet) => {
+  // console.log(magnet);
+  const engine = torrentStream(`${magnet}`, {
+    path: "./server/data/movie/",
+    trackers: [
+      "udp%3A%2F%2Fzer0day.ch%3A1337",
+      "udp%3A%2F%2Fopen.demonii.com%3A1337",
+      "udp%3A%2F%2Fexodus.desync.com%3A6969",
+      "udp://open.demonii.com:1337/announce",
+      "udp://tracker.openbittorrent.com:80",
+      "udp://tracker.coppersurfer.tk:6969",
+      "udp://glotorrents.pw:6969/announce",
+      "udp://tracker.opentrackr.org:1337/announce",
+      "udp://torrent.gresille.org:80/announce",
+      "udp://p4p.arenabg.com:1337",
+      "udp://tracker.leechers-paradise.org:6969"
+    ]
+  });
+  engine.on("ready", () => {
+    // setInterval(() => console.log(engine.swarm.wires.length), 1000);
+  });
+  let currentIndex = 0;
+  engine.on("idle", () => {
+    const torrent = engine.files.find(({ name }) => {
+      return (
+        name.split(".")[name.split(".").length - 1] === "mp4" ||
+        name.split(".")[name.split(".").length - 1] === "webm"
+      );
+    });
+    if (currentIndex === 50) {
+      return;
     }
-    return 1;
-  });
-  sendReq.on("error", (err) => {
-    fs.unlink(dest);
-    cb(err.message);
-  });
-  // Write the video into the file
-  sendReq.pipe(file);
-  // Check writing errors and finish
-  file.on("finish", () => {
-    file.close(cb);
-  });
-  file.on("error", (err) => {
-    fs.unlink(dest);
-    cb(err.message);
+    const filePiece = torrent.length / 50;
+    // console.log(torrent, torrent.path);
+    console.log("Creating new piece ", currentIndex);
+    torrent.createReadStream({
+      start: filePiece * currentIndex,
+      end: filePiece * (currentIndex + 1)
+    });
+    if (currentIndex === 1) {
+      ioConnection.ioConnection
+        .to(movieId)
+        .emit(
+          "Video source",
+          `http://localhost:8080/api/movie/streaming/${torrent.path}`
+        );
+    }
+    currentIndex++;
   });
 };
 
 const saveReview = async (comment) => {
   try {
-    await MovieCommentModel.create({
+    await MovieModels.MovieCommentModel.create({
       _id: comment._id,
       movieId: comment.movieId,
+      movieName: comment.movieName,
       name: comment.name,
       date: comment.date,
       stars: comment.stars,
@@ -86,7 +138,7 @@ const saveReview = async (comment) => {
 export default {
   timestampToDate,
   findReviews,
-  sortReviews,
-  createMovieFile,
+  logHistory,
+  downloadVideo,
   saveReview
 };

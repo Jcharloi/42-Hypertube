@@ -9,10 +9,27 @@ const useStyles = makeStyles(() => ({
     maxHeight: "50%",
     minHeight: "50%"
   },
-  player: {
-    cursor: "pointer",
-    minWidth: "70%",
-    maxWidth: "70%"
+  playerBroken: {
+    display: "flex",
+    height: "100%",
+    width: "60%",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  video: {
+    width: "60%"
+  },
+  playerLoader: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "60%",
+    height: "100%",
+    backgroundColor: "black"
+  },
+  playerIcon: {
+    fontSize: "7rem",
+    cursor: "pointer"
   }
 }));
 

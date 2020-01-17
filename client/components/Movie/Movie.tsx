@@ -1,142 +1,121 @@
 /* eslint-disable no-nested-ternary */
 import { useIntl } from "react-intl";
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 
 import { Paper } from "@material-ui/core";
+import Rating from "@material-ui/lab/Rating";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 import useStyles from "./Movie.styles";
 
-import socket from "../../helpers/socket";
-import API from "../../util/api";
 import RecommendedMovies from "./MovieRecommended";
 import MovieComments from "./MovieComments";
-import { Review } from "../../models/models";
+import { MovieInfos, Reviews, Review } from "../../models/models";
 import Loading from "../Routes/Loading";
 import MoviePlayer from "./MoviePlayer";
+import useApi from "../../hooks/useApi";
+import socket from "../../helpers/socket";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
-  const [movieId] = useState(window.location.pathname.split("/")[2]);
-  const [loading, setLoading] = useState(true);
-  const [movieInfos, setMovieInfos] = useState({
-    title: "",
-    description: "",
-    creator: "",
-    prodDate: "",
-    runTime: "",
-    stars: 0,
-    extension: "",
-    size: 0
-  });
-  const [reviews, setReviews] = useState([
-    { id: "", name: "", date: null, stars: 0, body: "" }
-  ]);
-  const [dataDone, setDataDone] = useState(false);
+  const [source, setSource] = useState("");
+  const movieId = window.location.pathname.split("/")[2];
   const classes = useStyles({});
 
+  const {
+    data: { infos, reviews: reviewsData },
+    loading,
+    error
+  } = useApi(`/movie/infos/${movieId}`);
+
+  const movieInfos = infos as MovieInfos;
+  const reviews = reviewsData as Reviews;
+
+  const initComments = (reviewReceived: Review): void => {
+    let totalStars = reviewReceived.stars;
+    reviews.review.forEach((review) => {
+      totalStars += review.stars;
+    });
+    reviews.movieRating = totalStars / (reviews.review.length + 1);
+    reviews.review.push(reviewReceived);
+  };
+
+  const initSource = (sourcePath: string): void => {
+    setSource(sourcePath);
+  };
+
   useEffect(() => {
-    const initComments = (reviewReceived: Review): void => {
-      let totalStars = reviewReceived.stars;
-      let reviewsLength = 1;
-      setReviews((reviewsHook) => {
-        totalStars = reviewsHook.reduce((acc, review) => {
-          if (review.stars > 0) reviewsLength += 1;
-          return acc + review.stars;
-        }, reviewReceived.stars);
-        return [...reviewsHook, reviewReceived];
-      });
-      setMovieInfos((movieInfosHook) => {
-        return {
-          ...movieInfosHook,
-          stars: Math.floor(totalStars / reviewsLength)
-        };
-      });
-    };
-    if (loading) {
-      API.get(`/movie/infos/${movieId}`)
-        .then(({ data: { infos, reviews: allReviews } }) => {
-          setMovieInfos(infos);
-          setReviews(allReviews);
-          setDataDone(true);
-          socket.socket.emit("join-movie-room", movieId);
-          socket.socket.on("New comments", initComments);
-        })
-        .catch((e) => {
-          console.error(e);
-          setDataDone(true);
-        });
-      setLoading(false);
-    }
     return (): void => {
+      if (loading || error) {
+        return;
+      }
+      socket.socket.removeListener("Video source", initSource);
       socket.socket.removeListener("New comments", initComments);
       socket.socket.emit("leave-movie-room", movieId);
     };
-  }, [loading, movieId]);
+  });
+
+  if (loading) return <Loading />;
+  if (error)
+    return (
+      <div className={classes.movieDoesNotExists}>
+        {_t({ id: "movie.error.invalid" })}
+      </div>
+    );
+
+  socket.socket.on("Video source", initSource);
+  socket.socket.on("New comments", initComments);
+  socket.socket.emit("join-movie-room", movieId);
 
   return (
     <div className={classes.root}>
-      {!dataDone ? (
-        <Loading />
-      ) : movieInfos.title ? (
-        <div className={classes.movieContainer}>
-          <Paper className={classes.containerPresentation}>
-            <div className={classes.containerMovie}>
-              <div className={classes.movieTitleImage}>
-                <div className={classes.labelMovie}>{movieInfos.title}</div>
-                <img
-                  alt="Movie thumb"
-                  src={`http://archive.org/19/items/${movieId}/__ia_thumb.jpg`}
-                />
-              </div>
-              {movieInfos.creator && (
-                <div className={classes.labelMovie}>
-                  {_t({ id: "movie.creator" })} {movieInfos.creator}
+      <div className={classes.movieContainer}>
+        <Paper className={classes.containerPresentation}>
+          <div className={classes.containerMovie}>
+            <img
+              className={classes.moviePoster}
+              src={`https://yts.lt${movieInfos.poster}`}
+              alt="Movie thumb"
+            />
+            <div className={classes.generalInfos}>
+              <div className={classes.movieTitle}>{movieInfos?.title}</div>
+              {movieInfos?.description && (
+                <div className={classes.descriptionMovie}>
+                  {movieInfos?.description}
                 </div>
               )}
-              {movieInfos.description && (
-                <div className={classes.labelMovie && classes.descriptionMovie}>
-                  {_t({ id: "movie.description" })} {movieInfos.description}
+              {/* {movieInfos?.creator && (
+                <div>
+                  {_t({ id: "movie.creator" })} {movieInfos?.creator}
                 </div>
+              )} */}
+              <span className={classes.dateAndTime}>
+                {movieInfos?.prodDate && (
+                  <div>
+                    {_t({ id: "movie.prodDate" })} {movieInfos?.prodDate}
+                  </div>
+                )}
+                {movieInfos?.runTime && (
+                  <div>
+                    {_t({ id: "movie.runTime" })} {movieInfos?.runTime} minutes
+                  </div>
+                )}
+              </span>
+              {movieInfos.imdbRating && (
+                <>
+                  {_t({ id: "movie.imdb.rating" })}
+                  <Rating
+                    value={movieInfos?.imdbRating}
+                    readOnly
+                    emptyIcon={<StarBorderIcon color="primary" />}
+                  />
+                </>
               )}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent:
-                    movieInfos.prodDate && movieInfos.runTime
-                      ? "space-between"
-                      : "center",
-                  width: "80%",
-                  fontSize: "1rem"
-                }}
-              >
-                {movieInfos.prodDate && (
-                  <span>
-                    {_t({ id: "movie.prodDate" })} {movieInfos.prodDate}{" "}
-                  </span>
-                )}
-                {movieInfos.runTime && (
-                  <span>
-                    {_t({ id: "movie.runTime" })} {movieInfos.runTime}{" "}
-                  </span>
-                )}
-              </div>
             </div>
-          </Paper>
-          <MoviePlayer
-            movieId={movieId}
-            extension={movieInfos.extension}
-            size={movieInfos.size}
-          />
-          <MovieComments
-            movieId={movieId}
-            movieRating={movieInfos.stars}
-            reviews={reviews}
-          />
-        </div>
-      ) : (
-        <div className={classes.movieDoesNotExists}>
-          {_t({ id: "movie.error.invalid" })}
-        </div>
-      )}
+          </div>
+        </Paper>
+        <MoviePlayer movieId={movieId} source={source} />
+        <MovieComments movieId={movieId} reviews={reviews} />
+      </div>
       <RecommendedMovies />
     </div>
   );
