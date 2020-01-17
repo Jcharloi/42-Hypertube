@@ -1,4 +1,5 @@
 import torrentStream from "torrent-stream";
+import fs from "fs";
 
 import MovieModels from "../Schemas/Movie";
 import ioConnection from "..";
@@ -101,19 +102,30 @@ const downloadVideo = (movieId, magnet) => {
     const filePiece = torrent.length / 50;
     // console.log(torrent, torrent.path);
     console.log("Creating new piece ", currentIndex);
-    torrent.createReadStream({
-      start: filePiece * currentIndex,
-      end: filePiece * (currentIndex + 1)
+    fs.exists(`./server/data/movie/${torrent.path}`, (exists) => {
+      if (exists) {
+        ioConnection.ioConnection
+          .to(movieId)
+          .emit(
+            "Video source",
+            `http://localhost:8080/api/movie/streaming/${torrent.path}`
+          );
+      } else {
+        torrent.createReadStream({
+          start: filePiece * currentIndex,
+          end: filePiece * (currentIndex + 1)
+        });
+        if (currentIndex > 0) {
+          ioConnection.ioConnection
+            .to(movieId)
+            .emit(
+              "Video source",
+              `http://localhost:8080/api/movie/streaming/${torrent.path}`
+            );
+        }
+        currentIndex++;
+      }
     });
-    if (currentIndex === 1) {
-      ioConnection.ioConnection
-        .to(movieId)
-        .emit(
-          "Video source",
-          `http://localhost:8080/api/movie/streaming/${torrent.path}`
-        );
-    }
-    currentIndex++;
   });
 };
 

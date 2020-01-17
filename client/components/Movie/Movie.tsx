@@ -14,6 +14,7 @@ import Loading from "../Routes/Loading";
 import MoviePlayer from "./MoviePlayer";
 import useApi from "../../hooks/useApi";
 import socket from "../../helpers/socket";
+import Error from "../Error";
 
 const Movie = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -55,12 +56,7 @@ const Movie = (): ReactElement => {
   });
 
   if (loading) return <Loading />;
-  if (error)
-    return (
-      <div className={classes.movieDoesNotExists}>
-        {_t({ id: "movie.error.invalid" })}
-      </div>
-    );
+  if (error) return <Error />;
 
   socket.socket.on("Video source", initSource);
   socket.socket.on("New comments", initComments);

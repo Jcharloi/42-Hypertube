@@ -1,13 +1,18 @@
 import { makeStyles } from "@material-ui/styles";
+import { Theme } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   containerRatingAndComment: {
     marginTop: "5rem",
     marginBottom: "10rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: "50%"
+    width: "50%",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "80%",
+      minWidth: "80%"
+    }
   },
   movieRating: {
     display: "flex",
@@ -48,7 +53,7 @@ const useStyles = makeStyles(() => ({
   },
   textField: {
     width: "100%",
-    maxHeight: "10rem",
+    maxHeight: "4rem",
     overflow: "auto",
     overflowX: "hidden"
   },
