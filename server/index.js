@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import bodyParser from "body-parser";
 import path from "path";
 import favicon from "serve-favicon";
 import fileUpload from "express-fileupload";
@@ -14,6 +15,7 @@ app.use(favicon(path.join(__dirname, "views", "favicon.ico")));
 app.use("public/", express.static("public"));
 app.use(morgan("dev"));
 app.use(fileUpload());
+app.use(bodyParser.json());
 
 /* Webpack Hot Reload */
 const webpack = require("webpack");
