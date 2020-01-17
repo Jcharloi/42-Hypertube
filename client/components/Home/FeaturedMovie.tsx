@@ -1,85 +1,87 @@
 import React, { ReactElement } from "react";
-import moment from "moment";
-import _ from "lodash";
+import { Skeleton, Rating } from "@material-ui/lab";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import { Button, Typography, Chip, Paper } from "@material-ui/core";
-import { Rating } from "@material-ui/lab";
+import Image from "material-ui-image";
+
+import { MovieData } from "../../models/models";
 
 import { useFilmStyles } from "./styles";
 
-const film = {
-  title: "fee",
-  // eslint-disable-next-line
-  avg_rating: "4.33",
-  date: moment().format(),
-  creator: "me",
-  subject: ["stuff, stuff, stuff"],
-  description:
-    "c dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfgc dla merdejkhvouyghuygkjhfviygiuyfg",
-  identifier: "FinalFan2001"
-};
+import useApi from "../../hooks/useApi";
+
 const Film = (): ReactElement => {
   const classes = useFilmStyles({});
   const history = useHistory();
   const { formatMessage: _t } = useIntl();
+  const { data: movie, loading, error } = (useApi(
+    "/search/latest-movie"
+  ) as unknown) as MovieData;
 
-  const searchTag = (subj: string): void =>
-    history.push(`/search?query=${subj}`);
+  if (error) {
+    return <div>error</div>;
+  }
+
+  if (loading) {
+    return (
+      <Paper className={classes.container}>
+        <Typography variant="h4" className={classes.title}>
+          {_t({ id: "home.latest_film" })}
+        </Typography>
+        <div className={classes.posterContainer}>
+          <Skeleton variant="rect" height={562.5} width={375} />
+        </div>
+      </Paper>
+    );
+  }
 
   const renderTags = (): ReactElement[] =>
-    _.flatten(Array(film.subject)).map((subj: string) => (
+    movie.genres?.map((genre: string) => (
       <Chip
-        key={subj}
+        key={genre}
         className={classes.tag}
-        label={subj}
+        label={genre}
         clickable
         color="primary"
-        onClick={(): void => searchTag(subj)}
       />
     ));
 
   return (
     <Paper className={classes.container}>
-      <Typography variant="h3">{film.title}</Typography>
-      <img
-        className={classes.thumbnail}
-        alt="thumb"
-        src={`https://archive.org/download/${film.identifier}/__ia_thumb.jpg`}
-      />
-      <div className={classes.ratingContainer}>
-        <Rating
-          name="read-only"
-          value={Number(film.avg_rating)}
-          precision={0.01}
-          readOnly
+      <Typography variant="h4" className={classes.title}>
+        {_t({ id: "home.latest_film" })}
+      </Typography>
+      <div className={classes.posterContainer}>
+        <Image
+          animationDuration={500}
+          src={movie.cover}
+          imageStyle={{ width: 375, height: 562.5 }}
+          style={{ width: 375, height: 562.5 }}
+          color="rgba(0,0,0,0)"
         />
-        <Typography>
-          {film.avg_rating || `- ${_t({ id: "search.film.norating" })}`}
-        </Typography>
       </div>
-      <Typography>
-        {`${_t(
-          { id: "search.film.author" },
-          { author: film.creator || _t({ id: "search.film.unknown_author" }) }
-        )}`}{" "}
-        - {moment(film.date).year()}
-      </Typography>
-      <Typography variant="caption" className={classes.descriptionContainer}>
-        {film.description}
-      </Typography>
-      <Typography>{_t({ id: "search.film.tags" })} : </Typography>
-      <div>{renderTags()}</div>
-      <div className={classes.buttonContainer}>
-        <Button
-          color="primary"
-          variant="contained"
-          fullWidth
-          onClick={(): void => history.push(`/movie/${film.identifier}`)}
-        >
-          {_t({ id: "search.film.watch" })}
-        </Button>
+      <div className={classes.infosOverlay}>
+        <Typography variant="h3" className={classes.title}>
+          {movie.title}
+        </Typography>
+        <Typography variant="h4">{movie.year}</Typography>
+        <Typography className={classes.descriptionContainer}>
+          {movie.summary}
+        </Typography>
+        <Rating readOnly value={movie.rating} precision={0.1} />
+        <div>{renderTags()}</div>
+        <div className={classes.buttonContainer}>
+          <Button
+            color="primary"
+            variant="contained"
+            fullWidth
+            onClick={(): void => history.push(`/movie/${movie.id}`)}
+          >
+            {_t({ id: "search.film.watch" })}
+          </Button>
+        </div>
       </div>
     </Paper>
   );

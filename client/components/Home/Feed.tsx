@@ -2,8 +2,9 @@ import React, { ReactElement } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { Paper, Typography } from "@material-ui/core";
-
+import Image from "material-ui-image";
 import Rating from "@material-ui/lab/Rating";
+
 import { useFeedStyles } from "./styles";
 
 import { clamp } from "../Search/service";
@@ -64,19 +65,30 @@ const Feed = (): ReactElement => {
       </Typography>
       {mock.map((recentFeed) => (
         <div className={classes.recentFeedContainer}>
-          <Link to={`/movie/${recentFeed.film.identifier}`}>
-            <img
-              src={`https://archive.org/download/${recentFeed.film.identifier}/__ia_thumb.jpg`}
-              alt="thumb"
-            />
+          <Link
+            to={`/movie/${recentFeed.film.identifier}`}
+            className={classes.link}
+          >
+            <div className={classes.thumbnail}>
+              <Image
+                src="https://yts.lt/assets/images/movies/dark_waters_2019/large-cover.jpg"
+                imageStyle={{ width: 90, height: 135 }}
+                color="rgba(0,0,0,0)"
+              />
+            </div>
           </Link>
           <div className={classes.infos}>
-            <Link to={`/movie/${recentFeed.film.identifier}`}>
+            <Link
+              to={`/movie/${recentFeed.film.identifier}`}
+              className={classes.link}
+            >
               <Typography variant="h5">{recentFeed.film.title}</Typography>
             </Link>
             <Typography>
-              <Link to={`user/${recentFeed.user}`}>{recentFeed.user}</Link> left
-              a comment {moment(recentFeed.updatedAt).fromNow()}
+              <Link to={`user/${recentFeed.user}`} className={classes.link}>
+                {recentFeed.user}
+              </Link>{" "}
+              left a comment {moment(recentFeed.updatedAt).fromNow()}
             </Typography>
             <div>
               <Rating value={recentFeed.rating} readOnly />

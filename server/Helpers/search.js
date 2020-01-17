@@ -75,4 +75,24 @@ const searchShows = async ({ query, page, collections }) => {
   }
 };
 
-export default { searchMovies, searchShows };
+const searchLatestMovie = async () => {
+  try {
+    const res = await axios.get(`${YTS_URL}?limit=1`);
+
+    const movie = {
+      cover: res.data.data.movies[0].large_cover_image,
+      title: res.data.data.movies[0].title_english,
+      year: res.data.data.movies[0].year,
+      summary: res.data.data.movies[0].summary,
+      genres: res.data.data.movies[0].genres,
+      rating: res.data.data.movies[0].rating / 2,
+      id: res.data.data.movies[0].id,
+      runtime: res.data.data.movies[0].runtime
+    };
+    return movie;
+  } catch (error) {
+    return { error };
+  }
+};
+
+export default { searchMovies, searchShows, searchLatestMovie };

@@ -43,7 +43,10 @@ export const useHeaderStyles = makeStyles((theme) => ({
   },
   titleLink: {
     textDecoration: "none",
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
+    "&:hover": {
+      color: theme.palette.text.secondary
+    }
   },
   buttonsMenu: {
     [theme.breakpoints.down("xs")]: {
@@ -56,6 +59,9 @@ export const useHeaderStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     flexGrow: 1,
+    "&:hover": {
+      color: theme.palette.text.secondary
+    },
     [theme.breakpoints.down("xs")]: {
       display: "none"
     }

@@ -8,25 +8,33 @@ export const useHomeStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3)
   },
   mainContent: {
-    paddingBottom: theme.spacing(2),
-    display: "flex",
-    height: "60%"
+    paddingBottom: theme.spacing(4),
+    display: "flex"
+    // minHeight: "57%"
   },
   feedContainer: {
-    flex: 2,
-    height: "100%"
+    flex: 2
   },
   filmContainer: {
-    flex: 1,
-    height: "100%",
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(4)
   }
 }));
 
 export const useFeedStyles = makeStyles((theme) => ({
   feedContainer: {
     height: "100%",
-    padding: theme.spacing(2)
+    padding: theme.spacing(4)
+  },
+  link: {
+    textDecoration: "none",
+    color: theme.palette.text.primary,
+    "&:hover": {
+      color: theme.palette.text.secondary
+    }
+  },
+  thumbnail: {
+    width: 90,
+    height: 135
   },
   recentFeedContainer: {
     display: "flex",
@@ -43,7 +51,8 @@ export const useFeedStyles = makeStyles((theme) => ({
 
 export const useRecentMoviesStyle = makeStyles((theme) => ({
   container: {
-    padding: theme.spacing(3)
+    padding: theme.spacing(3),
+    height: "100%"
   },
   recentFilmContainer: {
     display: "flex",
@@ -80,22 +89,23 @@ export const useRecentMoviesStyle = makeStyles((theme) => ({
 
 export const useFilmStyles = makeStyles((theme) => ({
   container: {
-    height: "100%",
-    width: "100%",
+    position: "relative",
+    padding: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
-    textAlign: "center",
-    padding: theme.spacing(2)
-  },
-  thumbnail: {
-    marginTop: theme.spacing(3),
-    alignSelf: "center"
-  },
-  ratingContainer: {
-    display: "flex",
+    alignItems: "center",
     justifyContent: "center",
-    alignItems: "self-end",
-    margin: `${theme.spacing(1)} 0`
+    height: "100%"
+  },
+  posterContainer: {
+    display: "flex",
+    alignItems: "center",
+    width: 375,
+    height: 562.5,
+    flexGrow: 1
+  },
+  title: {
+    marginBottom: theme.spacing(2)
   },
   descriptionContainer: {
     textAlign: "justify",
@@ -103,7 +113,8 @@ export const useFilmStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     paddingRight: theme.spacing(1),
     height: "20vh",
-    overflowY: "auto"
+    overflowY: "auto",
+    flexGrow: 1
   },
   tag: {
     margin: theme.spacing(0.5)
@@ -111,6 +122,22 @@ export const useFilmStyles = makeStyles((theme) => ({
   buttonContainer: {
     marginTop: theme.spacing(4),
     alignSelf: "center",
-    width: "30%"
+    width: "100%"
+  },
+  infosOverlay: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    top: 0,
+    opacity: 0,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(4),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    transition: "opacity 0.2s",
+    "&:hover": {
+      opacity: 0.9
+    }
   }
 }));

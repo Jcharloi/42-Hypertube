@@ -1,3 +1,5 @@
+import { NumericDictionary } from "lodash";
+
 export interface Locale {
   locale: string;
   setLocale: (locale: string) => void;
@@ -55,5 +57,17 @@ export interface SearchData extends ApiData {
   data: {
     medias: Record<string, string | number>[];
     nextPage: boolean;
+  };
+}
+
+export interface MovieData extends ApiData {
+  data: {
+    cover: string;
+    title: string;
+    year: number;
+    summary: string;
+    id: string;
+    genres: string[];
+    rating: number;
   };
 }

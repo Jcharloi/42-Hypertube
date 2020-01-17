@@ -41,7 +41,7 @@ export const theme = createMuiTheme({
     },
     text: {
       primary: "#fff",
-      secondary: "#fff"
+      secondary: "#b7b7b7"
     }
   }
 });
