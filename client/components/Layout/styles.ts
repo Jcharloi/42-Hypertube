@@ -36,6 +36,11 @@ export const useLayoutStyles = makeStyles((theme) => ({
 }));
 
 export const useHeaderStyles = makeStyles((theme) => ({
+  appBar: {
+    height: "64px",
+    display: "flex",
+    justifyContent: "center"
+  },
   titleLink: {
     textDecoration: "none",
     color: theme.palette.text.primary
@@ -47,11 +52,22 @@ export const useHeaderStyles = makeStyles((theme) => ({
       justifyContent: "flex-end"
     }
   },
-  title: {
+  linksContainer: {
+    display: "flex",
+    alignItems: "center",
     flexGrow: 1,
     [theme.breakpoints.down("xs")]: {
       display: "none"
     }
+  },
+  title: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("xs")]: {
+      display: "none"
+    }
+  },
+  linkMedia: {
+    margin: theme.spacing(0, 0.5)
   },
   headerContent: {
     display: "flex",
@@ -63,13 +79,20 @@ export const useHeaderStyles = makeStyles((theme) => ({
   searchInput: {
     background: theme.palette.secondary.main,
     height: theme.spacing(5),
-    width: "20rem"
+    width: "20rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "15rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%"
+    }
   },
   flagIcon: {
     lineHeight: 0
   },
   inputLabel: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    pointerEvents: "none"
   },
   headerButtons: {
     color: theme.palette.secondary.main,
