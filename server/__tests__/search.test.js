@@ -1,21 +1,42 @@
 import searchHelper from "../Helpers/search";
 
 describe("Search", () => {
-  describe("Helper/search main function", () => {
+  describe("Helper/search movies", () => {
     it("Should get the data", async () => {
       const filters = {
-        query: "test",
-        page: 1,
+        limit: 12,
+        sort_by: "download_count",
         minRating: 0,
-        year: 2017
+        page: 1,
+        year: 2017,
+        query: "",
+        collections: "Action"
       };
 
-      const res = await searchHelper(filters);
+      const res = await searchHelper.searchMovies(filters);
 
       expect(res).toBeDefined();
-      // expect(res).toHaveProperty("numFound");
-      // expect(res).toHaveProperty("start");
-      // expect(res).toHaveProperty("docs");
+      expect(res).toHaveProperty("nextPage");
+      expect(res).toHaveProperty("medias");
+      expect(res.medias).toBeInstanceOf(Array);
     });
+  });
+});
+
+describe("Helper/search shows", () => {
+  it("Should get the data", async () => {
+    const filters = {
+      collections: "Action",
+      page: 1,
+      query: "",
+      sort: "trending"
+    };
+
+    const res = await searchHelper.searchShows(filters);
+
+    expect(res).toBeDefined();
+    expect(res).toHaveProperty("nextPage");
+    expect(res).toHaveProperty("medias");
+    expect(res.medias).toBeInstanceOf(Array);
   });
 });

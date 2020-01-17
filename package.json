@@ -8,6 +8,8 @@
     "linter:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "test": "npm run linter && npm run test:jest",
     "test:jest": "cross-env NODE_ENV=test cross-env NODE_ICU_DATA=node_modules/full-icu jest --projects client server --no-cache",
+    "test:jest:server": "cross-env NODE_ENV=test cross-env NODE_ICU_DATA=node_modules/full-icu jest --projects server --no-cache",
+    "test:jest:client": "cross-env NODE_ENV=test cross-env NODE_ICU_DATA=node_modules/full-icu jest --projects client --no-cache",
     "test:jest:watch": "cross-env NODE_ENV=test cross-env NODE_ICU_DATA=node_modules/full-icu jest --watch",
     "start": "nodemon --exec babel-node server/index.js"
   },
