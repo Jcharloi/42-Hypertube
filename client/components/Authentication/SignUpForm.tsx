@@ -148,7 +148,8 @@ const SignUpForm = ({
               />
               <Button
                 variant="outlined"
-                color="secondary"
+                // color="secondary"
+                className={classes.pictureButton}
                 startIcon={<CloudUploadIcon />}
                 component="span"
                 // To avoid picture name to be in uppercase :

@@ -11,7 +11,7 @@ export const useLayoutStyles = makeStyles((theme) => ({
     position: "relative",
     width: "100%",
     flexGrow: 1,
-    backgroundImage: "url('http://localhost:8080/public/wallpaper.png')",
+    backgroundImage: `url('${window.location.origin}/public/wallpaper.png')`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "bottom left",
     backgroundAttachment: "fixed",

@@ -3412,13 +3412,14 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                               type="file"
                                             />
                                             <WithStyles(ForwardRef(Button))
-                                              color="secondary"
+                                              className="makeStyles-pictureButton-174"
                                               component="span"
                                               startIcon={<UNDEFINED />}
                                               style={Object {}}
                                               variant="outlined"
                                             >
                                               <ForwardRef(Button)
+                                                className="makeStyles-pictureButton-174"
                                                 classes={
                                                   Object {
                                                     "colorInherit": "MuiButton-colorInherit",
@@ -3452,14 +3453,13 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                     "textSizeSmall": "MuiButton-textSizeSmall",
                                                   }
                                                 }
-                                                color="secondary"
                                                 component="span"
                                                 startIcon={<UNDEFINED />}
                                                 style={Object {}}
                                                 variant="outlined"
                                               >
                                                 <WithStyles(ForwardRef(ButtonBase))
-                                                  className="MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                                                  className="MuiButton-root MuiButton-outlined makeStyles-pictureButton-174"
                                                   component="span"
                                                   disabled={false}
                                                   focusRipple={true}
@@ -3468,7 +3468,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                   type="button"
                                                 >
                                                   <ForwardRef(ButtonBase)
-                                                    className="MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                                                    className="MuiButton-root MuiButton-outlined makeStyles-pictureButton-174"
                                                     classes={
                                                       Object {
                                                         "disabled": "Mui-disabled",
@@ -3485,7 +3485,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                                   >
                                                     <span
                                                       aria-disabled={false}
-                                                      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                                                      className="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-pictureButton-174"
                                                       onBlur={[Function]}
                                                       onDragLeave={[Function]}
                                                       onFocus={[Function]}
@@ -3702,7 +3702,7 @@ exports[`SignUp should render <SignUp> in english 1`] = `
                                     className="MuiGrid-root makeStyles-item-170 MuiGrid-item"
                                   >
                                     <div
-                                      className="makeStyles-circularProgressContainer-174"
+                                      className="makeStyles-circularProgressContainer-175"
                                     >
                                       <WithStyles(ForwardRef(Button))
                                         className="makeStyles-sendButton-173"
@@ -7266,13 +7266,14 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                               type="file"
                                             />
                                             <WithStyles(ForwardRef(Button))
-                                              color="secondary"
+                                              className="makeStyles-pictureButton-174"
                                               component="span"
                                               startIcon={<UNDEFINED />}
                                               style={Object {}}
                                               variant="outlined"
                                             >
                                               <ForwardRef(Button)
+                                                className="makeStyles-pictureButton-174"
                                                 classes={
                                                   Object {
                                                     "colorInherit": "MuiButton-colorInherit",
@@ -7306,14 +7307,13 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                     "textSizeSmall": "MuiButton-textSizeSmall",
                                                   }
                                                 }
-                                                color="secondary"
                                                 component="span"
                                                 startIcon={<UNDEFINED />}
                                                 style={Object {}}
                                                 variant="outlined"
                                               >
                                                 <WithStyles(ForwardRef(ButtonBase))
-                                                  className="MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                                                  className="MuiButton-root MuiButton-outlined makeStyles-pictureButton-174"
                                                   component="span"
                                                   disabled={false}
                                                   focusRipple={true}
@@ -7322,7 +7322,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                   type="button"
                                                 >
                                                   <ForwardRef(ButtonBase)
-                                                    className="MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                                                    className="MuiButton-root MuiButton-outlined makeStyles-pictureButton-174"
                                                     classes={
                                                       Object {
                                                         "disabled": "Mui-disabled",
@@ -7339,7 +7339,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                                   >
                                                     <span
                                                       aria-disabled={false}
-                                                      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary"
+                                                      className="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-pictureButton-174"
                                                       onBlur={[Function]}
                                                       onDragLeave={[Function]}
                                                       onFocus={[Function]}
@@ -7556,7 +7556,7 @@ exports[`SignUp should render <SignUp> in french 1`] = `
                                     className="MuiGrid-root makeStyles-item-170 MuiGrid-item"
                                   >
                                     <div
-                                      className="makeStyles-circularProgressContainer-174"
+                                      className="makeStyles-circularProgressContainer-175"
                                     >
                                       <WithStyles(ForwardRef(Button))
                                         className="makeStyles-sendButton-173"

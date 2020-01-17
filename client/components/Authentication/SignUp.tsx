@@ -119,7 +119,7 @@ const SignUp = (): ReactElement => {
 
   return (
     <Grid container className={classes.center}>
-      {!userIsRegistered && (
+      {!userIsRegistered ? (
         <Paper className={classes.paper}>
           <Grid container direction="column" alignItems="center">
             <Grid container className={classes.titles}>
@@ -152,9 +152,7 @@ const SignUp = (): ReactElement => {
             />
           </Grid>
         </Paper>
-      )}
-
-      {userIsRegistered && (
+      ) : (
         <Paper className={classes.registerPage}>
           <Grid container className={classes.titles}>
             <Grid item>
