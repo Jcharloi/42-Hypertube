@@ -4,22 +4,41 @@ import EnzymeToJson from "enzyme-to-json";
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 import MovieComments from "../components/Movie/MovieComments";
 import Movie from "../components/Movie/Movie";
-import { Review } from "../models/models";
+import { Reviews } from "../models/models";
 import checkInvalidCommentOrStars from "../components/Movie/MovieComments.service";
 
+jest.mock("../helpers/socket", () => ({
+  socket: { on: jest.fn(), emit: jest.fn() }
+}));
+
+jest.mock("../hooks/useApi", () => (): {
+  data: unknown;
+  loading: boolean;
+  error: void;
+  setUrl: () => void;
+} => ({
+  data: { infos: {}, reviews: {} },
+  loading: false,
+  error: null,
+  setUrl: jest.fn()
+}));
+
 describe("Movie", () => {
-  let reviews: Array<Review>;
+  let reviews: Reviews;
 
   beforeAll(() => {
-    reviews = [
-      {
-        id: "0123456789",
-        name: "TestMan",
-        date: 1577118711809,
-        stars: 4,
-        body: "That was actually really awesome"
-      }
-    ];
+    reviews = {
+      movieRating: 5,
+      review: [
+        {
+          id: "0123456789",
+          name: "TestMan",
+          date: 1577118711809,
+          stars: 4,
+          body: "That was actually really awesome"
+        }
+      ]
+    };
   });
 
   it("should renders <Movie> in english", () => {
@@ -34,11 +53,7 @@ describe("Movie", () => {
 
   it("should renders <MovieComments> in english", () => {
     const domNode = mountWithIntl(
-      <MovieComments
-        movieId="Dokku_obrash"
-        movieRating={5}
-        reviews={reviews}
-      />,
+      <MovieComments movieId="Dokku_obrash" reviews={reviews} />,
       "en"
     );
     expect(EnzymeToJson(domNode)).toMatchSnapshot();
@@ -46,11 +61,7 @@ describe("Movie", () => {
 
   it("should renders <MovieComments> in french", () => {
     const domNode = mountWithIntl(
-      <MovieComments
-        movieId="Dokku_obrash"
-        movieRating={5}
-        reviews={reviews}
-      />,
+      <MovieComments movieId="Dokku_obrash" reviews={reviews} />,
       "fr"
     );
     expect(EnzymeToJson(domNode)).toMatchSnapshot();
@@ -64,7 +75,6 @@ describe("Movie", () => {
     expect(
       checkInvalidCommentOrStars(6, "That was actually really awesome")
     ).toEqual({ comment: false, stars: true });
-
     // Invalid comment
     expect(checkInvalidCommentOrStars(5, "")).toEqual({
       comment: true,
