@@ -51,8 +51,7 @@ const Header = ({
   };
 
   const onToggleSwitch = (): void => {
-    if (mediaType === "movies") onMediaTypeChange("shows");
-    else onMediaTypeChange("movies");
+    onMediaTypeChange(mediaType === "movies" ? "shows" : "movies");
   };
 
   return (
