@@ -14,9 +14,10 @@ configure({ adapter: new Adapter() });
 jest.mock("react-router-dom", () => ({
   useHistory: (): Record<string, unknown> => ({
     push: jest.fn(),
-    location: { state: {} }
+    location: { state: {}, pathname: "/search/movies" }
   }),
   useLocation: (): Record<string, unknown> => ({
+    pathname: "/search/movies",
     state: {},
     search: ""
   })
@@ -70,17 +71,18 @@ describe("Search", () => {
       it("should get a full query", () => {
         const testQuery = ServiceSearch.formatQueryUrl(
           "?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2",
-          1
+          1,
+          "movies"
         );
 
         expect(testQuery).toBe(
-          "/search?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
+          "/search/movies?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
         );
       });
 
       it("should get a empty query", () => {
-        const testQuery = ServiceSearch.formatQueryUrl("", 1);
-        expect(testQuery).toBe("/search?page=1");
+        const testQuery = ServiceSearch.formatQueryUrl("", 1, "movies");
+        expect(testQuery).toBe("/search/movies?page=1");
       });
     });
   });
