@@ -1,4 +1,20 @@
 import UserModel from "../Schemas/User";
+import MovieCommentModel from "../Schemas/Movie";
+
+const getUserComments = async (req, res) => {
+  const name = req.params.username;
+  try {
+    const userComments = await MovieCommentModel.find({ name });
+    if (userComments.length === 0) {
+      res.status(404).send();
+    } else {
+      await res.status(200).send({ ...userComments });
+    }
+  } catch (e) {
+    console.error(e);
+    res.status(500);
+  }
+};
 
 const getProfile = async (req, res) => {
   const { username } = req.params;
@@ -21,4 +37,4 @@ const getProfile = async (req, res) => {
   }
 };
 
-export default { getProfile };
+export default { getProfile, getUserComments };
