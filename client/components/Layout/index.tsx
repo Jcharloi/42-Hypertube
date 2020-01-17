@@ -1,6 +1,7 @@
 import React, { useState, ReactElement } from "react";
 import qs from "qs";
 import { useLocation } from "react-router-dom";
+
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 import { ClickAwayListener, Box } from "@material-ui/core";
@@ -88,25 +89,24 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
           mediaType={mediaType}
         />
         <Box className={classes.contentContainer}>
-          {true && (
-            <ClickAwayListener
-              onClickAway={(e): void =>
-                onClickAway((e as unknown) as ClickAwayEventTarget)
-              }
+          <ClickAwayListener
+            onClickAway={(e): void =>
+              onClickAway((e as unknown) as ClickAwayEventTarget)
+            }
+          >
+            <Box
+              className={`${classes.filtersContainer} ${
+                expandedFilters ? "" : classes.hiddenFilters
+              }`}
             >
-              <Box
-                className={`${classes.filtersContainer} ${
-                  expandedFilters ? "" : classes.hiddenFilters
-                }`}
-              >
-                <Filters
-                  searchQuery={searchQuery}
-                  mediaType={mediaType}
-                  onReset={(): void => setSearchQuery("")}
-                />
-              </Box>
-            </ClickAwayListener>
-          )}
+              <Filters
+                searchQuery={searchQuery}
+                mediaType={mediaType}
+                onReset={(): void => setSearchQuery("")}
+              />
+            </Box>
+          </ClickAwayListener>
+
           <Box>{children}</Box>
         </Box>
       </div>

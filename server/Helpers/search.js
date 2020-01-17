@@ -17,11 +17,11 @@ const searchMovies = async ({ query, page, minRating, year, collections }) => {
       genre: collections
     });
 
-    const res = await axios.get(`${YTS_URL}?${queryParams}`);
+    const { data } = await axios.get(`${YTS_URL}?${queryParams}`);
 
     const parsedMovies =
-      (res.data &&
-        res.data.data.movies.map((movie) => ({
+      (data &&
+        data.data.movies.map((movie) => ({
           cover: movie.large_cover_image,
           title: movie.title_english,
           year: movie.year,
@@ -49,11 +49,11 @@ const searchShows = async ({ query, page, collections }) => {
       keywords: query,
       sort: "trending"
     });
-    const res = await axios.get(`${POPCORN_URL}/${page}?${queryParams}`);
+    const { data } = await axios.get(`${POPCORN_URL}/${page}?${queryParams}`);
 
     const parsedShows =
-      (res.data &&
-        res.data.map((show) => ({
+      (data &&
+        data.map((show) => ({
           cover: show.images.poster,
           title: show.title,
           year: show.year,

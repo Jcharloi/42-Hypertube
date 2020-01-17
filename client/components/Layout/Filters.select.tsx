@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import { useIntl } from "react-intl";
+
 import { MenuItem, Select } from "@material-ui/core";
 
 import { useFiltersStyles } from "./styles";

@@ -41,7 +41,7 @@
   "movie.comment.askRating": "Note le :",
   "movie.comment.send": "Envoyer",
   "movie.error.invalid": "Désolé, ce film n'existe pas. Pourquoi pas en chercher un autre ?",
-  "search.no_media": "Aucun medias trouvés !",
+  "search.no_media": "Aucun média trouvé !",
   "search.film.author": "Par {author}",
   "search.film.norating": "Aucune note",
   "search.film.tags": "Tags",

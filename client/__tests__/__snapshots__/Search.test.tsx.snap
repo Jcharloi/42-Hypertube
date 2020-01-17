@@ -197,7 +197,7 @@ exports[`Search search fr renders correctly 1`] = `
                   <h5
                     className="MuiTypography-root MuiTypography-h5"
                   >
-                    Aucun medias trouvés !
+                    Aucun média trouvé !
                   </h5>
                 </ForwardRef(Typography)>
               </WithStyles(ForwardRef(Typography))>

@@ -28,8 +28,6 @@ const searchShows = async (req, res) => {
 
   const data = await searchHelper.searchShows(parsedQuery);
 
-  console.log(data);
-
   if (data.error) {
     return res.status(404).send(data);
   }
