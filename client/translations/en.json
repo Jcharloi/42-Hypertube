@@ -1,10 +1,13 @@
 {
   "title": "Hypertube",
+  "title_short": "HT",
   "search": "Search...",
   "language.fr": "🇫🇷",
   "language.en": "🇬🇧",
   "profile": "My profile",
   "disconnect": "Disconnect",
+  "header.trending_movies": "Trending Movies",
+  "header.trending_shows": "Trending Shows",
   "authentication.signUp.title": "Who are you ?",
   "authentication.signUp.subtitle": "To access all our film, you're gonna have to register",
   "authentication.signUp.username": "Your little username",

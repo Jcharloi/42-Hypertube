@@ -10,7 +10,8 @@ import {
   Menu,
   MenuItem,
   OutlinedInput,
-  Switch
+  Switch,
+  Hidden
 } from "@material-ui/core";
 import { Search, AccountCircle, Movie, Tv } from "@material-ui/icons";
 
@@ -55,31 +56,49 @@ const Header = ({
   };
 
   return (
-    <AppBar color="inherit" position="sticky">
+    <AppBar color="inherit" position="sticky" className={classes.appBar}>
       <Toolbar>
-        <Typography className={classes.title} variant="h6">
-          <Link className={classes.titleLink} to="/">
-            {_t({ id: "title" })}
-          </Link>
-        </Typography>
+        <div className={classes.linksContainer}>
+          <Typography className={classes.title} variant="h6">
+            <Link className={classes.titleLink} to="/">
+              <Hidden smDown>{_t({ id: "title" })}</Hidden>
+              <Hidden mdUp>{_t({ id: "title_short" })}</Hidden>
+            </Link>
+          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.linkMedia} variant="subtitle2">
+              <Link className={classes.titleLink} to="/movies">
+                {_t({ id: "header.trending_movies" })}
+              </Link>
+            </Typography>
+            <Typography className={classes.linkMedia} variant="subtitle2">
+              <Link className={classes.titleLink} to="/shows">
+                {_t({ id: "header.trending_shows" })}
+              </Link>
+            </Typography>
+          </Hidden>
+        </div>
         <div className={classes.headerContent}>
           <Box className={classes.toggleContent} onClick={onToggleSwitch}>
-            <Tv />
-            <Switch
-              color="default"
-              checked={mediaType === "movies"}
-              classes={{
-                thumb:
-                  mediaType === "movies"
-                    ? classes.switchMovies
-                    : classes.switchShows,
-                track:
-                  mediaType === "movies"
-                    ? classes.switchMovies
-                    : classes.switchShows
-              }}
-            />
-            <Movie />
+            <Hidden xsDown>
+              <Tv />
+              <Switch
+                color="default"
+                checked={mediaType === "movies"}
+                classes={{
+                  thumb:
+                    mediaType === "movies"
+                      ? classes.switchMovies
+                      : classes.switchShows,
+                  track:
+                    mediaType === "movies"
+                      ? classes.switchMovies
+                      : classes.switchShows
+                }}
+              />
+              <Movie />
+            </Hidden>
+            <Hidden smUp>{mediaType === "movies" ? <Movie /> : <Tv />}</Hidden>
           </Box>
           <OutlinedInput
             value={searchQuery}
