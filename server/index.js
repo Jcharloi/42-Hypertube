@@ -3,6 +3,7 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import path from "path";
 import favicon from "serve-favicon";
+import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import router from "./router";
 
@@ -16,6 +17,7 @@ app.use("public/", express.static("public"));
 app.use(morgan("dev"));
 app.use(fileUpload());
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 /* Webpack Hot Reload */
 const webpack = require("webpack");

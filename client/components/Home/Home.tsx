@@ -10,7 +10,7 @@ const Home = (): ReactElement => {
     data: { validToken },
     loading,
     error
-  } = useApi("/check-token");
+  } = useApi("/check-auth");
 
   if (error) {
     return <div>Error</div>;

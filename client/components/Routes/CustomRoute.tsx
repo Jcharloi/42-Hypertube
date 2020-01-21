@@ -25,7 +25,7 @@ const CustomRoute = ({
     data: { validToken },
     loading,
     error
-  } = useApi("/check-token", fixture);
+  } = useApi("/check-auth", fixture);
 
   return (
     <Route
