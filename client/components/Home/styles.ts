@@ -2,28 +2,73 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useHomeStyles = makeStyles((theme) => ({
   container: {
-    padding: theme.spacing(4)
+    padding: theme.spacing(3)
   },
   header: {
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(1),
+    [theme.breakpoints.down("xs")]: {
+      textAlign: "center"
+    }
   },
   mainContent: {
-    paddingBottom: theme.spacing(4),
-    display: "flex"
-    // minHeight: "57%"
+    paddingBottom: theme.spacing(3),
+    display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "wrap"
+    }
   },
   feedContainer: {
-    flex: 2
+    flex: 2,
+    [theme.breakpoints.down("sm")]: {
+      flexBasis: "100%",
+      marginBottom: theme.spacing(3)
+    }
   },
   filmContainer: {
-    marginLeft: theme.spacing(4)
+    marginLeft: theme.spacing(3),
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      marginLeft: 0
+    }
+  },
+  dataContainer: {
+    width: "15%",
+    marginLeft: theme.spacing(3),
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      marginLeft: 0
+    }
+  },
+  subContent: {
+    display: "flex",
+    alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "wrap"
+    }
+  },
+  recentVideosContainer: {
+    flex: 1,
+    [theme.breakpoints.down("sm")]: {
+      flexBasis: "100%",
+      marginBottom: theme.spacing(3)
+    }
+  },
+  infosContainer: {
+    display: "flex",
+    padding: theme.spacing(3),
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%"
   }
 }));
 
 export const useFeedStyles = makeStyles((theme) => ({
   feedContainer: {
     height: "100%",
-    padding: theme.spacing(4)
+    padding: theme.spacing(3)
   },
   link: {
     textDecoration: "none",
@@ -49,21 +94,27 @@ export const useFeedStyles = makeStyles((theme) => ({
   }
 }));
 
-export const useRecentMoviesStyle = makeStyles((theme) => ({
+export const useRecentMediasStyle = makeStyles((theme) => ({
   container: {
-    padding: theme.spacing(3),
-    height: "100%"
+    padding: theme.spacing(3)
   },
   recentFilmContainer: {
     display: "flex",
-    justifyContent: "space-evenly",
-    padding: theme.spacing(3)
+    justifyContent: "center",
+    padding: theme.spacing(2, 0),
+    flexWrap: "wrap"
   },
   recentFilm: {
+    margin: theme.spacing(0, 8),
     position: "relative",
     transition: "transform 0.2s",
+    width: 90,
+    height: 135,
     "&:hover": {
       transform: "scale(1.15)"
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: theme.spacing(2)
     }
   },
   recentFilmTitle: {
@@ -90,7 +141,7 @@ export const useRecentMoviesStyle = makeStyles((theme) => ({
 export const useFilmStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
-    padding: theme.spacing(4),
+    padding: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -102,7 +153,11 @@ export const useFilmStyles = makeStyles((theme) => ({
     alignItems: "center",
     width: 375,
     height: 562.5,
-    flexGrow: 1
+    flexGrow: 1,
+    [theme.breakpoints.down("xs")]: {
+      width: 300,
+      height: 450
+    }
   },
   title: {
     marginBottom: theme.spacing(2)
@@ -120,7 +175,7 @@ export const useFilmStyles = makeStyles((theme) => ({
     margin: theme.spacing(0.5)
   },
   buttonContainer: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(3),
     alignSelf: "center",
     width: "100%"
   },
@@ -131,7 +186,7 @@ export const useFilmStyles = makeStyles((theme) => ({
     top: 0,
     opacity: 0,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(4),
+    padding: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

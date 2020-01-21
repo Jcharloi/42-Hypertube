@@ -28,7 +28,10 @@ const messages: Record<string, Record<string, string>> = {
 
 const App = (): ReactElement => {
   const [localStorageData, setItem] = useLocaleStorage();
-  if (!localStorageData.language) {
+  if (
+    !localStorageData.language ||
+    !["fr", "en"].includes(localStorageData.language)
+  ) {
     setItem("language", "en");
   }
 

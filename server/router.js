@@ -5,12 +5,16 @@ import movie from "./Controllers/movie";
 
 import signUpController from "./Controllers/signUp";
 import searchController from "./Controllers/search";
+import homeController from "./Controllers/home";
 
 const router = express.Router();
 
 router.get("/search/movies", searchController.searchMovies);
 router.get("/search/shows", searchController.searchShows);
 router.get("/search/latest-movie", searchController.searchLatestMovie);
+
+router.get("/feed", homeController.feed);
+router.get("/recents", homeController.recents);
 
 router.get("/check-token", (req, res) => {
   res.status(200).send({ validToken: true });

@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-
-import Typography from "@material-ui/core/Typography";
+import { useHistory } from "react-router";
+import { Typography, Paper, Hidden } from "@material-ui/core";
 
 import useApi from "../../hooks/useApi";
 
@@ -9,10 +9,11 @@ import SignUp from "../Authentication/SignUp";
 import { useHomeStyles } from "./styles";
 
 import Feed from "./Feed";
-import RecentVideos from "./RecentVideos";
-import Film from "./FeaturedMovie";
+import RecentVideos from "./RecentMedias";
+import FeaturedMedia from "./FeaturedMedia";
 
 const Home = (): ReactElement => {
+  const history = useHistory();
   const {
     data: { validToken },
     loading,
@@ -21,7 +22,7 @@ const Home = (): ReactElement => {
   const classes = useHomeStyles({});
 
   if (error) {
-    return <div>Error</div>;
+    history.push("/error");
   }
   if (loading) {
     return <div>Loading</div>;
@@ -33,19 +34,32 @@ const Home = (): ReactElement => {
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        <Typography variant="h1">Welcome Julien</Typography>
-        <Typography variant="h2">Start browsing videos</Typography>
+        <Hidden xsDown>
+          <Typography variant="h1">Welcome Julien</Typography>
+          <Typography variant="h2">Start browsing videos</Typography>
+        </Hidden>
+        <Hidden smUp>
+          <Typography variant="h4">Welcome Julien</Typography>
+          <Typography variant="h5">Start browsing videos</Typography>
+        </Hidden>
       </div>
       <div className={classes.mainContent}>
         <div className={classes.feedContainer}>
           <Feed />
         </div>
         <div className={classes.filmContainer}>
-          <Film />
+          <FeaturedMedia />
         </div>
       </div>
-      <div>
-        <RecentVideos />
+      <div className={classes.subContent}>
+        <div className={classes.recentVideosContainer}>
+          <RecentVideos />
+        </div>
+        <div className={classes.dataContainer}>
+          <Paper className={classes.infosContainer}>
+            <div>User online</div>
+          </Paper>
+        </div>
       </div>
     </div>
   );

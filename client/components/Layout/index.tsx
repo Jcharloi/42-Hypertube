@@ -53,7 +53,7 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
   const [expandedFilters, setExpandedFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState(searchQueryParam || "");
   const [mediaType, setMediaType] = useState(
-    location.pathname.includes("movies") ? "movies" : "shows"
+    location.pathname.includes("shows") ? "shows" : "movies"
   );
 
   const onClickAway = (e: ClickAwayEventTarget): void => {
