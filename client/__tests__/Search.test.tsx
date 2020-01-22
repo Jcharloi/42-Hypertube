@@ -76,13 +76,13 @@ describe("Search", () => {
         );
 
         expect(testQuery).toBe(
-          "/search/movies?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
+          "/movies?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
         );
       });
 
       it("should get a empty query", () => {
         const testQuery = ServiceSearch.formatQueryUrl("", 1, "movies");
-        expect(testQuery).toBe("/search/movies?page=1");
+        expect(testQuery).toBe("/movies?page=1");
       });
     });
   });

@@ -12,7 +12,7 @@ export const formatQueryUrl = (
 ): string => {
   const { query, collections, year, minRating } = qs.parse(search.slice(1));
 
-  return `/search/${mediaType}?${qs.stringify({
+  return `/${mediaType}?${qs.stringify({
     query: query || undefined,
     collections: collections || undefined,
     year: year || undefined,

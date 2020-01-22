@@ -43,42 +43,14 @@ const useSearchStyles = makeStyles((theme) => ({
     position: "absolute",
     display: "flex",
     justifyContent: "center",
-    alignItems: "self-end",
+    alignItems: "center",
+    top: 0,
+    height: "100%",
+    width: "100%",
     margin: theme.spacing(1, 0)
-  },
-  descriptionContainer: {
-    textAlign: "justify",
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(2),
-    paddingRight: theme.spacing(1),
-    height: "30vh",
-    overflowY: "auto"
   },
   tag: {
     margin: theme.spacing(0.5)
-  },
-  buttonContainer: {
-    marginTop: theme.spacing(4),
-    alignSelf: "center",
-    width: "30%"
-  }
-}));
-
-export const useThumbnailStyles = makeStyles((theme) => ({
-  container: {
-    cursor: "pointer",
-    display: "flex",
-    padding: theme.spacing(2, 0),
-    transformOrigin: "0% 50%",
-    transition: "transform 0.2s",
-    "&:hover": {
-      transform: "scale(1.15)",
-      backgroundColor: "rgba(255, 255, 255, 0.1)"
-    },
-    alignItems: "center",
-    top: 0,
-    width: "100%",
-    height: "100%"
   },
   summary: {
     margin: theme.spacing(2, 0),
@@ -102,9 +74,6 @@ export const useThumbnailStyles = makeStyles((theme) => ({
   },
   ratingIcon: {
     color: yellow[500]
-  },
-  tag: {
-    margin: theme.spacing(0.5)
   },
   altContainer: {
     height: 450,

@@ -81,7 +81,10 @@ const Search = (): ReactElement => {
           </div>
         )}
         {filmList.map((media) => (
-          <div className={classes.thumbnailContainer}>
+          <div
+            className={classes.thumbnailContainer}
+            key={_.uniqueId("media_")}
+          >
             <Image
               animationDuration={500}
               src={media.cover}
@@ -110,6 +113,7 @@ const Search = (): ReactElement => {
                         label={genre}
                         clickable
                         color="primary"
+                        key={_.uniqueId("mediaGenre_")}
                       />
                     ))}
                   </div>
@@ -139,7 +143,10 @@ const Search = (): ReactElement => {
         ))}
         {loading &&
           _.times(12, () => (
-            <div className={classes.thumbnailContainer}>
+            <div
+              className={classes.thumbnailContainer}
+              key={_.uniqueId("loading_")}
+            >
               <Skeleton
                 variant="rect"
                 width={300}

@@ -19,6 +19,13 @@ const searchMovies = async ({ query, page, minRating, year, collections }) => {
 
     const { data } = await axios.get(`${YTS_URL}?${queryParams}`);
 
+    if (data && !data.data.movie_count) {
+      return {
+        nextPage: false,
+        medias: []
+      };
+    }
+
     const parsedMovies =
       (data &&
         data.data.movies.map((movie) => ({

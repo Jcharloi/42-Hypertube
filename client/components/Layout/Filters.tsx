@@ -30,7 +30,7 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
   const [queryField, setqueryField] = useState(
     searchParams.query || searchQuery || ""
   );
-  const [yearRange, setYearRange] = useState(searchParams.year || "");
+  const [year, setYear] = useState(searchParams.year || "");
   const [collections, setcollections] = useState(
     searchParams.collections || []
   );
@@ -40,7 +40,7 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
 
   const debouncedMediaType = useDebounce(mediaType, 500);
   const debouncedQueryField = useDebounce(queryField, 500);
-  const debouncedYearRange: number[] = useDebounce(yearRange, 500) as number[];
+  const debouncedYear: number = useDebounce(year, 500) as number;
   const debouncedCollections: string[] = useDebounce(
     collections,
     500
@@ -57,7 +57,7 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
       collections: debouncedCollections.length
         ? debouncedCollections
         : undefined,
-      year: yearRange || undefined,
+      year: year || undefined,
       minRating: debouncedMinRating === 0 ? undefined : debouncedMinRating
     });
 
@@ -76,12 +76,12 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
     debouncedCollections,
     debouncedMinRating,
     debouncedQueryField,
-    debouncedYearRange
+    debouncedYear
   ]);
 
   const resetFilter = (): void => {
     setqueryField("");
-    setYearRange("");
+    setYear("");
     setcollections([]);
     setMinRating(0);
     onReset();
@@ -95,8 +95,8 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
             {_t({ id: "layout.filters.production_year" })}
           </Typography>
           <Select
-            value={yearRange}
-            onChange={(e): void => setYearRange(e.target.value)}
+            value={year}
+            onChange={(e): void => setYear(e.target.value)}
             className={classes.collectionsContainer}
           >
             <MenuItem
@@ -106,14 +106,14 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
             >
               {_t({ id: "layout.filters.all" })}
             </MenuItem>
-            {_.rangeRight(1900, moment().year()).map((year: number) => (
+            {_.rangeRight(1900, moment().year()).map((yearSelect: number) => (
               <MenuItem
                 className={classes.yearItem}
-                id={`menuitem-year${year}`}
-                value={year}
-                key={`menuitem-year${year}`}
+                id={`menuitem-year${yearSelect}`}
+                value={yearSelect}
+                key={`menuitem-year${yearSelect}`}
               >
-                {year}
+                {yearSelect}
               </MenuItem>
             ))}
           </Select>

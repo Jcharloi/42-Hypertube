@@ -43,7 +43,7 @@ export const theme = createMuiTheme({
     },
     secondary: {
       main: "#616161",
-      contrastText: "#fffff"
+      contrastText: "#ffffff"
       // Uncoment to have some color
       // main: "#F1C40F",
       // light: "#F9E79F",
