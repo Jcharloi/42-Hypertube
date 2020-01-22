@@ -28,13 +28,24 @@ export const theme = createMuiTheme({
   },
   palette: {
     background: { default: "#121212", paper: "#212121" },
+    // Color from https://htmlcolorcodes.com/color-chart/ (Flat Design)
     primary: {
       main: "#CCD0D4",
       contrastText: "#000000"
+      // Uncoment to have some color
+      // main: "#633974",
+      // light: "#884EA0",
+      // dark: "#512E5F",
+      // contrastText: "#ffffff"
     },
     secondary: {
       main: "#616161",
-      contrastText: "#ffffff"
+      contrastText: "#fffff"
+      // Uncoment to have some color
+      // main: "#F1C40F",
+      // light: "#F9E79F",
+      // dark: "#D4AC0D",
+      // contrastText: "#000000"
     },
     text: {
       primary: "#fff",

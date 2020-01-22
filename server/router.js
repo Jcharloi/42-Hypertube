@@ -11,7 +11,7 @@ const router = express.Router();
 router.get("/search", searchController.search);
 
 router.get("/check-token", (req, res) => {
-  res.status(200).send({ validToken: true });
+  res.status(200).send({ validToken: false });
 });
 
 /* Sign Up */

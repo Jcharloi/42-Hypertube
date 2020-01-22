@@ -4,6 +4,8 @@ import { Redirect, Route } from "react-router";
 import useApi from "../../hooks/useApi";
 import { Fixture } from "../../models/models";
 
+import Loading from "./Loading";
+
 interface Props {
   exact?: boolean;
   component: ElementType;
@@ -31,15 +33,15 @@ const CustomRoute = ({
       exact={exact}
       render={(): ReactElement => {
         if (error) return <div>Error</div>;
-        if (loading) return <div>Loading</div>;
+        if (loading) return <Loading />;
         if (
           (!loading && validToken && requireAuth) ||
-          (!validToken && !requireAuth)
+          (!loading && !validToken && !requireAuth)
         )
           return <Component />;
         if (
           (!loading && validToken && !requireAuth) ||
-          (!validToken && requireAuth)
+          (!loading && !validToken && requireAuth)
         )
           return <Redirect to="/" />;
         return null;

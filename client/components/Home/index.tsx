@@ -1,13 +1,12 @@
 import React, { ReactElement } from "react";
-
 import Typography from "@material-ui/core/Typography";
 
 import useApi from "../../hooks/useApi";
 
-import SignUp from "../Authentication/SignUp";
-
 import { useHomeStyles } from "./styles";
 
+import Loading from "../Routes/Loading";
+import SignIn from "../Authentication/SignIn";
 import Feed from "./Feed";
 import RecentVideos from "./RecentVideos";
 import Film from "./FeaturedMovie";
@@ -24,10 +23,10 @@ const Home = (): ReactElement => {
     return <div>Error</div>;
   }
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   if (!validToken) {
-    return <SignUp />;
+    return <SignIn />;
   }
 
   return (

@@ -42,7 +42,7 @@ export const useFilmStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "self-end",
-    margin: `${theme.spacing(1)} 0`
+    margin: theme.spacing(1, 0)
   },
   descriptionContainer: {
     textAlign: "justify",
@@ -66,7 +66,7 @@ export const useThumbnailStyles = makeStyles((theme) => ({
   container: {
     cursor: "pointer",
     display: "flex",
-    padding: `${theme.spacing(2)}px 0`,
+    padding: theme.spacing(2, 0),
     transformOrigin: "0% 50%",
     transition: "transform 0.2s",
     "&:hover": {
