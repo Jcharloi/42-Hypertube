@@ -148,7 +148,8 @@ const SignUpForm = ({
               />
               <Button
                 variant="outlined"
-                color="secondary"
+                // color="secondary"
+                className={classes.pictureButton}
                 startIcon={<CloudUploadIcon />}
                 component="span"
                 // To avoid picture name to be in uppercase :
@@ -182,6 +183,7 @@ const SignUpForm = ({
               variant="contained"
               size="large"
               color="primary"
+              className={classes.sendButton}
             >
               {!waitingRes && _t({ id: "authentication.signUp.sendButton" })}
               {waitingRes &&

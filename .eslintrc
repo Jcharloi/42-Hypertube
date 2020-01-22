@@ -19,6 +19,7 @@
       "error",
       "always"
     ],
+    "import/extensions": "off",
     "no-console": "off",
     "no-plusplus": "off",
     "no-underscore-dangle": [

@@ -24,12 +24,7 @@ exports[`CustomRoute Is not connected, public route : should show div 1`] = `
 
 exports[`CustomRoute Loading 1`] = `
 <div
-  className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
-  style={
-    Object {
-      "flexGrow": 1,
-    }
-  }
+  className="MuiGrid-root makeStyles-center-1 MuiGrid-container"
 >
   <div
     className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"

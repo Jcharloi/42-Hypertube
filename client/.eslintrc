@@ -15,7 +15,8 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "import/resolver": {

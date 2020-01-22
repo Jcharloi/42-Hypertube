@@ -2,21 +2,34 @@ import * as React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import EnzymeToJson from "enzyme-to-json";
 import { mount, configure } from "enzyme";
-
 import App from "../components/App";
 
 import { UseApiReturn, ApiAuthResponse } from "../models/models";
 
 configure({ adapter: new Adapter() });
 
+// `loading: true` to avoid mounting all <Home> or <SignIn> component
 jest.mock("../hooks/useApi", () => (): UseApiReturn<
   ApiAuthResponse,
   ApiAuthResponse
 > => ({
-  data: { validToken: true },
-  loading: false,
-  error: null
+  data: null,
+  loading: true,
+  error: null,
+  setUrl: jest.fn()
 }));
+
+jest.mock("../helpers/history", () => {
+  // require after code makes the disable required
+  // eslint-disable-next-line
+  const { createBrowserHistory } = require("history");
+
+  const history = createBrowserHistory({
+    keyLength: 0
+  });
+
+  return history;
+});
 
 describe("App", () => {
   it("renders correctly", () => {

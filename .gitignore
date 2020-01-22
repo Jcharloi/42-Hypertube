@@ -4,5 +4,5 @@ data/
 .eslintcache
 .DS_STORE
 .env
-.nvmrc
 .vscode
+.nvmrc
