@@ -19,15 +19,17 @@ const CustomRoute = ({
   path,
   exact
 }: Props): ReactElement => {
-  const { data, loading, error } = useApi<ApiAuthResponse, ApiAuthResponse>(
-    "/check-auth"
-  );
+  const { data, loading, error, setUrl } = useApi<
+    ApiAuthResponse,
+    ApiAuthResponse
+  >("");
 
   return (
     <Route
       path={path}
       exact={exact}
       render={(): ReactElement => {
+        setUrl("/check-auth");
         if (error?.response?.status >= 500 && error.response.status <= 599)
           return <div>Error</div>;
         if (loading) return <Loading />;
