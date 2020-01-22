@@ -2,7 +2,7 @@ import React, { ReactElement, ElementType } from "react";
 import { Redirect, Route } from "react-router";
 
 import useApi from "../../hooks/useApi";
-import { Fixture, ApiAuthResponse } from "../../models/models";
+import { ApiAuthResponse } from "../../models/models";
 
 import Loading from "./Loading";
 
@@ -11,19 +11,16 @@ interface Props {
   notAuthComponent?: ElementType;
   exact?: boolean;
   path?: string;
-  fixture?: Fixture;
 }
 
 const CustomRoute = ({
   authComponent: AuthComponent,
   notAuthComponent: NotAuthComponent,
   path,
-  exact,
-  fixture
+  exact
 }: Props): ReactElement => {
   const { data, loading, error } = useApi<ApiAuthResponse, ApiAuthResponse>(
-    "/check-auth",
-    fixture
+    "/check-auth"
   );
 
   return (

@@ -5,12 +5,6 @@ export interface Locale {
   setLocale: (locale: string) => void;
 }
 
-export interface Fixture {
-  data: {};
-  loading: boolean;
-  error: {};
-}
-
 export interface UseApiReturn<T, E> {
   data: T;
   loading: boolean;
