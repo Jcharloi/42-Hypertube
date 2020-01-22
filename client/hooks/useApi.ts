@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 
 import API from "../util/api";
 
-import { Fixture } from "../models/models";
+import { UseApiReturn, Fixture } from "../models/models";
 
-const useApi = (
-  url: string,
-  fixture?: Fixture
-): { data: Record<string, unknown>; loading: boolean; error: {} } => {
-  const [data, setData] = useState({});
+/*
+ ** T is the api response type
+ ** E is the api error reponse type
+ */
+const useApi = <T, E>(url: string, fixture?: Fixture): UseApiReturn<T, E> => {
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

@@ -18,8 +18,7 @@ describe("CustomRoute", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
-          requireAuth
-          component={(): ReactElement => <div>Should be shown</div>}
+          authComponent={(): ReactElement => <div>Should be shown</div>}
           fixture={{ loading: false, error: null, data: { validToken: true } }}
         />
       </MockComponent>
@@ -34,8 +33,7 @@ describe("CustomRoute", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
-          requireAuth={false}
-          component={(): ReactElement => <div>Should NOT be shown</div>}
+          notAuthComponent={(): ReactElement => <div>Should NOT be shown</div>}
           fixture={{ loading: false, error: null, data: { validToken: true } }}
         />
       </MockComponent>
@@ -50,8 +48,7 @@ describe("CustomRoute", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
-          requireAuth
-          component={(): ReactElement => <div>Should NOT be shown</div>}
+          authComponent={(): ReactElement => <div>Should NOT be shown</div>}
           fixture={{ loading: false, error: null, data: { validToken: false } }}
         />
       </MockComponent>
@@ -66,8 +63,7 @@ describe("CustomRoute", () => {
     const domNode = (
       <MockComponent>
         <CustomRoute
-          requireAuth={false}
-          component={(): ReactElement => <div>Should be shown</div>}
+          notAuthComponent={(): ReactElement => <div>Should be shown</div>}
           fixture={{ loading: false, error: null, data: { validToken: false } }}
         />
       </MockComponent>
@@ -83,8 +79,7 @@ describe("CustomRoute", () => {
       <MockComponent>
         <CustomRoute
           exact
-          component={(): ReactElement => <div>Loading</div>}
-          requireAuth={false}
+          notAuthComponent={(): ReactElement => <div>Loading</div>}
           path="/"
           fixture={{
             loading: true,
@@ -104,15 +99,18 @@ describe("CustomRoute", () => {
       <MockComponent>
         <CustomRoute
           exact
-          component={(): ReactElement => <div>Error</div>}
-          requireAuth={false}
+          notAuthComponent={(): ReactElement => <div>Error</div>}
           path="/"
           fixture={{
             loading: false,
             error: {
-              error: true
+              reponse: {
+                status: 500,
+                data: { validToken: true }
+              },
+              isAxiosError: true
             },
-            data: { validToken: true }
+            data: null
           }}
         />
       </MockComponent>

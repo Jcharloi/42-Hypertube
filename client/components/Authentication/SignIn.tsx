@@ -45,7 +45,13 @@ const SignIn = (): ReactElement => {
     setAuthError(newError);
     if (newError.username === "" && newError.password === "") {
       console.log("calling api !");
-      sendAuth(authInfo);
+      sendAuth(authInfo)
+        .then(() => {
+          console.log("CONNECTED");
+        })
+        .catch(() => {
+          console.log("ERROR");
+        });
     }
   };
 

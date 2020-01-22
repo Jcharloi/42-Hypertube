@@ -2,42 +2,43 @@ import React, { ReactElement, ElementType } from "react";
 import { Redirect, Route } from "react-router";
 
 import useApi from "../../hooks/useApi";
-import { Fixture } from "../../models/models";
+import { Fixture, ApiAuthResponse } from "../../models/models";
 
 import Loading from "./Loading";
 
 interface Props {
+  authComponent?: ElementType;
+  notAuthComponent?: ElementType;
   exact?: boolean;
-  component: ElementType;
   path?: string;
-  requireAuth: boolean;
   fixture?: Fixture;
 }
 
 const CustomRoute = ({
-  component: Component,
+  authComponent: AuthComponent,
+  notAuthComponent: NotAuthComponent,
   path,
   exact,
-  requireAuth,
   fixture
 }: Props): ReactElement => {
-  const {
-    data: { validToken },
-    loading,
-    error
-  } = useApi("/check-auth", fixture);
+  const { data, loading, error } = useApi<ApiAuthResponse, ApiAuthResponse>(
+    "/check-auth",
+    fixture
+  );
 
   return (
     <Route
       path={path}
       exact={exact}
       render={(): ReactElement => {
-        if (error) return <div>Error</div>;
+        if (error?.response?.status >= 500 && error.response.status <= 599)
+          return <div>Error</div>;
         if (loading) return <Loading />;
-        if ((validToken && requireAuth) || (!validToken && !requireAuth))
-          return <Component />;
-        if ((validToken && !requireAuth) || (!validToken && requireAuth))
-          return <Redirect to="/" />;
+
+        if (AuthComponent && data?.validToken) return <AuthComponent />;
+        if (NotAuthComponent && !data?.validToken) return <NotAuthComponent />;
+        if (!loading) return <Redirect to="/" />;
+
         return null;
       }}
     />

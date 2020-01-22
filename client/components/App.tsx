@@ -29,16 +29,19 @@ const App = (): ReactElement => {
             <CustomRoute
               exact
               path="/sign-up"
-              component={Authentication}
-              requireAuth={false}
+              notAuthComponent={Authentication}
             />
             <CustomRoute
               exact
               path="/reset-password"
-              component={Authentication}
-              requireAuth={false}
+              notAuthComponent={Authentication}
             />
-            <Route exact path="/" component={Home} />
+            <CustomRoute
+              exact
+              path="/"
+              notAuthComponent={Authentication}
+              authComponent={Home}
+            />
             <Route
               component={(): ReactElement => (
                 <div>

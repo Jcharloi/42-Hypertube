@@ -14,13 +14,12 @@ const Authentication = (): ReactElement => (
     direction="column"
     style={{ flexGrow: 1, padding: "8px" }}
   >
-    <CustomRoute exact path="/" component={SignIn} requireAuth={false} />
-    <CustomRoute exact path="/sign-up" component={SignUp} requireAuth={false} />
+    <CustomRoute exact path="/" notAuthComponent={SignIn} />
+    <CustomRoute exact path="/sign-up" notAuthComponent={SignUp} />
     <CustomRoute
       exact
       path="/reset-password"
-      component={ResetPassword}
-      requireAuth={false}
+      notAuthComponent={ResetPassword}
     />
   </Grid>
 );
