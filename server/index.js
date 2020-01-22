@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 /* Webpack Hot Reload */
+
 const webpack = require("webpack");
 const webpackHotMiddleware = require("webpack-hot-middleware");
 const webpackConfig = require("../webpack.config.js");

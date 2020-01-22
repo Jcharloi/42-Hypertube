@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { deepPurple, cyan } from "@material-ui/core/colors";
 
 export const useLayoutStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -17,6 +18,9 @@ export const useLayoutStyles = makeStyles((theme) => ({
     backgroundAttachment: "fixed",
     backgroundSize: "cover"
   },
+  hiddenFilters: {
+    display: "none"
+  },
   filtersContainer: {
     position: "absolute",
     zIndex: 1000,
@@ -32,6 +36,11 @@ export const useLayoutStyles = makeStyles((theme) => ({
 }));
 
 export const useHeaderStyles = makeStyles((theme) => ({
+  appBar: {
+    height: "64px",
+    display: "flex",
+    justifyContent: "center"
+  },
   titleLink: {
     textDecoration: "none",
     color: theme.palette.text.primary
@@ -43,11 +52,22 @@ export const useHeaderStyles = makeStyles((theme) => ({
       justifyContent: "flex-end"
     }
   },
-  title: {
+  linksContainer: {
+    display: "flex",
+    alignItems: "center",
     flexGrow: 1,
     [theme.breakpoints.down("xs")]: {
       display: "none"
     }
+  },
+  title: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("xs")]: {
+      display: "none"
+    }
+  },
+  linkMedia: {
+    margin: theme.spacing(0, 0.5)
   },
   headerContent: {
     display: "flex",
@@ -59,13 +79,20 @@ export const useHeaderStyles = makeStyles((theme) => ({
   searchInput: {
     background: theme.palette.grey[700],
     height: theme.spacing(5),
-    width: "20rem"
+    width: "20rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "15rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%"
+    }
   },
   flagIcon: {
     lineHeight: 0
   },
   inputLabel: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    pointerEvents: "none"
   },
   headerButtons: {
     color: theme.palette.grey[700],
@@ -75,6 +102,21 @@ export const useHeaderStyles = makeStyles((theme) => ({
     "&:hover": {
       background: theme.palette.grey[800]
     }
+  },
+  toggleContent: {
+    display: "flex",
+    alignItems: "center",
+    margin: theme.spacing(0, 1.5),
+    cursor: "pointer"
+  },
+  thumb: {
+    color: theme.palette.primary.main
+  },
+  switchMovies: {
+    backgroundColor: deepPurple[500]
+  },
+  switchShows: {
+    backgroundColor: cyan[500]
   }
 }));
 
@@ -83,15 +125,17 @@ export const useFiltersStyles = makeStyles((theme) => ({
     width: "100%",
     padding: theme.spacing(4, 3, 6.5, 3)
   },
-  yearRangeLabel: {
-    marginBottom: theme.spacing(5)
-  },
   collectionsContainer: {
     marginBottom: theme.spacing(2),
     width: "100%"
   },
   filtersComponent: {
     width: "100%"
+  },
+  yearItem: {
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center"
   },
   ratingContainer: {
     marginBottom: theme.spacing(2),

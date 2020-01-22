@@ -4,8 +4,6 @@ import EnzymeToJson from "enzyme-to-json";
 import { configure } from "enzyme";
 
 import Search from "../components/Search";
-import Film from "../components/Search/Movie";
-import Thumbnail from "../components/Search/Thumbnail";
 
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
@@ -16,9 +14,10 @@ configure({ adapter: new Adapter() });
 jest.mock("react-router-dom", () => ({
   useHistory: (): Record<string, unknown> => ({
     push: jest.fn(),
-    location: { state: {} }
+    location: { state: {}, pathname: "/search/movies" }
   }),
   useLocation: (): Record<string, unknown> => ({
+    pathname: "/search/movies",
     state: {},
     search: ""
   })
@@ -37,17 +36,6 @@ jest.mock("../hooks/useApi", () => (): {
 }));
 
 describe("Search", () => {
-  const filmFixture = {
-    title: "Film",
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    avg_rating: 4.3,
-    date: "1935-01-01T00:00:00Z",
-    creator: "Film author",
-    subject: ["tag1", "tag2"],
-    description: "A film fixture",
-    identifier: "film-fixture"
-  };
-
   describe("search en", () => {
     it("renders correctly", () => {
       const domNode = mountWithIntl(<Search />, "en");
@@ -55,33 +43,9 @@ describe("Search", () => {
     });
   });
 
-  describe("film en", () => {
-    it("renders correctly", () => {
-      const domNode = mountWithIntl(<Film film={filmFixture} />, "en");
-      expect(EnzymeToJson(domNode)).toMatchSnapshot();
-    });
-  });
-
   describe("search fr", () => {
     it("renders correctly", () => {
       const domNode = mountWithIntl(<Search />, "fr");
-      expect(EnzymeToJson(domNode)).toMatchSnapshot();
-    });
-  });
-
-  describe("film fr", () => {
-    it("renders correctly", () => {
-      const domNode = mountWithIntl(<Film film={filmFixture} />, "fr");
-      expect(EnzymeToJson(domNode)).toMatchSnapshot();
-    });
-  });
-
-  describe("thumbnail", () => {
-    it("renders correctly", () => {
-      const domNode = mountWithIntl(
-        <Thumbnail film={filmFixture} onClick={jest.fn()} />,
-        "en"
-      );
       expect(EnzymeToJson(domNode)).toMatchSnapshot();
     });
   });
@@ -107,17 +71,18 @@ describe("Search", () => {
       it("should get a full query", () => {
         const testQuery = ServiceSearch.formatQueryUrl(
           "?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2",
-          1
+          1,
+          "movies"
         );
 
         expect(testQuery).toBe(
-          "/search?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
+          "/movies?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2&page=1"
         );
       });
 
       it("should get a empty query", () => {
-        const testQuery = ServiceSearch.formatQueryUrl("", 1);
-        expect(testQuery).toBe("/search?page=1");
+        const testQuery = ServiceSearch.formatQueryUrl("", 1, "movies");
+        expect(testQuery).toBe("/movies?page=1");
       });
     });
   });

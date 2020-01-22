@@ -1,4 +1,7 @@
 import React, { useState, ReactElement } from "react";
+import qs from "qs";
+import { useLocation } from "react-router-dom";
+
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline/CssBaseline";
 import { ClickAwayListener, Box } from "@material-ui/core";
@@ -40,7 +43,7 @@ export const theme = createMuiTheme({
     },
     secondary: {
       main: "#616161",
-      contrastText: "#fffff"
+      contrastText: "#ffffff"
       // Uncoment to have some color
       // main: "#F1C40F",
       // light: "#F9E79F",
@@ -56,8 +59,13 @@ export const theme = createMuiTheme({
 
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
   const classes = useLayoutStyles({});
+  const location = useLocation();
+  const { query: searchQueryParam } = qs.parse(location.search.slice(1));
   const [expandedFilters, setExpandedFilters] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(searchQueryParam || "");
+  const [mediaType, setMediaType] = useState(
+    location.pathname.includes("movies") ? "movies" : "shows"
+  );
 
   const onClickAway = (e: ClickAwayEventTarget): void => {
     const id = String(e.target?.id);
@@ -74,21 +82,31 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
         <Header
           locale={locale}
           setLocale={setLocale}
+          searchQuery={searchQuery}
           onSearchChange={(query): void => setSearchQuery(query)}
           onExpand={(): void => setExpandedFilters(true)}
+          onMediaTypeChange={(newMediaType): void => setMediaType(newMediaType)}
+          mediaType={mediaType}
         />
         <Box className={classes.contentContainer}>
-          {expandedFilters && (
-            <ClickAwayListener
-              onClickAway={(e): void =>
-                onClickAway((e as unknown) as ClickAwayEventTarget)
-              }
+          <ClickAwayListener
+            onClickAway={(e): void =>
+              onClickAway((e as unknown) as ClickAwayEventTarget)
+            }
+          >
+            <Box
+              className={`${classes.filtersContainer} ${
+                expandedFilters ? "" : classes.hiddenFilters
+              }`}
             >
-              <Box className={classes.filtersContainer}>
-                <Filters searchQuery={searchQuery} />
-              </Box>
-            </ClickAwayListener>
-          )}
+              <Filters
+                searchQuery={searchQuery}
+                mediaType={mediaType}
+                onReset={(): void => setSearchQuery("")}
+              />
+            </Box>
+          </ClickAwayListener>
+
           <Box>{children}</Box>
         </Box>
       </div>

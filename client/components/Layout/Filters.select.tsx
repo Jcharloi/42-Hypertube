@@ -1,9 +1,7 @@
 import React, { ReactElement } from "react";
-
 import { useIntl } from "react-intl";
 
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
+import { MenuItem, Select } from "@material-ui/core";
 
 import { useFiltersStyles } from "./styles";
 
@@ -22,54 +20,75 @@ const FiltersSelect = ({
   return (
     <Select
       defaultValue={collections}
-      displayEmpty
-      renderValue={(e: string[]): string =>
-        _t({ id: "layout.filters.selected_collections" }, { count: e.length })
-      }
       onChange={(e): void => setCollections(e.target.value as string[])}
-      multiple
-      value={collections || []}
+      value={collections}
       className={classes.filtersComponent}
     >
-      <MenuItem value="feature_films" id="menuitem-feature_films">
-        {_t({ id: "layout.filters.select_category.feature_films" })}
+      <MenuItem value="" id="menuitem-default">
+        {_t({ id: "layout.filters.all" })}
       </MenuItem>
-      <MenuItem value="educationalfilms" id="menuitem-educationalfilms">
-        {_t({
-          id: "layout.filters.select_category.educationalfilms"
-        })}
+      <MenuItem value="Action" id="menuitem-action">
+        {_t({ id: "layout.filters.select_category.action" })}
       </MenuItem>
-      <MenuItem value="opensource_movies" id="menuitem-opensource_movies">
-        {_t({
-          id: "layout.filters.select_category.opensource_movies"
-        })}
+      <MenuItem value="Adventure" id="menuitem-adventure">
+        {_t({ id: "layout.filters.select_category.adventure" })}
       </MenuItem>
-      <MenuItem value="tvarchive" id="menuitem-tvarchive">
-        {_t({ id: "layout.filters.select_category.tvarchive" })}
+      <MenuItem value="Animation" id="menuitem-animation">
+        {_t({ id: "layout.filters.select_category.animation" })}
       </MenuItem>
-      <MenuItem value="classic_tv" id="menuitem-classic_tv">
-        {_t({ id: "layout.filters.select_category.classic_tv" })}
+      <MenuItem value="Biography" id="menuitem-biography">
+        {_t({ id: "layout.filters.select_category.biography" })}
       </MenuItem>
-      <MenuItem value="community_media" id="menuitem-community_media">
-        {_t({
-          id: "layout.filters.select_category.community_media"
-        })}
+      <MenuItem value="Comedy" id="menuitem-comedy">
+        {_t({ id: "layout.filters.select_category.comedy" })}
       </MenuItem>
-      <MenuItem value="podcasts" id="menuitem-podcasts">
-        {_t({ id: "layout.filters.select_category.podcasts" })}
+      <MenuItem value="Crime" id="menuitem-crime">
+        {_t({ id: "layout.filters.select_category.crime" })}
       </MenuItem>
-      <MenuItem value="youtubearchive" id="menuitem-youtubearchive">
-        {_t({
-          id: "layout.filters.select_category.youtubearchive"
-        })}
+      <MenuItem value="Documentary" id="menuitem-documentary">
+        {_t({ id: "layout.filters.select_category.documentary" })}
       </MenuItem>
-      <MenuItem
-        value="additional_collections_video"
-        id="menuitem-additional_collections_video"
-      >
-        {_t({
-          id: "layout.filters.select_category.additional_collections_video"
-        })}
+      <MenuItem value="Drama" id="menuitem-drama">
+        {_t({ id: "layout.filters.select_category.drama" })}
+      </MenuItem>
+      <MenuItem value="Family" id="menuitem-family">
+        {_t({ id: "layout.filters.select_category.family" })}
+      </MenuItem>
+      <MenuItem value="Fantasy" id="menuitem-fantasy">
+        {_t({ id: "layout.filters.select_category.fantasy" })}
+      </MenuItem>
+      <MenuItem value="History" id="menuitem-history">
+        {_t({ id: "layout.filters.select_category.history" })}
+      </MenuItem>
+      <MenuItem value="Horror" id="menuitem-horror">
+        {_t({ id: "layout.filters.select_category.horror" })}
+      </MenuItem>
+      <MenuItem value="Music" id="menuitem-music">
+        {_t({ id: "layout.filters.select_category.music" })}
+      </MenuItem>
+      <MenuItem value="Musical" id="menuitem-musical">
+        {_t({ id: "layout.filters.select_category.musical" })}
+      </MenuItem>
+      <MenuItem value="Mystery" id="menuitem-mystery">
+        {_t({ id: "layout.filters.select_category.action" })}
+      </MenuItem>
+      <MenuItem value="Romance" id="menuitem-romance">
+        {_t({ id: "layout.filters.select_category.romance" })}
+      </MenuItem>
+      <MenuItem value="Sci-Fi" id="menuitem-scifi">
+        {_t({ id: "layout.filters.select_category.scifi" })}
+      </MenuItem>
+      <MenuItem value="Sport" id="menuitem-sport">
+        {_t({ id: "layout.filters.select_category.sport" })}
+      </MenuItem>
+      <MenuItem value="Thriller" id="menuitem-thriller">
+        {_t({ id: "layout.filters.select_category.thriller" })}
+      </MenuItem>
+      <MenuItem value="War" id="menuitem-war">
+        {_t({ id: "layout.filters.select_category.war" })}
+      </MenuItem>
+      <MenuItem value="Western" id="menuitem-western">
+        {_t({ id: "layout.filters.select_category.western" })}
       </MenuItem>
     </Select>
   );

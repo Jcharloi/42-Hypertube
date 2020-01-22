@@ -37,12 +37,23 @@ export interface Film {
 export interface Filters {
   query: string;
   collections: string[];
-  startYear: number;
-  endYear: number;
+  year: number;
   minRating: number;
-  maxRating: number;
 }
 
 export interface ClickAwayEventTarget extends EventTarget {
   target: { id: string };
+}
+
+export interface ApiData {
+  loading: boolean;
+  error: unknown;
+  setUrl: Function;
+}
+
+export interface SearchData extends ApiData {
+  data: {
+    medias: Record<string, string | number>[];
+    nextPage: boolean;
+  };
 }

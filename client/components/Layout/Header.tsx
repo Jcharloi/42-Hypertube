@@ -2,17 +2,18 @@ import React, { useState, ReactElement } from "react";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import {
+  Box,
   AppBar,
   Typography,
   IconButton,
   Toolbar,
   Menu,
   MenuItem,
-  OutlinedInput
+  OutlinedInput,
+  Switch,
+  Hidden
 } from "@material-ui/core";
-
-import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import { Search, AccountCircle, Movie, Tv } from "@material-ui/icons";
 
 import { useHeaderStyles } from "./styles";
 
@@ -21,13 +22,19 @@ interface Props {
   setLocale: (locale: string) => void;
   onExpand: () => void;
   onSearchChange: (query: string) => void;
+  onMediaTypeChange: (newMediaType: string) => void;
+  mediaType: string;
+  searchQuery: string;
 }
 
 const Header = ({
   locale,
   setLocale,
   onExpand,
-  onSearchChange
+  onSearchChange,
+  onMediaTypeChange,
+  mediaType,
+  searchQuery
 }: Props): ReactElement => {
   const classes = useHeaderStyles({});
   const { formatMessage: _t } = useIntl();
@@ -43,21 +50,62 @@ const Header = ({
     setProfileMenuAnchor(undefined);
   };
 
+  const onToggleSwitch = (): void => {
+    onMediaTypeChange(mediaType === "movies" ? "shows" : "movies");
+  };
+
   return (
-    <AppBar color="inherit" position="sticky">
+    <AppBar color="inherit" position="sticky" className={classes.appBar}>
       <Toolbar>
-        <Typography className={classes.title} variant="h6">
-          <Link className={classes.titleLink} to="/">
-            {_t({ id: "title" })}
-          </Link>
-        </Typography>
+        <div className={classes.linksContainer}>
+          <Typography className={classes.title} variant="h6">
+            <Link className={classes.titleLink} to="/">
+              <Hidden smDown>{_t({ id: "title" })}</Hidden>
+              <Hidden mdUp>{_t({ id: "title_short" })}</Hidden>
+            </Link>
+          </Typography>
+          <Hidden smDown>
+            <Typography className={classes.linkMedia} variant="subtitle2">
+              <Link className={classes.titleLink} to="/movies">
+                {_t({ id: "header.trending_movies" })}
+              </Link>
+            </Typography>
+            <Typography className={classes.linkMedia} variant="subtitle2">
+              <Link className={classes.titleLink} to="/shows">
+                {_t({ id: "header.trending_shows" })}
+              </Link>
+            </Typography>
+          </Hidden>
+        </div>
         <div className={classes.headerContent}>
+          <Box className={classes.toggleContent} onClick={onToggleSwitch}>
+            <Hidden xsDown>
+              <Tv />
+              <Switch
+                color="default"
+                checked={mediaType === "movies"}
+                classes={{
+                  thumb:
+                    mediaType === "movies"
+                      ? classes.switchMovies
+                      : classes.switchShows,
+                  track:
+                    mediaType === "movies"
+                      ? classes.switchMovies
+                      : classes.switchShows
+                }}
+              />
+              <Movie />
+            </Hidden>
+            <Hidden smUp>{mediaType === "movies" ? <Movie /> : <Tv />}</Hidden>
+          </Box>
           <OutlinedInput
+            value={searchQuery}
             onChange={(e): void => onSearchChange(e.target.value)}
             onClick={onExpand}
             placeholder={_t({ id: "layout.filters.search" })}
             className={classes.searchInput}
-            startAdornment={<SearchIcon className={classes.inputLabel} />}
+            startAdornment={<Search className={classes.inputLabel} />}
             labelWidth={0}
             id="menuitem-search"
           />

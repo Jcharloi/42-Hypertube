@@ -38,23 +38,37 @@ exports[`App renders correctly 1`] = `
         "fourOhFour.content": "Page not found",
         "fourOhFour.link_menu": "Go back",
         "fourOhFour.title": "404",
+        "header.trending_movies": "Trending Movies",
+        "header.trending_shows": "Trending Shows",
         "language.en": "🇬🇧",
         "language.fr": "🇫🇷",
+        "layout.filters.all": "All",
         "layout.filters.collection": "Collection",
         "layout.filters.production_year": "Production year",
         "layout.filters.search": "Search a film, an author...",
-        "layout.filters.select.maxrating": "Max. rating",
         "layout.filters.select.minrating": "Min. rating",
         "layout.filters.select.reset": "Reset filter",
-        "layout.filters.select_category.additional_collections_video": "Additional collections videos",
-        "layout.filters.select_category.classic_tv": "Classic TV",
-        "layout.filters.select_category.community_media": "Community videos",
-        "layout.filters.select_category.educationalfilms": "Educational films",
-        "layout.filters.select_category.feature_films": "Feature films",
-        "layout.filters.select_category.opensource_movies": "Open source movies",
-        "layout.filters.select_category.podcasts": "Podcasts",
-        "layout.filters.select_category.tvarchive": "TV Archive",
-        "layout.filters.select_category.youtubearchive": "Youtube archives",
+        "layout.filters.select_category.action": "Action",
+        "layout.filters.select_category.adventure": "Adventure",
+        "layout.filters.select_category.animation": "Animation",
+        "layout.filters.select_category.biography": "Biography",
+        "layout.filters.select_category.comedy": "Comedy",
+        "layout.filters.select_category.crime": "Crime",
+        "layout.filters.select_category.documentary": "Documentary",
+        "layout.filters.select_category.drama": "Drama",
+        "layout.filters.select_category.family": "Family",
+        "layout.filters.select_category.fantasy": "Fantasy",
+        "layout.filters.select_category.history": "History",
+        "layout.filters.select_category.horror": "Horror",
+        "layout.filters.select_category.music": "Music",
+        "layout.filters.select_category.musical": "Musical",
+        "layout.filters.select_category.mystery": "Mystery",
+        "layout.filters.select_category.romance": "Romance",
+        "layout.filters.select_category.scifi": "Sci-fi",
+        "layout.filters.select_category.sport": "Sport",
+        "layout.filters.select_category.thriller": "Thriller",
+        "layout.filters.select_category.war": "War",
+        "layout.filters.select_category.western": "Western",
         "layout.filters.select_collection": "Select a collection",
         "layout.filters.selected_collections": "{count} collections selected",
         "movie.comment.askRating": "Rate it :",
@@ -76,9 +90,12 @@ exports[`App renders correctly 1`] = `
         "search.film.tags": "Tags",
         "search.film.unknown_author": "Unknown",
         "search.film.watch": "Watch film",
+        "search.film.watch_show": "Watch show",
         "search.film_count": "Found {count} movies",
         "search.loading": "Loading...",
+        "search.no_media": "No medias found !",
         "title": "Hypertube",
+        "title_short": "HT",
       }
     }
     onError={[Function]}
@@ -212,7 +229,7 @@ exports[`App renders correctly 1`] = `
                   "main": "#CCD0D4",
                 },
                 "secondary": Object {
-                  "contrastText": "#fffff",
+                  "contrastText": "#ffffff",
                   "dark": "rgb(67, 67, 67)",
                   "light": "rgb(128, 128, 128)",
                   "main": "#616161",
@@ -412,15 +429,20 @@ exports[`App renders correctly 1`] = `
             <CssBaseline />
             <Header
               locale="en"
+              mediaType="shows"
               onExpand={[Function]}
+              onMediaTypeChange={[Function]}
               onSearchChange={[Function]}
+              searchQuery=""
               setLocale={[Function]}
             >
               <WithStyles(ForwardRef(AppBar))
+                className="makeStyles-appBar-5"
                 color="inherit"
                 position="sticky"
               >
                 <ForwardRef(AppBar)
+                  className="makeStyles-appBar-5"
                   classes={
                     Object {
                       "colorDefault": "MuiAppBar-colorDefault",
@@ -438,13 +460,13 @@ exports[`App renders correctly 1`] = `
                   position="sticky"
                 >
                   <WithStyles(ForwardRef(Paper))
-                    className="MuiAppBar-root MuiAppBar-positionSticky"
+                    className="MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-5"
                     component="header"
                     elevation={4}
                     square={true}
                   >
                     <ForwardRef(Paper)
-                      className="MuiAppBar-root MuiAppBar-positionSticky"
+                      className="MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-5"
                       classes={
                         Object {
                           "elevation0": "MuiPaper-elevation0",
@@ -482,7 +504,7 @@ exports[`App renders correctly 1`] = `
                       square={true}
                     >
                       <header
-                        className="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky MuiPaper-elevation4"
+                        className="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-5 MuiPaper-elevation4"
                       >
                         <WithStyles(ForwardRef(Toolbar))>
                           <ForwardRef(Toolbar)
@@ -498,77 +520,170 @@ exports[`App renders correctly 1`] = `
                             <div
                               className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
                             >
-                              <WithStyles(ForwardRef(Typography))
-                                className="makeStyles-title-6"
-                                variant="h6"
+                              <div
+                                className="makeStyles-linksContainer-8"
                               >
-                                <ForwardRef(Typography)
-                                  className="makeStyles-title-6"
-                                  classes={
-                                    Object {
-                                      "alignCenter": "MuiTypography-alignCenter",
-                                      "alignJustify": "MuiTypography-alignJustify",
-                                      "alignLeft": "MuiTypography-alignLeft",
-                                      "alignRight": "MuiTypography-alignRight",
-                                      "body1": "MuiTypography-body1",
-                                      "body2": "MuiTypography-body2",
-                                      "button": "MuiTypography-button",
-                                      "caption": "MuiTypography-caption",
-                                      "colorError": "MuiTypography-colorError",
-                                      "colorInherit": "MuiTypography-colorInherit",
-                                      "colorPrimary": "MuiTypography-colorPrimary",
-                                      "colorSecondary": "MuiTypography-colorSecondary",
-                                      "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                                      "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                                      "displayBlock": "MuiTypography-displayBlock",
-                                      "displayInline": "MuiTypography-displayInline",
-                                      "gutterBottom": "MuiTypography-gutterBottom",
-                                      "h1": "MuiTypography-h1",
-                                      "h2": "MuiTypography-h2",
-                                      "h3": "MuiTypography-h3",
-                                      "h4": "MuiTypography-h4",
-                                      "h5": "MuiTypography-h5",
-                                      "h6": "MuiTypography-h6",
-                                      "noWrap": "MuiTypography-noWrap",
-                                      "overline": "MuiTypography-overline",
-                                      "paragraph": "MuiTypography-paragraph",
-                                      "root": "MuiTypography-root",
-                                      "srOnly": "MuiTypography-srOnly",
-                                      "subtitle1": "MuiTypography-subtitle1",
-                                      "subtitle2": "MuiTypography-subtitle2",
-                                    }
-                                  }
+                                <WithStyles(ForwardRef(Typography))
+                                  className="makeStyles-title-9"
                                   variant="h6"
                                 >
-                                  <h6
-                                    className="MuiTypography-root makeStyles-title-6 MuiTypography-h6"
+                                  <ForwardRef(Typography)
+                                    className="makeStyles-title-9"
+                                    classes={
+                                      Object {
+                                        "alignCenter": "MuiTypography-alignCenter",
+                                        "alignJustify": "MuiTypography-alignJustify",
+                                        "alignLeft": "MuiTypography-alignLeft",
+                                        "alignRight": "MuiTypography-alignRight",
+                                        "body1": "MuiTypography-body1",
+                                        "body2": "MuiTypography-body2",
+                                        "button": "MuiTypography-button",
+                                        "caption": "MuiTypography-caption",
+                                        "colorError": "MuiTypography-colorError",
+                                        "colorInherit": "MuiTypography-colorInherit",
+                                        "colorPrimary": "MuiTypography-colorPrimary",
+                                        "colorSecondary": "MuiTypography-colorSecondary",
+                                        "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                                        "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                                        "displayBlock": "MuiTypography-displayBlock",
+                                        "displayInline": "MuiTypography-displayInline",
+                                        "gutterBottom": "MuiTypography-gutterBottom",
+                                        "h1": "MuiTypography-h1",
+                                        "h2": "MuiTypography-h2",
+                                        "h3": "MuiTypography-h3",
+                                        "h4": "MuiTypography-h4",
+                                        "h5": "MuiTypography-h5",
+                                        "h6": "MuiTypography-h6",
+                                        "noWrap": "MuiTypography-noWrap",
+                                        "overline": "MuiTypography-overline",
+                                        "paragraph": "MuiTypography-paragraph",
+                                        "root": "MuiTypography-root",
+                                        "srOnly": "MuiTypography-srOnly",
+                                        "subtitle1": "MuiTypography-subtitle1",
+                                        "subtitle2": "MuiTypography-subtitle2",
+                                      }
+                                    }
+                                    variant="h6"
                                   >
-                                    <Link
-                                      className="makeStyles-titleLink-4"
-                                      to="/"
+                                    <h6
+                                      className="MuiTypography-root makeStyles-title-9 MuiTypography-h6"
                                     >
-                                      <LinkAnchor
-                                        className="makeStyles-titleLink-4"
-                                        href="/"
-                                        navigate={[Function]}
+                                      <Link
+                                        className="makeStyles-titleLink-6"
+                                        to="/"
                                       >
-                                        <a
-                                          className="makeStyles-titleLink-4"
+                                        <LinkAnchor
+                                          className="makeStyles-titleLink-6"
                                           href="/"
-                                          onClick={[Function]}
+                                          navigate={[Function]}
                                         >
-                                          Hypertube
-                                        </a>
-                                      </LinkAnchor>
-                                    </Link>
-                                  </h6>
-                                </ForwardRef(Typography)>
-                              </WithStyles(ForwardRef(Typography))>
+                                          <a
+                                            className="makeStyles-titleLink-6"
+                                            href="/"
+                                            onClick={[Function]}
+                                          >
+                                            <Hidden
+                                              smDown={true}
+                                            >
+                                              <WithWidth(HiddenJs)
+                                                lgDown={false}
+                                                lgUp={false}
+                                                mdDown={false}
+                                                mdUp={false}
+                                                smDown={true}
+                                                smUp={false}
+                                                xlDown={false}
+                                                xlUp={false}
+                                                xsDown={false}
+                                                xsUp={false}
+                                              />
+                                            </Hidden>
+                                            <Hidden
+                                              mdUp={true}
+                                            >
+                                              <WithWidth(HiddenJs)
+                                                lgDown={false}
+                                                lgUp={false}
+                                                mdDown={false}
+                                                mdUp={true}
+                                                smDown={false}
+                                                smUp={false}
+                                                xlDown={false}
+                                                xlUp={false}
+                                                xsDown={false}
+                                                xsUp={false}
+                                              />
+                                            </Hidden>
+                                          </a>
+                                        </LinkAnchor>
+                                      </Link>
+                                    </h6>
+                                  </ForwardRef(Typography)>
+                                </WithStyles(ForwardRef(Typography))>
+                                <Hidden
+                                  smDown={true}
+                                >
+                                  <WithWidth(HiddenJs)
+                                    lgDown={false}
+                                    lgUp={false}
+                                    mdDown={false}
+                                    mdUp={false}
+                                    smDown={true}
+                                    smUp={false}
+                                    xlDown={false}
+                                    xlUp={false}
+                                    xsDown={false}
+                                    xsUp={false}
+                                  />
+                                </Hidden>
+                              </div>
                               <div
-                                className="makeStyles-headerContent-7"
+                                className="makeStyles-headerContent-11"
                               >
+                                <Styled(MuiBox)
+                                  className="makeStyles-toggleContent-16"
+                                  onClick={[Function]}
+                                >
+                                  <div
+                                    className="MuiBox-root MuiBox-root-92 makeStyles-toggleContent-16"
+                                    onClick={[Function]}
+                                  >
+                                    <Hidden
+                                      xsDown={true}
+                                    >
+                                      <WithWidth(HiddenJs)
+                                        lgDown={false}
+                                        lgUp={false}
+                                        mdDown={false}
+                                        mdUp={false}
+                                        smDown={false}
+                                        smUp={false}
+                                        xlDown={false}
+                                        xlUp={false}
+                                        xsDown={true}
+                                        xsUp={false}
+                                      />
+                                    </Hidden>
+                                    <Hidden
+                                      smUp={true}
+                                    >
+                                      <WithWidth(HiddenJs)
+                                        lgDown={false}
+                                        lgUp={false}
+                                        mdDown={false}
+                                        mdUp={false}
+                                        smDown={false}
+                                        smUp={true}
+                                        xlDown={false}
+                                        xlUp={false}
+                                        xsDown={false}
+                                        xsUp={false}
+                                      />
+                                    </Hidden>
+                                  </div>
+                                </Styled(MuiBox)>
                                 <WithStyles(ForwardRef(OutlinedInput))
-                                  className="makeStyles-searchInput-8"
+                                  className="makeStyles-searchInput-12"
                                   id="menuitem-search"
                                   labelWidth={0}
                                   onChange={[Function]}
@@ -576,12 +691,13 @@ exports[`App renders correctly 1`] = `
                                   placeholder="Search a film, an author..."
                                   startAdornment={
                                     <UNDEFINED
-                                      className="makeStyles-inputLabel-10"
+                                      className="makeStyles-inputLabel-14"
                                     />
                                   }
+                                  value=""
                                 >
                                   <ForwardRef(OutlinedInput)
-                                    className="makeStyles-searchInput-8"
+                                    className="makeStyles-searchInput-12"
                                     classes={
                                       Object {
                                         "adornedEnd": "MuiOutlinedInput-adornedEnd",
@@ -608,12 +724,13 @@ exports[`App renders correctly 1`] = `
                                     placeholder="Search a film, an author..."
                                     startAdornment={
                                       <UNDEFINED
-                                        className="makeStyles-inputLabel-10"
+                                        className="makeStyles-inputLabel-14"
                                       />
                                     }
+                                    value=""
                                   >
                                     <WithStyles(ForwardRef(InputBase))
-                                      className="makeStyles-searchInput-8"
+                                      className="makeStyles-searchInput-12"
                                       classes={
                                         Object {
                                           "adornedEnd": "MuiOutlinedInput-adornedEnd",
@@ -643,13 +760,14 @@ exports[`App renders correctly 1`] = `
                                       renderSuffix={[Function]}
                                       startAdornment={
                                         <UNDEFINED
-                                          className="makeStyles-inputLabel-10"
+                                          className="makeStyles-inputLabel-14"
                                         />
                                       }
                                       type="text"
+                                      value=""
                                     >
                                       <ForwardRef(InputBase)
-                                        className="makeStyles-searchInput-8"
+                                        className="makeStyles-searchInput-12"
                                         classes={
                                           Object {
                                             "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
@@ -682,23 +800,24 @@ exports[`App renders correctly 1`] = `
                                         renderSuffix={[Function]}
                                         startAdornment={
                                           <UNDEFINED
-                                            className="makeStyles-inputLabel-10"
+                                            className="makeStyles-inputLabel-14"
                                           />
                                         }
                                         type="text"
+                                        value=""
                                       >
                                         <div
-                                          className="MuiInputBase-root MuiOutlinedInput-root makeStyles-searchInput-8 MuiInputBase-adornedStart MuiOutlinedInput-adornedStart"
+                                          className="MuiInputBase-root MuiOutlinedInput-root makeStyles-searchInput-12 MuiInputBase-adornedStart MuiOutlinedInput-adornedStart"
                                           onClick={[Function]}
                                         >
                                           <ForwardRef
-                                            className="makeStyles-inputLabel-10"
+                                            className="makeStyles-inputLabel-14"
                                           >
                                             <WithStyles(ForwardRef(SvgIcon))
-                                              className="makeStyles-inputLabel-10"
+                                              className="makeStyles-inputLabel-14"
                                             >
                                               <ForwardRef(SvgIcon)
-                                                className="makeStyles-inputLabel-10"
+                                                className="makeStyles-inputLabel-14"
                                                 classes={
                                                   Object {
                                                     "colorAction": "MuiSvgIcon-colorAction",
@@ -715,7 +834,7 @@ exports[`App renders correctly 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="MuiSvgIcon-root makeStyles-inputLabel-10"
+                                                  className="MuiSvgIcon-root makeStyles-inputLabel-14"
                                                   focusable="false"
                                                   role="presentation"
                                                   viewBox="0 0 24 24"
@@ -736,6 +855,7 @@ exports[`App renders correctly 1`] = `
                                             onFocus={[Function]}
                                             placeholder="Search a film, an author..."
                                             type="text"
+                                            value=""
                                           />
                                           <WithStyles(ForwardRef(NotchedOutline))
                                             className="MuiOutlinedInput-notchedOutline"
@@ -746,8 +866,8 @@ exports[`App renders correctly 1`] = `
                                               className="MuiOutlinedInput-notchedOutline"
                                               classes={
                                                 Object {
-                                                  "legend": "PrivateNotchedOutline-legend-128",
-                                                  "root": "PrivateNotchedOutline-root-127",
+                                                  "legend": "PrivateNotchedOutline-legend-138",
+                                                  "root": "PrivateNotchedOutline-root-137",
                                                 }
                                               }
                                               labelWidth={0}
@@ -755,7 +875,7 @@ exports[`App renders correctly 1`] = `
                                             >
                                               <fieldset
                                                 aria-hidden={true}
-                                                className="PrivateNotchedOutline-root-127 MuiOutlinedInput-notchedOutline"
+                                                className="PrivateNotchedOutline-root-137 MuiOutlinedInput-notchedOutline"
                                                 style={
                                                   Object {
                                                     "paddingLeft": 8,
@@ -763,7 +883,7 @@ exports[`App renders correctly 1`] = `
                                                 }
                                               >
                                                 <legend
-                                                  className="PrivateNotchedOutline-legend-128"
+                                                  className="PrivateNotchedOutline-legend-138"
                                                   style={
                                                     Object {
                                                       "width": 0,
@@ -787,14 +907,14 @@ exports[`App renders correctly 1`] = `
                                   </ForwardRef(OutlinedInput)>
                                 </WithStyles(ForwardRef(OutlinedInput))>
                                 <div
-                                  className="makeStyles-buttonsMenu-5"
+                                  className="makeStyles-buttonsMenu-7"
                                 >
                                   <WithStyles(ForwardRef(IconButton))
-                                    className="makeStyles-headerButtons-11"
+                                    className="makeStyles-headerButtons-15"
                                     onClick={[Function]}
                                   >
                                     <ForwardRef(IconButton)
-                                      className="makeStyles-headerButtons-11"
+                                      className="makeStyles-headerButtons-15"
                                       classes={
                                         Object {
                                           "colorInherit": "MuiIconButton-colorInherit",
@@ -812,14 +932,14 @@ exports[`App renders correctly 1`] = `
                                     >
                                       <WithStyles(ForwardRef(ButtonBase))
                                         centerRipple={true}
-                                        className="MuiIconButton-root makeStyles-headerButtons-11"
+                                        className="MuiIconButton-root makeStyles-headerButtons-15"
                                         disabled={false}
                                         focusRipple={true}
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(ButtonBase)
                                           centerRipple={true}
-                                          className="MuiIconButton-root makeStyles-headerButtons-11"
+                                          className="MuiIconButton-root makeStyles-headerButtons-15"
                                           classes={
                                             Object {
                                               "disabled": "Mui-disabled",
@@ -832,7 +952,7 @@ exports[`App renders correctly 1`] = `
                                           onClick={[Function]}
                                         >
                                           <button
-                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-11"
+                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-15"
                                             disabled={false}
                                             onBlur={[Function]}
                                             onClick={[Function]}
@@ -853,7 +973,7 @@ exports[`App renders correctly 1`] = `
                                               className="MuiIconButton-label"
                                             >
                                               <span
-                                                className="makeStyles-flagIcon-9"
+                                                className="makeStyles-flagIcon-13"
                                               >
                                                 🇬🇧
                                               </span>
@@ -1551,11 +1671,11 @@ exports[`App renders correctly 1`] = `
                                     </ForwardRef(Menu)>
                                   </WithStyles(ForwardRef(Menu))>
                                   <WithStyles(ForwardRef(IconButton))
-                                    className="makeStyles-headerButtons-11"
+                                    className="makeStyles-headerButtons-15"
                                     onClick={[Function]}
                                   >
                                     <ForwardRef(IconButton)
-                                      className="makeStyles-headerButtons-11"
+                                      className="makeStyles-headerButtons-15"
                                       classes={
                                         Object {
                                           "colorInherit": "MuiIconButton-colorInherit",
@@ -1573,14 +1693,14 @@ exports[`App renders correctly 1`] = `
                                     >
                                       <WithStyles(ForwardRef(ButtonBase))
                                         centerRipple={true}
-                                        className="MuiIconButton-root makeStyles-headerButtons-11"
+                                        className="MuiIconButton-root makeStyles-headerButtons-15"
                                         disabled={false}
                                         focusRipple={true}
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(ButtonBase)
                                           centerRipple={true}
-                                          className="MuiIconButton-root makeStyles-headerButtons-11"
+                                          className="MuiIconButton-root makeStyles-headerButtons-15"
                                           classes={
                                             Object {
                                               "disabled": "Mui-disabled",
@@ -1593,7 +1713,7 @@ exports[`App renders correctly 1`] = `
                                           onClick={[Function]}
                                         >
                                           <button
-                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-11"
+                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-15"
                                             disabled={false}
                                             onBlur={[Function]}
                                             onClick={[Function]}
@@ -2352,11 +2472,1600 @@ exports[`App renders correctly 1`] = `
               className="makeStyles-contentContainer-2"
             >
               <div
-                className="MuiBox-root MuiBox-root-146 makeStyles-contentContainer-2"
+                className="MuiBox-root MuiBox-root-155 makeStyles-contentContainer-2"
               >
+                <ForwardRef(ClickAwayListener)
+                  onClickAway={[Function]}
+                >
+                  <Styled(MuiBox)
+                    className="makeStyles-filtersContainer-4 makeStyles-hiddenFilters-3"
+                  >
+                    <div
+                      className="MuiBox-root MuiBox-root-156 makeStyles-filtersContainer-4 makeStyles-hiddenFilters-3"
+                    >
+                      <Filters
+                        mediaType="shows"
+                        onReset={[Function]}
+                        searchQuery=""
+                      >
+                        <WithStyles(ForwardRef(Paper))
+                          className="makeStyles-container-157"
+                        >
+                          <ForwardRef(Paper)
+                            className="makeStyles-container-157"
+                            classes={
+                              Object {
+                                "elevation0": "MuiPaper-elevation0",
+                                "elevation1": "MuiPaper-elevation1",
+                                "elevation10": "MuiPaper-elevation10",
+                                "elevation11": "MuiPaper-elevation11",
+                                "elevation12": "MuiPaper-elevation12",
+                                "elevation13": "MuiPaper-elevation13",
+                                "elevation14": "MuiPaper-elevation14",
+                                "elevation15": "MuiPaper-elevation15",
+                                "elevation16": "MuiPaper-elevation16",
+                                "elevation17": "MuiPaper-elevation17",
+                                "elevation18": "MuiPaper-elevation18",
+                                "elevation19": "MuiPaper-elevation19",
+                                "elevation2": "MuiPaper-elevation2",
+                                "elevation20": "MuiPaper-elevation20",
+                                "elevation21": "MuiPaper-elevation21",
+                                "elevation22": "MuiPaper-elevation22",
+                                "elevation23": "MuiPaper-elevation23",
+                                "elevation24": "MuiPaper-elevation24",
+                                "elevation3": "MuiPaper-elevation3",
+                                "elevation4": "MuiPaper-elevation4",
+                                "elevation5": "MuiPaper-elevation5",
+                                "elevation6": "MuiPaper-elevation6",
+                                "elevation7": "MuiPaper-elevation7",
+                                "elevation8": "MuiPaper-elevation8",
+                                "elevation9": "MuiPaper-elevation9",
+                                "outlined": "MuiPaper-outlined",
+                                "root": "MuiPaper-root",
+                                "rounded": "MuiPaper-rounded",
+                              }
+                            }
+                          >
+                            <div
+                              className="MuiPaper-root makeStyles-container-157 MuiPaper-elevation1 MuiPaper-rounded"
+                            >
+                              <div
+                                className="makeStyles-collectionsContainer-158"
+                              >
+                                <WithStyles(ForwardRef(Typography))>
+                                  <ForwardRef(Typography)
+                                    classes={
+                                      Object {
+                                        "alignCenter": "MuiTypography-alignCenter",
+                                        "alignJustify": "MuiTypography-alignJustify",
+                                        "alignLeft": "MuiTypography-alignLeft",
+                                        "alignRight": "MuiTypography-alignRight",
+                                        "body1": "MuiTypography-body1",
+                                        "body2": "MuiTypography-body2",
+                                        "button": "MuiTypography-button",
+                                        "caption": "MuiTypography-caption",
+                                        "colorError": "MuiTypography-colorError",
+                                        "colorInherit": "MuiTypography-colorInherit",
+                                        "colorPrimary": "MuiTypography-colorPrimary",
+                                        "colorSecondary": "MuiTypography-colorSecondary",
+                                        "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                                        "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                                        "displayBlock": "MuiTypography-displayBlock",
+                                        "displayInline": "MuiTypography-displayInline",
+                                        "gutterBottom": "MuiTypography-gutterBottom",
+                                        "h1": "MuiTypography-h1",
+                                        "h2": "MuiTypography-h2",
+                                        "h3": "MuiTypography-h3",
+                                        "h4": "MuiTypography-h4",
+                                        "h5": "MuiTypography-h5",
+                                        "h6": "MuiTypography-h6",
+                                        "noWrap": "MuiTypography-noWrap",
+                                        "overline": "MuiTypography-overline",
+                                        "paragraph": "MuiTypography-paragraph",
+                                        "root": "MuiTypography-root",
+                                        "srOnly": "MuiTypography-srOnly",
+                                        "subtitle1": "MuiTypography-subtitle1",
+                                        "subtitle2": "MuiTypography-subtitle2",
+                                      }
+                                    }
+                                  >
+                                    <p
+                                      className="MuiTypography-root MuiTypography-body1"
+                                    >
+                                      Collection
+                                    </p>
+                                  </ForwardRef(Typography)>
+                                </WithStyles(ForwardRef(Typography))>
+                                <FiltersSelect
+                                  collections={Array []}
+                                  setCollections={[Function]}
+                                >
+                                  <WithStyles(ForwardRef(Select))
+                                    className="makeStyles-filtersComponent-159"
+                                    defaultValue={Array []}
+                                    onChange={[Function]}
+                                    value={Array []}
+                                  >
+                                    <ForwardRef(Select)
+                                      className="makeStyles-filtersComponent-159"
+                                      classes={
+                                        Object {
+                                          "disabled": "Mui-disabled",
+                                          "filled": "MuiSelect-filled",
+                                          "icon": "MuiSelect-icon",
+                                          "iconFilled": "MuiSelect-iconFilled",
+                                          "iconOpen": "MuiSelect-iconOpen",
+                                          "iconOutlined": "MuiSelect-iconOutlined",
+                                          "outlined": "MuiSelect-outlined",
+                                          "root": "MuiSelect-root",
+                                          "select": "MuiSelect-select",
+                                          "selectMenu": "MuiSelect-selectMenu",
+                                        }
+                                      }
+                                      defaultValue={Array []}
+                                      onChange={[Function]}
+                                      value={Array []}
+                                    >
+                                      <WithStyles(ForwardRef(Input))
+                                        className="makeStyles-filtersComponent-159"
+                                        defaultValue={Array []}
+                                        inputComponent={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "propTypes": Object {
+                                              "IconComponent": [Function],
+                                              "MenuProps": [Function],
+                                              "SelectDisplayProps": [Function],
+                                              "autoFocus": [Function],
+                                              "autoWidth": [Function],
+                                              "children": [Function],
+                                              "className": [Function],
+                                              "classes": [Function],
+                                              "defaultValue": [Function],
+                                              "disabled": [Function],
+                                              "displayEmpty": [Function],
+                                              "inputRef": [Function],
+                                              "labelId": [Function],
+                                              "multiple": [Function],
+                                              "name": [Function],
+                                              "onBlur": [Function],
+                                              "onChange": [Function],
+                                              "onClose": [Function],
+                                              "onFocus": [Function],
+                                              "onOpen": [Function],
+                                              "open": [Function],
+                                              "readOnly": [Function],
+                                              "renderValue": [Function],
+                                              "required": [Function],
+                                              "tabIndex": [Function],
+                                              "type": [Function],
+                                              "value": [Function],
+                                              "variant": [Function],
+                                            },
+                                            "render": [Function],
+                                          }
+                                        }
+                                        inputProps={
+                                          Object {
+                                            "IconComponent": Object {
+                                              "$$typeof": Symbol(react.memo),
+                                              "compare": null,
+                                              "displayName": "ArrowDropDownIcon",
+                                              "muiName": "SvgIcon",
+                                              "type": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                            "MenuProps": undefined,
+                                            "SelectDisplayProps": Object {
+                                              "id": undefined,
+                                            },
+                                            "autoWidth": false,
+                                            "children": Array [
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-default"
+                                                value=""
+                                              >
+                                                All
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-action"
+                                                value="Action"
+                                              >
+                                                Action
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-adventure"
+                                                value="Adventure"
+                                              >
+                                                Adventure
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-animation"
+                                                value="Animation"
+                                              >
+                                                Animation
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-biography"
+                                                value="Biography"
+                                              >
+                                                Biography
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-comedy"
+                                                value="Comedy"
+                                              >
+                                                Comedy
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-crime"
+                                                value="Crime"
+                                              >
+                                                Crime
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-documentary"
+                                                value="Documentary"
+                                              >
+                                                Documentary
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-drama"
+                                                value="Drama"
+                                              >
+                                                Drama
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-family"
+                                                value="Family"
+                                              >
+                                                Family
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-fantasy"
+                                                value="Fantasy"
+                                              >
+                                                Fantasy
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-history"
+                                                value="History"
+                                              >
+                                                History
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-horror"
+                                                value="Horror"
+                                              >
+                                                Horror
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-music"
+                                                value="Music"
+                                              >
+                                                Music
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-musical"
+                                                value="Musical"
+                                              >
+                                                Musical
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-mystery"
+                                                value="Mystery"
+                                              >
+                                                Action
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-romance"
+                                                value="Romance"
+                                              >
+                                                Romance
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-scifi"
+                                                value="Sci-Fi"
+                                              >
+                                                Sci-fi
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-sport"
+                                                value="Sport"
+                                              >
+                                                Sport
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-thriller"
+                                                value="Thriller"
+                                              >
+                                                Thriller
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-war"
+                                                value="War"
+                                              >
+                                                War
+                                              </ForwardRef(WithStyles)>,
+                                              <ForwardRef(WithStyles)
+                                                id="menuitem-western"
+                                                value="Western"
+                                              >
+                                                Western
+                                              </ForwardRef(WithStyles)>,
+                                            ],
+                                            "classes": Object {
+                                              "disabled": "Mui-disabled",
+                                              "filled": "MuiSelect-filled",
+                                              "icon": "MuiSelect-icon",
+                                              "iconFilled": "MuiSelect-iconFilled",
+                                              "iconOpen": "MuiSelect-iconOpen",
+                                              "iconOutlined": "MuiSelect-iconOutlined",
+                                              "outlined": "MuiSelect-outlined",
+                                              "root": "MuiSelect-root",
+                                              "select": "MuiSelect-select",
+                                              "selectMenu": "MuiSelect-selectMenu",
+                                            },
+                                            "displayEmpty": false,
+                                            "labelId": undefined,
+                                            "multiple": false,
+                                            "onClose": undefined,
+                                            "onOpen": undefined,
+                                            "open": undefined,
+                                            "renderValue": undefined,
+                                            "type": undefined,
+                                            "variant": "standard",
+                                          }
+                                        }
+                                        onChange={[Function]}
+                                        value={Array []}
+                                      >
+                                        <ForwardRef(Input)
+                                          className="makeStyles-filtersComponent-159"
+                                          classes={
+                                            Object {
+                                              "colorSecondary": "MuiInput-colorSecondary",
+                                              "disabled": "Mui-disabled",
+                                              "error": "Mui-error",
+                                              "focused": "Mui-focused",
+                                              "formControl": "MuiInput-formControl",
+                                              "fullWidth": "MuiInput-fullWidth",
+                                              "input": "MuiInput-input",
+                                              "inputMarginDense": "MuiInput-inputMarginDense",
+                                              "inputMultiline": "MuiInput-inputMultiline",
+                                              "inputTypeSearch": "MuiInput-inputTypeSearch",
+                                              "marginDense": "MuiInput-marginDense",
+                                              "multiline": "MuiInput-multiline",
+                                              "root": "MuiInput-root",
+                                              "underline": "MuiInput-underline",
+                                            }
+                                          }
+                                          defaultValue={Array []}
+                                          inputComponent={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "propTypes": Object {
+                                                "IconComponent": [Function],
+                                                "MenuProps": [Function],
+                                                "SelectDisplayProps": [Function],
+                                                "autoFocus": [Function],
+                                                "autoWidth": [Function],
+                                                "children": [Function],
+                                                "className": [Function],
+                                                "classes": [Function],
+                                                "defaultValue": [Function],
+                                                "disabled": [Function],
+                                                "displayEmpty": [Function],
+                                                "inputRef": [Function],
+                                                "labelId": [Function],
+                                                "multiple": [Function],
+                                                "name": [Function],
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onClose": [Function],
+                                                "onFocus": [Function],
+                                                "onOpen": [Function],
+                                                "open": [Function],
+                                                "readOnly": [Function],
+                                                "renderValue": [Function],
+                                                "required": [Function],
+                                                "tabIndex": [Function],
+                                                "type": [Function],
+                                                "value": [Function],
+                                                "variant": [Function],
+                                              },
+                                              "render": [Function],
+                                            }
+                                          }
+                                          inputProps={
+                                            Object {
+                                              "IconComponent": Object {
+                                                "$$typeof": Symbol(react.memo),
+                                                "compare": null,
+                                                "displayName": "ArrowDropDownIcon",
+                                                "muiName": "SvgIcon",
+                                                "type": Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "render": [Function],
+                                                },
+                                              },
+                                              "MenuProps": undefined,
+                                              "SelectDisplayProps": Object {
+                                                "id": undefined,
+                                              },
+                                              "autoWidth": false,
+                                              "children": Array [
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-default"
+                                                  value=""
+                                                >
+                                                  All
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-action"
+                                                  value="Action"
+                                                >
+                                                  Action
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-adventure"
+                                                  value="Adventure"
+                                                >
+                                                  Adventure
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-animation"
+                                                  value="Animation"
+                                                >
+                                                  Animation
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-biography"
+                                                  value="Biography"
+                                                >
+                                                  Biography
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-comedy"
+                                                  value="Comedy"
+                                                >
+                                                  Comedy
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-crime"
+                                                  value="Crime"
+                                                >
+                                                  Crime
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-documentary"
+                                                  value="Documentary"
+                                                >
+                                                  Documentary
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-drama"
+                                                  value="Drama"
+                                                >
+                                                  Drama
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-family"
+                                                  value="Family"
+                                                >
+                                                  Family
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-fantasy"
+                                                  value="Fantasy"
+                                                >
+                                                  Fantasy
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-history"
+                                                  value="History"
+                                                >
+                                                  History
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-horror"
+                                                  value="Horror"
+                                                >
+                                                  Horror
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-music"
+                                                  value="Music"
+                                                >
+                                                  Music
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-musical"
+                                                  value="Musical"
+                                                >
+                                                  Musical
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-mystery"
+                                                  value="Mystery"
+                                                >
+                                                  Action
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-romance"
+                                                  value="Romance"
+                                                >
+                                                  Romance
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-scifi"
+                                                  value="Sci-Fi"
+                                                >
+                                                  Sci-fi
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-sport"
+                                                  value="Sport"
+                                                >
+                                                  Sport
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-thriller"
+                                                  value="Thriller"
+                                                >
+                                                  Thriller
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-war"
+                                                  value="War"
+                                                >
+                                                  War
+                                                </ForwardRef(WithStyles)>,
+                                                <ForwardRef(WithStyles)
+                                                  id="menuitem-western"
+                                                  value="Western"
+                                                >
+                                                  Western
+                                                </ForwardRef(WithStyles)>,
+                                              ],
+                                              "classes": Object {
+                                                "disabled": "Mui-disabled",
+                                                "filled": "MuiSelect-filled",
+                                                "icon": "MuiSelect-icon",
+                                                "iconFilled": "MuiSelect-iconFilled",
+                                                "iconOpen": "MuiSelect-iconOpen",
+                                                "iconOutlined": "MuiSelect-iconOutlined",
+                                                "outlined": "MuiSelect-outlined",
+                                                "root": "MuiSelect-root",
+                                                "select": "MuiSelect-select",
+                                                "selectMenu": "MuiSelect-selectMenu",
+                                              },
+                                              "displayEmpty": false,
+                                              "labelId": undefined,
+                                              "multiple": false,
+                                              "onClose": undefined,
+                                              "onOpen": undefined,
+                                              "open": undefined,
+                                              "renderValue": undefined,
+                                              "type": undefined,
+                                              "variant": "standard",
+                                            }
+                                          }
+                                          onChange={[Function]}
+                                          value={Array []}
+                                        >
+                                          <WithStyles(ForwardRef(InputBase))
+                                            className="makeStyles-filtersComponent-159"
+                                            classes={
+                                              Object {
+                                                "colorSecondary": "MuiInput-colorSecondary",
+                                                "disabled": "Mui-disabled",
+                                                "error": "Mui-error",
+                                                "focused": "Mui-focused",
+                                                "formControl": "MuiInput-formControl",
+                                                "fullWidth": "MuiInput-fullWidth",
+                                                "input": "MuiInput-input",
+                                                "inputMarginDense": "MuiInput-inputMarginDense",
+                                                "inputMultiline": "MuiInput-inputMultiline",
+                                                "inputTypeSearch": "MuiInput-inputTypeSearch",
+                                                "marginDense": "MuiInput-marginDense",
+                                                "multiline": "MuiInput-multiline",
+                                                "root": "MuiInput-root MuiInput-underline",
+                                                "underline": null,
+                                              }
+                                            }
+                                            defaultValue={Array []}
+                                            fullWidth={false}
+                                            inputComponent={
+                                              Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "propTypes": Object {
+                                                  "IconComponent": [Function],
+                                                  "MenuProps": [Function],
+                                                  "SelectDisplayProps": [Function],
+                                                  "autoFocus": [Function],
+                                                  "autoWidth": [Function],
+                                                  "children": [Function],
+                                                  "className": [Function],
+                                                  "classes": [Function],
+                                                  "defaultValue": [Function],
+                                                  "disabled": [Function],
+                                                  "displayEmpty": [Function],
+                                                  "inputRef": [Function],
+                                                  "labelId": [Function],
+                                                  "multiple": [Function],
+                                                  "name": [Function],
+                                                  "onBlur": [Function],
+                                                  "onChange": [Function],
+                                                  "onClose": [Function],
+                                                  "onFocus": [Function],
+                                                  "onOpen": [Function],
+                                                  "open": [Function],
+                                                  "readOnly": [Function],
+                                                  "renderValue": [Function],
+                                                  "required": [Function],
+                                                  "tabIndex": [Function],
+                                                  "type": [Function],
+                                                  "value": [Function],
+                                                  "variant": [Function],
+                                                },
+                                                "render": [Function],
+                                              }
+                                            }
+                                            inputProps={
+                                              Object {
+                                                "IconComponent": Object {
+                                                  "$$typeof": Symbol(react.memo),
+                                                  "compare": null,
+                                                  "displayName": "ArrowDropDownIcon",
+                                                  "muiName": "SvgIcon",
+                                                  "type": Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
+                                                  },
+                                                },
+                                                "MenuProps": undefined,
+                                                "SelectDisplayProps": Object {
+                                                  "id": undefined,
+                                                },
+                                                "autoWidth": false,
+                                                "children": Array [
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-default"
+                                                    value=""
+                                                  >
+                                                    All
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-action"
+                                                    value="Action"
+                                                  >
+                                                    Action
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-adventure"
+                                                    value="Adventure"
+                                                  >
+                                                    Adventure
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-animation"
+                                                    value="Animation"
+                                                  >
+                                                    Animation
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-biography"
+                                                    value="Biography"
+                                                  >
+                                                    Biography
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-comedy"
+                                                    value="Comedy"
+                                                  >
+                                                    Comedy
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-crime"
+                                                    value="Crime"
+                                                  >
+                                                    Crime
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-documentary"
+                                                    value="Documentary"
+                                                  >
+                                                    Documentary
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-drama"
+                                                    value="Drama"
+                                                  >
+                                                    Drama
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-family"
+                                                    value="Family"
+                                                  >
+                                                    Family
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-fantasy"
+                                                    value="Fantasy"
+                                                  >
+                                                    Fantasy
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-history"
+                                                    value="History"
+                                                  >
+                                                    History
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-horror"
+                                                    value="Horror"
+                                                  >
+                                                    Horror
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-music"
+                                                    value="Music"
+                                                  >
+                                                    Music
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-musical"
+                                                    value="Musical"
+                                                  >
+                                                    Musical
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-mystery"
+                                                    value="Mystery"
+                                                  >
+                                                    Action
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-romance"
+                                                    value="Romance"
+                                                  >
+                                                    Romance
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-scifi"
+                                                    value="Sci-Fi"
+                                                  >
+                                                    Sci-fi
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-sport"
+                                                    value="Sport"
+                                                  >
+                                                    Sport
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-thriller"
+                                                    value="Thriller"
+                                                  >
+                                                    Thriller
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-war"
+                                                    value="War"
+                                                  >
+                                                    War
+                                                  </ForwardRef(WithStyles)>,
+                                                  <ForwardRef(WithStyles)
+                                                    id="menuitem-western"
+                                                    value="Western"
+                                                  >
+                                                    Western
+                                                  </ForwardRef(WithStyles)>,
+                                                ],
+                                                "classes": Object {
+                                                  "disabled": "Mui-disabled",
+                                                  "filled": "MuiSelect-filled",
+                                                  "icon": "MuiSelect-icon",
+                                                  "iconFilled": "MuiSelect-iconFilled",
+                                                  "iconOpen": "MuiSelect-iconOpen",
+                                                  "iconOutlined": "MuiSelect-iconOutlined",
+                                                  "outlined": "MuiSelect-outlined",
+                                                  "root": "MuiSelect-root",
+                                                  "select": "MuiSelect-select",
+                                                  "selectMenu": "MuiSelect-selectMenu",
+                                                },
+                                                "displayEmpty": false,
+                                                "labelId": undefined,
+                                                "multiple": false,
+                                                "onClose": undefined,
+                                                "onOpen": undefined,
+                                                "open": undefined,
+                                                "renderValue": undefined,
+                                                "type": undefined,
+                                                "variant": "standard",
+                                              }
+                                            }
+                                            multiline={false}
+                                            onChange={[Function]}
+                                            type="text"
+                                            value={Array []}
+                                          >
+                                            <ForwardRef(InputBase)
+                                              className="makeStyles-filtersComponent-159"
+                                              classes={
+                                                Object {
+                                                  "adornedEnd": "MuiInputBase-adornedEnd",
+                                                  "adornedStart": "MuiInputBase-adornedStart",
+                                                  "colorSecondary": "MuiInputBase-colorSecondary MuiInput-colorSecondary",
+                                                  "disabled": "Mui-disabled Mui-disabled",
+                                                  "error": "Mui-error Mui-error",
+                                                  "focused": "Mui-focused Mui-focused",
+                                                  "formControl": "MuiInputBase-formControl MuiInput-formControl",
+                                                  "fullWidth": "MuiInputBase-fullWidth MuiInput-fullWidth",
+                                                  "input": "MuiInputBase-input MuiInput-input",
+                                                  "inputAdornedEnd": "MuiInputBase-inputAdornedEnd",
+                                                  "inputAdornedStart": "MuiInputBase-inputAdornedStart",
+                                                  "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
+                                                  "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
+                                                  "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
+                                                  "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
+                                                  "marginDense": "MuiInputBase-marginDense MuiInput-marginDense",
+                                                  "multiline": "MuiInputBase-multiline MuiInput-multiline",
+                                                  "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
+                                                }
+                                              }
+                                              defaultValue={Array []}
+                                              fullWidth={false}
+                                              inputComponent={
+                                                Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "propTypes": Object {
+                                                    "IconComponent": [Function],
+                                                    "MenuProps": [Function],
+                                                    "SelectDisplayProps": [Function],
+                                                    "autoFocus": [Function],
+                                                    "autoWidth": [Function],
+                                                    "children": [Function],
+                                                    "className": [Function],
+                                                    "classes": [Function],
+                                                    "defaultValue": [Function],
+                                                    "disabled": [Function],
+                                                    "displayEmpty": [Function],
+                                                    "inputRef": [Function],
+                                                    "labelId": [Function],
+                                                    "multiple": [Function],
+                                                    "name": [Function],
+                                                    "onBlur": [Function],
+                                                    "onChange": [Function],
+                                                    "onClose": [Function],
+                                                    "onFocus": [Function],
+                                                    "onOpen": [Function],
+                                                    "open": [Function],
+                                                    "readOnly": [Function],
+                                                    "renderValue": [Function],
+                                                    "required": [Function],
+                                                    "tabIndex": [Function],
+                                                    "type": [Function],
+                                                    "value": [Function],
+                                                    "variant": [Function],
+                                                  },
+                                                  "render": [Function],
+                                                }
+                                              }
+                                              inputProps={
+                                                Object {
+                                                  "IconComponent": Object {
+                                                    "$$typeof": Symbol(react.memo),
+                                                    "compare": null,
+                                                    "displayName": "ArrowDropDownIcon",
+                                                    "muiName": "SvgIcon",
+                                                    "type": Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    },
+                                                  },
+                                                  "MenuProps": undefined,
+                                                  "SelectDisplayProps": Object {
+                                                    "id": undefined,
+                                                  },
+                                                  "autoWidth": false,
+                                                  "children": Array [
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-default"
+                                                      value=""
+                                                    >
+                                                      All
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-action"
+                                                      value="Action"
+                                                    >
+                                                      Action
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-adventure"
+                                                      value="Adventure"
+                                                    >
+                                                      Adventure
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-animation"
+                                                      value="Animation"
+                                                    >
+                                                      Animation
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-biography"
+                                                      value="Biography"
+                                                    >
+                                                      Biography
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-comedy"
+                                                      value="Comedy"
+                                                    >
+                                                      Comedy
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-crime"
+                                                      value="Crime"
+                                                    >
+                                                      Crime
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-documentary"
+                                                      value="Documentary"
+                                                    >
+                                                      Documentary
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-drama"
+                                                      value="Drama"
+                                                    >
+                                                      Drama
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-family"
+                                                      value="Family"
+                                                    >
+                                                      Family
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-fantasy"
+                                                      value="Fantasy"
+                                                    >
+                                                      Fantasy
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-history"
+                                                      value="History"
+                                                    >
+                                                      History
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-horror"
+                                                      value="Horror"
+                                                    >
+                                                      Horror
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-music"
+                                                      value="Music"
+                                                    >
+                                                      Music
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-musical"
+                                                      value="Musical"
+                                                    >
+                                                      Musical
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-mystery"
+                                                      value="Mystery"
+                                                    >
+                                                      Action
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-romance"
+                                                      value="Romance"
+                                                    >
+                                                      Romance
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-scifi"
+                                                      value="Sci-Fi"
+                                                    >
+                                                      Sci-fi
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-sport"
+                                                      value="Sport"
+                                                    >
+                                                      Sport
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-thriller"
+                                                      value="Thriller"
+                                                    >
+                                                      Thriller
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-war"
+                                                      value="War"
+                                                    >
+                                                      War
+                                                    </ForwardRef(WithStyles)>,
+                                                    <ForwardRef(WithStyles)
+                                                      id="menuitem-western"
+                                                      value="Western"
+                                                    >
+                                                      Western
+                                                    </ForwardRef(WithStyles)>,
+                                                  ],
+                                                  "classes": Object {
+                                                    "disabled": "Mui-disabled",
+                                                    "filled": "MuiSelect-filled",
+                                                    "icon": "MuiSelect-icon",
+                                                    "iconFilled": "MuiSelect-iconFilled",
+                                                    "iconOpen": "MuiSelect-iconOpen",
+                                                    "iconOutlined": "MuiSelect-iconOutlined",
+                                                    "outlined": "MuiSelect-outlined",
+                                                    "root": "MuiSelect-root",
+                                                    "select": "MuiSelect-select",
+                                                    "selectMenu": "MuiSelect-selectMenu",
+                                                  },
+                                                  "displayEmpty": false,
+                                                  "labelId": undefined,
+                                                  "multiple": false,
+                                                  "onClose": undefined,
+                                                  "onOpen": undefined,
+                                                  "open": undefined,
+                                                  "renderValue": undefined,
+                                                  "type": undefined,
+                                                  "variant": "standard",
+                                                }
+                                              }
+                                              multiline={false}
+                                              onChange={[Function]}
+                                              type="text"
+                                              value={Array []}
+                                            >
+                                              <div
+                                                className="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-filtersComponent-159"
+                                                onClick={[Function]}
+                                              >
+                                                <ForwardRef(SelectInput)
+                                                  IconComponent={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.memo),
+                                                      "compare": null,
+                                                      "displayName": "ArrowDropDownIcon",
+                                                      "muiName": "SvgIcon",
+                                                      "type": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      },
+                                                    }
+                                                  }
+                                                  SelectDisplayProps={
+                                                    Object {
+                                                      "id": undefined,
+                                                    }
+                                                  }
+                                                  autoWidth={false}
+                                                  className="MuiInputBase-input MuiInput-input"
+                                                  classes={
+                                                    Object {
+                                                      "disabled": "Mui-disabled",
+                                                      "filled": "MuiSelect-filled",
+                                                      "icon": "MuiSelect-icon",
+                                                      "iconFilled": "MuiSelect-iconFilled",
+                                                      "iconOpen": "MuiSelect-iconOpen",
+                                                      "iconOutlined": "MuiSelect-iconOutlined",
+                                                      "outlined": "MuiSelect-outlined",
+                                                      "root": "MuiSelect-root",
+                                                      "select": "MuiSelect-select",
+                                                      "selectMenu": "MuiSelect-selectMenu",
+                                                    }
+                                                  }
+                                                  defaultValue={Array []}
+                                                  displayEmpty={false}
+                                                  inputRef={[Function]}
+                                                  multiple={false}
+                                                  onAnimationStart={[Function]}
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onFocus={[Function]}
+                                                  value={Array []}
+                                                  variant="standard"
+                                                >
+                                                  <div
+                                                    aria-haspopup="listbox"
+                                                    aria-labelledby=" "
+                                                    className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                                                    onBlur={[Function]}
+                                                    onFocus={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    onMouseDown={[Function]}
+                                                    role="button"
+                                                    tabIndex={0}
+                                                  >
+                                                    <span
+                                                      dangerouslySetInnerHTML={
+                                                        Object {
+                                                          "__html": "&#8203;",
+                                                        }
+                                                      }
+                                                    />
+                                                  </div>
+                                                  <input
+                                                    onAnimationStart={[Function]}
+                                                    type="hidden"
+                                                    value=""
+                                                  />
+                                                  <ForwardRef
+                                                    className="MuiSelect-icon"
+                                                  >
+                                                    <WithStyles(ForwardRef(SvgIcon))
+                                                      className="MuiSelect-icon"
+                                                    >
+                                                      <ForwardRef(SvgIcon)
+                                                        className="MuiSelect-icon"
+                                                        classes={
+                                                          Object {
+                                                            "colorAction": "MuiSvgIcon-colorAction",
+                                                            "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                                            "colorError": "MuiSvgIcon-colorError",
+                                                            "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                                            "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                                            "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                                            "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                                            "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                                            "root": "MuiSvgIcon-root",
+                                                          }
+                                                        }
+                                                      >
+                                                        <svg
+                                                          aria-hidden="true"
+                                                          className="MuiSvgIcon-root MuiSelect-icon"
+                                                          focusable="false"
+                                                          role="presentation"
+                                                          viewBox="0 0 24 24"
+                                                        >
+                                                          <path
+                                                            d="M7 10l5 5 5-5z"
+                                                          />
+                                                        </svg>
+                                                      </ForwardRef(SvgIcon)>
+                                                    </WithStyles(ForwardRef(SvgIcon))>
+                                                  </ForwardRef>
+                                                  <WithStyles(ForwardRef(Menu))
+                                                    MenuListProps={
+                                                      Object {
+                                                        "aria-labelledby": undefined,
+                                                        "disableListWrap": true,
+                                                        "role": "listbox",
+                                                      }
+                                                    }
+                                                    PaperProps={
+                                                      Object {
+                                                        "style": Object {
+                                                          "minWidth": undefined,
+                                                        },
+                                                      }
+                                                    }
+                                                    anchorEl={
+                                                      <div
+                                                        aria-haspopup="listbox"
+                                                        aria-labelledby=" "
+                                                        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                                                        role="button"
+                                                        tabindex="0"
+                                                      >
+                                                        <span>
+                                                          ​
+                                                        </span>
+                                                      </div>
+                                                    }
+                                                    id="menu-"
+                                                    onClose={[Function]}
+                                                    open={false}
+                                                  >
+                                                    <ForwardRef(Menu)
+                                                      MenuListProps={
+                                                        Object {
+                                                          "aria-labelledby": undefined,
+                                                          "disableListWrap": true,
+                                                          "role": "listbox",
+                                                        }
+                                                      }
+                                                      PaperProps={
+                                                        Object {
+                                                          "style": Object {
+                                                            "minWidth": undefined,
+                                                          },
+                                                        }
+                                                      }
+                                                      anchorEl={
+                                                        <div
+                                                          aria-haspopup="listbox"
+                                                          aria-labelledby=" "
+                                                          class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                                                          role="button"
+                                                          tabindex="0"
+                                                        >
+                                                          <span>
+                                                            ​
+                                                          </span>
+                                                        </div>
+                                                      }
+                                                      classes={
+                                                        Object {
+                                                          "list": "MuiMenu-list",
+                                                          "paper": "MuiMenu-paper",
+                                                        }
+                                                      }
+                                                      id="menu-"
+                                                      onClose={[Function]}
+                                                      open={false}
+                                                    >
+                                                      <WithStyles(ForwardRef(Popover))
+                                                        PaperProps={
+                                                          Object {
+                                                            "classes": Object {
+                                                              "root": "MuiMenu-paper",
+                                                            },
+                                                            "style": Object {
+                                                              "minWidth": undefined,
+                                                            },
+                                                          }
+                                                        }
+                                                        anchorEl={
+                                                          <div
+                                                            aria-haspopup="listbox"
+                                                            aria-labelledby=" "
+                                                            class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                                                            role="button"
+                                                            tabindex="0"
+                                                          >
+                                                            <span>
+                                                              ​
+                                                            </span>
+                                                          </div>
+                                                        }
+                                                        anchorOrigin={
+                                                          Object {
+                                                            "horizontal": "left",
+                                                            "vertical": "top",
+                                                          }
+                                                        }
+                                                        getContentAnchorEl={[Function]}
+                                                        id="menu-"
+                                                        onClose={[Function]}
+                                                        onEntering={[Function]}
+                                                        open={false}
+                                                        transformOrigin={
+                                                          Object {
+                                                            "horizontal": "left",
+                                                            "vertical": "top",
+                                                          }
+                                                        }
+                                                        transitionDuration="auto"
+                                                      >
+                                                        <ForwardRef(Popover)
+                                                          PaperProps={
+                                                            Object {
+                                                              "classes": Object {
+                                                                "root": "MuiMenu-paper",
+                                                              },
+                                                              "style": Object {
+                                                                "minWidth": undefined,
+                                                              },
+                                                            }
+                                                          }
+                                                          anchorEl={
+                                                            <div
+                                                              aria-haspopup="listbox"
+                                                              aria-labelledby=" "
+                                                              class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                                                              role="button"
+                                                              tabindex="0"
+                                                            >
+                                                              <span>
+                                                                ​
+                                                              </span>
+                                                            </div>
+                                                          }
+                                                          anchorOrigin={
+                                                            Object {
+                                                              "horizontal": "left",
+                                                              "vertical": "top",
+                                                            }
+                                                          }
+                                                          classes={
+                                                            Object {
+                                                              "paper": "MuiPopover-paper",
+                                                              "root": "MuiPopover-root",
+                                                            }
+                                                          }
+                                                          getContentAnchorEl={[Function]}
+                                                          id="menu-"
+                                                          onClose={[Function]}
+                                                          onEntering={[Function]}
+                                                          open={false}
+                                                          transformOrigin={
+                                                            Object {
+                                                              "horizontal": "left",
+                                                              "vertical": "top",
+                                                            }
+                                                          }
+                                                          transitionDuration="auto"
+                                                        >
+                                                          <ForwardRef(Modal)
+                                                            BackdropProps={
+                                                              Object {
+                                                                "invisible": true,
+                                                              }
+                                                            }
+                                                            className="MuiPopover-root"
+                                                            container={
+                                                              <body>
+                                                                <div
+                                                                  aria-hidden="true"
+                                                                  class="MuiPopover-root"
+                                                                  role="presentation"
+                                                                  style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                                >
+                                                                  <div
+                                                                    data-test="sentinelStart"
+                                                                    tabindex="0"
+                                                                  />
+                                                                  <div
+                                                                    class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                                    style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                                    tabindex="-1"
+                                                                  >
+                                                                    <ul
+                                                                      class="MuiList-root MuiMenu-list MuiList-padding"
+                                                                      role="menu"
+                                                                      tabindex="-1"
+                                                                    >
+                                                                      <li
+                                                                        aria-disabled="false"
+                                                                        class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                        role="menuitem"
+                                                                        tabindex="0"
+                                                                      >
+                                                                        🇫🇷
+                                                                        <span
+                                                                          class="MuiTouchRipple-root"
+                                                                        />
+                                                                      </li>
+                                                                      <li
+                                                                        aria-disabled="false"
+                                                                        class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                        role="menuitem"
+                                                                        tabindex="-1"
+                                                                      >
+                                                                        🇬🇧
+                                                                        <span
+                                                                          class="MuiTouchRipple-root"
+                                                                        />
+                                                                      </li>
+                                                                    </ul>
+                                                                  </div>
+                                                                  <div
+                                                                    data-test="sentinelEnd"
+                                                                    tabindex="0"
+                                                                  />
+                                                                </div>
+                                                                <div
+                                                                  aria-hidden="true"
+                                                                  class="MuiPopover-root"
+                                                                  role="presentation"
+                                                                  style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+                                                                >
+                                                                  <div
+                                                                    data-test="sentinelStart"
+                                                                    tabindex="0"
+                                                                  />
+                                                                  <div
+                                                                    class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                                                                    style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+                                                                    tabindex="-1"
+                                                                  >
+                                                                    <ul
+                                                                      class="MuiList-root MuiMenu-list MuiList-padding"
+                                                                      role="menu"
+                                                                      tabindex="-1"
+                                                                    >
+                                                                      <li
+                                                                        aria-disabled="false"
+                                                                        class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                        role="menuitem"
+                                                                        tabindex="0"
+                                                                      >
+                                                                        My profile
+                                                                        <span
+                                                                          class="MuiTouchRipple-root"
+                                                                        />
+                                                                      </li>
+                                                                      <li
+                                                                        aria-disabled="false"
+                                                                        class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                                                                        role="menuitem"
+                                                                        tabindex="-1"
+                                                                      >
+                                                                        Disconnect
+                                                                        <span
+                                                                          class="MuiTouchRipple-root"
+                                                                        />
+                                                                      </li>
+                                                                    </ul>
+                                                                  </div>
+                                                                  <div
+                                                                    data-test="sentinelEnd"
+                                                                    tabindex="0"
+                                                                  />
+                                                                </div>
+                                                              </body>
+                                                            }
+                                                            id="menu-"
+                                                            onClose={[Function]}
+                                                            open={false}
+                                                          />
+                                                        </ForwardRef(Popover)>
+                                                      </WithStyles(ForwardRef(Popover))>
+                                                    </ForwardRef(Menu)>
+                                                  </WithStyles(ForwardRef(Menu))>
+                                                </ForwardRef(SelectInput)>
+                                              </div>
+                                            </ForwardRef(InputBase)>
+                                          </WithStyles(ForwardRef(InputBase))>
+                                        </ForwardRef(Input)>
+                                      </WithStyles(ForwardRef(Input))>
+                                    </ForwardRef(Select)>
+                                  </WithStyles(ForwardRef(Select))>
+                                </FiltersSelect>
+                              </div>
+                              <WithStyles(ForwardRef(Button))
+                                className="makeStyles-resetFilterButton-162"
+                                onClick={[Function]}
+                              >
+                                <ForwardRef(Button)
+                                  className="makeStyles-resetFilterButton-162"
+                                  classes={
+                                    Object {
+                                      "colorInherit": "MuiButton-colorInherit",
+                                      "contained": "MuiButton-contained",
+                                      "containedPrimary": "MuiButton-containedPrimary",
+                                      "containedSecondary": "MuiButton-containedSecondary",
+                                      "containedSizeLarge": "MuiButton-containedSizeLarge",
+                                      "containedSizeSmall": "MuiButton-containedSizeSmall",
+                                      "disableElevation": "MuiButton-disableElevation",
+                                      "disabled": "Mui-disabled",
+                                      "endIcon": "MuiButton-endIcon",
+                                      "focusVisible": "Mui-focusVisible",
+                                      "fullWidth": "MuiButton-fullWidth",
+                                      "iconSizeLarge": "MuiButton-iconSizeLarge",
+                                      "iconSizeMedium": "MuiButton-iconSizeMedium",
+                                      "iconSizeSmall": "MuiButton-iconSizeSmall",
+                                      "label": "MuiButton-label",
+                                      "outlined": "MuiButton-outlined",
+                                      "outlinedPrimary": "MuiButton-outlinedPrimary",
+                                      "outlinedSecondary": "MuiButton-outlinedSecondary",
+                                      "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                                      "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                                      "root": "MuiButton-root",
+                                      "sizeLarge": "MuiButton-sizeLarge",
+                                      "sizeSmall": "MuiButton-sizeSmall",
+                                      "startIcon": "MuiButton-startIcon",
+                                      "text": "MuiButton-text",
+                                      "textPrimary": "MuiButton-textPrimary",
+                                      "textSecondary": "MuiButton-textSecondary",
+                                      "textSizeLarge": "MuiButton-textSizeLarge",
+                                      "textSizeSmall": "MuiButton-textSizeSmall",
+                                    }
+                                  }
+                                  onClick={[Function]}
+                                >
+                                  <WithStyles(ForwardRef(ButtonBase))
+                                    className="MuiButton-root MuiButton-text makeStyles-resetFilterButton-162"
+                                    component="button"
+                                    disabled={false}
+                                    focusRipple={true}
+                                    focusVisibleClassName="Mui-focusVisible"
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    <ForwardRef(ButtonBase)
+                                      className="MuiButton-root MuiButton-text makeStyles-resetFilterButton-162"
+                                      classes={
+                                        Object {
+                                          "disabled": "Mui-disabled",
+                                          "focusVisible": "Mui-focusVisible",
+                                          "root": "MuiButtonBase-root",
+                                        }
+                                      }
+                                      component="button"
+                                      disabled={false}
+                                      focusRipple={true}
+                                      focusVisibleClassName="Mui-focusVisible"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      <button
+                                        className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-resetFilterButton-162"
+                                        disabled={false}
+                                        onBlur={[Function]}
+                                        onClick={[Function]}
+                                        onDragLeave={[Function]}
+                                        onFocus={[Function]}
+                                        onKeyDown={[Function]}
+                                        onKeyUp={[Function]}
+                                        onMouseDown={[Function]}
+                                        onMouseLeave={[Function]}
+                                        onMouseUp={[Function]}
+                                        onTouchEnd={[Function]}
+                                        onTouchMove={[Function]}
+                                        onTouchStart={[Function]}
+                                        tabIndex={0}
+                                        type="button"
+                                      >
+                                        <span
+                                          className="MuiButton-label"
+                                        >
+                                          Reset filter
+                                        </span>
+                                        <NoSsr>
+                                          <WithStyles(undefined)
+                                            center={false}
+                                          >
+                                            <ForwardRef(TouchRipple)
+                                              center={false}
+                                              classes={
+                                                Object {
+                                                  "child": "MuiTouchRipple-child",
+                                                  "childLeaving": "MuiTouchRipple-childLeaving",
+                                                  "childPulsate": "MuiTouchRipple-childPulsate",
+                                                  "ripple": "MuiTouchRipple-ripple",
+                                                  "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                  "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                  "root": "MuiTouchRipple-root",
+                                                }
+                                              }
+                                            >
+                                              <span
+                                                className="MuiTouchRipple-root"
+                                              >
+                                                <TransitionGroup
+                                                  childFactory={[Function]}
+                                                  component={null}
+                                                  exit={true}
+                                                />
+                                              </span>
+                                            </ForwardRef(TouchRipple)>
+                                          </WithStyles(undefined)>
+                                        </NoSsr>
+                                      </button>
+                                    </ForwardRef(ButtonBase)>
+                                  </WithStyles(ForwardRef(ButtonBase))>
+                                </ForwardRef(Button)>
+                              </WithStyles(ForwardRef(Button))>
+                            </div>
+                          </ForwardRef(Paper)>
+                        </WithStyles(ForwardRef(Paper))>
+                      </Filters>
+                    </div>
+                  </Styled(MuiBox)>
+                </ForwardRef(ClickAwayListener)>
                 <Styled(MuiBox)>
                   <div
-                    className="MuiBox-root MuiBox-root-147"
+                    className="MuiBox-root MuiBox-root-216"
                   >
                     <Switch>
                       <Route
