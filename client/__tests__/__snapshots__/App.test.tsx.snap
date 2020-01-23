@@ -14,7 +14,7 @@ exports[`App renders correctly 1`] = `
         "authentication.SignIn.password": "Password",
         "authentication.SignIn.signUpButton": "Sign Up !",
         "authentication.SignIn.signUpMessage": "First time here ? ",
-        "authentication.SignIn.title": "Welcome back ",
+        "authentication.SignIn.title": "Ready to watch movies ? ",
         "authentication.SignIn.username": "Username",
         "authentication.error.required": "This field is required",
         "authentication.signUp.email": "Your email (so we can spam you)",
@@ -154,23 +154,15 @@ exports[`App renders correctly 1`] = `
                   "minHeight": 56,
                 },
               },
-              "overrides": Object {
-                "MuiMenuItem": Object {
-                  "root": Object {
-                    "&:hover": Object {
-                      "background": "#616161",
-                    },
-                  },
-                },
-              },
+              "overrides": Object {},
               "palette": Object {
                 "action": Object {
-                  "active": "rgba(0, 0, 0, 0.54)",
-                  "disabled": "rgba(0, 0, 0, 0.26)",
-                  "disabledBackground": "rgba(0, 0, 0, 0.12)",
-                  "hover": "rgba(0, 0, 0, 0.08)",
-                  "hoverOpacity": 0.08,
-                  "selected": "rgba(0, 0, 0, 0.14)",
+                  "active": "#fff",
+                  "disabled": "rgba(255, 255, 255, 0.3)",
+                  "disabledBackground": "rgba(255, 255, 255, 0.12)",
+                  "hover": "rgba(255, 255, 255, 0.1)",
+                  "hoverOpacity": 0.1,
+                  "selected": "rgba(255, 255, 255, 0.2)",
                 },
                 "augmentColor": [Function],
                 "background": Object {
@@ -182,7 +174,7 @@ exports[`App renders correctly 1`] = `
                   "white": "#fff",
                 },
                 "contrastThreshold": 3,
-                "divider": "rgba(0, 0, 0, 0.12)",
+                "divider": "rgba(255, 255, 255, 0.12)",
                 "error": Object {
                   "contrastText": "#fff",
                   "dark": "#d32f2f",
@@ -231,13 +223,14 @@ exports[`App renders correctly 1`] = `
                   "main": "#4caf50",
                 },
                 "text": Object {
-                  "disabled": "rgba(0, 0, 0, 0.38)",
-                  "hint": "rgba(0, 0, 0, 0.38)",
+                  "disabled": "rgba(255, 255, 255, 0.5)",
+                  "hint": "rgba(255, 255, 255, 0.5)",
+                  "icon": "rgba(255, 255, 255, 0.5)",
                   "primary": "#fff",
                   "secondary": "#fff",
                 },
                 "tonalOffset": 0.2,
-                "type": "light",
+                "type": "dark",
                 "warning": Object {
                   "contrastText": "rgba(0, 0, 0, 0.87)",
                   "dark": "#f57c00",

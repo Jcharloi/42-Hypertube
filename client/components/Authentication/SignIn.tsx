@@ -56,7 +56,7 @@ const SignIn = (): ReactElement => {
   };
 
   return (
-    <>
+    <Grid container className={classes.center}>
       <Paper className={classes.signUpPage}>
         <Grid container alignItems="center" className={classes.height}>
           <Typography variant="subtitle1">
@@ -66,7 +66,10 @@ const SignIn = (): ReactElement => {
             </span>
           </Typography>
           <Link to="/sign-up" className={classes.niceLink}>
-            <Button color="secondary" className={classes.signUpButton}>
+            <Button
+              // color="secondary"
+              className={classes.signUpButton}
+            >
               {_t({ id: "authentication.SignIn.signUpButton" })}
             </Button>
           </Link>
@@ -75,13 +78,13 @@ const SignIn = (): ReactElement => {
 
       <Paper className={classes.signInPage}>
         <Grid container direction="column" alignItems="center">
-          <Typography variant="h5" className={classes.item}>
+          <Typography variant="h5">
             {_t({ id: "authentication.SignIn.title" })}
             <span role="img" aria-label="pop-corn">
               🍿
             </span>
           </Typography>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={classes.form}>
             <Grid container direction="column" alignItems="center">
               <Grid item className={classes.item}>
                 <TextField
@@ -126,7 +129,7 @@ const SignIn = (): ReactElement => {
               <Grid item className={classes.forgotPasswordItem}>
                 <Link to="/reset-password" className={classes.niceLink}>
                   <Button
-                    color="secondary"
+                    // color="secondary"
                     className={classes.forgotPasswordButton}
                   >
                     {_t({ id: "authentication.SignIn.forgotPassword" })}
@@ -139,6 +142,7 @@ const SignIn = (): ReactElement => {
                   color="primary"
                   variant="contained"
                   size="large"
+                  className={classes.sendButton}
                 >
                   {_t({ id: "authentication.SignIn.login" })}
                 </Button>
@@ -149,7 +153,7 @@ const SignIn = (): ReactElement => {
       </Paper>
       {/* Invisible Item to center on Sign In Paper */}
       <Grid item className={classes.fakeItem} />
-    </>
+    </Grid>
   );
 };
 
