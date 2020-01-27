@@ -23,29 +23,62 @@ interface Comment {
   _id: number;
 }
 
-const Profile = ({
+interface User {
+  username: string;
+  firstName: string;
+  email: string;
+  lastName: string;
+  picture: string;
+}
+
+const MyProfile = ({
   match: {
     params: { username }
   }
 }: RouteComponentProps<UrlParam>): ReactElement => {
-  const { data, loading, error, setUrl } = useApi(`/user/${username}`);
-  const data2 = useApi(`/user-comments/${username}`);
-  // console.log(data2);
+  const userId = "5deef4dc80a440152717dbcf";
+  const body = {
+    userId
+  };
+  // const [data, setData] = useState({
+  //   username: "",
+  //   firstName: "",
+  //   email: "",
+  //   lastName: "",
+  //   picture: ""
+  // });
+
+  // const data = null;
+  // const { data, loading, error, setUrl } = useApi(
+  //   `/user/5deef4dc80a440152717dbcf`
+  // );
+  // const [loading, setLoading] = useState(true);
+  // const [arrayComments, setArrayComments] = useState([]);
+  // useEffect(() => {
+  //   if (loading) {
+  //     setLoading(false);
+  //     API.post("/user", body)
+  //       .then((res) => {
+  //         setData(res.data);
+  //         // console.log(data)
+  //       })
+  //       .catch((e) => {
+  //         console.error(e);
+  //       });
+  //   }
+  // });
+  const data = useApi(`/user/${userId}`);
+  console.log(data);
+  const data2 = useApi(`/user-comments/${data.username}`);
+  // setArrayComments(Object.values(data2.data));
   const arrayComments = Object.values(data2.data);
-  // console.log(data2.data);
+  console.log(data.username);
+
   const classes = useStyles({});
-  // const timestampToString = (date: string) => {
-  //   const date = new Date(date);
-  //   const hours = date.getHours();
-  // };
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <Error />;
-  }
+  // console.log(data);
   return (
     <div className={classes.containerProfile}>
+      <p>this is MY profile</p>
       <Paper className={classes.containerUser}>
         <div className={classes.containerPicture}>
           <Avatar
@@ -104,4 +137,4 @@ const Profile = ({
   );
 };
 
-export default Profile;
+export default MyProfile;

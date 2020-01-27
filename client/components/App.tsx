@@ -11,6 +11,7 @@ import frTranslation from "../translations/fr.json";
 import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
 import Profile from "./Profile/Profile";
+import MyProfile from "./Profile/MyProfile";
 import Home from "./Home";
 import Movie from "./Movie/Movie";
 import Search from "./Search";
@@ -67,6 +68,13 @@ const App = (): ReactElement => {
               sensitive
               path="/profile/:username"
               component={Profile}
+              requireAuth
+            />
+            <CustomRoute
+              exact
+              sensitive
+              path="/myprofile"
+              component={MyProfile}
               requireAuth
             />
             <CustomRoute path="/search" component={Search} requireAuth />

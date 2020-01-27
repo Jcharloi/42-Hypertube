@@ -39,6 +39,30 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     flexDirection: "column"
   },
+  containerComment: {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: "20px"
+  },
+  containerRating: {
+    // border: "2px solid red",
+    float: "left",
+    display: "flex"
+  },
+  containerMovieInfos: {
+    // border: "2px solid green",
+    // paddingLeft: "150px",
+    height: "28px",
+    display: "flex",
+    alignItems: "center"
+
+    // padding: "0px"
+    // float: "left"
+  },
+  commentDate: {
+    marginTop: theme.spacing(0.5),
+    color: "grey"
+  },
   root: {
     display: "flex",
     "& > *": {

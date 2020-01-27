@@ -14,6 +14,7 @@ describe("Movie Comments", () => {
     mockedReview = {
       _id: mockedUserId,
       movieId: mockedMovieId,
+      movieName: "4242",
       name: "TestMan",
       date: 1577118711809,
       stars: 4,
