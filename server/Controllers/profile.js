@@ -6,12 +6,13 @@ const getUserComments = async (req, res) => {
   const name = req.params.username;
   try {
     const userComments = await MovieCommentModel.find({ name });
+    console.log(userComments);
     if (userComments.length === 0) {
-      res.status(404).send();
+      res.status(204).send();
     } else {
       console.log("test");
       console.log(userComments);
-      res.status(200).send({ ...userComments });
+      res.status(200).send(userComments);
     }
   } catch (e) {
     console.error(e);
@@ -20,10 +21,10 @@ const getUserComments = async (req, res) => {
 };
 
 const getProfile = async (req, res) => {
-  const { userff } = req.params;
+  const { username } = req.params;
   try {
-    console.log(userff);
-    const userInfos = await UserModel.findOne({ userff });
+    console.log(username);
+    const userInfos = await UserModel.findOne({ username });
     if (userInfos === null) {
       res.status(404).send();
     } else {
@@ -33,7 +34,7 @@ const getProfile = async (req, res) => {
         lastName: userInfos.lastName,
         picture: userInfos.picture
       };
-      res.status(200).send({ ...cleanUserInfos });
+      res.status(200).send(cleanUserInfos);
     }
   } catch (e) {
     console.error(e);

@@ -3,8 +3,8 @@ export interface Locale {
   setLocale: (locale: string) => void;
 }
 
-export interface ApiRecord {
-  data: Record<string, unknown>;
+export interface ApiRecord<T> {
+  data: T;
   loading: boolean;
   error: {};
   setUrl: (url: string) => void;

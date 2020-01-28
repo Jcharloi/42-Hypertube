@@ -22,7 +22,7 @@ router.post("/inscription", signUpController.signUp);
 router.get("/movie/infos/:id", movie.getInfos);
 router.post("/movie/review", movie.receiveReviews);
 router.get("/user/:username", profile.getProfile);
-router.get("/self-user/:userId", user.getUserInfos);
+router.get("/user", user.getUserInfos);
 router.get("/user-comments/:username", profile.getUserComments);
 
 router.get("/data/avatar/:id", (req, res) => {

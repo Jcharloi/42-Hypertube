@@ -1,11 +1,10 @@
 import UserModel from "../Schemas/User";
 
 const getUserInfos = async (req, res) => {
-  const { userId } = req.params;
+  req.userId = "5deef4dc80a440152717dbcf";
   console.log("rerer");
-  console.log(userId);
   try {
-    const userInfos = await UserModel.findById("5deef70c35ecc315cb9018d2");
+    const userInfos = await UserModel.findById(req.userId);
 
     if (userInfos === null) {
       console.log("test");

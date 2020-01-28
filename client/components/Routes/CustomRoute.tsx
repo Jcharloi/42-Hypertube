@@ -21,11 +21,7 @@ const CustomRoute = ({
   requireAuth,
   fixture
 }: Props): ReactElement => {
-  const {
-    data: { validToken },
-    loading,
-    error
-  } = useApi("/check-token", fixture);
+  const { data, loading, error } = useApi("/check-token", fixture);
 
   return (
     <Route
@@ -36,8 +32,8 @@ const CustomRoute = ({
         if (error) return <div>Error</div>;
         if (loading) return <div>Loading</div>;
         if (
-          (!loading && validToken && requireAuth) ||
-          (!validToken && !requireAuth)
+          (!loading && data?.validToken && requireAuth) ||
+          (!data?.validToken && !requireAuth)
         )
           return (
             <Component
@@ -48,8 +44,8 @@ const CustomRoute = ({
             />
           );
         if (
-          (!loading && validToken && !requireAuth) ||
-          (!validToken && requireAuth)
+          (!loading && data?.validToken && !requireAuth) ||
+          (!data?.validToken && requireAuth)
         )
           return <Redirect to="/" />;
         return null;

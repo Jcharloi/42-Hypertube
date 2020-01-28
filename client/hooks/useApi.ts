@@ -4,8 +4,8 @@ import API from "../util/api";
 
 import { Fixture, ApiRecord } from "../models/models";
 
-const useApi = (initialUrl: string, fixture?: Fixture): ApiRecord => {
-  const [data, setData] = useState({});
+const useApi = <T>(initialUrl: string, fixture?: Fixture): ApiRecord<T> => {
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(!!initialUrl);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(initialUrl);
@@ -21,6 +21,7 @@ const useApi = (initialUrl: string, fixture?: Fixture): ApiRecord => {
 
       API.get(url)
         .then((res) => {
+          console.log("SEOEOFSOSE", res.data);
           setData(res.data);
         })
         .catch((err) => {

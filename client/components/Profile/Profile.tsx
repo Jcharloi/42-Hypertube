@@ -9,6 +9,7 @@ import API from "../../util/api";
 import useApi from "../../hooks/useApi";
 import Loading from "../Routes/Loading";
 import Error from "../Error";
+import ShowComments from "./ShowComments";
 import useStyles from "./Profile.styles";
 
 interface UrlParam {
@@ -29,10 +30,6 @@ const Profile = ({
   }
 }: RouteComponentProps<UrlParam>): ReactElement => {
   const { data, loading, error, setUrl } = useApi(`/user/${username}`);
-  const data2 = useApi(`/user-comments/${username}`);
-  // console.log(data2);
-  const arrayComments = Object.values(data2.data);
-  // console.log(data2.data);
   const classes = useStyles({});
   // const timestampToString = (date: string) => {
   //   const date = new Date(date);
@@ -59,47 +56,10 @@ const Profile = ({
             {data.firstName} {data.lastName}
           </h1>
           <p>{data.username}</p>
-
-          {/* <p>{data.lastName}</p> */}
         </div>
         <Paper elevation={3} />
       </Paper>
-      <Paper className={classes.containerHistory}>
-        <h2 className={classes.titleHistory}>Last comments : </h2>
-        {arrayComments.map((element: Comment) => {
-          const date = new Date(element.date);
-          const monthNames = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-          ];
-          console.log(date);
-          return (
-            <div className={classes.containerComment}>
-              <div className={classes.containerMovieInfos}>
-                <Rating name="read-only" value={element.stars} readOnly />
-                <Typography style={{ marginLeft: "8px" }} variant="subtitle1">
-                  {element.movieName}
-                </Typography>
-              </div>
-              <Typography className={classes.commentDate} variant="caption">
-                {date.getDate()} {monthNames[date.getMonth()]}{" "}
-                {date.getFullYear()}
-              </Typography>
-              <p>{element.body}</p>
-            </div>
-          );
-        })}
-      </Paper>
+      <ShowComments username={username} />
     </div>
   );
 };
