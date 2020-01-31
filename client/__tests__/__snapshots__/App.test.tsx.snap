@@ -9,6 +9,7 @@ exports[`App renders correctly 1`] = `
     locale="en"
     messages={
       Object {
+        "authentication.SignIn.error.badCredentials": "Wrong username/password combination",
         "authentication.SignIn.forgotPassword": "Forgot your password ?",
         "authentication.SignIn.login": "Login",
         "authentication.SignIn.password": "Password",
@@ -17,6 +18,7 @@ exports[`App renders correctly 1`] = `
         "authentication.SignIn.title": "Ready to watch movies ? ",
         "authentication.SignIn.username": "Username",
         "authentication.error.required": "This field is required",
+        "authentication.error.unknown": "An unknown error happend",
         "authentication.signUp.email": "Your email (so we can spam you)",
         "authentication.signUp.error.email.invalid": "Email is invalid",
         "authentication.signUp.error.email.taken": "Oops, this email is already used",
@@ -45,6 +47,7 @@ exports[`App renders correctly 1`] = `
         "fourOhFour.content": "Page not found",
         "fourOhFour.link_menu": "Go back",
         "fourOhFour.title": "404",
+        "justError": " ",
         "language.en": "🇬🇧",
         "language.fr": "🇫🇷",
         "layout.filters.collection": "Collection",

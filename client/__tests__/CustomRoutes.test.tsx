@@ -14,6 +14,19 @@ const mockUseApi = useApi as jest.Mock<
   UseApiReturn<ApiAuthResponse, ApiAuthResponse>
 >;
 
+const basicUseApiValue: UseApiReturn<ApiAuthResponse, ApiAuthResponse> = {
+  callApi: jest.fn(),
+  loading: false,
+  res: null,
+  resData: null,
+  error: null,
+  setUrl: jest.fn(),
+  setMethod: jest.fn(),
+  setHeaders: jest.fn(),
+  setData: jest.fn(),
+  cancelAllRequests: jest.fn()
+};
+
 interface Props {
   children: ReactElement;
 }
@@ -25,10 +38,8 @@ const MockComponent = ({ children }: Props): ReactElement => (
 describe("CustomRoute", () => {
   it("Is connected, private route : should show div", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: true }
+      ...basicUseApiValue,
+      resData: { validToken: true }
     }));
     const domNode = (
       <MockComponent>
@@ -45,10 +56,8 @@ describe("CustomRoute", () => {
 
   it("Is connected, public route : should NOT show div", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: true }
+      ...basicUseApiValue,
+      resData: { validToken: true }
     }));
     const domNode = (
       <MockComponent>
@@ -65,10 +74,8 @@ describe("CustomRoute", () => {
 
   it("Is not connected, private route : should NOT show div", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: false }
+      ...basicUseApiValue,
+      resData: { validToken: false }
     }));
     const domNode = (
       <MockComponent>
@@ -85,10 +92,8 @@ describe("CustomRoute", () => {
 
   it("Is not connected, public route : should show div", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: false }
+      ...basicUseApiValue,
+      resData: { validToken: false }
     }));
     const domNode = (
       <MockComponent>
@@ -105,10 +110,8 @@ describe("CustomRoute", () => {
 
   it("Loading", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: true,
-      error: null,
-      data: null
+      ...basicUseApiValue,
+      loading: true
     }));
     const domNode = (
       <MockComponent>
@@ -126,11 +129,10 @@ describe("CustomRoute", () => {
 
   it("Error", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
+      ...basicUseApiValue,
       error: {
         response: {
-          data: { validToken: true },
+          data: { validToken: false },
           status: 500,
           statusText: "",
           headers: null,
@@ -141,14 +143,13 @@ describe("CustomRoute", () => {
         message: null,
         isAxiosError: true,
         toJSON: null
-      },
-      data: { validToken: true }
+      }
     }));
     const domNode = (
       <MockComponent>
         <CustomRoute
           exact
-          notAuthComponent={(): ReactElement => <div>Error</div>}
+          notAuthComponent={(): ReactElement => <div>Should NOT be shown</div>}
           path="/"
         />
       </MockComponent>

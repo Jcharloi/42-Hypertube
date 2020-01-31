@@ -25,8 +25,11 @@ const Search = (): ReactElement => {
 
   // todo: change any to real type
   // (I'm not doing it now because we don't use archive.org api anymore)
-  const { data, loading, error, setUrl } = useApi<any, any>(
-    formatQueryUrl(location.search, 1)
+  const { resData: data, loading, error, setUrl } = useApi<any, any>(
+    formatQueryUrl(location.search, 1),
+    {
+      hotReload: true
+    }
   );
 
   useEffect(() => {

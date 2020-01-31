@@ -13,10 +13,16 @@ jest.mock("../hooks/useApi", () => (): UseApiReturn<
   ApiAuthResponse,
   ApiAuthResponse
 > => ({
-  data: null,
+  callApi: jest.fn(),
   loading: true,
+  res: null,
+  resData: null,
   error: null,
-  setUrl: jest.fn()
+  setUrl: jest.fn(),
+  setMethod: jest.fn(),
+  setHeaders: jest.fn(),
+  setData: jest.fn(),
+  cancelAllRequests: jest.fn()
 }));
 
 jest.mock("../helpers/history", () => {

@@ -1,5 +1,5 @@
-import React, { ReactElement, ElementType } from "react";
-import { Redirect, Route } from "react-router";
+import React, { ReactElement, ElementType, useEffect } from "react";
+import { Redirect, Route, useHistory } from "react-router";
 
 import useApi from "../../hooks/useApi";
 import { ApiAuthResponse } from "../../models/models";
@@ -19,26 +19,40 @@ const CustomRoute = ({
   path,
   exact
 }: Props): ReactElement => {
-  const { data, loading, error, setUrl } = useApi<
+  const { callApi, resData, error, cancelAllRequests } = useApi<
     ApiAuthResponse,
     ApiAuthResponse
-  >("");
+  >("/check-auth", {
+    validateStatus: (status) => status >= 200 && status < 500 // 4xx is valid (2xx - 4xx)
+  });
+  const history = useHistory();
+
+  useEffect(() => {
+    // At each route change, we check te token validity
+    const res = history.listen(() => {
+      callApi();
+    });
+    callApi();
+
+    return (): void => {
+      res();
+      cancelAllRequests();
+    };
+  }, []);
 
   return (
     <Route
       path={path}
       exact={exact}
       render={(): ReactElement => {
-        setUrl("/check-auth");
-        if (error?.response?.status >= 500 && error.response.status <= 599)
-          return <div>Error</div>;
-        if (loading) return <Loading />;
+        if (error) return <div>Error</div>;
+        if (!resData) return <Loading />;
 
-        if (AuthComponent && data?.validToken) return <AuthComponent />;
-        if (NotAuthComponent && !data?.validToken) return <NotAuthComponent />;
-        if (!loading) return <Redirect to="/" />;
+        if (AuthComponent && resData.validToken) return <AuthComponent />;
+        if (NotAuthComponent && !resData.validToken)
+          return <NotAuthComponent />;
 
-        return null;
+        return <Redirect to="/" />;
       }}
     />
   );

@@ -10,6 +10,7 @@ import Thumbnail from "../components/Search/Thumbnail";
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import * as ServiceSearch from "../components/Search/service";
+import { UseApiReturn } from "../models/models";
 
 configure({ adapter: new Adapter() });
 
@@ -24,16 +25,18 @@ jest.mock("react-router-dom", () => ({
   })
 }));
 
-jest.mock("../hooks/useApi", () => (): {
-  data: unknown;
-  loading: boolean;
-  error: void;
-  setUrl: () => void;
-} => ({
-  data: [],
+// todo: change any to real type returned by our api
+jest.mock("../hooks/useApi", () => (): UseApiReturn<any, any> => ({
+  callApi: jest.fn(),
   loading: false,
+  res: { data: [], status: 200, statusText: null, headers: null, config: null },
+  resData: [],
   error: null,
-  setUrl: jest.fn()
+  setUrl: jest.fn(),
+  setMethod: jest.fn(),
+  setHeaders: jest.fn(),
+  setData: jest.fn(),
+  cancelAllRequests: jest.fn()
 }));
 
 describe("Search", () => {

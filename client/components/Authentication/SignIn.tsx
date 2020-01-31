@@ -1,21 +1,39 @@
-import React, { ReactElement, useState, ChangeEvent, FormEvent } from "react";
+import React, {
+  ReactElement,
+  useState,
+  ChangeEvent,
+  FormEvent,
+  useEffect
+} from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import useStyle from "./SignIn.styles";
-import { AuthInfo, checkErrors, sendAuth } from "./SignIn.service";
-import { requiredErrorKey } from "./errorKey";
+import { AuthInfo, checkErrors } from "./SignIn.service";
+import {
+  requiredErrorKey,
+  badCredentialsErrorKey,
+  errorWithoutTextErrorKey,
+  unknownErrroKey
+} from "./errorKey";
+import useApi from "../../hooks/useApi";
 
-const errorsToRemoveOnChange = [requiredErrorKey];
+const errorsToRemoveOnChange = [
+  requiredErrorKey,
+  badCredentialsErrorKey,
+  errorWithoutTextErrorKey,
+  unknownErrroKey
+];
 
 const SignIn = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyle({});
+  const history = useHistory();
   const [authInfo, setAuthInfo] = useState<AuthInfo>({
     username: "",
     password: ""
@@ -25,35 +43,78 @@ const SignIn = (): ReactElement => {
     password: ""
   });
 
+  const { callApi, res, error } = useApi<{}, { error?: string }>(
+    "/user/login",
+    {
+      method: "post",
+      data: authInfo
+    }
+  );
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setAuthInfo({
+    const newAuthInfo = {
       ...authInfo,
       [e.target.name]: e.target.value
-    });
+    };
+    setAuthInfo(newAuthInfo);
+
     // If error is not relevant after a change, delete it
     if (errorsToRemoveOnChange.includes(authError[e.target.name])) {
-      setAuthError({
-        ...authError,
-        [e.target.name]: ""
-      });
+      // To also reset `errorWithoutTextErrorKey`
+      if (
+        authError.password === badCredentialsErrorKey ||
+        authError.password === unknownErrroKey
+      ) {
+        setAuthError({
+          username: "",
+          password: ""
+        });
+      } else {
+        setAuthError({
+          ...authError,
+          [e.target.name]: ""
+        });
+      }
     }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  /**
+   * Send a login request if username and password input are filled
+   */
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     const newError = checkErrors(authInfo);
     setAuthError(newError);
     if (newError.username === "" && newError.password === "") {
-      console.log("calling api !");
-      sendAuth(authInfo)
-        .then(() => {
-          console.log("CONNECTED");
-        })
-        .catch(() => {
-          console.log("ERROR");
-        });
+      callApi(authInfo);
     }
   };
+
+  /**
+   * Login is succesful
+   */
+  useEffect(() => {
+    if (res) {
+      history.replace("/");
+    }
+  }, [res]);
+
+  /**
+   * Login failed
+   */
+  useEffect(() => {
+    if (error?.response?.data?.error === "BAD_CREDENTIALS") {
+      setAuthError({
+        username: errorWithoutTextErrorKey,
+        password: badCredentialsErrorKey
+      });
+    } else if (error) {
+      setAuthError({
+        username: errorWithoutTextErrorKey,
+        password: unknownErrroKey
+      });
+    }
+  }, [error]);
 
   return (
     <Grid container className={classes.center}>
@@ -90,7 +151,8 @@ const SignIn = (): ReactElement => {
                 <TextField
                   value={authInfo.username}
                   helperText={
-                    authError.username !== ""
+                    authError.username !== "" &&
+                    authError.username !== errorWithoutTextErrorKey
                       ? _t({ id: authError.username })
                       : ""
                   }

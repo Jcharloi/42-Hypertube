@@ -1,15 +1,33 @@
-import { AxiosError } from "axios";
+import { AxiosResponse, AxiosError, Canceler } from "axios";
 
 export interface Locale {
   locale: string;
   setLocale: (locale: string) => void;
 }
 
+export type Method = "get" | "put" | "post" | "patch" | "delete";
+export type Headers = { [key: string]: string } | undefined;
+export type Data = object | undefined;
+
+export interface UseApiOption {
+  method?: Method;
+  headers?: Headers;
+  data?: Data;
+  hotReload?: boolean;
+  validateStatus?: (status: number) => boolean;
+}
+
 export interface UseApiReturn<T, E> {
-  data: T;
+  callApi: (freshData?: Data) => Promise<void>;
   loading: boolean;
+  res: AxiosResponse<T>;
+  resData: T;
   error: AxiosError<E>;
   setUrl: (url: string) => void;
+  setMethod: (method: Method) => void;
+  setHeaders: (headers: Headers) => void;
+  setData: (data: Data) => void;
+  cancelAllRequests: Canceler;
 }
 
 export interface ApiAuthResponse {

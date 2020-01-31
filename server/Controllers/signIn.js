@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import UserModel from "../Schemas/User";
 
-// tood: reduce this and implement refresh token
+// tood: reduce this time and implement refresh token
 const ACCES_TOKEN_EXPIRATION = 86400; // 24h in secondes
 
 const signIn = async (req, res) => {
