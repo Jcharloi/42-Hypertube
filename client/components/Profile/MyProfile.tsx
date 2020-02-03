@@ -44,6 +44,7 @@ const MyProfile = (): ReactElement => {
   const classes = useStyles({});
   return (
     <div className={classes.containerProfile}>
+      {/* <p>this is my profile</p> */}
       <Paper className={classes.containerUser}>
         <div className={classes.containerPicture}>
           <Avatar
