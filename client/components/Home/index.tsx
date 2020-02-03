@@ -13,11 +13,7 @@ import RecentVideos from "./RecentVideos";
 import Film from "./FeaturedMovie";
 
 const Home = (): ReactElement => {
-  const {
-    data: { validToken },
-    loading,
-    error
-  } = useApi("/check-token");
+  const { data, loading, error } = useApi("/check-token");
   const classes = useHomeStyles({});
 
   if (error) {
@@ -26,7 +22,7 @@ const Home = (): ReactElement => {
   if (loading) {
     return <div>Loading</div>;
   }
-  if (!validToken) {
+  if (data?.validToken) {
     return <SignUp />;
   }
 

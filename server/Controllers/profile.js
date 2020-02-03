@@ -2,7 +2,6 @@ import UserModel from "../Schemas/User";
 import MovieCommentModel from "../Schemas/Movie";
 
 const getUserComments = async (req, res) => {
-  console.log("etestset");
   const name = req.params.username;
   try {
     const userComments = await MovieCommentModel.find({ name });

@@ -6,6 +6,7 @@ import profile from "./Controllers/profile";
 import user from "./Controllers/myprofile";
 import signUpController from "./Controllers/signUp";
 import searchController from "./Controllers/search";
+import editUserInfo from "./Controllers/editprofile";
 
 const router = express.Router();
 
@@ -24,6 +25,7 @@ router.post("/movie/review", movie.receiveReviews);
 router.get("/user/:username", profile.getProfile);
 router.get("/user", user.getUserInfos);
 router.get("/user-comments/:username", profile.getUserComments);
+router.put("/edit-profile/", editUserInfo.editUserInfo);
 
 router.get("/data/avatar/:id", (req, res) => {
   console.log("ICI");
