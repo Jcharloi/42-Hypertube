@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import useStyle from "./SignIn.styles";
@@ -34,6 +34,7 @@ const SignIn = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useStyle({});
   const history = useHistory();
+  const location = useLocation();
   const [authInfo, setAuthInfo] = useState<AuthInfo>({
     username: "",
     password: ""
@@ -95,7 +96,7 @@ const SignIn = (): ReactElement => {
    */
   useEffect(() => {
     if (res) {
-      history.replace("/");
+      history.replace(location.state?.from || "/");
     }
   }, [res]);
 

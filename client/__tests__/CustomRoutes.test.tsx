@@ -1,9 +1,8 @@
 import React, { ReactElement } from "react";
 import renderer from "react-test-renderer";
-import { Router } from "react-router-dom";
+import { Route, MemoryRouter } from "react-router-dom";
 
 import CustomRoute from "../components/Routes/CustomRoute";
-import history from "../helpers/history";
 
 import useApi from "../hooks/useApi";
 import { UseApiReturn, ApiAuthResponse } from "../models/models";
@@ -31,9 +30,17 @@ interface Props {
   children: ReactElement;
 }
 
-const MockComponent = ({ children }: Props): ReactElement => (
-  <Router history={history}>{children}</Router>
-);
+const MockRouter = ({ children }: Props): ReactElement => {
+  return (
+    <MemoryRouter initialEntries={["/test"]}>
+      {children}
+
+      <Route exact path="/">
+        <div>Home/Login</div>
+      </Route>
+    </MemoryRouter>
+  );
+};
 
 describe("CustomRoute", () => {
   it("Is connected, private route : should show div", () => {
@@ -42,11 +49,13 @@ describe("CustomRoute", () => {
       resData: { validToken: true }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
+          exact
           authComponent={(): ReactElement => <div>Should be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -54,17 +63,19 @@ describe("CustomRoute", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Is connected, public route : should NOT show div", () => {
+  it("Is connected, public route : should redirect to Home/Login", () => {
     mockUseApi.mockImplementation(() => ({
       ...basicUseApiValue,
       resData: { validToken: true }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
+          exact
           notAuthComponent={(): ReactElement => <div>Should NOT be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -72,17 +83,19 @@ describe("CustomRoute", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Is not connected, private route : should NOT show div", () => {
+  it("Is not connected, private route : should redirect to Home/Login", () => {
     mockUseApi.mockImplementation(() => ({
       ...basicUseApiValue,
       resData: { validToken: false }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
+          exact
           authComponent={(): ReactElement => <div>Should NOT be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -96,11 +109,55 @@ describe("CustomRoute", () => {
       resData: { validToken: false }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
+          exact
           notAuthComponent={(): ReactElement => <div>Should be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Is connected, public/private route : should show private", () => {
+    mockUseApi.mockImplementation(() => ({
+      ...basicUseApiValue,
+      resData: { validToken: true }
+    }));
+    const domNode = (
+      <MockRouter>
+        <CustomRoute
+          path="/test"
+          exact
+          notAuthComponent={(): ReactElement => <div>Public component</div>}
+          authComponent={(): ReactElement => <div>Private component</div>}
+        />
+      </MockRouter>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Is not connected, public/private route : should show public", () => {
+    mockUseApi.mockImplementation(() => ({
+      ...basicUseApiValue,
+      resData: { validToken: false }
+    }));
+    const domNode = (
+      <MockRouter>
+        <CustomRoute
+          path="/test"
+          exact
+          notAuthComponent={(): ReactElement => <div>Public component</div>}
+          authComponent={(): ReactElement => <div>Private component</div>}
+        />
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -114,13 +171,13 @@ describe("CustomRoute", () => {
       loading: true
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
           exact
           notAuthComponent={(): ReactElement => <div>Loading</div>}
-          path="/"
         />
-      </MockComponent>
+      </MockRouter>
     );
     const tree = renderer.create(domNode);
     tree.update(domNode);
@@ -146,13 +203,13 @@ describe("CustomRoute", () => {
       }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
           exact
           notAuthComponent={(): ReactElement => <div>Should NOT be shown</div>}
-          path="/"
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);

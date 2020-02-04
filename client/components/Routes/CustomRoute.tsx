@@ -44,7 +44,7 @@ const CustomRoute = ({
     <Route
       path={path}
       exact={exact}
-      render={(): ReactElement => {
+      render={({ location }): ReactElement => {
         if (error) return <div>Error</div>;
         if (!resData) return <Loading />;
 
@@ -52,7 +52,7 @@ const CustomRoute = ({
         if (NotAuthComponent && !resData.validToken)
           return <NotAuthComponent />;
 
-        return <Redirect to="/" />;
+        return <Redirect to={{ pathname: "/", state: { from: location } }} />;
       }}
     />
   );
