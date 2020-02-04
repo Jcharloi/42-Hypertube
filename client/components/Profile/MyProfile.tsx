@@ -5,12 +5,14 @@ import Paper from "@material-ui/core/Paper";
 
 import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 import API from "../../util/api";
 import useApi from "../../hooks/useApi";
 import Loading from "../Routes/Loading";
 import Error from "../Error";
 import useStyles from "./Profile.styles";
 import ShowComments from "./ShowComments";
+import OnClickInput from "./OnClickInput";
 
 interface UrlParam {
   username: string;
@@ -42,9 +44,11 @@ const MyProfile = (): ReactElement => {
   const { username } = data || {};
   console.log(username);
   const classes = useStyles({});
+  const changeEditMode = (): void => {
+    console.log("change edit mode");
+  };
   return (
     <div className={classes.containerProfile}>
-      {/* <p>this is my profile</p> */}
       <Paper className={classes.containerUser}>
         <div className={classes.containerPicture}>
           <Avatar
@@ -57,9 +61,18 @@ const MyProfile = (): ReactElement => {
           <h1>
             {data?.firstName} {data?.lastName}
           </h1>
-          <p>{data?.username}</p>
+          <div
+            role="button"
+            onKeyDown={changeEditMode}
+            tabIndex={0}
+            onClick={changeEditMode}
+          >
+            <p>{data?.username}</p>
+          </div>
+          <p onDoubleClick={changeEditMode}>{data?.email}</p>
+          <OnClickInput info="name" />
         </div>
-        <Paper elevation={3} />
+        <Button variant="contained">Edit</Button>
       </Paper>
       <ShowComments username={username} />
     </div>

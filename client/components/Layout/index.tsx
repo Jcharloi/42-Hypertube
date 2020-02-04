@@ -27,6 +27,7 @@ export const theme = createMuiTheme({
     }
   },
   palette: {
+    type: "dark",
     background: { default: "#121212", paper: "#212121" },
     primary: {
       main: "#CCD0D4",

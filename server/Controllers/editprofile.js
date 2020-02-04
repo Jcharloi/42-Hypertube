@@ -11,7 +11,10 @@ const editUserInfo = async (req, res) => {
     } else {
       console.log(userInfo);
       console.log("Ok Userinfo");
-      userInfo.firstName = "Abdel";
+      if (req.body.firstName) userInfo.firstName = req.body.firstName;
+      if (req.body.lastName) userInfo.lastName = req.body.lastName;
+      if (req.body.userame) userInfo.username = req.body.userame;
+      if (req.body.email) userInfo.email = req.body.email;
       await userInfo.save();
       res.status(200).send();
     }
