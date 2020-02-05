@@ -44,9 +44,10 @@ const MyProfile = (): ReactElement => {
   const { username } = data || {};
   console.log(username);
   const classes = useStyles({});
-  const changeEditMode = (): void => {
-    console.log("change edit mode");
-  };
+
+  // const updateInfo = (): void => {
+  //   console.log("info update)");
+  // };
   return (
     <div className={classes.containerProfile}>
       <Paper className={classes.containerUser}>
@@ -58,19 +59,17 @@ const MyProfile = (): ReactElement => {
           />
         </div>
         <div className={classes.containerInfo}>
-          <h1>
-            {data?.firstName} {data?.lastName}
-          </h1>
-          <div
-            role="button"
-            onKeyDown={changeEditMode}
-            tabIndex={0}
-            onClick={changeEditMode}
-          >
-            <p>{data?.username}</p>
+          <div className={classes.containerFullname}>
+            <h1>
+              <OnClickInput info={data?.firstName} label="First name" />
+            </h1>
+            <h1>
+              <OnClickInput info={data?.lastName} label="Last Name" />
+            </h1>
           </div>
-          <p onDoubleClick={changeEditMode}>{data?.email}</p>
-          <OnClickInput info="name" />
+
+          <OnClickInput info={data?.email} label="Email" />
+          <OnClickInput info={data?.username} label="Username" />
         </div>
         <Button variant="contained">Edit</Button>
       </Paper>

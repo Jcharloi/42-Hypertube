@@ -5,6 +5,7 @@ const editUserInfo = async (req, res) => {
   const id = req.body.userId;
   console.log(id);
   try {
+    // findByIdAndUpdate(id, req.body, {runValidators: true})
     const userInfo = await UserModel.findById(id);
     if (userInfo === null) {
       res.status(404).send();

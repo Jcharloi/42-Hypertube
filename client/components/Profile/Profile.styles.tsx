@@ -59,6 +59,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     // padding: "0px"
     // float: "left"
   },
+  containerFullname: {
+    border: "2px solid red",
+    display: "flex",
+    width: "100%",
+    justifyContent: "center"
+  },
   commentDate: {
     marginTop: theme.spacing(0.5),
     color: "grey"
