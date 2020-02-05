@@ -35,6 +35,12 @@ export interface ApiAuthResponse {
   error?: string;
 }
 
+export interface AuthInfo {
+  username: string;
+  password: string;
+  [key: string]: string;
+}
+
 export interface Review {
   id: string;
   name: string;

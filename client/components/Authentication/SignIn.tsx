@@ -14,13 +14,14 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import useStyle from "./SignIn.styles";
-import { AuthInfo, checkErrors } from "./SignIn.service";
+import { checkErrors } from "./SignIn.service";
 import {
   requiredErrorKey,
   badCredentialsErrorKey,
   errorWithoutTextErrorKey,
   unknownErrroKey
 } from "./errorKey";
+import { AuthInfo } from "../../models/models";
 import useApi from "../../hooks/useApi";
 
 const errorsToRemoveOnChange = [

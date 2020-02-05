@@ -2,6 +2,7 @@ import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import EnzymeToJson from "enzyme-to-json";
 import { configure } from "enzyme";
+import { History, Location, LocationState } from "history";
 
 import Search from "../components/Search";
 import Film from "../components/Search/Movie";
@@ -15,13 +16,25 @@ import { UseApiReturn } from "../models/models";
 configure({ adapter: new Adapter() });
 
 jest.mock("react-router-dom", () => ({
-  useHistory: (): Record<string, unknown> => ({
+  ...jest.requireActual("react-router-dom"),
+  useHistory: (): History<LocationState> => ({
+    length: null,
+    action: null,
+    location: { pathname: "/", search: "", state: {}, hash: null },
     push: jest.fn(),
-    location: { state: {} }
+    replace: jest.fn(),
+    go: jest.fn(),
+    goBack: jest.fn(),
+    goForward: jest.fn(),
+    block: jest.fn(),
+    listen: jest.fn(),
+    createHref: jest.fn()
   }),
-  useLocation: (): Record<string, unknown> => ({
+  useLocation: (): Location<LocationState> => ({
+    pathname: "/",
+    search: "",
     state: {},
-    search: ""
+    hash: null
   })
 }));
 
