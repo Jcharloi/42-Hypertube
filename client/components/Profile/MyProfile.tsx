@@ -42,12 +42,11 @@ const MyProfile = (): ReactElement => {
 
   const { data } = useApi<User>(`/user/`);
   const { username } = data || {};
-  console.log(username);
   const classes = useStyles({});
 
-  // const updateInfo = (): void => {
-  //   console.log("info update)");
-  // };
+  const updateInfo = (newInfo: string): void => {
+    console.log(newInfo);
+  };
   return (
     <div className={classes.containerProfile}>
       <Paper className={classes.containerUser}>
@@ -61,17 +60,33 @@ const MyProfile = (): ReactElement => {
         <div className={classes.containerInfo}>
           <div className={classes.containerFullname}>
             <h1>
-              <OnClickInput info={data?.firstName} label="First name" />
+              <OnClickInput
+                info={data?.firstName}
+                label="First name"
+                updateInfo={updateInfo}
+              />
             </h1>
             <h1>
-              <OnClickInput info={data?.lastName} label="Last Name" />
+              <OnClickInput
+                updateInfo={updateInfo}
+                info={data?.lastName}
+                label="Last Name"
+              />
             </h1>
           </div>
 
-          <OnClickInput info={data?.email} label="Email" />
-          <OnClickInput info={data?.username} label="Username" />
+          <OnClickInput
+            updateInfo={updateInfo}
+            info={data?.email}
+            label="Email"
+          />
+          <OnClickInput
+            updateInfo={updateInfo}
+            info={data?.username}
+            label="Username"
+          />
         </div>
-        <Button variant="contained">Edit</Button>
+        {/* <Button variant="contained">Edit</Button> */}
       </Paper>
       <ShowComments username={username} />
     </div>

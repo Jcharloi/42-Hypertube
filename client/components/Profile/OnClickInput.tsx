@@ -15,25 +15,31 @@ interface Props {
   info: string;
   label: string;
   // onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  updateInfo: (newInfo: string) => void;
 }
 
-const OnClickInput = ({ info, label }: Props): ReactElement => {
-  // const [value, setValue] = useState(info);
+const OnClickInput = ({ info, label, updateInfo }: Props): ReactElement => {
+  const [value, setValue] = useState(info);
   const [editMode, setEditMode] = useState(false);
   const inputEl = useRef(null);
 
   const changeEditMode = (): void => {
-    console.log("change edit mode");
     setEditMode((oldEditMode) => !oldEditMode);
   };
 
+  // const updateInfo = (): void => {
+  //   info = value;
+  // };
+
   useEffect(() => {
     if (editMode) {
-      console.log("focus input el");
-      console.log(inputEl.current);
       inputEl.current.focus();
     }
   }, [editMode]);
+
+  useEffect(() => {
+    setValue(info);
+  }, [info]);
 
   const renderEditView = (): ReactElement => {
     return (
@@ -41,10 +47,11 @@ const OnClickInput = ({ info, label }: Props): ReactElement => {
         <TextField
           inputRef={inputEl}
           label={label}
-          defaultValue={info}
+          defaultValue={value}
+          onChange={(e): void => setValue(e.target.value)}
           onBlur={(): void => {
-            console.log("buring 2");
             changeEditMode();
+            updateInfo(value);
           }}
         />
         <IconButton
@@ -65,7 +72,7 @@ const OnClickInput = ({ info, label }: Props): ReactElement => {
         tabIndex={0}
         onClick={changeEditMode}
       >
-        <p>{info}&nbsp;</p>
+        <p>{value}&nbsp;</p>
       </div>
     );
   };

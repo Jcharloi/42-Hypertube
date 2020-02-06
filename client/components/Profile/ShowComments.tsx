@@ -25,7 +25,6 @@ interface Props {
 }
 
 const ShowComment = ({ username }: Props): ReactElement => {
-  console.log(username);
   const classes = useStyles({});
   const { data, loading, error, setUrl } = useApi("");
   useEffect(() => {
@@ -33,9 +32,7 @@ const ShowComment = ({ username }: Props): ReactElement => {
       setUrl(`/user-comments/${username}`);
     }
   }, [username]);
-  console.log("data", data);
-  console.log("loading", loading);
-  console.log("username", username);
+
   if (error) {
     return <Error />;
   }
@@ -62,7 +59,6 @@ const ShowComment = ({ username }: Props): ReactElement => {
               "November",
               "December"
             ];
-            console.log(date);
             return (
               <div key={element._id} className={classes.containerComment}>
                 <div className={classes.containerMovieInfos}>
