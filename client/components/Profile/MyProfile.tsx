@@ -36,16 +36,32 @@ interface User {
 
 const MyProfile = (): ReactElement => {
   const userId = "5deef4dc80a440152717dbcf";
-  const body = {
-    userId
-  };
 
   const { data } = useApi<User>(`/user/`);
   const { username } = data || {};
   const classes = useStyles({});
 
-  const updateInfo = (newInfo: string): void => {
+  const updateInfo = (newInfo: string, label: string): void => {
     console.log(newInfo);
+    console.log(label);
+    if (newInfo && label) {
+      const body = {
+        userId
+      };
+      if (label === "First name") Object.assign(body, { firstName: newInfo });
+      if (label === "Last name") Object.assign(body, { lastName: newInfo });
+      if (label === "Email") Object.assign(body, { email: newInfo });
+      if (label === "Username") Object.assign(body, { username: newInfo });
+      console.log("label", label);
+      console.log("BODY ", body);
+      API.put("/edit-profile", body)
+        .then(() => {
+          console.log("api called");
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
   };
   return (
     <div className={classes.containerProfile}>
@@ -70,7 +86,7 @@ const MyProfile = (): ReactElement => {
               <OnClickInput
                 updateInfo={updateInfo}
                 info={data?.lastName}
-                label="Last Name"
+                label="Last name"
               />
             </h1>
           </div>

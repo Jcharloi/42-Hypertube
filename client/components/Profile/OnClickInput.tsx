@@ -15,7 +15,7 @@ interface Props {
   info: string;
   label: string;
   // onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  updateInfo: (newInfo: string) => void;
+  updateInfo: (newInfo: string, label: string) => void;
 }
 
 const OnClickInput = ({ info, label, updateInfo }: Props): ReactElement => {
@@ -51,7 +51,7 @@ const OnClickInput = ({ info, label, updateInfo }: Props): ReactElement => {
           onChange={(e): void => setValue(e.target.value)}
           onBlur={(): void => {
             changeEditMode();
-            updateInfo(value);
+            updateInfo(value, label);
           }}
         />
         <IconButton
