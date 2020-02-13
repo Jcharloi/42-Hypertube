@@ -29,7 +29,7 @@ const SignUpForm = ({
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container direction="column" alignItems="center">
         {/* Text input */}
         <Grid item className={classes.item}>

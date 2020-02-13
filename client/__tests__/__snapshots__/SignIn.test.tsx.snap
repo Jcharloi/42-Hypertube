@@ -359,7 +359,14 @@ exports[`SignIn should render <SignIn> in english 1`] = `
                         </WithStyles(ForwardRef(Typography))>
                         <Link
                           className="makeStyles-niceLink-5"
-                          to="/sign-up"
+                          to={
+                            Object {
+                              "pathname": "/sign-up",
+                              "state": Object {
+                                "from": "/",
+                              },
+                            }
+                          }
                         >
                           <LinkAnchor
                             className="makeStyles-niceLink-5"
@@ -2675,7 +2682,14 @@ exports[`SignIn should render <SignIn> in french 1`] = `
                         </WithStyles(ForwardRef(Typography))>
                         <Link
                           className="makeStyles-niceLink-5"
-                          to="/sign-up"
+                          to={
+                            Object {
+                              "pathname": "/sign-up",
+                              "state": Object {
+                                "from": "/",
+                              },
+                            }
+                          }
                         >
                           <LinkAnchor
                             className="makeStyles-niceLink-5"

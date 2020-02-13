@@ -1,6 +1,9 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
+  form: {
+    margin: "0px"
+  },
   item: {
     margin: theme.spacing(2, 0)
   },

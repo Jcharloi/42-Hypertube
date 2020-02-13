@@ -33,6 +33,7 @@ exports[`App renders correctly 1`] = `
         "authentication.signUp.picture": "Your handsome face",
         "authentication.signUp.sendButton": "I register on this awesome website",
         "authentication.signUp.sendButton.waiting": "Sending all your precious data",
+        "authentication.signUp.signInButton": "Or sign in here !",
         "authentication.signUp.subtitle": "To access all our film, you're gonna have to register",
         "authentication.signUp.title": "Who are you ?",
         "authentication.signUp.uploadButton": "Upload",

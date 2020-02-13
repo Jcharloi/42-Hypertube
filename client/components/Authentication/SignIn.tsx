@@ -128,7 +128,10 @@ const SignIn = (): ReactElement => {
               👶🏻
             </span>
           </Typography>
-          <Link to="/sign-up" className={classes.niceLink}>
+          <Link
+            to={{ pathname: "/sign-up", state: location.state }}
+            className={classes.niceLink}
+          >
             <Button
               // color="secondary"
               className={classes.signUpButton}

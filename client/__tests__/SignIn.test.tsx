@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import EnzymeToJson from "enzyme-to-json";
 import { History, Location, LocationState } from "history";
 import { StaticRouter } from "react-router-dom";

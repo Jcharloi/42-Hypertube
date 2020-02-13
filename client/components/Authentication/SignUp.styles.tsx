@@ -27,6 +27,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   subtitle: {
     marginTop: theme.spacing(1)
   },
+  signInLink: {
+    textDecoration: "none",
+    marginBottom: theme.spacing(3)
+  },
+  signInButton: {
+    textTransform: "none",
+    color: "#ffffff",
+    "&:hover": {
+      backgroundColor: "rgba(255,255,255,0.08)"
+    }
+  },
   emailRound: {
     width: "80px",
     height: "80px",
