@@ -68,5 +68,11 @@
   "fourOhFour.link_menu": "Accueil",
   "error.title": "Oups...",
   "error.content": "Quelque chose est cassé",
-  "error.link_menu": "Accueil"
+  "error.link_menu": "Accueil",
+  "profile.myprofile.password.error.required": "Le champ est requis",
+  "profile.myprofile.password.error.different": "Les deux mot de passe ne correspondent pas",
+  "profile.myprofile.password.error.current": "Le mot de passe actuel ne correspond pas",
+  "profile.myprofile.password.placeholder.currentpass": "Mot de passe actuel",
+  "profile.myprofile.password.placeholder.newpass": "Nouveau mot de passe",
+  "profile.myprofile.password.placeholder.confirmedpass": "Confirmer le nouveau mot de passe"
 }

@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import API from "../../util/api";
 import useApi from "../../hooks/useApi";
 import Loading from "../Routes/Loading";
@@ -13,6 +14,7 @@ import Error from "../Error";
 import useStyles from "./Profile.styles";
 import ShowComments from "./ShowComments";
 import OnClickInput from "./OnClickInput";
+import Password from "./Password";
 
 interface UrlParam {
   username: string;
@@ -101,6 +103,9 @@ const MyProfile = (): ReactElement => {
             info={data?.username}
             label="Username"
           />
+          {/* <TextField placeholder="New Password" />
+          <TextField placeholder="Confirm Password" /> */}
+          <Password />
         </div>
         {/* <Button variant="contained">Edit</Button> */}
       </Paper>
