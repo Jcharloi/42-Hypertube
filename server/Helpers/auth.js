@@ -4,17 +4,24 @@ const checkToken = (req, res, next) => {
   const { accesToken } = req.cookies;
 
   if (accesToken) {
-    // todo: use `process.env.SECRET_KEY` when dotenv is available
     try {
-      const { id } = jwt.verify(accesToken, "6w9z$C&F)J@NcRfU");
+      const { id } = jwt.verify(accesToken, process.env.SECRET_KEY);
       req.userId = id;
       next();
     } catch (e) {
-      console.log("error: ", e);
-      res.status(500).send({ validToken: false });
+      if (e.name === "TokenExpiredError") {
+        res.status(400).send({ error: "EXPIRED_TOKEN", validToken: false });
+      } else if (
+        e.name === "JsonWebTokenError" ||
+        e.name === "NotBeforeError"
+      ) {
+        res.status(400).send({ error: "BAD_TOKEN", validToken: false });
+      } else {
+        res.status(500).send();
+      }
     }
   } else {
-    res.status(400).send({ error: "NO_TOKEN", validToken: false });
+    res.status(400).send({ error: "NO_ACCES_TOKEN", validToken: false });
   }
 };
 

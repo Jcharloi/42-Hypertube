@@ -12,9 +12,9 @@ const signIn = async (req, res) => {
   if (username && password) {
     try {
       const user = await UserModel.findOne({ username }, "password");
+
       if (user && (await bcrypt.compare(password, user.password))) {
-        // todo: use `process.env.SECRET_KEY` when dotenv is available
-        const accesToken = jwt.sign({ id: user.id }, "6w9z$C&F)J@NcRfU", {
+        const accesToken = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
           expiresIn: ACCES_TOKEN_EXPIRATION
         });
 
