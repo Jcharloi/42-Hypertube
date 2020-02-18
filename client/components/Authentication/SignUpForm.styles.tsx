@@ -46,16 +46,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     "&:hover": {
       backgroundColor: "rgba(241,196,15,0.08)"
     }
-  },
-  circularProgressContainer: {
-    position: "relative"
-  },
-  circularProgress: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    marginTop: "-20px",
-    marginLeft: "-20px"
   }
 }));
 
