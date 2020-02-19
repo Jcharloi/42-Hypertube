@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { useIntl } from "react-intl";
 
 import useStyles from "./SignUpForm.styles";
-import LoadingButton from "../Buttons/LoadingButton";
+import GradientButton from "../Buttons/GradientButton";
 
 import { UserInfo, UserError } from "./SignUp.service";
 
@@ -176,15 +176,12 @@ const SignUpForm = ({
 
         {/* Send form */}
         <Grid item className={classes.item}>
-          <LoadingButton
+          <GradientButton
             text={_t({ id: "authentication.signUp.sendButton" })}
-            loadingText={_t({ id: "authentication.signUp.sendButton.waiting" })}
+            loadingText={_t({ id: "authentication.signUp.sendButton.loading" })}
             loading={waitingRes}
             type="submit"
             size="large"
-            color="primary"
-            circularProgressColor="secondary"
-            buttonClass={classes.sendButton}
           />
         </Grid>
       </Grid>

@@ -4,7 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import useStyles from "./LoadingButton.style";
 
-interface Props {
+export interface Props {
   text: string;
   loadingText?: string;
   loading: boolean;
@@ -45,7 +45,7 @@ const LoadingButton = ({
         variant={variant || "contained"}
         size={size || "medium"}
         color={color || "default"}
-        className={buttonClass || undefined}
+        className={buttonClass}
       >
         {loading && loadingText ? loadingText : text}
       </Button>

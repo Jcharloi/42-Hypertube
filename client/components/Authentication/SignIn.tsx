@@ -13,6 +13,7 @@ import TextField from "@material-ui/core/TextField";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 
+import GradientButton from "../Buttons/GradientButton";
 import useStyle from "./SignIn.styles";
 import { checkErrors } from "./SignIn.service";
 import {
@@ -45,7 +46,7 @@ const SignIn = (): ReactElement => {
     password: ""
   });
 
-  const { callApi, res, error } = useApi<{}, { error?: string }>(
+  const { callApi, loading, res, error } = useApi<{}, { error?: string }>(
     "/user/login",
     {
       method: "post",
@@ -204,15 +205,15 @@ const SignIn = (): ReactElement => {
                 </Link>
               </Grid>
               <Grid item className={classes.item}>
-                <Button
+                <GradientButton
+                  text={_t({ id: "authentication.SignIn.login" })}
+                  loadingText={_t({
+                    id: "authentication.SignIn.login.loading"
+                  })}
+                  loading={loading}
                   type="submit"
-                  color="primary"
-                  variant="contained"
                   size="large"
-                  className={classes.sendButton}
-                >
-                  {_t({ id: "authentication.SignIn.login" })}
-                </Button>
+                />
               </Grid>
             </Grid>
           </form>
