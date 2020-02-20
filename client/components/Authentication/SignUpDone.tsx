@@ -5,14 +5,12 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import EmailIcon from "@material-ui/icons/Email";
 import Button from "@material-ui/core/Button";
-
 import { useIntl } from "react-intl";
+
 import useStyles from "./SignUpDone.styles";
-
-import resendConfrimationEmail, { User } from "./SignUpDone.service";
-
+import resendConfirmationEmail, { User } from "./SignUpDone.service";
 import CustomSnackbars from "../Snackbars/CustomSnackbars";
-import { Variant } from "../Snackbars/CustomSnackbarsContent";
+import { CustomSnackbarVariant } from "../../models/models";
 
 interface Props {
   user: User;
@@ -23,10 +21,10 @@ const SignUpDone = ({ user }: Props): ReactElement => {
   const classes = useStyles({});
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [variant, setVariant] = useState<Variant>("success");
+  const [variant, setVariant] = useState<CustomSnackbarVariant>("success");
 
   const handleResendClick = (): void => {
-    resendConfrimationEmail(user.id, locale)
+    resendConfirmationEmail(user.id, locale)
       .then(() => {
         setMessage(_t({ id: "authentication.signUpDone.snack.send" }));
         setVariant("success");
@@ -57,12 +55,7 @@ const SignUpDone = ({ user }: Props): ReactElement => {
 
   return (
     <Paper className={classes.paper}>
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        className={classes.titles}
-      >
+      <Grid container className={classes.titles}>
         {/* Title */}
         <Grid item>
           <Typography variant="h4" align="center">
@@ -76,7 +69,7 @@ const SignUpDone = ({ user }: Props): ReactElement => {
           </Typography>
         </Grid>
         {/* Icon + instruction */}
-        <Grid container direction="row" justify="center">
+        <Grid container justify="center">
           {/* Mail icon */}
           <Grid item>
             <Avatar className={classes.emailRound}>
@@ -85,12 +78,7 @@ const SignUpDone = ({ user }: Props): ReactElement => {
           </Grid>
           {/* instruction */}
           <Grid item>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              className={classes.randomWrapper}
-            >
+            <Grid container className={classes.randomWrapper}>
               <Grid item className={classes.subtitle}>
                 <Typography variant="subtitle1" align="center">
                   {_t({ id: "authentication.signUpDone.weSent" })}
@@ -117,13 +105,7 @@ const SignUpDone = ({ user }: Props): ReactElement => {
           </Grid>
         </Grid>
         {/* Resend */}
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className={classes.resendWrapper}
-        >
+        <Grid container className={classes.resendWrapper}>
           <Grid item>
             <Typography variant="body2" align="center">
               {_t({ id: "authentication.signUpDone.emailProblem" })}

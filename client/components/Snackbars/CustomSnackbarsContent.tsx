@@ -8,12 +8,11 @@ import WarningIcon from "@material-ui/icons/Warning";
 import CloseIcon from "@material-ui/icons/Close";
 
 import useStyles from "./CustomSnackbarsContent.styles";
-
-export type Variant = "success" | "warning" | "error" | "info" | "default";
+import { CustomSnackbarVariant } from "../../models/models";
 
 interface Props {
   message: string;
-  variant?: Variant;
+  variant?: CustomSnackbarVariant;
   handleClose: (_event: SyntheticEvent | MouseEvent, reason?: string) => void;
 }
 

@@ -10,7 +10,9 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(0.5)
     },
     titles: {
-      margin: theme.spacing(3, 0, 5)
+      margin: theme.spacing(3, 0, 5),
+      alignItems: "center",
+      flexDirection: "column"
     },
     subtitle: {
       marginTop: theme.spacing(1)
@@ -18,9 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
     emailRound: {
       width: "80px",
       height: "80px",
-      // todo: use theme in the futur
-      backgroundColor: "#633974",
+      // todo: use theme in the futur, like this:
       // backgroundColor: theme.palette.primary.main,
+      backgroundColor: "#633974",
       margin: theme.spacing(3)
     },
     emailIcon: {
@@ -28,10 +30,14 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.text.primary
     },
     randomWrapper: {
-      height: "100%"
+      height: "100%",
+      justifyContent: "center",
+      flexDirection: "column"
     },
     resendWrapper: {
-      marginTop: theme.spacing(5)
+      marginTop: theme.spacing(5),
+      justifyContent: "center",
+      flexDirection: "column"
     },
     resendButton: {
       fontSize: "12px",

@@ -7,7 +7,6 @@ import { Link, RouteComponentProps } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import useStyles from "./ConfirmEmail.style";
-
 import verifiyEmail from "./ConfirmEmail.service";
 
 interface UrlParam {
@@ -34,16 +33,11 @@ const ConfirmEmail = ({
         setWaiting(false);
       });
   }, [emailId]);
+
   return (
-    <div>
+    <Grid container className={classes.centerWrapper}>
       {waiting && (
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          direction="column"
-          className={classes.centerWrapper}
-        >
+        <>
           <Grid item>
             <CircularProgress color="secondary" />
           </Grid>
@@ -52,17 +46,11 @@ const ConfirmEmail = ({
               {_t({ id: "authentication.confirmEmail.waiting" })}
             </Typography>
           </Grid>
-        </Grid>
+        </>
       )}
 
       {!waiting && verified && (
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          direction="column"
-          className={classes.centerWrapper}
-        >
+        <>
           <Grid item>
             <Typography variant="body1" align="center" gutterBottom>
               {_t({ id: "authentication.confirmEmail.verified" })}
@@ -75,25 +63,17 @@ const ConfirmEmail = ({
               </Button>
             </Link>
           </Grid>
-        </Grid>
+        </>
       )}
 
       {!waiting && !verified && (
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          direction="column"
-          className={classes.centerWrapper}
-        >
-          <Grid item>
-            <Typography variant="body1" align="center" gutterBottom>
-              {_t({ id: "authentication.confirmEmail.notVerified" })}
-            </Typography>
-          </Grid>
+        <Grid item>
+          <Typography variant="body1" align="center" gutterBottom>
+            {_t({ id: "authentication.confirmEmail.notVerified" })}
+          </Typography>
         </Grid>
       )}
-    </div>
+    </Grid>
   );
 };
 

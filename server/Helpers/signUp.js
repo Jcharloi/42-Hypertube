@@ -11,14 +11,13 @@ import frHtml from "../emailsHtml/confirmEmailAdress.fr.html";
 const confirmEmailInfo = {
   en: {
     subject: "Confirm your email adress to watch some sick movies",
-    text:
-      "Welcome to Nethub\n\nWe just need to check that your email is really yours\nPlease go to this link to confirm your email adress:\nlocalhost:8080/confirm-email/{{userId}}",
+    text: `Welcome to Hypertube\n\nWe just need to check that your email is really yours\nPlease go to this link to confirm your email adress:\n{{confirmUrl}}`,
     html: enHtml
   },
   fr: {
     subject: "Confirme ton adresse email pour regarder des films stylés",
     text:
-      "Bienvenue sur Hypertube\n\nOn doit juste vérifier que ton email t'apartiens bien\nVous pouvez aller sur ce lien pour confirmer votre adresse email:\nlocalhost:8080/confirm-email/{{userId}}",
+      "Bienvenue sur Hypertube\n\nOn doit juste vérifier que ton email t'appartient bien\nTu peux aller sur ce lien pour confirmer ton adresse email:\n{{confirmUrl}}",
     html: frHtml
   }
 };

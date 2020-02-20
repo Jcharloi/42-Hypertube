@@ -7,8 +7,8 @@ export interface User extends UserInfo {
   id: string;
 }
 
-const resendConfrimationEmail = (id: string, locale: string): AxiosPromise => {
+const resendConfirmationEmail = (id: string, locale: string): AxiosPromise => {
   return API.put(`users/${id}/send-validation-email`, { locale });
 };
 
-export default resendConfrimationEmail;
+export default resendConfirmationEmail;

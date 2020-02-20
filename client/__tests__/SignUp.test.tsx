@@ -37,13 +37,13 @@ describe("SignUp", () => {
     const domNode = mountWithIntl(
       <SignUpDone
         user={{
-          username: "",
-          password: "",
+          username: "totoLeRigolo",
+          password: "Password1",
           email: "toto@gmail.com",
           firstName: "Toto",
-          lastName: "",
+          lastName: "Le Rigolo",
           picture: null,
-          id: ""
+          id: "000000000000000000000001"
         }}
       />,
       "en"
@@ -55,13 +55,13 @@ describe("SignUp", () => {
     const domNode = mountWithIntl(
       <SignUpDone
         user={{
-          username: "",
-          password: "",
+          username: "totoLeRigolo",
+          password: "Password1",
           email: "toto@gmail.com",
           firstName: "Toto",
-          lastName: "",
+          lastName: "Le Rigolo",
           picture: null,
-          id: ""
+          id: "000000000000000000000001"
         }}
       />,
       "fr"

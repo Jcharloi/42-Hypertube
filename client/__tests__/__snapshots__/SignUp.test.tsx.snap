@@ -7714,11 +7714,11 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
     Object {
       "email": "toto@gmail.com",
       "firstName": "Toto",
-      "id": "",
-      "lastName": "",
-      "password": "",
+      "id": "000000000000000000000001",
+      "lastName": "Le Rigolo",
+      "password": "Password1",
       "picture": null,
-      "username": "",
+      "username": "totoLeRigolo",
     }
   }
 >
@@ -7764,13 +7764,10 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
         className="MuiPaper-root makeStyles-paper-285 MuiPaper-elevation1 MuiPaper-rounded"
       >
         <WithStyles(ForwardRef(Grid))
-          alignItems="center"
           className="makeStyles-titles-286"
           container={true}
-          direction="column"
         >
           <ForwardRef(Grid)
-            alignItems="center"
             className="makeStyles-titles-286"
             classes={
               Object {
@@ -7880,10 +7877,9 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
               }
             }
             container={true}
-            direction="column"
           >
             <div
-              className="MuiGrid-root makeStyles-titles-286 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+              className="MuiGrid-root makeStyles-titles-286 MuiGrid-container"
             >
               <WithStyles(ForwardRef(Grid))
                 item={true}
@@ -8062,7 +8058,6 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
               </WithStyles(ForwardRef(Grid))>
               <WithStyles(ForwardRef(Grid))
                 container={true}
-                direction="row"
                 justify="center"
               >
                 <ForwardRef(Grid)
@@ -8174,7 +8169,6 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
                     }
                   }
                   container={true}
-                  direction="row"
                   justify="center"
                 >
                   <div
@@ -8480,8 +8474,6 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
                           <WithStyles(ForwardRef(Grid))
                             className="makeStyles-randomWrapper-290"
                             container={true}
-                            direction="column"
-                            justify="center"
                           >
                             <ForwardRef(Grid)
                               className="makeStyles-randomWrapper-290"
@@ -8593,11 +8585,9 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
                                 }
                               }
                               container={true}
-                              direction="column"
-                              justify="center"
                             >
                               <div
-                                className="MuiGrid-root makeStyles-randomWrapper-290 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-justify-xs-center"
+                                className="MuiGrid-root makeStyles-randomWrapper-290 MuiGrid-container"
                               >
                                 <WithStyles(ForwardRef(Grid))
                                   className="makeStyles-subtitle-287"
@@ -9129,14 +9119,10 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
                 </ForwardRef(Grid)>
               </WithStyles(ForwardRef(Grid))>
               <WithStyles(ForwardRef(Grid))
-                alignItems="center"
                 className="makeStyles-resendWrapper-291"
                 container={true}
-                direction="row"
-                justify="center"
               >
                 <ForwardRef(Grid)
-                  alignItems="center"
                   className="makeStyles-resendWrapper-291"
                   classes={
                     Object {
@@ -9246,11 +9232,9 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
                     }
                   }
                   container={true}
-                  direction="row"
-                  justify="center"
                 >
                   <div
-                    className="MuiGrid-root makeStyles-resendWrapper-291 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+                    className="MuiGrid-root makeStyles-resendWrapper-291 MuiGrid-container"
                   >
                     <WithStyles(ForwardRef(Grid))
                       item={true}
@@ -9627,7 +9611,7 @@ exports[`SignUp should render <SignUpDone> in english 1`] = `
                                     <span
                                       className="MuiButton-label"
                                     >
-                                      resend email
+                                      Resend email
                                     </span>
                                     <NoSsr>
                                       <WithStyles(undefined)
@@ -9726,11 +9710,11 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
     Object {
       "email": "toto@gmail.com",
       "firstName": "Toto",
-      "id": "",
-      "lastName": "",
-      "password": "",
+      "id": "000000000000000000000001",
+      "lastName": "Le Rigolo",
+      "password": "Password1",
       "picture": null,
-      "username": "",
+      "username": "totoLeRigolo",
     }
   }
 >
@@ -9776,13 +9760,10 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
         className="MuiPaper-root makeStyles-paper-285 MuiPaper-elevation1 MuiPaper-rounded"
       >
         <WithStyles(ForwardRef(Grid))
-          alignItems="center"
           className="makeStyles-titles-286"
           container={true}
-          direction="column"
         >
           <ForwardRef(Grid)
-            alignItems="center"
             className="makeStyles-titles-286"
             classes={
               Object {
@@ -9892,10 +9873,9 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
               }
             }
             container={true}
-            direction="column"
           >
             <div
-              className="MuiGrid-root makeStyles-titles-286 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+              className="MuiGrid-root makeStyles-titles-286 MuiGrid-container"
             >
               <WithStyles(ForwardRef(Grid))
                 item={true}
@@ -10074,7 +10054,6 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
               </WithStyles(ForwardRef(Grid))>
               <WithStyles(ForwardRef(Grid))
                 container={true}
-                direction="row"
                 justify="center"
               >
                 <ForwardRef(Grid)
@@ -10186,7 +10165,6 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                     }
                   }
                   container={true}
-                  direction="row"
                   justify="center"
                 >
                   <div
@@ -10492,8 +10470,6 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                           <WithStyles(ForwardRef(Grid))
                             className="makeStyles-randomWrapper-290"
                             container={true}
-                            direction="column"
-                            justify="center"
                           >
                             <ForwardRef(Grid)
                               className="makeStyles-randomWrapper-290"
@@ -10605,11 +10581,9 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                                 }
                               }
                               container={true}
-                              direction="column"
-                              justify="center"
                             >
                               <div
-                                className="MuiGrid-root makeStyles-randomWrapper-290 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-justify-xs-center"
+                                className="MuiGrid-root makeStyles-randomWrapper-290 MuiGrid-container"
                               >
                                 <WithStyles(ForwardRef(Grid))
                                   className="makeStyles-subtitle-287"
@@ -11141,14 +11115,10 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                 </ForwardRef(Grid)>
               </WithStyles(ForwardRef(Grid))>
               <WithStyles(ForwardRef(Grid))
-                alignItems="center"
                 className="makeStyles-resendWrapper-291"
                 container={true}
-                direction="row"
-                justify="center"
               >
                 <ForwardRef(Grid)
-                  alignItems="center"
                   className="makeStyles-resendWrapper-291"
                   classes={
                     Object {
@@ -11258,11 +11228,9 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                     }
                   }
                   container={true}
-                  direction="row"
-                  justify="center"
                 >
                   <div
-                    className="MuiGrid-root makeStyles-resendWrapper-291 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+                    className="MuiGrid-root makeStyles-resendWrapper-291 MuiGrid-container"
                   >
                     <WithStyles(ForwardRef(Grid))
                       item={true}
@@ -11425,7 +11393,7 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                               <p
                                 className="MuiTypography-root MuiTypography-body2 MuiTypography-alignCenter"
                               >
-                                Tu n'as pas reçue ton email ?
+                                Tu n'as pas reçu ton email ?
                               </p>
                             </ForwardRef(Typography)>
                           </WithStyles(ForwardRef(Typography))>

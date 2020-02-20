@@ -84,7 +84,7 @@ const signUp = async (req, res) => {
           .status(400)
           .send({ missingInfos: true, nameTaken: false, emailTaken: false });
       } else {
-        res.status(500).send();
+        res.sendStatus(500);
       }
     }
 
@@ -116,7 +116,7 @@ const resendValidationEmail = async (req, res) => {
         await TokenModel.findOneAndDelete({ user: user._id });
         // Sending a new mail
         await sendValidateEmail(user, req.body.locale || "en");
-        res.status(200).send();
+        res.sendStatus(200);
       } else {
         res.status(400).send({ error: "TOO_SOON" });
       }
@@ -149,13 +149,13 @@ const verifyEmail = async (req, res) => {
       // Deleting the token
       await TokenModel.findByIdAndDelete(token._id);
 
-      res.status(200).send();
+      res.sendStatus(200);
     } else {
-      res.status(400).send();
+      res.sendStatus(400);
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send();
+    res.sendStatus(500);
   }
 };
 

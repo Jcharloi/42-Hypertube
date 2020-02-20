@@ -1,13 +1,14 @@
 import React, { ReactElement, SyntheticEvent, MouseEvent } from "react";
 import Snackbar, { SnackbarOrigin } from "@material-ui/core/Snackbar";
 
-import CustomSnackbarContent, { Variant } from "./CustomSnackbarsContent";
+import CustomSnackbarContent from "./CustomSnackbarsContent";
+import { CustomSnackbarVariant } from "../../models/models";
 
 interface Props {
   message: string;
   open: boolean;
   setOpen: (open: boolean) => void;
-  variant?: Variant;
+  variant?: CustomSnackbarVariant;
   autoHideDuration?: number;
   anchorOrigin?: SnackbarOrigin;
 }
