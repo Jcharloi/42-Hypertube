@@ -117,16 +117,11 @@ const SignUp = (): ReactElement => {
   };
 
   return (
-    <Paper className={classes.page}>
-      <Grid container direction="column" alignItems="center">
-        {userId === "" && (
-          <div>
-            <Grid
-              container
-              direction="column"
-              alignItems="center"
-              className={classes.titles}
-            >
+    <Grid container className={classes.center}>
+      {userId === "" ? (
+        <Paper className={classes.paper}>
+          <Grid container direction="column" alignItems="center">
+            <Grid container className={classes.titles}>
               <Grid item>
                 <Typography variant="h3" align="center">
                   {_t({ id: "authentication.signUp.title" })}
@@ -154,12 +149,12 @@ const SignUp = (): ReactElement => {
               userError={userError}
               waitingRes={waitingRes}
             />
-          </div>
-        )}
-
-        {userId !== "" && <SignUpDone user={{ ...userInfo, id: userId }} />}
-      </Grid>
-    </Paper>
+          </Grid>
+        </Paper>
+      ) : (
+        <SignUpDone user={{ ...userInfo, id: userId }} />
+      )}
+    </Grid>
   );
 };
 export default SignUp;

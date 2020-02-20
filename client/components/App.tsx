@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import { hot } from "react-hot-loader/root";
-import { Router, Switch, Route, Link } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 
 import history from "../helpers/history";
 
@@ -10,9 +10,16 @@ import frTranslation from "../translations/fr.json";
 
 import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
-import Authentication from "./Authentication/Authentication";
-import Home from "./Home/Home";
 import ConfirmEmail from "./Authentication/ConfirmEmail";
+import Home from "./Home";
+import Movie from "./Movie/Movie";
+import Search from "./Search";
+import FourOhFour from "./FourOhFour";
+import SignUp from "./Authentication/SignUp";
+import ResetPassword from "./Authentication/ResetPassword";
+import Error from "./Error";
+
+import useLocaleStorage from "../hooks/useLocaleStorage";
 
 const messages: Record<string, Record<string, string>> = {
   en: enTranslation,
@@ -20,43 +27,43 @@ const messages: Record<string, Record<string, string>> = {
 };
 
 const App = (): ReactElement => {
-  const [locale, setLocale] = React.useState("en");
+  const [localStorageData, setItem] = useLocaleStorage();
+  if (!localStorageData.language) {
+    setItem("language", "en");
+  }
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]}>
-      <Layout locale={locale} setLocale={setLocale}>
-        <Router history={history}>
+    <IntlProvider
+      locale={localStorageData.language}
+      messages={messages[localStorageData.language]}
+    >
+      <Router history={history}>
+        <Layout
+          locale={localStorageData.language}
+          setLocale={(locale: string): void => setItem("language", locale)}
+        >
           <Switch>
             <Route exact path="/confirm-email/:id" component={ConfirmEmail} />
             <CustomRoute
               exact
-              path="/sign-in"
-              component={Authentication}
-              requireAuth={false}
-            />
-            <CustomRoute
-              exact
               path="/sign-up"
-              component={Authentication}
+              component={SignUp}
               requireAuth={false}
             />
             <CustomRoute
               exact
               path="/reset-password"
-              component={Authentication}
+              component={ResetPassword}
               requireAuth={false}
             />
+            <CustomRoute path="/search" component={Search} requireAuth />
+            <CustomRoute path="/movie" component={Movie} requireAuth />
+            <Route exact path="/error" component={Error} requiredAuth />
             <Route exact path="/" component={Home} />
-            <Route
-              component={(): ReactElement => (
-                <div>
-                  Not found, go to <Link to="/">root</Link>
-                </div>
-              )}
-            />
+            <Route component={FourOhFour} />
           </Switch>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </IntlProvider>
   );
 };

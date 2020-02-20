@@ -55,7 +55,7 @@ const usernameIsFree = async (username) => {
   }
 };
 
-export const signUp = async (req, res) => {
+const signUp = async (req, res) => {
   const goodInfos =
     validEmail(req.body.email) &&
     validPassword(req.body.password) &&
@@ -105,7 +105,7 @@ export const signUp = async (req, res) => {
   }
 };
 
-export const resendValidationEmail = async (req, res) => {
+const resendValidationEmail = async (req, res) => {
   try {
     const user = await UserModel.findById(req.params.id);
     if (user && !user.emailVerified) {
@@ -129,7 +129,7 @@ export const resendValidationEmail = async (req, res) => {
   }
 };
 
-export const verifyEmail = async (req, res) => {
+const verifyEmail = async (req, res) => {
   try {
     // Getting data from DB
     const token = await TokenModel.findOne({
@@ -158,3 +158,5 @@ export const verifyEmail = async (req, res) => {
     res.status(500).send();
   }
 };
+
+export default { signUp, resendValidationEmail, verifyEmail };

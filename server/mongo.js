@@ -1,3 +1,4 @@
+import "./dotenv.config";
 import mongoose from "mongoose";
 
 // Options to fix all deprecation warnings, has said here:

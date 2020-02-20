@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from "react";
+import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
@@ -55,97 +56,101 @@ const SignUpDone = ({ user }: Props): ReactElement => {
   };
 
   return (
-    <Grid
-      container
-      direction="column"
-      alignItems="center"
-      className={classes.titles}
-    >
-      {/* Title */}
-      <Grid item>
-        <Typography variant="h4" align="center">
-          {`${_t({ id: "authentication.signUpDone.title" })} ${user.firstName}`}
-          <span role="img" aria-label="Waving hand">
-            {" "}
-            👋🏻
-          </span>
-        </Typography>
-      </Grid>
-      {/* Icon + instruction */}
-      <Grid container direction="row" justify="center">
-        {/* Mail icon */}
+    <Paper className={classes.paper}>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        className={classes.titles}
+      >
+        {/* Title */}
         <Grid item>
-          <Avatar className={classes.emailRound}>
-            <EmailIcon color="secondary" className={classes.emailIcon} />
-          </Avatar>
+          <Typography variant="h4" align="center">
+            {`${_t({ id: "authentication.signUpDone.title" })} ${
+              user.firstName
+            }`}
+            <span role="img" aria-label="Waving hand">
+              {" "}
+              👋🏻
+            </span>
+          </Typography>
         </Grid>
-        {/* instruction */}
-        <Grid item>
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            className={classes.randomWrapper}
-          >
-            <Grid item className={classes.subtitle}>
-              <Typography variant="subtitle1" align="center">
-                {_t({ id: "authentication.signUpDone.weSent" })}
-                <b>{user.email}</b>
-              </Typography>
-            </Grid>
-            <Grid item className={classes.subtitle}>
-              <Typography variant="subtitle1" align="center">
-                {_t({ id: "authentication.signUpDone.goClick" })}
-              </Typography>
-            </Grid>
-            <Grid item className={classes.subtitle}>
-              <Typography variant="subtitle1" align="center">
-                {_t({
-                  id: "authentication.signUpDone.bingeWatching"
-                })}
-                <span role="img" aria-label="Shush guy">
-                  {" "}
-                  🤫
-                </span>
-              </Typography>
+        {/* Icon + instruction */}
+        <Grid container direction="row" justify="center">
+          {/* Mail icon */}
+          <Grid item>
+            <Avatar className={classes.emailRound}>
+              <EmailIcon color="secondary" className={classes.emailIcon} />
+            </Avatar>
+          </Grid>
+          {/* instruction */}
+          <Grid item>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              className={classes.randomWrapper}
+            >
+              <Grid item className={classes.subtitle}>
+                <Typography variant="subtitle1" align="center">
+                  {_t({ id: "authentication.signUpDone.weSent" })}
+                  <b>{user.email}</b>
+                </Typography>
+              </Grid>
+              <Grid item className={classes.subtitle}>
+                <Typography variant="subtitle1" align="center">
+                  {_t({ id: "authentication.signUpDone.goClick" })}
+                </Typography>
+              </Grid>
+              <Grid item className={classes.subtitle}>
+                <Typography variant="subtitle1" align="center">
+                  {_t({
+                    id: "authentication.signUpDone.bingeWatching"
+                  })}
+                  <span role="img" aria-label="Shush guy">
+                    {" "}
+                    🤫
+                  </span>
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      {/* Resend */}
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        className={classes.resendWrapper}
-      >
-        <Grid item>
-          <Typography variant="body2" align="center">
-            {_t({ id: "authentication.signUpDone.emailProblem" })}
-          </Typography>
+        {/* Resend */}
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className={classes.resendWrapper}
+        >
+          <Grid item>
+            <Typography variant="body2" align="center">
+              {_t({ id: "authentication.signUpDone.emailProblem" })}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Button
+              variant="outlined"
+              // color="secondary"
+              size="small"
+              className={classes.resendButton}
+              onClick={handleResendClick}
+            >
+              {_t({
+                id: "authentication.signUpDone.emailProblemButton"
+              })}
+            </Button>
+            <CustomSnackbars
+              message={message}
+              open={open}
+              setOpen={setOpen}
+              variant={variant}
+            />
+          </Grid>
         </Grid>
-        <Grid item>
-          <Button
-            variant="outlined"
-            color="secondary"
-            size="small"
-            className={classes.resendButton}
-            onClick={handleResendClick}
-          >
-            {_t({
-              id: "authentication.signUpDone.emailProblemButton"
-            })}
-          </Button>
-          <CustomSnackbars
-            message={message}
-            open={open}
-            setOpen={setOpen}
-            variant={variant}
-          />
-        </Grid>
       </Grid>
-    </Grid>
+    </Paper>
   );
 };
 

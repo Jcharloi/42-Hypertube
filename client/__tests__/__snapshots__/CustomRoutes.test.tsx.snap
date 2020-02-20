@@ -23,7 +23,33 @@ exports[`CustomRoute Is not connected, public route : should show div 1`] = `
 `;
 
 exports[`CustomRoute Loading 1`] = `
-<div>
-  Loading
+<div
+  className="MuiGrid-root makeStyles-center-1 MuiGrid-container"
+>
+  <div
+    className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+    role="progressbar"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <svg
+      className="MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+        cx={44}
+        cy={44}
+        fill="none"
+        r={20.2}
+        strokeWidth={3.6}
+        style={Object {}}
+      />
+    </svg>
+  </div>
 </div>
 `;
