@@ -12,14 +12,22 @@ import IconButton from "@material-ui/core/IconButton";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 
 interface Props {
-  info: string;
+  autocomplete?: string;
+  startValue: string;
   label: string;
+  name: string;
   // onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   updateInfo: (newInfo: string, label: string) => void;
 }
 
-const OnClickInput = ({ info, label, updateInfo }: Props): ReactElement => {
-  const [value, setValue] = useState(info);
+const OnClickInput = ({
+  startValue,
+  label,
+  name,
+  updateInfo,
+  autocomplete
+}: Props): ReactElement => {
+  const [value, setValue] = useState(startValue);
   const [editMode, setEditMode] = useState(false);
   const inputEl = useRef(null);
 
@@ -28,7 +36,7 @@ const OnClickInput = ({ info, label, updateInfo }: Props): ReactElement => {
   };
 
   // const updateInfo = (): void => {
-  //   info = value;
+  //   startValue = value;
   // };
 
   useEffect(() => {
@@ -38,20 +46,22 @@ const OnClickInput = ({ info, label, updateInfo }: Props): ReactElement => {
   }, [editMode]);
 
   useEffect(() => {
-    setValue(info);
-  }, [info]);
+    setValue(startValue);
+  }, [startValue]);
 
   const renderEditView = (): ReactElement => {
     return (
       <div>
         <TextField
+          autoComplete={autocomplete}
           inputRef={inputEl}
           label={label}
+          name={name}
           defaultValue={value}
           onChange={(e): void => setValue(e.target.value)}
           onBlur={(): void => {
             changeEditMode();
-            updateInfo(value, label);
+            updateInfo(value, name);
           }}
         />
         <IconButton

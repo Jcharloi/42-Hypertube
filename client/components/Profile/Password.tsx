@@ -13,6 +13,7 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import { useIntl } from "react-intl";
 import useProfileStyles from "./Profile.styles";
 import useStyles from "./Password.styles";
+import { validatePassword } from "../Authentication/SignUp.service";
 
 const Password = (): ReactElement => {
   const { formatMessage: _t } = useIntl();
@@ -25,55 +26,62 @@ const Password = (): ReactElement => {
   const [newPasswordError, setNewPasswordError] = useState("");
   const [confirmedPasswordError, setConfirmedPasswordError] = useState("");
 
-  const errorToDeleteOnChange = ["profile.myprofile.password.error.different"];
+  const checkPassword = (): void => {
+    // Checking required field
+    const newOldPasswordError = oldPassword
+      ? ""
+      : "profile.myprofile.password.error.required";
+    let newNewPasswordError = newPassword
+      ? ""
+      : "profile.myprofile.password.error.required";
+    let newConfirmedPasswordError = confirmedPassword
+      ? ""
+      : "profile.myprofile.password.error.required";
 
-  const validatePassword = (): void => {
-    // if (newPassword !== confirmedPassword) {
-    //   setConfirmedPasswordError("profile.myprofile.password.error.different");
-    // }
-    // setConfirmedPasswordError(
-    //   confirmedPassword
-    //     ? newPassword !== confirmedPassword
-    //       ? "profile.myprofile.password.error.different"
-    //       : ""
-    //     : "profile.myprofile.password.error.required"
-    // );
-    if (confirmedPassword && newPassword) {
-      setConfirmedPasswordError(
+    // Checking if new password is valid and if it's the identical
+    if (!newNewPasswordError && !newConfirmedPasswordError) {
+      newConfirmedPasswordError =
         newPassword !== confirmedPassword
           ? "profile.myprofile.password.error.different"
-          : ""
+          : "";
+      newNewPasswordError = validatePassword(newPassword)
+        ? ""
+        : "authentication.signUp.error.password.invalid";
+    }
+
+    setOldPasswordError(newOldPasswordError);
+    setNewPasswordError(newNewPasswordError);
+    setConfirmedPasswordError(newConfirmedPasswordError);
+
+    if (
+      newOldPasswordError === "" &&
+      newNewPasswordError === "" &&
+      newConfirmedPasswordError === ""
+    ) {
+      console.log(
+        newOldPasswordError,
+        newNewPasswordError,
+        newConfirmedPasswordError
       );
-    } else {
-      setConfirmedPasswordError(
-        confirmedPassword ? "" : "profile.myprofile.password.error.required"
-      );
-      setNewPasswordError(
-        newPassword ? "" : "profile.myprofile.password.error.required"
-      );
+      console.log("all ok");
     }
   };
-
-  //   const handleErrorOnChange = (
-  //     errorValue: string,
-  //     setError: (error: string) => void
-  //   ): void => {
-  //     if (errorValue === "profile.myprofile.password.error.different") {
-  //       setError("");
-  //     }
-  //   };
 
   return (
     <div className={profileClasses.containerInfo}>
       <TextField
+        autoComplete="current-password"
         className={classes.input}
         onChange={(e): void => setOldPassword(e.target.value)}
         placeholder={_t({
           id: "profile.myprofile.password.placeholder.currentpass"
         })}
+        error={!!oldPasswordError}
+        helperText={oldPasswordError ? _t({ id: oldPasswordError }) : undefined}
         type="password"
       />
       <TextField
+        autoComplete="new-password"
         className={classes.input}
         onChange={(e): void => setNewPassword(e.target.value)}
         placeholder={_t({
@@ -84,6 +92,7 @@ const Password = (): ReactElement => {
         type="password"
       />
       <TextField
+        autoComplete="new-password"
         className={classes.input}
         onChange={(e): void => setConfirmedPassword(e.target.value)}
         placeholder={_t({
@@ -97,7 +106,7 @@ const Password = (): ReactElement => {
         }
         type="password"
       />
-      <Button onClick={validatePassword}>Ok</Button>
+      <Button onClick={checkPassword}>Ok</Button>
     </div>
   );
 };

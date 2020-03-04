@@ -5,12 +5,9 @@ const getUserComments = async (req, res) => {
   const name = req.params.username;
   try {
     const userComments = await MovieCommentModel.find({ name });
-    console.log(userComments);
     if (userComments.length === 0) {
       res.status(204).send();
     } else {
-      console.log("test");
-      console.log(userComments);
       res.status(200).send(userComments);
     }
   } catch (e) {
@@ -22,7 +19,6 @@ const getUserComments = async (req, res) => {
 const getProfile = async (req, res) => {
   const { username } = req.params;
   try {
-    console.log(username);
     const userInfos = await UserModel.findOne({ username });
     if (userInfos === null) {
       res.status(404).send();

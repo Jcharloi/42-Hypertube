@@ -7,7 +7,6 @@ const getUserInfos = async (req, res) => {
     const userInfos = await UserModel.findById(req.userId);
 
     if (userInfos === null) {
-      console.log("test");
       res.status(404).send();
     } else {
       const cleanUserInfos = {

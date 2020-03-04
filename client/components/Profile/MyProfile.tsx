@@ -37,26 +37,25 @@ interface User {
 }
 
 const MyProfile = (): ReactElement => {
-  const userId = "5deef4dc80a440152717dbcf";
+  // const userId = "5deef4dc80a440152717dbcf";
 
   const { data } = useApi<User>(`/user/`);
   const { username } = data || {};
   const classes = useStyles({});
+  const [changingPassword, setChangingPassword] = useState(false);
 
-  const updateInfo = (newInfo: string, label: string): void => {
-    console.log(newInfo);
-    console.log(label);
-    if (newInfo && label) {
-      const body = {
-        userId
-      };
-      if (label === "First name") Object.assign(body, { firstName: newInfo });
-      if (label === "Last name") Object.assign(body, { lastName: newInfo });
-      if (label === "Email") Object.assign(body, { email: newInfo });
-      if (label === "Username") Object.assign(body, { username: newInfo });
-      console.log("label", label);
-      console.log("BODY ", body);
-      API.put("/edit-profile", body)
+  const updateInfo = (value: string, name: string): void => {
+    console.log(value);
+    console.log(name);
+    if (value && name) {
+      // const body = {
+      //   userId
+      // };
+      // if (label === "First name") Object.assign(body, { firstName: newInfo });
+      // if (label === "Last name") Object.assign(body, { lastName: newInfo });
+      // if (label === "Email") Object.assign(body, { email: newInfo });
+      // if (label === "Username") Object.assign(body, { username: newInfo });
+      API.put("/edit-profile", { [name]: value })
         .then(() => {
           console.log("api called");
         })
@@ -79,33 +78,50 @@ const MyProfile = (): ReactElement => {
           <div className={classes.containerFullname}>
             <h1>
               <OnClickInput
-                info={data?.firstName}
+                autocomplete="given-name"
+                startValue={data?.firstName}
                 label="First name"
+                name="firstName"
                 updateInfo={updateInfo}
               />
             </h1>
             <h1>
               <OnClickInput
+                autocomplete="family-name"
                 updateInfo={updateInfo}
-                info={data?.lastName}
+                startValue={data?.lastName}
                 label="Last name"
+                name="lastName"
               />
             </h1>
           </div>
 
           <OnClickInput
+            autocomplete="email"
             updateInfo={updateInfo}
-            info={data?.email}
+            startValue={data?.email}
             label="Email"
+            name="email"
           />
           <OnClickInput
+            autocomplete="username"
             updateInfo={updateInfo}
-            info={data?.username}
+            startValue={data?.username}
             label="Username"
+            name="username"
           />
           {/* <TextField placeholder="New Password" />
           <TextField placeholder="Confirm Password" /> */}
-          <Password />
+          <Button
+            onClick={() => {
+              setChangingPassword((val) => {
+                return !val;
+              });
+            }}
+          >
+            Change Password
+          </Button>
+          {changingPassword && <Password />}
         </div>
         {/* <Button variant="contained">Edit</Button> */}
       </Paper>
