@@ -7,7 +7,7 @@
   "disconnect": "Disconnect",
   "justError": " ",
   "authentication.error.required": "This field is required",
-  "authentication.error.unknown": "An unknown error happend",
+  "authentication.error.unknown": "An unknown error happened",
   "authentication.signUp.title": "Who are you ?",
   "authentication.signUp.subtitle": "To access all our film, you're gonna have to register",
   "authentication.signUp.username": "Your little username",

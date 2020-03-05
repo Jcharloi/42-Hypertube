@@ -2802,7 +2802,7 @@ exports[`SignIn should render <SignIn> in french 1`] = `
                                         <span
                                           className="MuiButton-label"
                                         >
-                                          Je m'inscrit
+                                          Je m'inscris
                                         </span>
                                         <NoSsr>
                                           <WithStyles(undefined)
