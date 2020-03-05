@@ -11,6 +11,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import IconButton from "@material-ui/core/IconButton";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import { useIntl } from "react-intl";
+import API from "../../util/api";
 import useProfileStyles from "./Profile.styles";
 import useStyles from "./Password.styles";
 import { validatePassword } from "../Authentication/SignUp.service";
@@ -25,6 +26,7 @@ const Password = (): ReactElement => {
   const [oldPasswordError, setOldPasswordError] = useState("");
   const [newPasswordError, setNewPasswordError] = useState("");
   const [confirmedPasswordError, setConfirmedPasswordError] = useState("");
+  const [status, setStatus] = useState();
 
   const checkPassword = (): void => {
     // Checking required field
@@ -64,6 +66,17 @@ const Password = (): ReactElement => {
         newConfirmedPasswordError
       );
       console.log("all ok");
+      API.put("/change-password/", { newPassword, oldPassword })
+        .then(() => {
+          console.log("api called");
+          setStatus(200);
+          console.log(status);
+        })
+        .catch((e) => {
+          console.error(e);
+          setStatus(e.response.status);
+          console.log(e.response.status);
+        });
     }
   };
 
@@ -106,6 +119,16 @@ const Password = (): ReactElement => {
         }
         type="password"
       />
+      {status === 401 ? (
+        <p className={classes.badMessage}>
+          {_t({ id: "profile.myprofile.password.error.not_matching_old" })}
+        </p>
+      ) : null}
+      {status === 200 ? (
+        <p className={classes.goodMessage}>
+          {_t({ id: "profile.myprofile.password.changed" })}
+        </p>
+      ) : null}
       <Button onClick={checkPassword}>Ok</Button>
     </div>
   );

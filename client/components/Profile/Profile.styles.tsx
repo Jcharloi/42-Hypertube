@@ -60,10 +60,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     // float: "left"
   },
   containerFullname: {
-    border: "2px solid red",
+    border: "2px solid green",
     display: "flex",
     width: "100%",
-    justifyContent: "center"
+    maxWidth: "250px",
+    justifyContent: "center",
+    overflow: "hidden",
+    gap: "70%"
   },
   commentDate: {
     marginTop: theme.spacing(0.5),

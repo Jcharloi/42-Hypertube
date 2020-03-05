@@ -72,6 +72,8 @@
   "profile.myprofile.password.error.required": "This field is required",
   "profile.myprofile.password.error.different": "Passwords doesn't match",
   "profile.myprofile.password.error.current": "Current password doesn't match",
+  "profile.myprofile.password.error.not_matching_old" : "The current password is incorrect",
+  "profile.myprofile.password.changed" : "Password has been set",
   "profile.myprofile.password.placeholder.currentpass": "Current password",
   "profile.myprofile.password.placeholder.newpass": "New Password",
   "profile.myprofile.password.placeholder.confirmedpass": "Confirm new password"
