@@ -28,7 +28,7 @@
   "authentication.signUp.error.picture.tooHeavy": "Ouch, ton image est trop grosse, prends en une qui fait moins de 1Mo",
   "authentication.signUp.error.picture.wrongType": "Désolé, nous acceptons que les formats .jpeg, .jpg, .png",
   "authentication.signUp.validForm.title": "Bienvenue",
-  "authentication.signUp.validForm.checkEmail": "Maitenant t'as juste à valider ton email",
+  "authentication.signUp.validForm.checkEmail": "Maintenant t'as juste à valider ton email",
   "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher",
   "authentication.SignIn.signUpMessage": "C'est ta premiere visite ? ",
   "authentication.SignIn.signUpButton": "Je m'inscris",
