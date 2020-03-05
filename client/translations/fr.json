@@ -31,7 +31,7 @@
   "authentication.signUp.validForm.checkEmail": "Maitenant t'as juste à valider ton email",
   "authentication.signUp.validForm.bingeWatching": "Et après promis, tu peux commencer à binge watcher",
   "authentication.SignIn.signUpMessage": "C'est ta premiere visite ? ",
-  "authentication.SignIn.signUpButton": "Je m'inscrit",
+  "authentication.SignIn.signUpButton": "Je m'inscris",
   "authentication.SignIn.title": "Prêt a mater des films ? ",
   "authentication.SignIn.username": "Nom d'utilisateur",
   "authentication.SignIn.password": "Mot de passe",
