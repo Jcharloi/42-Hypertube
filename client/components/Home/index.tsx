@@ -1,33 +1,14 @@
 import React, { ReactElement } from "react";
 import Typography from "@material-ui/core/Typography";
 
-import useApi from "../../hooks/useApi";
-
 import { useHomeStyles } from "./styles";
 
-import Loading from "../Routes/Loading";
-import SignIn from "../Authentication/SignIn";
 import Feed from "./Feed";
 import RecentVideos from "./RecentVideos";
 import Film from "./FeaturedMovie";
 
 const Home = (): ReactElement => {
-  const {
-    data: { validToken },
-    loading,
-    error
-  } = useApi("/check-token");
   const classes = useHomeStyles({});
-
-  if (error) {
-    return <div>Error</div>;
-  }
-  if (loading) {
-    return <Loading />;
-  }
-  if (!validToken) {
-    return <SignIn />;
-  }
 
   return (
     <div className={classes.container}>

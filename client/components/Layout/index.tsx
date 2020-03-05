@@ -17,16 +17,8 @@ interface Props {
 }
 
 export const theme = createMuiTheme({
-  overrides: {
-    MuiMenuItem: {
-      root: {
-        "&:hover": {
-          background: "#616161"
-        }
-      }
-    }
-  },
   palette: {
+    type: "dark",
     background: { default: "#121212", paper: "#212121" },
     // Color from https://htmlcolorcodes.com/color-chart/ (Flat Design)
     primary: {
@@ -40,7 +32,7 @@ export const theme = createMuiTheme({
     },
     secondary: {
       main: "#616161",
-      contrastText: "#fffff"
+      contrastText: "#ffffff"
       // Uncoment to have some color
       // main: "#F1C40F",
       // light: "#F9E79F",

@@ -1,50 +1,58 @@
-import React, { ReactElement, ElementType } from "react";
-import { Redirect, Route } from "react-router";
+import React, { ReactElement, ElementType, useEffect } from "react";
+import { Redirect, Route, useHistory } from "react-router";
 
 import useApi from "../../hooks/useApi";
-import { Fixture } from "../../models/models";
+import { ApiAuthResponse } from "../../models/models";
 
 import Loading from "./Loading";
 
 interface Props {
+  authComponent?: ElementType;
+  notAuthComponent?: ElementType;
   exact?: boolean;
-  component: ElementType;
   path?: string;
-  requireAuth: boolean;
-  fixture?: Fixture;
 }
 
 const CustomRoute = ({
-  component: Component,
+  authComponent: AuthComponent,
+  notAuthComponent: NotAuthComponent,
   path,
-  exact,
-  requireAuth,
-  fixture
+  exact
 }: Props): ReactElement => {
-  const {
-    data: { validToken },
-    loading,
-    error
-  } = useApi("/check-token", fixture);
+  const { callApi, resData, error, cancelAllRequests } = useApi<
+    ApiAuthResponse,
+    ApiAuthResponse
+  >("/check-auth", {
+    validateStatus: (status) => status >= 200 && status < 500 // 4xx is valid (2xx - 4xx)
+  });
+  const history = useHistory();
+
+  useEffect(() => {
+    // At each route change, we check te token validity
+    const res = history.listen(() => {
+      callApi();
+    });
+    callApi();
+
+    return (): void => {
+      res();
+      cancelAllRequests();
+    };
+  }, []);
 
   return (
     <Route
       path={path}
       exact={exact}
-      render={(): ReactElement => {
+      render={({ location }): ReactElement => {
         if (error) return <div>Error</div>;
-        if (loading) return <Loading />;
-        if (
-          (!loading && validToken && requireAuth) ||
-          (!loading && !validToken && !requireAuth)
-        )
-          return <Component />;
-        if (
-          (!loading && validToken && !requireAuth) ||
-          (!loading && !validToken && requireAuth)
-        )
-          return <Redirect to="/" />;
-        return null;
+        if (!resData) return <Loading />;
+
+        if (AuthComponent && resData.validToken) return <AuthComponent />;
+        if (NotAuthComponent && !resData.validToken)
+          return <NotAuthComponent />;
+
+        return <Redirect to={{ pathname: "/", state: { from: location } }} />;
       }}
     />
   );

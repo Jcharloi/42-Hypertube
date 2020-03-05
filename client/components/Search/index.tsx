@@ -23,8 +23,13 @@ const Search = (): ReactElement => {
   const [block, setBlock] = useState(false);
   const [page, setPage] = useState(1);
 
-  const { data, loading, error, setUrl } = useApi(
-    formatQueryUrl(location.search, 1)
+  // todo: change any to real type
+  // (I'm not doing it now because we don't use archive.org api anymore)
+  const { resData: data, loading, error, setUrl } = useApi<any, any>(
+    formatQueryUrl(location.search, 1),
+    {
+      hotReload: true
+    }
   );
 
   useEffect(() => {
@@ -60,7 +65,7 @@ const Search = (): ReactElement => {
         <InfiniteScroll
           initialLoad={false}
           loadMore={loadMore}
-          hasMore={!block && !loading && page * 10 < data.numFound}
+          hasMore={!block && !loading && page * 10 < data?.numFound}
         >
           {filmList.map((film) => (
             <Thumbnail
@@ -75,7 +80,7 @@ const Search = (): ReactElement => {
         className={classes.snackbar}
         message={_t(
           { id: "search.film_count" },
-          { count: Number(data.numFound || 0) }
+          { count: Number(data?.numFound || 0) }
         )}
       />
       <Snackbar open={loading} className={classes.snackbarLoading}>
