@@ -73,11 +73,10 @@ const MovieComments = ({
     const ret = checkInvalidCommentOrStars(stars, comment.body);
     if (!ret.comment && !ret.stars) {
       const body = {
-        movieId,
         ...comment,
         stars
       };
-      API.post("/movie/review", body)
+      API.post(`/movies/${movieId}/reviews`, body)
         .then(() => {
           setComment({
             name: "",

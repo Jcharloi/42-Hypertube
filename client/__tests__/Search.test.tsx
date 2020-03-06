@@ -2,6 +2,7 @@ import React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import EnzymeToJson from "enzyme-to-json";
 import { configure } from "enzyme";
+import { History, Location, LocationState } from "history";
 
 import Search from "../components/Search";
 import Film from "../components/Search/Movie";
@@ -10,30 +11,45 @@ import Thumbnail from "../components/Search/Thumbnail";
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import * as ServiceSearch from "../components/Search/service";
+import { UseApiReturn } from "../models/models";
 
 configure({ adapter: new Adapter() });
 
 jest.mock("react-router-dom", () => ({
-  useHistory: (): Record<string, unknown> => ({
+  ...jest.requireActual("react-router-dom"),
+  useHistory: (): History<LocationState> => ({
+    length: null,
+    action: null,
+    location: { pathname: "/", search: "", state: {}, hash: null },
     push: jest.fn(),
-    location: { state: {} }
+    replace: jest.fn(),
+    go: jest.fn(),
+    goBack: jest.fn(),
+    goForward: jest.fn(),
+    block: jest.fn(),
+    listen: jest.fn(),
+    createHref: jest.fn()
   }),
-  useLocation: (): Record<string, unknown> => ({
+  useLocation: (): Location<LocationState> => ({
+    pathname: "/",
+    search: "",
     state: {},
-    search: ""
+    hash: null
   })
 }));
 
-jest.mock("../hooks/useApi", () => (): {
-  data: unknown;
-  loading: boolean;
-  error: void;
-  setUrl: () => void;
-} => ({
-  data: [],
+// todo: change any to real type returned by our api
+jest.mock("../hooks/useApi", () => (): UseApiReturn<any, any> => ({
+  callApi: jest.fn(),
   loading: false,
+  res: { data: [], status: 200, statusText: null, headers: null, config: null },
+  resData: [],
   error: null,
-  setUrl: jest.fn()
+  setUrl: jest.fn(),
+  setMethod: jest.fn(),
+  setHeaders: jest.fn(),
+  setData: jest.fn(),
+  cancelAllRequests: jest.fn()
 }));
 
 describe("Search", () => {

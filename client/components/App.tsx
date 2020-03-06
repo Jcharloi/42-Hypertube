@@ -15,6 +15,7 @@ import Home from "./Home";
 import Movie from "./Movie/Movie";
 import Search from "./Search";
 import FourOhFour from "./FourOhFour";
+import SignIn from "./Authentication/SignIn";
 import SignUp from "./Authentication/SignUp";
 import ResetPassword from "./Authentication/ResetPassword";
 import Error from "./Error";
@@ -44,22 +45,22 @@ const App = (): ReactElement => {
         >
           <Switch>
             <Route exact path="/confirm-email/:id" component={ConfirmEmail} />
-            <CustomRoute
-              exact
-              path="/sign-up"
-              component={SignUp}
-              requireAuth={false}
-            />
+            <CustomRoute exact path="/sign-up" notAuthComponent={SignUp} />
             <CustomRoute
               exact
               path="/reset-password"
-              component={ResetPassword}
-              requireAuth={false}
+              notAuthComponent={ResetPassword}
             />
-            <CustomRoute path="/search" component={Search} requireAuth />
-            <CustomRoute path="/movie" component={Movie} requireAuth />
-            <Route exact path="/error" component={Error} requiredAuth />
-            <Route exact path="/" component={Home} />
+            <CustomRoute path="/search" authComponent={Search} />
+            <CustomRoute path="/movie" authComponent={Movie} />
+            <CustomRoute
+              exact
+              path="/"
+              notAuthComponent={SignIn}
+              authComponent={Home}
+            />
+
+            <Route exact path="/error" authComponent={Error} />
             <Route component={FourOhFour} />
           </Switch>
         </Layout>
