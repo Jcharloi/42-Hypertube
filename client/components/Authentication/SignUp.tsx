@@ -2,8 +2,10 @@ import React, { ReactElement, ChangeEvent, useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 import { useIntl } from "react-intl";
+import { Link, useLocation } from "react-router-dom";
 import useStyles from "./SignUp.styles";
 
 import SignUpForm from "./SignUpForm";
@@ -32,6 +34,7 @@ const errorsToRemoveOnChange = [
 const SignUp = (): ReactElement => {
   const { locale, formatMessage: _t } = useIntl();
   const classes = useStyles({});
+  const location = useLocation();
   const [waitingRes, setWaitingRes] = useState(false);
   const [userId, setUserId] = useState("");
   const [userInfo, setUserInfo] = useState<UserInfo>({
@@ -149,6 +152,15 @@ const SignUp = (): ReactElement => {
               userError={userError}
               waitingRes={waitingRes}
             />
+
+            <Link
+              to={{ pathname: "/", state: location.state }}
+              className={classes.signInLink}
+            >
+              <Button color="secondary" className={classes.signInButton}>
+                {_t({ id: "authentication.signUp.signInButton" })}
+              </Button>
+            </Link>
           </Grid>
         </Paper>
       ) : (

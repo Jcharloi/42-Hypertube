@@ -4,18 +4,25 @@ import EnzymeToJson from "enzyme-to-json";
 import { mount, configure } from "enzyme";
 import App from "../components/App";
 
+import { UseApiReturn, ApiAuthResponse } from "../models/models";
+
 configure({ adapter: new Adapter() });
 
-jest.mock("../hooks/useApi", () => (): {
-  data: unknown;
-  loading: boolean;
-  error: void;
-  setUrl: () => void;
-} => ({
-  data: [],
-  loading: false,
+// `loading: true` to avoid mounting all <Home> or <SignIn> component
+jest.mock("../hooks/useApi", () => (): UseApiReturn<
+  ApiAuthResponse,
+  ApiAuthResponse
+> => ({
+  callApi: jest.fn(),
+  loading: true,
+  res: null,
+  resData: null,
   error: null,
-  setUrl: jest.fn()
+  setUrl: jest.fn(),
+  setMethod: jest.fn(),
+  setHeaders: jest.fn(),
+  setData: jest.fn(),
+  cancelAllRequests: jest.fn()
 }));
 
 jest.mock("../helpers/history", () => {

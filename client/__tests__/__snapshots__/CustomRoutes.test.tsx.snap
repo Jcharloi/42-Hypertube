@@ -12,13 +12,33 @@ exports[`CustomRoute Is connected, private route : should show div 1`] = `
 </div>
 `;
 
-exports[`CustomRoute Is connected, public route : should NOT show div 1`] = `null`;
+exports[`CustomRoute Is connected, public route : should redirect to Home/Login 1`] = `
+<div>
+  Home/Login
+</div>
+`;
 
-exports[`CustomRoute Is not connected, private route : should NOT show div 1`] = `null`;
+exports[`CustomRoute Is connected, public/private route : should show private 1`] = `
+<div>
+  Private component
+</div>
+`;
+
+exports[`CustomRoute Is not connected, private route : should redirect to Home/Login 1`] = `
+<div>
+  Home/Login
+</div>
+`;
 
 exports[`CustomRoute Is not connected, public route : should show div 1`] = `
 <div>
   Should be shown
+</div>
+`;
+
+exports[`CustomRoute Is not connected, public/private route : should show public 1`] = `
+<div>
+  Public component
 </div>
 `;
 

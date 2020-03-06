@@ -1,40 +1,61 @@
 import React, { ReactElement } from "react";
 import renderer from "react-test-renderer";
-import { Router } from "react-router-dom";
+import { Route, MemoryRouter } from "react-router-dom";
 
 import CustomRoute from "../components/Routes/CustomRoute";
-import history from "../helpers/history";
 
 import useApi from "../hooks/useApi";
-import { ApiRecord } from "../models/models";
+import { UseApiReturn, ApiAuthResponse } from "../models/models";
 
 jest.mock("../hooks/useApi", () => jest.fn());
 
-const mockUseApi = useApi as jest.Mock<ApiRecord>;
+const mockUseApi = useApi as jest.Mock<
+  UseApiReturn<ApiAuthResponse, ApiAuthResponse>
+>;
+
+const basicUseApiValue: UseApiReturn<ApiAuthResponse, ApiAuthResponse> = {
+  callApi: jest.fn(),
+  loading: false,
+  res: null,
+  resData: null,
+  error: null,
+  setUrl: jest.fn(),
+  setMethod: jest.fn(),
+  setHeaders: jest.fn(),
+  setData: jest.fn(),
+  cancelAllRequests: jest.fn()
+};
 
 interface Props {
   children: ReactElement;
 }
 
-const MockComponent = ({ children }: Props): ReactElement => (
-  <Router history={history}>{children}</Router>
-);
+const MockRouter = ({ children }: Props): ReactElement => {
+  return (
+    <MemoryRouter initialEntries={["/test"]}>
+      {children}
+
+      <Route exact path="/">
+        <div>Home/Login</div>
+      </Route>
+    </MemoryRouter>
+  );
+};
 
 describe("CustomRoute", () => {
   it("Is connected, private route : should show div", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: true }
+      ...basicUseApiValue,
+      resData: { validToken: true }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
-          requireAuth
-          component={(): ReactElement => <div>Should be shown</div>}
+          path="/test"
+          exact
+          authComponent={(): ReactElement => <div>Should be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -42,20 +63,19 @@ describe("CustomRoute", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Is connected, public route : should NOT show div", () => {
+  it("Is connected, public route : should redirect to Home/Login", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: true }
+      ...basicUseApiValue,
+      resData: { validToken: true }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
-          requireAuth={false}
-          component={(): ReactElement => <div>Should NOT be shown</div>}
+          path="/test"
+          exact
+          notAuthComponent={(): ReactElement => <div>Should NOT be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -63,20 +83,19 @@ describe("CustomRoute", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Is not connected, private route : should NOT show div", () => {
+  it("Is not connected, private route : should redirect to Home/Login", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: false }
+      ...basicUseApiValue,
+      resData: { validToken: false }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
-          requireAuth
-          component={(): ReactElement => <div>Should NOT be shown</div>}
+          path="/test"
+          exact
+          authComponent={(): ReactElement => <div>Should NOT be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -86,18 +105,59 @@ describe("CustomRoute", () => {
 
   it("Is not connected, public route : should show div", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
-      error: null,
-      data: { validToken: false }
+      ...basicUseApiValue,
+      resData: { validToken: false }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
-          requireAuth={false}
-          component={(): ReactElement => <div>Should be shown</div>}
+          path="/test"
+          exact
+          notAuthComponent={(): ReactElement => <div>Should be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Is connected, public/private route : should show private", () => {
+    mockUseApi.mockImplementation(() => ({
+      ...basicUseApiValue,
+      resData: { validToken: true }
+    }));
+    const domNode = (
+      <MockRouter>
+        <CustomRoute
+          path="/test"
+          exact
+          notAuthComponent={(): ReactElement => <div>Public component</div>}
+          authComponent={(): ReactElement => <div>Private component</div>}
+        />
+      </MockRouter>
+    );
+
+    const tree = renderer.create(domNode);
+    tree.update(domNode);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Is not connected, public/private route : should show public", () => {
+    mockUseApi.mockImplementation(() => ({
+      ...basicUseApiValue,
+      resData: { validToken: false }
+    }));
+    const domNode = (
+      <MockRouter>
+        <CustomRoute
+          path="/test"
+          exact
+          notAuthComponent={(): ReactElement => <div>Public component</div>}
+          authComponent={(): ReactElement => <div>Private component</div>}
+        />
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);
@@ -107,20 +167,17 @@ describe("CustomRoute", () => {
 
   it("Loading", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: true,
-      error: null,
-      data: { validToken: true }
+      ...basicUseApiValue,
+      loading: true
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
           exact
-          component={(): ReactElement => <div>Loading</div>}
-          requireAuth={false}
-          path="/"
+          notAuthComponent={(): ReactElement => <div>Loading</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
     const tree = renderer.create(domNode);
     tree.update(domNode);
@@ -129,22 +186,30 @@ describe("CustomRoute", () => {
 
   it("Error", () => {
     mockUseApi.mockImplementation(() => ({
-      setUrl: jest.fn(),
-      loading: false,
+      ...basicUseApiValue,
       error: {
-        error: true
-      },
-      data: { validToken: true }
+        response: {
+          data: { validToken: false },
+          status: 500,
+          statusText: "",
+          headers: null,
+          config: null
+        },
+        config: null,
+        name: null,
+        message: null,
+        isAxiosError: true,
+        toJSON: null
+      }
     }));
     const domNode = (
-      <MockComponent>
+      <MockRouter>
         <CustomRoute
+          path="/test"
           exact
-          component={(): ReactElement => <div>Error</div>}
-          requireAuth={false}
-          path="/"
+          notAuthComponent={(): ReactElement => <div>Should NOT be shown</div>}
         />
-      </MockComponent>
+      </MockRouter>
     );
 
     const tree = renderer.create(domNode);

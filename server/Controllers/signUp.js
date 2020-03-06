@@ -1,6 +1,7 @@
 import fileType from "file-type";
 
 import { createUser, sendValidateEmail } from "../Helpers/signUp";
+import { setAccesTokenCookie } from "../Helpers/signIn";
 
 import UserModel from "../Schemas/User";
 import TokenModel from "../Schemas/Token";
@@ -142,8 +143,7 @@ const verifyEmail = async (req, res) => {
         token.user.emailVerified = true;
         await token.user.save();
 
-        // todo: Send auth token
-        // res.cookie("token", "YOUR TOKEN HERE IN THE FUTURE");
+        setAccesTokenCookie(res, token.user.id);
       }
 
       // Deleting the token
