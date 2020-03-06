@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement } from "react";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
@@ -7,7 +7,7 @@ import { Link, RouteComponentProps } from "react-router-dom";
 import { useIntl } from "react-intl";
 
 import useStyles from "./ConfirmEmail.style";
-import verifiyEmail from "./ConfirmEmail.service";
+import useApi from "../../hooks/useApi";
 
 interface UrlParam {
   id: string;
@@ -18,25 +18,16 @@ const ConfirmEmail = ({
     params: { id: emailId }
   }
 }: RouteComponentProps<UrlParam>): ReactElement => {
-  const [waiting, setWaiting] = useState(true);
-  const [verified, setVerified] = useState(false);
+  const { res, error } = useApi<{}, {}>(`/tokens/${emailId}/verify-email`, {
+    method: "put",
+    hotReload: true
+  });
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
 
-  useEffect(() => {
-    verifiyEmail(emailId)
-      .then(() => {
-        setWaiting(false);
-        setVerified(true);
-      })
-      .catch(() => {
-        setWaiting(false);
-      });
-  }, [emailId]);
-
   return (
     <Grid container className={classes.centerWrapper}>
-      {waiting && (
+      {!res && !error && (
         <>
           <Grid item>
             <CircularProgress color="secondary" />
@@ -49,7 +40,7 @@ const ConfirmEmail = ({
         </>
       )}
 
-      {!waiting && verified && (
+      {res && (
         <>
           <Grid item>
             <Typography variant="body1" align="center" gutterBottom>
@@ -66,7 +57,7 @@ const ConfirmEmail = ({
         </>
       )}
 
-      {!waiting && !verified && (
+      {error && (
         <Grid item>
           <Typography variant="body1" align="center" gutterBottom>
             {_t({ id: "authentication.confirmEmail.notVerified" })}
