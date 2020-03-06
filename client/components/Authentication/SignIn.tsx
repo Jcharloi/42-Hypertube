@@ -19,6 +19,7 @@ import { checkErrors } from "./SignIn.service";
 import {
   requiredErrorKey,
   badCredentialsErrorKey,
+  emailNotVerifiedErrorKey,
   errorWithoutTextErrorKey,
   unknownErrroKey
 } from "./errorKey";
@@ -110,6 +111,11 @@ const SignIn = (): ReactElement => {
       setAuthError({
         username: errorWithoutTextErrorKey,
         password: badCredentialsErrorKey
+      });
+    } else if (error?.response?.data?.error === "EMAIL_NOT_VERIFIED") {
+      setAuthError({
+        username: errorWithoutTextErrorKey,
+        password: emailNotVerifiedErrorKey
       });
     } else if (error) {
       setAuthError({

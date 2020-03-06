@@ -50,6 +50,7 @@
   "authentication.SignIn.login": "Connexion",
   "authentication.SignIn.login.loading": "Connexion en cours...",
   "authentication.SignIn.error.badCredentials": "Mauvaise combinaison nom d'utilisateur/mot de passe",
+  "authentication.SignIn.error.emailNotVerified": "Tu n'as pas encore verifier ton adresse email",
   "movie.description": "Description du film : ",
   "movie.creator": "Crée par : ",
   "movie.prodDate": "Date de production : ",

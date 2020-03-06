@@ -50,6 +50,7 @@
   "authentication.SignIn.login": "Login",
   "authentication.SignIn.login.loading": "Connecting...",
   "authentication.SignIn.error.badCredentials": "Wrong username/password combination",
+  "authentication.SignIn.error.emailNotVerified": "You have not verified your email address yet",
   "movie.description": "About this movie : ",
   "movie.creator": "Created by : ",
   "movie.prodDate": "Production date : ",

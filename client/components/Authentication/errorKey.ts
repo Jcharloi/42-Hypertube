@@ -16,3 +16,5 @@ export const emailTakenErrorKey = "authentication.signUp.error.email.taken";
 // <SignIn> error keys
 export const badCredentialsErrorKey =
   "authentication.SignIn.error.badCredentials";
+export const emailNotVerifiedErrorKey =
+  "authentication.SignIn.error.emailNotVerified";

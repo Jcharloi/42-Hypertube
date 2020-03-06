@@ -10,6 +10,7 @@ exports[`App renders correctly 1`] = `
     messages={
       Object {
         "authentication.SignIn.error.badCredentials": "Wrong username/password combination",
+        "authentication.SignIn.error.emailNotVerified": "You have not verified your email address yet",
         "authentication.SignIn.forgotPassword": "Forgot your password ?",
         "authentication.SignIn.login": "Login",
         "authentication.SignIn.login.loading": "Connecting...",
