@@ -36,8 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     resendWrapper: {
       marginTop: theme.spacing(5),
-      justifyContent: "center",
-      flexDirection: "column"
+      justifyContent: "center"
     },
     resendButton: {
       fontSize: "12px",
