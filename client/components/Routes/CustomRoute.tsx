@@ -44,13 +44,34 @@ const CustomRoute = ({
     <Route
       path={path}
       exact={exact}
-      render={({ location }): ReactElement => {
+      render={({
+        history: routeHistory,
+        location,
+        match,
+        staticContext
+      }): ReactElement => {
         if (error) return <div>Error</div>;
         if (!resData) return <Loading />;
 
-        if (AuthComponent && resData.validToken) return <AuthComponent />;
+        if (AuthComponent && resData.validToken)
+          return (
+            <AuthComponent
+              history={routeHistory}
+              location={location}
+              match={match}
+              staticContext={staticContext}
+            />
+          );
+
         if (NotAuthComponent && !resData.validToken)
-          return <NotAuthComponent />;
+          return (
+            <NotAuthComponent
+              history={routeHistory}
+              location={location}
+              match={match}
+              staticContext={staticContext}
+            />
+          );
 
         return <Redirect to={{ pathname: "/", state: { from: location } }} />;
       }}

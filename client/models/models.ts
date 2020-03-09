@@ -71,3 +71,10 @@ export interface Filters {
 export interface ClickAwayEventTarget extends EventTarget {
   target: { id: string };
 }
+
+export type CustomSnackbarVariant =
+  | "success"
+  | "warning"
+  | "error"
+  | "info"
+  | "default";

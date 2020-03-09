@@ -30,10 +30,8 @@ export interface UserError {
   [key: string]: string;
 }
 
-export interface ApiData {
-  missingInfos: boolean;
-  nameTaken: boolean;
-  emailTaken: boolean;
+export interface ApiResponse {
+  id: string;
 }
 
 const serverError = [usernameTakenErrorKey, emailTakenErrorKey];
@@ -131,16 +129,20 @@ export const isThereError = (userError: UserError): boolean => {
   return error;
 };
 
-export const sendSignUpData = (userInfo: UserInfo): AxiosPromise<ApiData> => {
+export const sendSignUpData = (
+  userInfo: UserInfo,
+  locale: string
+): AxiosPromise<ApiResponse> => {
   const data = new FormData();
   const keys: string[] = Object.keys(userInfo);
 
   keys.forEach((key) => {
     data.append(key, userInfo[key]);
   });
+  data.append("locale", locale);
   return API({
     method: "post",
-    url: "/inscription",
+    url: "/users",
     headers: { "Content-Type": "multipart/form-data" },
     data
   });

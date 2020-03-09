@@ -10,6 +10,7 @@ import fileUpload from "express-fileupload";
 import router from "./router";
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
@@ -67,8 +68,8 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(8080, () => {
-  console.log("Server running on 8080");
+http.listen(port, () => {
+  console.log(`Server running on ${port}`);
 });
 
 export default { ioConnection };

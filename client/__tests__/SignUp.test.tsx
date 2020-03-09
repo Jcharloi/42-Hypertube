@@ -6,6 +6,7 @@ import { StaticRouter } from "react-router-dom";
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import SignUp from "../components/Authentication/SignUp";
+import SignUpDone from "../components/Authentication/SignUpDone";
 import {
   UserInfo,
   UserError,
@@ -62,6 +63,42 @@ describe("SignUp", () => {
       <StaticRouter>
         <SignUp />
       </StaticRouter>,
+      "fr"
+    );
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUpDone> in english", () => {
+    const domNode = mountWithIntl(
+      <SignUpDone
+        user={{
+          username: "totoLeRigolo",
+          password: "Password1",
+          email: "toto@gmail.com",
+          firstName: "Toto",
+          lastName: "Le Rigolo",
+          picture: null,
+          id: "000000000000000000000001"
+        }}
+      />,
+      "en"
+    );
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUpDone> in french", () => {
+    const domNode = mountWithIntl(
+      <SignUpDone
+        user={{
+          username: "totoLeRigolo",
+          password: "Password1",
+          email: "toto@gmail.com",
+          firstName: "Toto",
+          lastName: "Le Rigolo",
+          picture: null,
+          id: "000000000000000000000001"
+        }}
+      />,
       "fr"
     );
     expect(EnzymeToJson(domNode)).toMatchSnapshot();

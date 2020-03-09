@@ -3,14 +3,13 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Avatar from "@material-ui/core/Avatar";
-import EmailIcon from "@material-ui/icons/Email";
 
 import { useIntl } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import useStyles from "./SignUp.styles";
 
 import SignUpForm from "./SignUpForm";
+import SignUpDone from "./SignUpDone";
 
 import {
   UserInfo,
@@ -33,11 +32,11 @@ const errorsToRemoveOnChange = [
 ];
 
 const SignUp = (): ReactElement => {
-  const { formatMessage: _t } = useIntl();
+  const { locale, formatMessage: _t } = useIntl();
   const classes = useStyles({});
   const location = useLocation();
   const [waitingRes, setWaitingRes] = useState(false);
-  const [userIsRegistered, setUserIsRegistered] = useState(false);
+  const [userId, setUserId] = useState("");
   const [userInfo, setUserInfo] = useState<UserInfo>({
     username: "",
     password: "",
@@ -104,10 +103,10 @@ const SignUp = (): ReactElement => {
     if (!isThereError(newUserError)) {
       setWaitingRes(true);
 
-      sendSignUpData(userInfo)
-        .then(() => {
+      sendSignUpData(userInfo, locale)
+        .then(({ data: { id } }) => {
           setWaitingRes(false);
-          setUserIsRegistered(true);
+          setUserId(id);
         })
         .catch(({ response: { data } }) => {
           setWaitingRes(false);
@@ -122,7 +121,7 @@ const SignUp = (): ReactElement => {
 
   return (
     <Grid container className={classes.center}>
-      {!userIsRegistered ? (
+      {userId === "" ? (
         <Paper className={classes.paper}>
           <Grid container direction="column" alignItems="center">
             <Grid container className={classes.titles}>
@@ -165,50 +164,7 @@ const SignUp = (): ReactElement => {
           </Grid>
         </Paper>
       ) : (
-        <Paper className={classes.registerPage}>
-          <Grid container className={classes.titles}>
-            <Grid item>
-              <Typography variant="h4" align="center">
-                {`${_t({ id: "authentication.signUp.validForm.title" })} ${
-                  userInfo.firstName
-                }`}
-                <span role="img" aria-label="Waving hand">
-                  {" "}
-                  👋🏻
-                </span>
-              </Typography>
-            </Grid>
-            <Grid container justify="center">
-              <Grid item>
-                <Avatar className={classes.emailRound}>
-                  <EmailIcon color="secondary" className={classes.emailIcon} />
-                </Avatar>
-              </Grid>
-              <Grid item>
-                <Grid container className={classes.randomWrapper}>
-                  <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1" align="center">
-                      {_t({
-                        id: "authentication.signUp.validForm.checkEmail"
-                      })}
-                    </Typography>
-                  </Grid>
-                  <Grid item className={classes.subtitle}>
-                    <Typography variant="subtitle1" align="center">
-                      {_t({
-                        id: "authentication.signUp.validForm.bingeWatching"
-                      })}
-                      <span role="img" aria-label="Shush guy">
-                        {" "}
-                        🤫
-                      </span>
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Paper>
+        <SignUpDone user={{ ...userInfo, id: userId }} />
       )}
     </Grid>
   );

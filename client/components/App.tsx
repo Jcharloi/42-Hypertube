@@ -10,6 +10,7 @@ import frTranslation from "../translations/fr.json";
 
 import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
+import ConfirmEmail from "./Authentication/ConfirmEmail";
 import Home from "./Home";
 import Movie from "./Movie/Movie";
 import Search from "./Search";
@@ -43,6 +44,7 @@ const App = (): ReactElement => {
           setLocale={(locale: string): void => setItem("language", locale)}
         >
           <Switch>
+            <Route exact path="/confirm-email/:id" component={ConfirmEmail} />
             <CustomRoute exact path="/sign-up" notAuthComponent={SignUp} />
             <CustomRoute
               exact
