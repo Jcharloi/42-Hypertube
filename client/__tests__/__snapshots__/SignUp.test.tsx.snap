@@ -11124,7 +11124,7 @@ exports[`SignUp should render <SignUpDone> in french 1`] = `
                                           <h6
                                             className="MuiTypography-root MuiTypography-subtitle1 MuiTypography-alignCenter"
                                           >
-                                            On a envoyé un email de confirmation à l'ardesse 
+                                            On a envoyé un email de confirmation à l'adresse 
                                             <b>
                                               toto@gmail.com
                                             </b>
