@@ -62,8 +62,13 @@ const ShowComment = ({ username }: Props): ReactElement => {
             return (
               <div key={element._id} className={classes.containerComment}>
                 <div className={classes.containerMovieInfos}>
-                  <Rating name="read-only" value={element.stars} readOnly />
-                  <Typography style={{ marginLeft: "8px" }} variant="subtitle1">
+                  <Rating
+                    style={{ marginRight: "8px" }}
+                    name="read-only"
+                    value={element.stars}
+                    readOnly
+                  />
+                  <Typography variant="subtitle1">
                     {element.movieName}
                   </Typography>
                 </div>
@@ -71,7 +76,9 @@ const ShowComment = ({ username }: Props): ReactElement => {
                   {date.getDate()} {monthNames[date.getMonth()]}{" "}
                   {date.getFullYear()}
                 </Typography>
-                <p>{element.body}</p>
+                <Typography variant="body1" className={classes.textComment}>
+                  {element.body}
+                </Typography>
               </div>
             );
           })

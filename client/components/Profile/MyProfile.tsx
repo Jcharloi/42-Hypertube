@@ -7,6 +7,7 @@ import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import API from "../../util/api";
 import useApi from "../../hooks/useApi";
 import Loading from "../Routes/Loading";
@@ -15,6 +16,7 @@ import useStyles from "./Profile.styles";
 import ShowComments from "./ShowComments";
 import OnClickInput from "./OnClickInput";
 import Password from "./Password";
+import EditableAvatar from "./EditableAvatar";
 
 interface UrlParam {
   username: string;
@@ -67,13 +69,7 @@ const MyProfile = (): ReactElement => {
   return (
     <div className={classes.containerProfile}>
       <Paper className={classes.containerUser}>
-        <div className={classes.containerPicture}>
-          <Avatar
-            alt="Test"
-            src={`${window.location.origin}/api/data/avatar/${data?.picture}`}
-            className={classes.large}
-          />
-        </div>
+        <EditableAvatar picture={data?.picture} />
         <div className={classes.containerInfo}>
           <div className={classes.containerFullname}>
             <h1>
@@ -103,15 +99,7 @@ const MyProfile = (): ReactElement => {
             label="Email"
             name="email"
           />
-          <OnClickInput
-            autocomplete="username"
-            updateInfo={updateInfo}
-            startValue={data?.username}
-            label="Username"
-            name="username"
-          />
-          {/* <TextField placeholder="New Password" />
-          <TextField placeholder="Confirm Password" /> */}
+          <p>{data?.username}</p>
           <Button
             onClick={() => {
               setChangingPassword((val) => {
@@ -123,7 +111,6 @@ const MyProfile = (): ReactElement => {
           </Button>
           {changingPassword && <Password />}
         </div>
-        {/* <Button variant="contained">Edit</Button> */}
       </Paper>
       <ShowComments username={username} />
     </div>

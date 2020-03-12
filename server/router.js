@@ -8,6 +8,7 @@ import signUpController from "./Controllers/signUp";
 import searchController from "./Controllers/search";
 import editUserInfo from "./Controllers/editprofile";
 import changePassword from "./Controllers/changePassword";
+import changePicture from "./Controllers/changePicture";
 
 const router = express.Router();
 
@@ -28,6 +29,7 @@ router.get("/user", user.getUserInfos);
 router.get("/user-comments/:username", profile.getUserComments);
 router.put("/edit-profile/", editUserInfo.editUserInfo);
 router.put("/change-password/", changePassword);
+router.put("/change-picture/", changePicture);
 
 router.get("/data/avatar/:id", (req, res) => {
   console.log("ICI");

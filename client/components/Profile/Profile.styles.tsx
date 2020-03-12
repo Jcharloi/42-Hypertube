@@ -3,18 +3,17 @@ import { Theme, FormHelperText } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) => ({
   containerProfile: {
-    // display: "inline-block",
     maxWidth: "1000px",
     margin: "50 auto",
-    // padding: "20px"
+
     display: "flex",
     justifyContent: "center",
+
     flexWrap: "wrap"
   },
   containerHistory: {
-    // display: "inline-block",
     flexGrow: 1,
-    margin: `0px ${theme.spacing(4)}`,
+    margin: `0px ${theme.spacing(1)}`,
     overflow: "auto",
     maxWidth: "600px",
     maxHeight: "85vh",
@@ -25,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: "center"
   },
   containerUser: {
+    marginBottom: "10px",
     borderRadius: "8px",
     display: "inline-block",
     maxWidth: "400px",
@@ -32,7 +32,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   containerPicture: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    cursor: "pointer",
+    zIndex: 100,
+    "&:hover": {
+      filter: "brightness(80%)",
+      changePhoto: {
+        display: "none",
+        border: "2px solid red",
+        cursor: "pointer"
+      }
+    }
   },
   containerInfo: {
     display: "flex",
@@ -45,22 +55,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: "20px"
   },
   containerRating: {
-    // border: "2px solid red",
     float: "left",
     display: "flex"
   },
   containerMovieInfos: {
-    // border: "2px solid green",
-    // paddingLeft: "150px",
-    height: "28px",
+    flexWrap: "wrap",
+    maxHeight: "45px",
     display: "flex",
     alignItems: "center"
-
-    // padding: "0px"
-    // float: "left"
   },
   containerFullname: {
-    border: "2px solid green",
     display: "flex",
     width: "100%",
     maxWidth: "250px",
@@ -85,6 +89,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   large: {
     width: theme.spacing(35),
     height: theme.spacing(35)
+  },
+  changePhoto: {
+    position: "absolute",
+    top: "60px",
+    left: "60px"
+  },
+  textComment: {
+    wordBreak: "break-all"
   }
 }));
 export default useStyles;
