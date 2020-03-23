@@ -29,7 +29,7 @@ router.get("/user", user.getUserInfos);
 router.get("/user-comments/:username", profile.getUserComments);
 router.put("/edit-profile/", editUserInfo.editUserInfo);
 router.put("/change-password/", changePassword);
-router.put("/change-picture/", changePicture);
+router.post("/change-picture/", changePicture);
 
 router.get("/data/avatar/:id", (req, res) => {
   console.log("ICI");

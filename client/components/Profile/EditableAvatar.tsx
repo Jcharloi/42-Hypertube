@@ -18,29 +18,33 @@ import {
   isThereError,
   sendSignUpData
 } from "../Authentication/SignUp.service";
+import Axios from "axios";
 
 interface Props {
   picture?: string;
 }
 
-export const sendPictureData = (picture: any): AxiosPromise<ApiData> => {
+export const sendPictureData = async (picture: any): AxiosPromise<ApiData> => {
   const data = new FormData();
   const keys: string[] = Object.keys(picture);
-  keys.forEach((key) => {
-    data.append(key, picture[key]);
-  });
+  console.log(picture);
+
+  data.append("image", picture, picture.name);
+  console.log(data);
   return API({
-    method: "put",
+    method: "post",
     url: "/change-picture",
     headers: { "Content-Type": "multipart/form-data" },
-    data
+    data: data
   });
+  // const strtest = "ccccccccccccccc";
+  // return Axios.put(`${window.location.origin}/api/change-picture`, strtest);
 };
 
 const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
   if (e.target.type === "file") {
     const picErr = e.target.files[0] ? getPictureError(e.target.files[0]) : "";
-    console.log(e.target.files[0]);
+
     // API.put("/change-picture/", e.target.files[0])
     //   .then(() => {
     //     console.log("api called");
@@ -62,6 +66,7 @@ const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
 const EditableAvatar = ({ picture }: Props): ReactElement => {
   const classes = useStyles({});
   const [mouseIn, setMouseIn] = useState(false);
+
   return (
     <div
       onMouseEnter={() => setMouseIn(true)}
