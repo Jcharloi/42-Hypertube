@@ -27,38 +27,24 @@ interface Props {
 export const sendPictureData = async (picture: any): AxiosPromise<ApiData> => {
   const data = new FormData();
   const keys: string[] = Object.keys(picture);
-  console.log(picture);
-
   data.append("image", picture, picture.name);
-  console.log(data);
   return API({
     method: "post",
     url: "/change-picture",
     headers: { "Content-Type": "multipart/form-data" },
     data: data
   });
-  // const strtest = "ccccccccccccccc";
-  // return Axios.put(`${window.location.origin}/api/change-picture`, strtest);
 };
 
 const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
   if (e.target.type === "file") {
     const picErr = e.target.files[0] ? getPictureError(e.target.files[0]) : "";
-
-    // API.put("/change-picture/", e.target.files[0])
-    //   .then(() => {
-    //     console.log("api called");
-    //   })
-    //   .catch((k) => {
-    //     console.error(k);
-    //     console.log(k.response.status);
-    //   });
     sendPictureData(e.target.files[0])
       .then(() => {
-        console.log("OK");
+        console.log("file sent");
       })
       .catch(({ response: { data } }) => {
-        console.log("KO", data);
+        console.log("could not send file", data);
       });
   }
 };

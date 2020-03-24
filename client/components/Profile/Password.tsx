@@ -60,22 +60,13 @@ const Password = (): ReactElement => {
       newNewPasswordError === "" &&
       newConfirmedPasswordError === ""
     ) {
-      console.log(
-        newOldPasswordError,
-        newNewPasswordError,
-        newConfirmedPasswordError
-      );
-      console.log("all ok");
       API.put("/change-password/", { newPassword, oldPassword })
         .then(() => {
-          console.log("api called");
           setStatus(200);
-          console.log(status);
         })
-        .catch((e) => {
+        .catch(e => {
           console.error(e);
           setStatus(e.response.status);
-          console.log(e.response.status);
         });
     }
   };

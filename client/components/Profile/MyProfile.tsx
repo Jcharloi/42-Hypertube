@@ -47,21 +47,10 @@ const MyProfile = (): ReactElement => {
   const [changingPassword, setChangingPassword] = useState(false);
 
   const updateInfo = (value: string, name: string): void => {
-    console.log(value);
-    console.log(name);
     if (value && name) {
-      // const body = {
-      //   userId
-      // };
-      // if (label === "First name") Object.assign(body, { firstName: newInfo });
-      // if (label === "Last name") Object.assign(body, { lastName: newInfo });
-      // if (label === "Email") Object.assign(body, { email: newInfo });
-      // if (label === "Username") Object.assign(body, { username: newInfo });
       API.put("/edit-profile", { [name]: value })
-        .then(() => {
-          console.log("api called");
-        })
-        .catch((e) => {
+        .then(() => {})
+        .catch(e => {
           console.error(e);
         });
     }
@@ -102,7 +91,7 @@ const MyProfile = (): ReactElement => {
           <p>{data?.username}</p>
           <Button
             onClick={() => {
-              setChangingPassword((val) => {
+              setChangingPassword(val => {
                 return !val;
               });
             }}

@@ -32,7 +32,6 @@ router.put("/change-password/", changePassword);
 router.post("/change-picture/", changePicture);
 
 router.get("/data/avatar/:id", (req, res) => {
-  console.log("ICI");
   const pictureName = req.params.id;
   const absolutePath = path.resolve(`./server/data/avatar/${pictureName}`);
   res.status(200).sendFile(absolutePath);

@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import UserModel from "../Schemas/User";
 import MovieCommentModel from "../Schemas/Movie";
 
-const validatePassword = (password) => {
+const validatePassword = password => {
   const reg = /(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$/;
   return reg.test(password);
 };
@@ -11,10 +11,7 @@ const changePassword = async (req, res) => {
   const id = "5deef4dc80a440152717dbcf";
   const encodedNewPassword = bcrypt.hashSync(req.body.newPassword, 10);
 
-  console.log("oldPassword : ");
-  console.log("NewHash:", encodedNewPassword);
   if (!(await validatePassword(req.body.newPassword))) {
-    console.log("regex bad");
     res.status(400).send();
   } else {
     try {
@@ -25,9 +22,7 @@ const changePassword = async (req, res) => {
         !(await bcrypt.compareSync(req.body.oldPassword, userInfos.password))
       ) {
         res.status(401).send();
-        console.log("password not matching");
       } else {
-        console.log("here");
         try {
           const userInfo = await UserModel.findByIdAndUpdate(
             id,

@@ -5,7 +5,6 @@ const editUserInfo = async (req, res) => {
   // todo
   // const id = req.userId;
   const id = "5deef4dc80a440152717dbcf";
-  console.log(req.body);
 
   try {
     const userInfo = await UserModel.findByIdAndUpdate(id, req.body, {
