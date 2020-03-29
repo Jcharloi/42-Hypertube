@@ -47,7 +47,7 @@ exports[`Search search en renders correctly 1`] = `
               <img
                 alt="no-media"
                 className="makeStyles-noMedia-14"
-                src="http://localhost:8080/public/no-media.png"
+                src="http://localhost/public/no-media.png"
               />
               <WithStyles(ForwardRef(Typography))
                 variant="h5"
@@ -92,7 +92,7 @@ exports[`Search search en renders correctly 1`] = `
                   <h5
                     className="MuiTypography-root MuiTypography-h5"
                   >
-                    No medias found !
+                    No media found !
                   </h5>
                 </ForwardRef(Typography)>
               </WithStyles(ForwardRef(Typography))>
@@ -152,7 +152,7 @@ exports[`Search search fr renders correctly 1`] = `
               <img
                 alt="no-media"
                 className="makeStyles-noMedia-14"
-                src="http://localhost:8080/public/no-media.png"
+                src="http://localhost/public/no-media.png"
               />
               <WithStyles(ForwardRef(Typography))
                 variant="h5"

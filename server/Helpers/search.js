@@ -1,9 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 
-// const ARCHIVE_URL = "https://archive.org/advancedsearch.php";
-
-const YTS_URL = "https://yts.lt/api/v2/list_movies.json";
+const YTS_URL = "https://yts.ae/api/v2/list_movies.json";
 const POPCORN_URL = "https://tv-v2.api-fetch.website/shows";
 
 const searchMovies = async ({ query, page, minRating, year, collections }) => {
@@ -19,7 +17,7 @@ const searchMovies = async ({ query, page, minRating, year, collections }) => {
 
     const { data } = await axios.get(`${YTS_URL}?${queryParams}`);
 
-    if (data && !data.data.movie_count) {
+    if (data && data.data.movie_count === 0) {
       return {
         nextPage: false,
         medias: []

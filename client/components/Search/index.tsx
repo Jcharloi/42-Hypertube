@@ -71,7 +71,7 @@ const Search = (): ReactElement => {
         {!filmList.length && !loading && (
           <div className={classes.noMediaContainer}>
             <img
-              src="http://localhost:8080/public/no-media.png"
+              src={`${window.location.origin}/public/no-media.png`}
               alt="no-media"
               className={classes.noMedia}
             />

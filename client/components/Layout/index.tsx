@@ -9,8 +9,6 @@ import { ClickAwayListener, Box } from "@material-ui/core";
 import Header from "./Header";
 import Filters from "./Filters";
 
-import { ClickAwayEventTarget } from "../../models/models";
-
 import { useLayoutStyles } from "./styles";
 
 interface Props {
@@ -67,10 +65,15 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
     location.pathname.includes("movies") ? "movies" : "shows"
   );
 
-  const onClickAway = (e: ClickAwayEventTarget): void => {
-    const id = String(e.target?.id);
+  const handleClickAway = (e: React.MouseEvent<EventTarget>): void => {
+    const target = e.target as HTMLElement;
+    const { id } = target;
 
-    if (!id.includes("menuitem") && !id.includes("body")) {
+    if (
+      !id.includes("menuitem") &&
+      !target.children.namedItem("menuitem-search") && // Check if it's search input's wrapper
+      !id.includes("body")
+    ) {
       setExpandedFilters(false);
     }
   };
@@ -84,20 +87,15 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
           setLocale={setLocale}
           searchQuery={searchQuery}
           onSearchChange={(query): void => setSearchQuery(query)}
-          onExpand={(): void => setExpandedFilters(true)}
+          onExpandFilters={(): void => setExpandedFilters(true)}
           onMediaTypeChange={(newMediaType): void => setMediaType(newMediaType)}
           mediaType={mediaType}
         />
         <Box className={classes.contentContainer}>
-          <ClickAwayListener
-            onClickAway={(e): void =>
-              onClickAway((e as unknown) as ClickAwayEventTarget)
-            }
-          >
+          <ClickAwayListener onClickAway={handleClickAway}>
             <Box
-              className={`${classes.filtersContainer} ${
-                expandedFilters ? "" : classes.hiddenFilters
-              }`}
+              className={classes.filtersContainer}
+              style={expandedFilters ? {} : { display: "none" }}
             >
               <Filters
                 searchQuery={searchQuery}

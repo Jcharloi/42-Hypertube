@@ -93,7 +93,7 @@ exports[`App renders correctly 1`] = `
         "search.film.watch_show": "Watch show",
         "search.film_count": "Found {count} movies",
         "search.loading": "Loading...",
-        "search.no_media": "No medias found !",
+        "search.no_media": "No media found !",
         "title": "Hypertube",
         "title_short": "HT",
       }
@@ -430,19 +430,19 @@ exports[`App renders correctly 1`] = `
             <Header
               locale="en"
               mediaType="shows"
-              onExpand={[Function]}
+              onExpandFilters={[Function]}
               onMediaTypeChange={[Function]}
               onSearchChange={[Function]}
               searchQuery=""
               setLocale={[Function]}
             >
               <WithStyles(ForwardRef(AppBar))
-                className="makeStyles-appBar-5"
+                className="makeStyles-appBar-4"
                 color="inherit"
                 position="sticky"
               >
                 <ForwardRef(AppBar)
-                  className="makeStyles-appBar-5"
+                  className="makeStyles-appBar-4"
                   classes={
                     Object {
                       "colorDefault": "MuiAppBar-colorDefault",
@@ -460,13 +460,13 @@ exports[`App renders correctly 1`] = `
                   position="sticky"
                 >
                   <WithStyles(ForwardRef(Paper))
-                    className="MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-5"
+                    className="MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-4"
                     component="header"
                     elevation={4}
                     square={true}
                   >
                     <ForwardRef(Paper)
-                      className="MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-5"
+                      className="MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-4"
                       classes={
                         Object {
                           "elevation0": "MuiPaper-elevation0",
@@ -504,7 +504,7 @@ exports[`App renders correctly 1`] = `
                       square={true}
                     >
                       <header
-                        className="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-5 MuiPaper-elevation4"
+                        className="MuiPaper-root MuiAppBar-root MuiAppBar-positionSticky makeStyles-appBar-4 MuiPaper-elevation4"
                       >
                         <WithStyles(ForwardRef(Toolbar))>
                           <ForwardRef(Toolbar)
@@ -521,14 +521,14 @@ exports[`App renders correctly 1`] = `
                               className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
                             >
                               <div
-                                className="makeStyles-linksContainer-8"
+                                className="makeStyles-linksContainer-7"
                               >
                                 <WithStyles(ForwardRef(Typography))
-                                  className="makeStyles-title-9"
+                                  className="makeStyles-title-8"
                                   variant="h6"
                                 >
                                   <ForwardRef(Typography)
-                                    className="makeStyles-title-9"
+                                    className="makeStyles-title-8"
                                     classes={
                                       Object {
                                         "alignCenter": "MuiTypography-alignCenter",
@@ -566,19 +566,19 @@ exports[`App renders correctly 1`] = `
                                     variant="h6"
                                   >
                                     <h6
-                                      className="MuiTypography-root makeStyles-title-9 MuiTypography-h6"
+                                      className="MuiTypography-root makeStyles-title-8 MuiTypography-h6"
                                     >
                                       <Link
-                                        className="makeStyles-titleLink-6"
+                                        className="makeStyles-titleLink-5"
                                         to="/"
                                       >
                                         <LinkAnchor
-                                          className="makeStyles-titleLink-6"
+                                          className="makeStyles-titleLink-5"
                                           href="/"
                                           navigate={[Function]}
                                         >
                                           <a
-                                            className="makeStyles-titleLink-6"
+                                            className="makeStyles-titleLink-5"
                                             href="/"
                                             onClick={[Function]}
                                           >
@@ -638,14 +638,14 @@ exports[`App renders correctly 1`] = `
                                 </Hidden>
                               </div>
                               <div
-                                className="makeStyles-headerContent-11"
+                                className="makeStyles-headerContent-10"
                               >
                                 <Styled(MuiBox)
-                                  className="makeStyles-toggleContent-16"
+                                  className="makeStyles-toggleContent-15"
                                   onClick={[Function]}
                                 >
                                   <div
-                                    className="MuiBox-root MuiBox-root-92 makeStyles-toggleContent-16"
+                                    className="MuiBox-root MuiBox-root-91 makeStyles-toggleContent-15"
                                     onClick={[Function]}
                                   >
                                     <Hidden
@@ -683,21 +683,21 @@ exports[`App renders correctly 1`] = `
                                   </div>
                                 </Styled(MuiBox)>
                                 <WithStyles(ForwardRef(OutlinedInput))
-                                  className="makeStyles-searchInput-12"
+                                  className="makeStyles-searchInput-11"
                                   id="menuitem-search"
                                   labelWidth={0}
                                   onChange={[Function]}
-                                  onClick={[Function]}
+                                  onFocus={[Function]}
                                   placeholder="Search a film, an author..."
                                   startAdornment={
                                     <UNDEFINED
-                                      className="makeStyles-inputLabel-14"
+                                      className="makeStyles-inputLabel-13"
                                     />
                                   }
                                   value=""
                                 >
                                   <ForwardRef(OutlinedInput)
-                                    className="makeStyles-searchInput-12"
+                                    className="makeStyles-searchInput-11"
                                     classes={
                                       Object {
                                         "adornedEnd": "MuiOutlinedInput-adornedEnd",
@@ -720,17 +720,17 @@ exports[`App renders correctly 1`] = `
                                     id="menuitem-search"
                                     labelWidth={0}
                                     onChange={[Function]}
-                                    onClick={[Function]}
+                                    onFocus={[Function]}
                                     placeholder="Search a film, an author..."
                                     startAdornment={
                                       <UNDEFINED
-                                        className="makeStyles-inputLabel-14"
+                                        className="makeStyles-inputLabel-13"
                                       />
                                     }
                                     value=""
                                   >
                                     <WithStyles(ForwardRef(InputBase))
-                                      className="makeStyles-searchInput-12"
+                                      className="makeStyles-searchInput-11"
                                       classes={
                                         Object {
                                           "adornedEnd": "MuiOutlinedInput-adornedEnd",
@@ -755,19 +755,19 @@ exports[`App renders correctly 1`] = `
                                       inputComponent="input"
                                       multiline={false}
                                       onChange={[Function]}
-                                      onClick={[Function]}
+                                      onFocus={[Function]}
                                       placeholder="Search a film, an author..."
                                       renderSuffix={[Function]}
                                       startAdornment={
                                         <UNDEFINED
-                                          className="makeStyles-inputLabel-14"
+                                          className="makeStyles-inputLabel-13"
                                         />
                                       }
                                       type="text"
                                       value=""
                                     >
                                       <ForwardRef(InputBase)
-                                        className="makeStyles-searchInput-12"
+                                        className="makeStyles-searchInput-11"
                                         classes={
                                           Object {
                                             "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
@@ -795,29 +795,29 @@ exports[`App renders correctly 1`] = `
                                         inputComponent="input"
                                         multiline={false}
                                         onChange={[Function]}
-                                        onClick={[Function]}
+                                        onFocus={[Function]}
                                         placeholder="Search a film, an author..."
                                         renderSuffix={[Function]}
                                         startAdornment={
                                           <UNDEFINED
-                                            className="makeStyles-inputLabel-14"
+                                            className="makeStyles-inputLabel-13"
                                           />
                                         }
                                         type="text"
                                         value=""
                                       >
                                         <div
-                                          className="MuiInputBase-root MuiOutlinedInput-root makeStyles-searchInput-12 MuiInputBase-adornedStart MuiOutlinedInput-adornedStart"
+                                          className="MuiInputBase-root MuiOutlinedInput-root makeStyles-searchInput-11 MuiInputBase-adornedStart MuiOutlinedInput-adornedStart"
                                           onClick={[Function]}
                                         >
                                           <ForwardRef
-                                            className="makeStyles-inputLabel-14"
+                                            className="makeStyles-inputLabel-13"
                                           >
                                             <WithStyles(ForwardRef(SvgIcon))
-                                              className="makeStyles-inputLabel-14"
+                                              className="makeStyles-inputLabel-13"
                                             >
                                               <ForwardRef(SvgIcon)
-                                                className="makeStyles-inputLabel-14"
+                                                className="makeStyles-inputLabel-13"
                                                 classes={
                                                   Object {
                                                     "colorAction": "MuiSvgIcon-colorAction",
@@ -834,7 +834,7 @@ exports[`App renders correctly 1`] = `
                                               >
                                                 <svg
                                                   aria-hidden="true"
-                                                  className="MuiSvgIcon-root makeStyles-inputLabel-14"
+                                                  className="MuiSvgIcon-root makeStyles-inputLabel-13"
                                                   focusable="false"
                                                   role="presentation"
                                                   viewBox="0 0 24 24"
@@ -866,8 +866,8 @@ exports[`App renders correctly 1`] = `
                                               className="MuiOutlinedInput-notchedOutline"
                                               classes={
                                                 Object {
-                                                  "legend": "PrivateNotchedOutline-legend-138",
-                                                  "root": "PrivateNotchedOutline-root-137",
+                                                  "legend": "PrivateNotchedOutline-legend-137",
+                                                  "root": "PrivateNotchedOutline-root-136",
                                                 }
                                               }
                                               labelWidth={0}
@@ -875,7 +875,7 @@ exports[`App renders correctly 1`] = `
                                             >
                                               <fieldset
                                                 aria-hidden={true}
-                                                className="PrivateNotchedOutline-root-137 MuiOutlinedInput-notchedOutline"
+                                                className="PrivateNotchedOutline-root-136 MuiOutlinedInput-notchedOutline"
                                                 style={
                                                   Object {
                                                     "paddingLeft": 8,
@@ -883,7 +883,7 @@ exports[`App renders correctly 1`] = `
                                                 }
                                               >
                                                 <legend
-                                                  className="PrivateNotchedOutline-legend-138"
+                                                  className="PrivateNotchedOutline-legend-137"
                                                   style={
                                                     Object {
                                                       "width": 0,
@@ -907,14 +907,14 @@ exports[`App renders correctly 1`] = `
                                   </ForwardRef(OutlinedInput)>
                                 </WithStyles(ForwardRef(OutlinedInput))>
                                 <div
-                                  className="makeStyles-buttonsMenu-7"
+                                  className="makeStyles-buttonsMenu-6"
                                 >
                                   <WithStyles(ForwardRef(IconButton))
-                                    className="makeStyles-headerButtons-15"
+                                    className="makeStyles-headerButtons-14"
                                     onClick={[Function]}
                                   >
                                     <ForwardRef(IconButton)
-                                      className="makeStyles-headerButtons-15"
+                                      className="makeStyles-headerButtons-14"
                                       classes={
                                         Object {
                                           "colorInherit": "MuiIconButton-colorInherit",
@@ -932,14 +932,14 @@ exports[`App renders correctly 1`] = `
                                     >
                                       <WithStyles(ForwardRef(ButtonBase))
                                         centerRipple={true}
-                                        className="MuiIconButton-root makeStyles-headerButtons-15"
+                                        className="MuiIconButton-root makeStyles-headerButtons-14"
                                         disabled={false}
                                         focusRipple={true}
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(ButtonBase)
                                           centerRipple={true}
-                                          className="MuiIconButton-root makeStyles-headerButtons-15"
+                                          className="MuiIconButton-root makeStyles-headerButtons-14"
                                           classes={
                                             Object {
                                               "disabled": "Mui-disabled",
@@ -952,7 +952,7 @@ exports[`App renders correctly 1`] = `
                                           onClick={[Function]}
                                         >
                                           <button
-                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-15"
+                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-14"
                                             disabled={false}
                                             onBlur={[Function]}
                                             onClick={[Function]}
@@ -973,7 +973,7 @@ exports[`App renders correctly 1`] = `
                                               className="MuiIconButton-label"
                                             >
                                               <span
-                                                className="makeStyles-flagIcon-13"
+                                                className="makeStyles-flagIcon-12"
                                               >
                                                 🇬🇧
                                               </span>
@@ -1671,11 +1671,11 @@ exports[`App renders correctly 1`] = `
                                     </ForwardRef(Menu)>
                                   </WithStyles(ForwardRef(Menu))>
                                   <WithStyles(ForwardRef(IconButton))
-                                    className="makeStyles-headerButtons-15"
+                                    className="makeStyles-headerButtons-14"
                                     onClick={[Function]}
                                   >
                                     <ForwardRef(IconButton)
-                                      className="makeStyles-headerButtons-15"
+                                      className="makeStyles-headerButtons-14"
                                       classes={
                                         Object {
                                           "colorInherit": "MuiIconButton-colorInherit",
@@ -1693,14 +1693,14 @@ exports[`App renders correctly 1`] = `
                                     >
                                       <WithStyles(ForwardRef(ButtonBase))
                                         centerRipple={true}
-                                        className="MuiIconButton-root makeStyles-headerButtons-15"
+                                        className="MuiIconButton-root makeStyles-headerButtons-14"
                                         disabled={false}
                                         focusRipple={true}
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(ButtonBase)
                                           centerRipple={true}
-                                          className="MuiIconButton-root makeStyles-headerButtons-15"
+                                          className="MuiIconButton-root makeStyles-headerButtons-14"
                                           classes={
                                             Object {
                                               "disabled": "Mui-disabled",
@@ -1713,7 +1713,7 @@ exports[`App renders correctly 1`] = `
                                           onClick={[Function]}
                                         >
                                           <button
-                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-15"
+                                            className="MuiButtonBase-root MuiIconButton-root makeStyles-headerButtons-14"
                                             disabled={false}
                                             onBlur={[Function]}
                                             onClick={[Function]}
@@ -2472,16 +2472,26 @@ exports[`App renders correctly 1`] = `
               className="makeStyles-contentContainer-2"
             >
               <div
-                className="MuiBox-root MuiBox-root-155 makeStyles-contentContainer-2"
+                className="MuiBox-root MuiBox-root-154 makeStyles-contentContainer-2"
               >
                 <ForwardRef(ClickAwayListener)
                   onClickAway={[Function]}
                 >
                   <Styled(MuiBox)
-                    className="makeStyles-filtersContainer-4 makeStyles-hiddenFilters-3"
+                    className="makeStyles-filtersContainer-3"
+                    style={
+                      Object {
+                        "display": "none",
+                      }
+                    }
                   >
                     <div
-                      className="MuiBox-root MuiBox-root-156 makeStyles-filtersContainer-4 makeStyles-hiddenFilters-3"
+                      className="MuiBox-root MuiBox-root-155 makeStyles-filtersContainer-3"
+                      style={
+                        Object {
+                          "display": "none",
+                        }
+                      }
                     >
                       <Filters
                         mediaType="shows"
@@ -2489,10 +2499,10 @@ exports[`App renders correctly 1`] = `
                         searchQuery=""
                       >
                         <WithStyles(ForwardRef(Paper))
-                          className="makeStyles-container-157"
+                          className="makeStyles-container-156"
                         >
                           <ForwardRef(Paper)
-                            className="makeStyles-container-157"
+                            className="makeStyles-container-156"
                             classes={
                               Object {
                                 "elevation0": "MuiPaper-elevation0",
@@ -2527,10 +2537,10 @@ exports[`App renders correctly 1`] = `
                             }
                           >
                             <div
-                              className="MuiPaper-root makeStyles-container-157 MuiPaper-elevation1 MuiPaper-rounded"
+                              className="MuiPaper-root makeStyles-container-156 MuiPaper-elevation1 MuiPaper-rounded"
                             >
                               <div
-                                className="makeStyles-collectionsContainer-158"
+                                className="makeStyles-collectionsContainer-157"
                               >
                                 <WithStyles(ForwardRef(Typography))>
                                   <ForwardRef(Typography)
@@ -2581,13 +2591,13 @@ exports[`App renders correctly 1`] = `
                                   setCollections={[Function]}
                                 >
                                   <WithStyles(ForwardRef(Select))
-                                    className="makeStyles-filtersComponent-159"
+                                    className="makeStyles-filtersComponent-158"
                                     defaultValue={Array []}
                                     onChange={[Function]}
                                     value={Array []}
                                   >
                                     <ForwardRef(Select)
-                                      className="makeStyles-filtersComponent-159"
+                                      className="makeStyles-filtersComponent-158"
                                       classes={
                                         Object {
                                           "disabled": "Mui-disabled",
@@ -2607,7 +2617,7 @@ exports[`App renders correctly 1`] = `
                                       value={Array []}
                                     >
                                       <WithStyles(ForwardRef(Input))
-                                        className="makeStyles-filtersComponent-159"
+                                        className="makeStyles-filtersComponent-158"
                                         defaultValue={Array []}
                                         inputComponent={
                                           Object {
@@ -2823,7 +2833,7 @@ exports[`App renders correctly 1`] = `
                                         value={Array []}
                                       >
                                         <ForwardRef(Input)
-                                          className="makeStyles-filtersComponent-159"
+                                          className="makeStyles-filtersComponent-158"
                                           classes={
                                             Object {
                                               "colorSecondary": "MuiInput-colorSecondary",
@@ -3057,7 +3067,7 @@ exports[`App renders correctly 1`] = `
                                           value={Array []}
                                         >
                                           <WithStyles(ForwardRef(InputBase))
-                                            className="makeStyles-filtersComponent-159"
+                                            className="makeStyles-filtersComponent-158"
                                             classes={
                                               Object {
                                                 "colorSecondary": "MuiInput-colorSecondary",
@@ -3294,7 +3304,7 @@ exports[`App renders correctly 1`] = `
                                             value={Array []}
                                           >
                                             <ForwardRef(InputBase)
-                                              className="makeStyles-filtersComponent-159"
+                                              className="makeStyles-filtersComponent-158"
                                               classes={
                                                 Object {
                                                   "adornedEnd": "MuiInputBase-adornedEnd",
@@ -3535,7 +3545,7 @@ exports[`App renders correctly 1`] = `
                                               value={Array []}
                                             >
                                               <div
-                                                className="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-filtersComponent-159"
+                                                className="MuiInputBase-root MuiInput-root MuiInput-underline makeStyles-filtersComponent-158"
                                                 onClick={[Function]}
                                               >
                                                 <ForwardRef(SelectInput)
@@ -3933,11 +3943,11 @@ exports[`App renders correctly 1`] = `
                                 </FiltersSelect>
                               </div>
                               <WithStyles(ForwardRef(Button))
-                                className="makeStyles-resetFilterButton-162"
+                                className="makeStyles-resetFilterButton-161"
                                 onClick={[Function]}
                               >
                                 <ForwardRef(Button)
-                                  className="makeStyles-resetFilterButton-162"
+                                  className="makeStyles-resetFilterButton-161"
                                   classes={
                                     Object {
                                       "colorInherit": "MuiButton-colorInherit",
@@ -3974,7 +3984,7 @@ exports[`App renders correctly 1`] = `
                                   onClick={[Function]}
                                 >
                                   <WithStyles(ForwardRef(ButtonBase))
-                                    className="MuiButton-root MuiButton-text makeStyles-resetFilterButton-162"
+                                    className="MuiButton-root MuiButton-text makeStyles-resetFilterButton-161"
                                     component="button"
                                     disabled={false}
                                     focusRipple={true}
@@ -3983,7 +3993,7 @@ exports[`App renders correctly 1`] = `
                                     type="button"
                                   >
                                     <ForwardRef(ButtonBase)
-                                      className="MuiButton-root MuiButton-text makeStyles-resetFilterButton-162"
+                                      className="MuiButton-root MuiButton-text makeStyles-resetFilterButton-161"
                                       classes={
                                         Object {
                                           "disabled": "Mui-disabled",
@@ -3999,7 +4009,7 @@ exports[`App renders correctly 1`] = `
                                       type="button"
                                     >
                                       <button
-                                        className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-resetFilterButton-162"
+                                        className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-resetFilterButton-161"
                                         disabled={false}
                                         onBlur={[Function]}
                                         onClick={[Function]}
@@ -4065,7 +4075,7 @@ exports[`App renders correctly 1`] = `
                 </ForwardRef(ClickAwayListener)>
                 <Styled(MuiBox)>
                   <div
-                    className="MuiBox-root MuiBox-root-216"
+                    className="MuiBox-root MuiBox-root-215"
                   >
                     <Switch>
                       <Route

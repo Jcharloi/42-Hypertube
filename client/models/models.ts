@@ -41,10 +41,6 @@ export interface Filters {
   minRating: number;
 }
 
-export interface ClickAwayEventTarget extends EventTarget {
-  target: { id: string };
-}
-
 export interface ApiData {
   loading: boolean;
   error: unknown;

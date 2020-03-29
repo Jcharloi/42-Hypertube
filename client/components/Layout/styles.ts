@@ -18,9 +18,6 @@ export const useLayoutStyles = makeStyles((theme) => ({
     backgroundAttachment: "fixed",
     backgroundSize: "cover"
   },
-  hiddenFilters: {
-    display: "none"
-  },
   filtersContainer: {
     position: "absolute",
     zIndex: 1000,

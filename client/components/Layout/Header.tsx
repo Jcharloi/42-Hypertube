@@ -20,7 +20,7 @@ import { useHeaderStyles } from "./styles";
 interface Props {
   locale: string;
   setLocale: (locale: string) => void;
-  onExpand: () => void;
+  onExpandFilters: () => void;
   onSearchChange: (query: string) => void;
   onMediaTypeChange: (newMediaType: string) => void;
   mediaType: string;
@@ -30,7 +30,7 @@ interface Props {
 const Header = ({
   locale,
   setLocale,
-  onExpand,
+  onExpandFilters,
   onSearchChange,
   onMediaTypeChange,
   mediaType,
@@ -38,12 +38,12 @@ const Header = ({
 }: Props): ReactElement => {
   const classes = useHeaderStyles({});
   const { formatMessage: _t } = useIntl();
-  const [localeAnchorEl, setLocaleAnchor] = useState(undefined);
+  const [localeAnchorEl, setLocaleAnchorEl] = useState(undefined);
   const [profileMenuAnchor, setProfileMenuAnchor] = useState(undefined);
 
   const setNewLocale = (newLocale: string): void => {
     setLocale(newLocale);
-    setLocaleAnchor(undefined);
+    setLocaleAnchorEl(undefined);
   };
 
   const onMenuProfile = (): void => {
@@ -102,7 +102,7 @@ const Header = ({
           <OutlinedInput
             value={searchQuery}
             onChange={(e): void => onSearchChange(e.target.value)}
-            onClick={onExpand}
+            onFocus={onExpandFilters}
             placeholder={_t({ id: "layout.filters.search" })}
             className={classes.searchInput}
             startAdornment={<Search className={classes.inputLabel} />}
@@ -112,7 +112,7 @@ const Header = ({
           <div className={classes.buttonsMenu}>
             <IconButton
               className={classes.headerButtons}
-              onClick={(e): void => setLocaleAnchor(e.currentTarget)}
+              onClick={(e): void => setLocaleAnchorEl(e.currentTarget)}
             >
               <span className={classes.flagIcon}>
                 {_t({ id: `language.${locale}` })}
@@ -122,7 +122,7 @@ const Header = ({
               keepMounted
               anchorEl={localeAnchorEl}
               open={!!localeAnchorEl}
-              onClose={(): void => setLocaleAnchor(undefined)}
+              onClose={(): void => setLocaleAnchorEl(undefined)}
             >
               <MenuItem onClick={(): void => setNewLocale("fr")}>
                 {_t({ id: "language.fr" })}
