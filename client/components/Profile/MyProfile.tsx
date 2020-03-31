@@ -34,7 +34,6 @@ interface User {
 
 const MyProfile = (): ReactElement => {
   const { resData: data } = useApi<User, void>(`/user/`, { hotReload: true });
-  console.log(data);
   const { username } = data || {};
   const classes = useStyles({});
   const [changingPassword, setChangingPassword] = useState(false);
@@ -42,9 +41,9 @@ const MyProfile = (): ReactElement => {
   const updateInfo = (value: string, name: string): void => {
     if (value && name) {
       API.put("/edit-profile", { [name]: value })
-        .then(() => {
-          console.log("");
-        })
+        // .then(() => {
+        //   console.log("");
+        // })
         .catch((e) => {
           console.error(e);
         });

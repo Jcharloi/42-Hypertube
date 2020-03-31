@@ -30,7 +30,6 @@ const ShowComment = ({ username }: Props): ReactElement => {
       setUrl(`/user-comments/${username}`);
     }
   }, [username]);
-  console.log(data);
   if (!data) {
     return null;
   }

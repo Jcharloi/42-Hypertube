@@ -1,6 +1,7 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useState, ChangeEvent } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
+import { AxiosPromise } from "axios";
 import useStyles from "./Profile.styles";
 import API from "../../util/api";
 
@@ -8,9 +9,13 @@ interface Props {
   picture?: string;
 }
 
-export const sendPictureData = async (picture: any): AxiosPromise<ApiData> => {
+interface ApiResponse {
+  id: string;
+}
+
+export const sendPictureData = (picture: File): AxiosPromise<ApiResponse> => {
   const data = new FormData();
-  console.log("AGNEUGEGEGE", typeof picture);
+  console.log("AGNEUGEGEGE", picture);
   data.append("image", picture, picture.name);
   return API({
     method: "post",
@@ -22,7 +27,6 @@ export const sendPictureData = async (picture: any): AxiosPromise<ApiData> => {
 
 const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
   if (e.target.type === "file") {
-    // const picErr = e.target.files[0] ? getPictureError(e.target.files[0]) : "";
     sendPictureData(e.target.files[0])
       .then(() => {
         console.log("file sent");
