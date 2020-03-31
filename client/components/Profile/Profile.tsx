@@ -1,11 +1,7 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement } from "react";
 import { RouteComponentProps } from "react-router";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
-
-import Rating from "@material-ui/lab/Rating";
-import Typography from "@material-ui/core/Typography";
-import API from "../../util/api";
 import useApi from "../../hooks/useApi";
 import Loading from "../Routes/Loading";
 import Error from "../Error";
@@ -29,7 +25,9 @@ const Profile = ({
     params: { username }
   }
 }: RouteComponentProps<UrlParam>): ReactElement => {
-  const { data, loading, error, setUrl } = useApi(`/user/${username}`);
+  const { resData: data, loading, error } = useApi(`/user/${username}`, {
+    hotReload: true
+  });
   const classes = useStyles({});
   // const timestampToString = (date: string) => {
   //   const date = new Date(date);
@@ -47,7 +45,7 @@ const Profile = ({
         <div className={classes.containerPicture}>
           <Avatar
             alt="Test"
-            src={`${window.location.origin}/api/data/avatar/${data.picture}`}
+            src={`${window.location.origin}/api/data/avatar/${data?.picture}`}
             className={classes.large}
           />
         </div>

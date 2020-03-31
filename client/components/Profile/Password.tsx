@@ -1,15 +1,6 @@
-import React, {
-  ReactElement,
-  ChangeEvent,
-  useState,
-  useRef,
-  useEffect
-} from "react";
+import React, { ReactElement, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import SaveIcon from "@material-ui/icons/Save";
-import IconButton from "@material-ui/core/IconButton";
-import SaveAlt from "@material-ui/icons/SaveAlt";
 import { useIntl } from "react-intl";
 import API from "../../util/api";
 import useProfileStyles from "./Profile.styles";
@@ -64,7 +55,7 @@ const Password = (): ReactElement => {
         .then(() => {
           setStatus(200);
         })
-        .catch(e => {
+        .catch((e) => {
           console.error(e);
           setStatus(e.response.status);
         });

@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/styles";
-import { Theme, FormHelperText } from "@material-ui/core";
+import { Theme } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) => ({
   containerProfile: {

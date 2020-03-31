@@ -52,7 +52,7 @@ const Movie = (): ReactElement => {
       });
     };
     if (loading) {
-      API.get(`/movie/infos/${movieId}`)
+      API.get(`/movies/${movieId}`)
         .then(({ data: { infos, reviews: allReviews } }) => {
           setMovieInfos(infos);
           setReviews(allReviews);

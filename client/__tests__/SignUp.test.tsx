@@ -1,9 +1,12 @@
 import React from "react";
 import EnzymeToJson from "enzyme-to-json";
+import { History, Location, LocationState } from "history";
+import { StaticRouter } from "react-router-dom";
 
 import { mountWithIntl } from "./helpers/intl-enzyme-test-helper";
 
 import SignUp from "../components/Authentication/SignUp";
+import SignUpDone from "../components/Authentication/SignUpDone";
 import {
   UserInfo,
   UserError,
@@ -21,14 +24,83 @@ import {
   emailTakenErrorKey
 } from "../components/Authentication/errorKey";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useHistory: (): History<LocationState> => ({
+    length: null,
+    action: null,
+    location: null,
+    push: jest.fn(),
+    replace: jest.fn(),
+    go: jest.fn(),
+    goBack: jest.fn(),
+    goForward: jest.fn(),
+    block: jest.fn(),
+    listen: jest.fn(),
+    createHref: jest.fn()
+  }),
+  useLocation: (): Location<LocationState> => ({
+    pathname: "/",
+    search: "",
+    state: { from: "/" },
+    hash: null
+  })
+}));
+
 describe("SignUp", () => {
   it("should render <SignUp> in english", () => {
-    const domNode = mountWithIntl(<SignUp />, "en");
+    const domNode = mountWithIntl(
+      <StaticRouter>
+        <SignUp />
+      </StaticRouter>,
+      "en"
+    );
     expect(EnzymeToJson(domNode)).toMatchSnapshot();
   });
 
   it("should render <SignUp> in french", () => {
-    const domNode = mountWithIntl(<SignUp />, "fr");
+    const domNode = mountWithIntl(
+      <StaticRouter>
+        <SignUp />
+      </StaticRouter>,
+      "fr"
+    );
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUpDone> in english", () => {
+    const domNode = mountWithIntl(
+      <SignUpDone
+        user={{
+          username: "totoLeRigolo",
+          password: "Password1",
+          email: "toto@gmail.com",
+          firstName: "Toto",
+          lastName: "Le Rigolo",
+          picture: null,
+          id: "000000000000000000000001"
+        }}
+      />,
+      "en"
+    );
+    expect(EnzymeToJson(domNode)).toMatchSnapshot();
+  });
+
+  it("should render <SignUpDone> in french", () => {
+    const domNode = mountWithIntl(
+      <SignUpDone
+        user={{
+          username: "totoLeRigolo",
+          password: "Password1",
+          email: "toto@gmail.com",
+          firstName: "Toto",
+          lastName: "Le Rigolo",
+          picture: null,
+          id: "000000000000000000000001"
+        }}
+      />,
+      "fr"
+    );
     expect(EnzymeToJson(domNode)).toMatchSnapshot();
   });
 

@@ -1,11 +1,12 @@
 import "./dotenv.config";
 import mongoose from "mongoose";
 
-const URL_DB = process.env.DB_URL;
-
-mongoose.connect(URL_DB, {
+// Options to fix all deprecation warnings, has said here:
+// https://mongoosejs.com/docs/deprecations.html
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useFindAndModify: false,
+  useCreateIndex: true,
   useUnifiedTopology: true
 });
 mongoose.connection.on(

@@ -1,32 +1,35 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  page: {
+  center: {
     height: "100%",
-    display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
   paper: {
-    padding: "40px"
+    maxWidth: "500px",
+    flexGrow: 1,
+    margin: theme.spacing(3, 1),
+    padding: theme.spacing(0.5)
   },
   titles: {
-    margin: `${theme.spacing(3)}px 0px ${theme.spacing(5)}px`
+    margin: theme.spacing(3, 0, 5),
+    flexDirection: "column",
+    alignItems: "center"
   },
   subtitle: {
-    marginTop: `${theme.spacing(1)}px`
+    marginTop: theme.spacing(1)
   },
-  emailRound: {
-    width: "80px",
-    height: "80px",
-    backgroundColor: theme.palette.primary.main,
-    margin: `${theme.spacing(3)}px`
+  signInLink: {
+    textDecoration: "none",
+    marginBottom: theme.spacing(3)
   },
-  emailIcon: {
-    fontSize: "50px"
-  },
-  randomWrapper: {
-    height: "100%"
+  signInButton: {
+    textTransform: "none",
+    color: "#ffffff",
+    "&:hover": {
+      backgroundColor: "rgba(255,255,255,0.08)"
+    }
   }
 }));
 

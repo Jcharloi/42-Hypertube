@@ -57,20 +57,23 @@ const getInfos = (req, res) => {
 };
 
 const receiveReviews = (req, res) => {
-  Axios.get(`https://archive.org/metadata/${req.body.movieId}`)
+  const movieId = req.params.id;
+  Axios.get(`https://archive.org/metadata/${movieId}`)
     .then(async ({ data }) => {
       if (data.metadata && req.body.body && req.body.body.length < 1001) {
         const ret = await movieHelpers.saveReview({
           _id: new mongoose.Types.ObjectId(),
-          movieId: req.body.movieId,
+          movieId,
           name: req.body.name,
+          // Put Movie name here in the future
+          movieName: "4242",
           date: req.body.date,
           stars: req.body.stars,
           body: req.body.body
         });
         if (typeof ret !== "string") {
           const fullDate = String(new Date(req.body.date)).split(" ");
-          ioConnection.ioConnection.to(req.body.movieId).emit("New comments", {
+          ioConnection.ioConnection.to(movieId).emit("New comments", {
             id: Date.now(),
             name: req.body.name,
             date: movieHelpers.timestampToDate(

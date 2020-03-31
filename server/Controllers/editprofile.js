@@ -1,13 +1,11 @@
 import UserModel from "../Schemas/User";
-import MovieCommentModel from "../Schemas/Movie";
 
 const editUserInfo = async (req, res) => {
   // todo
   // const id = req.userId;
-  const id = "5deef4dc80a440152717dbcf";
 
   try {
-    const userInfo = await UserModel.findByIdAndUpdate(id, req.body, {
+    const userInfo = await UserModel.findByIdAndUpdate(req.userId, req.body, {
       runValidators: true
     });
     if (userInfo !== null) res.status(200).send();

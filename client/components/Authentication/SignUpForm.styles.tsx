@@ -1,27 +1,27 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
+  form: {
+    margin: "0px"
+  },
   item: {
-    margin: `${theme.spacing(2)}px 0px`
+    margin: theme.spacing(2, 0)
   },
   textInput: {
     width: "300px"
   },
   pictureErrorMsg: {
-    // same as material-ui Textfiel helperText
     color: theme.palette.error.main,
-    marginTop: `${theme.spacing(1)}px`,
+    marginTop: theme.spacing(1),
     fontSize: "12px"
   },
-  circularProgressContainer: {
-    position: "relative"
-  },
-  circularProgress: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    marginTop: "-20px",
-    marginLeft: "-20px"
+  // Todo: delete `pictureButton` and use theme with `color="secondary"`
+  pictureButton: {
+    color: "#F1C40F",
+    borderColor: "#F1C40F",
+    "&:hover": {
+      backgroundColor: "rgba(241,196,15,0.08)"
+    }
   }
 }));
 

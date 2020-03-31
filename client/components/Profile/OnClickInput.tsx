@@ -1,13 +1,5 @@
-import React, {
-  ReactElement,
-  ChangeEvent,
-  useState,
-  useRef,
-  useEffect
-} from "react";
+import React, { ReactElement, useState, useRef, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import SaveIcon from "@material-ui/icons/Save";
 import IconButton from "@material-ui/core/IconButton";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 
@@ -34,11 +26,6 @@ const OnClickInput = ({
   const changeEditMode = (): void => {
     setEditMode((oldEditMode) => !oldEditMode);
   };
-
-  // const updateInfo = (): void => {
-  //   startValue = value;
-  // };
-
   useEffect(() => {
     if (editMode) {
       inputEl.current.focus();

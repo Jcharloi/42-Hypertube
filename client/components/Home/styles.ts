@@ -95,7 +95,7 @@ export const useFilmStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "self-end",
-    margin: `${theme.spacing(1)} 0`
+    margin: theme.spacing(1, 0)
   },
   descriptionContainer: {
     textAlign: "justify",

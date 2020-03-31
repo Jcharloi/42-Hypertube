@@ -1,48 +1,65 @@
+import crypto from "crypto";
 import bcrypt from "bcrypt";
 
 import UserModel from "../Schemas/User";
+import TokenModel from "../Schemas/Token";
 
-const createRandomId = (length) => {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+import { sendEmail } from "../nodemailer";
+import enHtml from "../emailsHtml/confirmEmailAdress.en.html";
+import frHtml from "../emailsHtml/confirmEmailAdress.fr.html";
+
+const confirmEmailInfo = {
+  en: {
+    subject: "Confirm your email adress to watch some sick movies",
+    text: `Welcome to Hypertube\n\nWe just need to check that your email is really yours\nPlease go to this link to confirm your email adress:\n{{confirmUrl}}`,
+    html: enHtml
+  },
+  fr: {
+    subject: "Confirme ton adresse email pour regarder des films stylés",
+    text:
+      "Bienvenue sur Hypertube\n\nOn doit juste vérifier que ton email t'appartient bien\nTu peux aller sur ce lien pour confirmer ton adresse email:\n{{confirmUrl}}",
+    html: frHtml
   }
-  return result;
 };
 
-const sendEmail = async () => true;
+export const sendValidateEmail = async (user, locale) => {
+  const emailInfo = confirmEmailInfo[locale];
+  const token = await TokenModel.create({
+    user: user._id
+  });
 
-const createUser = async (user, insertPT) => {
-  try {
-    let hashedPT;
-    if (insertPT) {
-      hashedPT = `${user.picture.name.split(".")[0] + createRandomId(5)}.${
-        user.picture.mimetype.split("/")[1]
-      }`;
-      user.picture.mv(`./server/data/avatar/${hashedPT}`, (e) => {
-        if (e) console.error(e);
-      });
-    } else {
-      hashedPT = user.picture;
-    }
-    const hashedPW = bcrypt.hashSync(user.password, 10);
-    await UserModel.create({
-      _id: user._id,
-      email: user.email,
-      username: user.username,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      password: hashedPW,
-      picture: hashedPT
+  await sendEmail({
+    to: user.email,
+    ...emailInfo,
+    // Setting unique url in html/text
+    html: emailInfo.html.replace(
+      /{{confirmUrl}}/g,
+      `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
+    ),
+    text: emailInfo.text.replace(
+      /{{confirmUrl}}/g,
+      `${process.env.CLIENT_ORIGIN}/confirm-email/${token.value}`
+    )
+  });
+};
+
+export const createUser = async (user, dontInsertPicture) => {
+  let hashedPT;
+  if (!dontInsertPicture) {
+    hashedPT = `${user.picture.name.split(".")[0] +
+      crypto.randomBytes(5).toString("hex")}.${
+      user.picture.mimetype.split("/")[1]
+    }`;
+    user.picture.mv(`./server/data/avatar/${hashedPT}`, (e) => {
+      if (e) console.error(e);
     });
-    return true;
-  } catch (e) {
-    console.error(e.message);
-    return e.name;
+  } else {
+    hashedPT = user.picture;
   }
+  const hashedPW = bcrypt.hashSync(user.password, 10);
+  return UserModel.create({
+    ...user,
+    password: hashedPW,
+    picture: hashedPT
+  });
 };
-
-export default { sendEmail, createUser };

@@ -1,35 +1,54 @@
+import "../dotenv.config";
 import bcrypt from "bcrypt";
-import signUpHelpers from "../Helpers/signUp";
+import mongoose from "../mongo";
+import { createUser, sendValidateEmail } from "../Helpers/signUp";
 import UserModel from "../Schemas/User";
+import TokenModel from "../Schemas/Token";
 
 describe("Sign Up", () => {
   let mockedUser;
+  let resultUser;
+
   beforeAll(() => {
     mockedUser = {
-      _id: "test",
-      email: "test email",
+      _id: new mongoose.Types.ObjectId(),
+      email: "test@email.com",
       username: "test name",
       firstName: "test first",
       lastName: "test last",
-      password: "test password",
-      picture: "test picture",
+      password: "TestPassword1",
+      picture: "test/picture"
+    };
+    resultUser = {
+      ...mockedUser,
+      emailVerified: false,
       __v: 0
     };
   });
 
   afterAll(async () => {
-    await UserModel.deleteOne({ _id: "test" });
+    await UserModel.findByIdAndDelete(mockedUser._id);
+    await TokenModel.findOneAndDelete({ user: mockedUser._id });
   });
 
   it("should insert user", async () => {
-    const res = await signUpHelpers.createUser(mockedUser, false);
-    expect(res).toBe(true);
+    const newUser = await createUser(mockedUser, true);
+
+    if (await bcrypt.compare(mockedUser.password, newUser.password)) {
+      resultUser.password = newUser.password;
+    }
+    expect(newUser.toJSON()).toEqual(resultUser);
   });
 
   it("should be the same user", async () => {
-    const findUser = await UserModel.findById("test");
-    const res = await bcrypt.compare(mockedUser.password, findUser.password);
-    findUser.password = res ? "test password" : findUser.password;
-    expect(mockedUser).toEqual(findUser.toJSON());
+    const findUser = await UserModel.findById(mockedUser._id);
+    expect(findUser.toJSON()).toEqual(resultUser);
+  });
+
+  it("should create a token for our user", async () => {
+    await sendValidateEmail(resultUser, "en");
+    const token = await TokenModel.findOne({ user: resultUser._id });
+
+    expect(token).not.toBeNull();
   });
 });

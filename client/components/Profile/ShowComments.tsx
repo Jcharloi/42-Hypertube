@@ -1,14 +1,10 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { RouteComponentProps } from "react-router";
-import Avatar from "@material-ui/core/Avatar";
+import React, { ReactElement, useEffect } from "react";
 import Paper from "@material-ui/core/Paper";
 
 import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
-import API from "../../util/api";
 import useApi from "../../hooks/useApi";
 import Loading from "../Routes/Loading";
-import Error from "../Error";
 import useStyles from "./Profile.styles";
 
 interface Comment {
@@ -26,16 +22,21 @@ interface Props {
 
 const ShowComment = ({ username }: Props): ReactElement => {
   const classes = useStyles({});
-  const { data, loading, error, setUrl } = useApi("");
+  const { resData: data, setUrl } = useApi("", {
+    hotReload: true
+  });
   useEffect(() => {
     if (username !== undefined) {
       setUrl(`/user-comments/${username}`);
     }
   }, [username]);
-
-  if (error) {
-    return <Error />;
+  console.log(data);
+  if (!data) {
+    return null;
   }
+  // if (error) {
+  //   return <Error />;
+  // }
   return (
     <div>
       <Paper className={classes.containerHistory}>
@@ -43,7 +44,7 @@ const ShowComment = ({ username }: Props): ReactElement => {
         {username === undefined || data === null ? (
           <Loading />
         ) : (
-          data.map((element: Comment) => {
+          data?.map((element: Comment) => {
             const date = new Date(element.date);
             const monthNames = [
               "January",

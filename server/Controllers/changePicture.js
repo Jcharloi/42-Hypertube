@@ -1,8 +1,6 @@
-import bcrypt from "bcrypt";
-
 import UserModel from "../Schemas/User";
 
-const createRandomId = length => {
+const createRandomId = (length) => {
   let result = "";
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -14,21 +12,18 @@ const createRandomId = length => {
 };
 
 const changePicture = async (req, res) => {
-  const id = "5deef4dc80a440152717dbcf";
   if (!req.files) {
     console.log("error files");
   } else {
     try {
-      let hashedPT;
-      hashedPT = `${req.files.image.name.split(".")[0] + createRandomId(5)}.${
-        req.files.image.mimetype.split("/")[1]
-      }`;
-      req.files.image.mv(`./server/data/avatar/${hashedPT}`, e => {
+      const hashedPT = `${req.files.image.name.split(".")[0] +
+        createRandomId(5)}.${req.files.image.mimetype.split("/")[1]}`;
+      req.files.image.mv(`./server/data/avatar/${hashedPT}`, (e) => {
         if (e) console.error(e);
       });
       try {
         const userInfo = await UserModel.findByIdAndUpdate(
-          id,
+          req.userId,
           { picture: hashedPT },
           {
             runValidators: true

@@ -12,6 +12,7 @@ import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
 import Profile from "./Profile/Profile";
 import MyProfile from "./Profile/MyProfile";
+import ConfirmEmail from "./Authentication/ConfirmEmail";
 import Home from "./Home";
 import Movie from "./Movie/Movie";
 import Search from "./Search";
@@ -45,42 +46,37 @@ const App = (): ReactElement => {
           setLocale={(locale: string): void => setItem("language", locale)}
         >
           <Switch>
-            <CustomRoute
-              exact
-              path="/sign-in"
-              component={SignIn}
-              requireAuth={false}
-            />
-            <CustomRoute
-              exact
-              path="/sign-up"
-              component={SignUp}
-              requireAuth={false}
-            />
+            <Route exact path="/confirm-email/:id" component={ConfirmEmail} />
+            <CustomRoute exact path="/sign-up" notAuthComponent={SignUp} />
             <CustomRoute
               exact
               path="/reset-password"
-              component={ResetPassword}
-              requireAuth={false}
+              notAuthComponent={ResetPassword}
+            />
+            <CustomRoute path="/search" authComponent={Search} />
+            <CustomRoute path="/movie" authComponent={Movie} />
+            <CustomRoute
+              exact
+              path="/"
+              notAuthComponent={SignIn}
+              authComponent={Home}
             />
             <CustomRoute
               exact
               sensitive
               path="/profile/:username"
-              component={Profile}
-              requireAuth
+              authComponent={Profile}
             />
             <CustomRoute
               exact
               sensitive
               path="/myprofile"
-              component={MyProfile}
-              requireAuth
+              authComponent={MyProfile}
             />
-            <CustomRoute path="/search" component={Search} requireAuth />
-            <CustomRoute path="/movie" component={Movie} requireAuth />
-            <Route exact path="/error" component={Error} requiredAuth />
+
             <Route exact path="/" component={Home} />
+
+            <Route exact path="/error" authComponent={Error} />
             <Route component={FourOhFour} />
           </Switch>
         </Layout>

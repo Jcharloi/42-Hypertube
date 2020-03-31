@@ -1,24 +1,8 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { RouteComponentProps } from "react-router";
+import React, { ReactElement, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
-import Paper from "@material-ui/core/Paper";
-
-import Rating from "@material-ui/lab/Rating";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import useStyles from "./Profile.styles";
 import API from "../../util/api";
-import {
-  UserInfo,
-  UserError,
-  checkErrors,
-  getPictureError,
-  isThereError,
-  sendSignUpData
-} from "../Authentication/SignUp.service";
-import Axios from "axios";
 
 interface Props {
   picture?: string;
@@ -26,19 +10,19 @@ interface Props {
 
 export const sendPictureData = async (picture: any): AxiosPromise<ApiData> => {
   const data = new FormData();
-  const keys: string[] = Object.keys(picture);
+  console.log("AGNEUGEGEGE", typeof picture);
   data.append("image", picture, picture.name);
   return API({
     method: "post",
     url: "/change-picture",
     headers: { "Content-Type": "multipart/form-data" },
-    data: data
+    data
   });
 };
 
 const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
   if (e.target.type === "file") {
-    const picErr = e.target.files[0] ? getPictureError(e.target.files[0]) : "";
+    // const picErr = e.target.files[0] ? getPictureError(e.target.files[0]) : "";
     sendPictureData(e.target.files[0])
       .then(() => {
         console.log("file sent");
@@ -55,8 +39,8 @@ const EditableAvatar = ({ picture }: Props): ReactElement => {
 
   return (
     <div
-      onMouseEnter={() => setMouseIn(true)}
-      onMouseLeave={() => setMouseIn(false)}
+      onMouseEnter={(): void => setMouseIn(true)}
+      onMouseLeave={(): void => setMouseIn(false)}
       className={classes.containerPicture}
     >
       <label htmlFor="raised-button-file">

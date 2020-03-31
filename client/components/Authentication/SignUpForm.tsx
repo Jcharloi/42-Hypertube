@@ -2,12 +2,12 @@ import React, { ReactElement, ChangeEvent, FormEvent } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import Typography from "@material-ui/core/Typography";
 import { useIntl } from "react-intl";
 
 import useStyles from "./SignUpForm.styles";
+import GradientButton from "../Buttons/GradientButton";
 
 import { UserInfo, UserError } from "./SignUp.service";
 
@@ -29,7 +29,7 @@ const SignUpForm = ({
   const { formatMessage: _t } = useIntl();
   const classes = useStyles({});
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container direction="column" alignItems="center">
         {/* Text input */}
         <Grid item className={classes.item}>
@@ -40,6 +40,8 @@ const SignUpForm = ({
             }
             error={userError.username !== ""}
             name="username"
+            id="username"
+            autoComplete="section-newuser username"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.username" })}
             variant="filled"
@@ -56,6 +58,8 @@ const SignUpForm = ({
             }
             error={userError.password !== ""}
             name="password"
+            id="password"
+            autoComplete="section-newuser new-password"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.password" })}
             variant="filled"
@@ -72,6 +76,8 @@ const SignUpForm = ({
             }
             error={userError.email !== ""}
             name="email"
+            id="email"
+            autoComplete="section-newuser home email"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.email" })}
             variant="filled"
@@ -87,6 +93,8 @@ const SignUpForm = ({
             }
             error={userError.firstName !== ""}
             name="firstName"
+            id="firstName"
+            autoComplete="section-newuser given-name"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.firstName" })}
             variant="filled"
@@ -102,6 +110,8 @@ const SignUpForm = ({
             }
             error={userError.lastName !== ""}
             name="lastName"
+            id="lastName"
+            autoComplete="section-newuser family-name"
             onChange={handleInputChange}
             label={_t({ id: "authentication.signUp.lastName" })}
             variant="filled"
@@ -132,14 +142,14 @@ const SignUpForm = ({
                 accept="image/*"
                 style={{ display: "none" }}
                 id="raised-button-file"
-                multiple
                 type="file"
                 name="picture"
                 onChange={handleInputChange}
               />
               <Button
                 variant="outlined"
-                color="secondary"
+                // color="secondary"
+                className={classes.pictureButton}
                 startIcon={<CloudUploadIcon />}
                 component="span"
                 // To avoid picture name to be in uppercase :
@@ -166,25 +176,13 @@ const SignUpForm = ({
 
         {/* Send form */}
         <Grid item className={classes.item}>
-          <div className={classes.circularProgressContainer}>
-            <Button
-              type="submit"
-              disabled={waitingRes}
-              variant="contained"
-              size="large"
-              color="primary"
-            >
-              {!waitingRes && _t({ id: "authentication.signUp.sendButton" })}
-              {waitingRes &&
-                _t({ id: "authentication.signUp.sendButton.waiting" })}
-            </Button>
-            {waitingRes && (
-              <CircularProgress
-                color="secondary"
-                className={classes.circularProgress}
-              />
-            )}
-          </div>
+          <GradientButton
+            text={_t({ id: "authentication.signUp.sendButton" })}
+            loadingText={_t({ id: "authentication.signUp.sendButton.loading" })}
+            loading={waitingRes}
+            type="submit"
+            size="large"
+          />
         </Grid>
       </Grid>
     </form>
