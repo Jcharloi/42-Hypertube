@@ -10,6 +10,8 @@ import frTranslation from "../translations/fr.json";
 
 import CustomRoute from "./Routes/CustomRoute";
 import Layout from "./Layout";
+import Profile from "./Profile/Profile";
+import MyProfile from "./Profile/MyProfile";
 import ConfirmEmail from "./Authentication/ConfirmEmail";
 import Home from "./Home";
 import Movie from "./Movie/Movie";
@@ -59,6 +61,20 @@ const App = (): ReactElement => {
               notAuthComponent={SignIn}
               authComponent={Home}
             />
+            <CustomRoute
+              exact
+              sensitive
+              path="/profile/:username"
+              authComponent={Profile}
+            />
+            <CustomRoute
+              exact
+              sensitive
+              path="/myprofile"
+              authComponent={MyProfile}
+            />
+
+            <Route exact path="/" component={Home} />
 
             <Route exact path="/error" authComponent={Error} />
             <Route component={FourOhFour} />

@@ -3,6 +3,7 @@ import mongoose from "../mongo";
 const commentSchema = new mongoose.Schema({
   _id: String,
   movieId: { type: String, required: true },
+  movieName: { type: String, required: true },
   name: { type: String, required: true },
   date: { type: Number, required: true },
   stars: {

@@ -42,6 +42,7 @@ const saveReview = async (comment) => {
     await MovieCommentModel.create({
       _id: comment._id,
       movieId: comment.movieId,
+      movieName: comment.movieName,
       name: comment.name,
       date: comment.date,
       stars: comment.stars,

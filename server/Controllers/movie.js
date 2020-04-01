@@ -65,6 +65,8 @@ const receiveReviews = (req, res) => {
           _id: new mongoose.Types.ObjectId(),
           movieId,
           name: req.body.name,
+          // Put Movie name here in the future
+          movieName: "4242",
           date: req.body.date,
           stars: req.body.stars,
           body: req.body.body

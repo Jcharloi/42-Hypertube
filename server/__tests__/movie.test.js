@@ -14,6 +14,7 @@ describe("Movie Comments", () => {
     mockedReview = {
       _id: mockedUserId,
       movieId: mockedMovieId,
+      movieName: "4242",
       name: "TestMan",
       date: 1577118711809,
       stars: 4,
@@ -96,6 +97,7 @@ describe("Movie Comments", () => {
       {
         _id: "0123456789",
         movieId: "B123rR",
+        movieName: "4242",
         name: "TestMan",
         date: "Dec, 05, 2019",
         stars: 4,
@@ -104,6 +106,7 @@ describe("Movie Comments", () => {
       {
         _id: "0123456789",
         movieId: "B123rR",
+        movieName: "4242",
         name: "TestMan",
         date: "Dec, 08, 2019",
         stars: 4,
@@ -112,6 +115,7 @@ describe("Movie Comments", () => {
       {
         _id: "0123456789",
         movieId: "B123rR",
+        movieName: "4242",
         name: "TestMan",
         date: "Dec, 14, 2019",
         stars: 4,
@@ -120,6 +124,7 @@ describe("Movie Comments", () => {
       {
         _id: "0123456789",
         movieId: "B123rR",
+        movieName: "4242",
         name: "TestMan",
         date: "Dec, 23, 2019",
         stars: 4,

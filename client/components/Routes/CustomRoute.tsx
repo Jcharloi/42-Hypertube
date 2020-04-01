@@ -10,6 +10,7 @@ interface Props {
   authComponent?: ElementType;
   notAuthComponent?: ElementType;
   exact?: boolean;
+  sensitive?: boolean;
   path?: string;
 }
 
@@ -17,6 +18,7 @@ const CustomRoute = ({
   authComponent: AuthComponent,
   notAuthComponent: NotAuthComponent,
   path,
+  sensitive,
   exact
 }: Props): ReactElement => {
   const { callApi, resData, error, cancelAllRequests } = useApi<
@@ -43,6 +45,7 @@ const CustomRoute = ({
   return (
     <Route
       path={path}
+      sensitive={sensitive}
       exact={exact}
       render={({
         history: routeHistory,
