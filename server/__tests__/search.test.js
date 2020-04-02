@@ -1,4 +1,4 @@
-import searchHelper from "../Helpers/search";
+import { searchMoviesOnYts, searchShowsOnPCT } from "../Helpers/search";
 
 describe("Search", () => {
   describe("Helper/search movies", () => {
@@ -13,7 +13,7 @@ describe("Search", () => {
         collections: "Action"
       };
 
-      const res = await searchHelper.searchMovies(filters);
+      const res = await searchMoviesOnYts(filters);
 
       expect(res).toBeDefined();
       expect(res).toHaveProperty("nextPage");
@@ -32,7 +32,7 @@ describe("Helper/search shows", () => {
       sort: "trending"
     };
 
-    const res = await searchHelper.searchShows(filters);
+    const res = await searchShowsOnPCT(filters);
 
     expect(res).toBeDefined();
     expect(res).toHaveProperty("nextPage");
