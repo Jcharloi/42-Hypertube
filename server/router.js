@@ -9,7 +9,6 @@ import searchController from "./Controllers/search";
 const router = express.Router();
 
 router.get("/movies", searchController.searchMovies);
-router.get("/shows", searchController.searchShows);
 
 router.get("/check-token", (req, res) => {
   res.status(200).send({ validToken: true });

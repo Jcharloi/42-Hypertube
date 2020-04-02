@@ -2,7 +2,6 @@ import React, { useState, ReactElement } from "react";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import {
-  Box,
   AppBar,
   Typography,
   IconButton,
@@ -10,10 +9,9 @@ import {
   Menu,
   MenuItem,
   OutlinedInput,
-  Switch,
   Hidden
 } from "@material-ui/core";
-import { Search, AccountCircle, Movie, Tv } from "@material-ui/icons";
+import { Search, AccountCircle } from "@material-ui/icons";
 
 import { useHeaderStyles } from "./styles";
 
@@ -22,8 +20,6 @@ interface Props {
   setLocale: (locale: string) => void;
   onExpandFilters: () => void;
   onSearchChange: (query: string) => void;
-  onMediaTypeChange: (newMediaType: string) => void;
-  mediaType: string;
   searchQuery: string;
 }
 
@@ -32,8 +28,6 @@ const Header = ({
   setLocale,
   onExpandFilters,
   onSearchChange,
-  onMediaTypeChange,
-  mediaType,
   searchQuery
 }: Props): ReactElement => {
   const classes = useHeaderStyles({});
@@ -50,10 +44,6 @@ const Header = ({
     setProfileMenuAnchor(undefined);
   };
 
-  const onToggleSwitch = (): void => {
-    onMediaTypeChange(mediaType === "movies" ? "shows" : "movies");
-  };
-
   return (
     <AppBar color="inherit" position="sticky" className={classes.appBar}>
       <Toolbar>
@@ -66,39 +56,13 @@ const Header = ({
           </Typography>
           <Hidden smDown>
             <Typography className={classes.linkMedia} variant="subtitle2">
-              <Link className={classes.titleLink} to="/shows">
-                {_t({ id: "header.trending_shows" })}
-              </Link>
-            </Typography>
-            <Typography className={classes.linkMedia} variant="subtitle2">
-              <Link className={classes.titleLink} to="/movies">
+              <Link className={classes.titleLink} to="/search">
                 {_t({ id: "header.trending_movies" })}
               </Link>
             </Typography>
           </Hidden>
         </div>
         <div className={classes.headerContent}>
-          <Box className={classes.toggleContent} onClick={onToggleSwitch}>
-            <Hidden xsDown>
-              <Tv />
-              <Switch
-                color="default"
-                checked={mediaType === "movies"}
-                classes={{
-                  thumb:
-                    mediaType === "movies"
-                      ? classes.switchMovies
-                      : classes.switchShows,
-                  track:
-                    mediaType === "movies"
-                      ? classes.switchMovies
-                      : classes.switchShows
-                }}
-              />
-              <Movie />
-            </Hidden>
-            <Hidden smUp>{mediaType === "movies" ? <Movie /> : <Tv />}</Hidden>
-          </Box>
           <OutlinedInput
             value={searchQuery}
             onChange={(e): void => onSearchChange(e.target.value)}

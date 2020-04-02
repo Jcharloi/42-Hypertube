@@ -1,4 +1,4 @@
-import { searchMoviesOnYts, searchShowsOnPCT } from "../Helpers/search";
+import { searchMoviesOnYts } from "../Helpers/search";
 
 describe("Search", () => {
   describe("Helper/search movies", () => {
@@ -23,20 +23,20 @@ describe("Search", () => {
   });
 });
 
-describe("Helper/search shows", () => {
-  it("Should get the data", async () => {
-    const filters = {
-      collections: "Action",
-      page: 1,
-      query: "",
-      sort: "trending"
-    };
+// describe("Helper/search shows", () => {
+//   it("Should get the data", async () => {
+//     const filters = {
+//       collections: "Action",
+//       page: 1,
+//       query: "",
+//       sort: "trending"
+//     };
 
-    const res = await searchShowsOnPCT(filters);
+//     const res = await searchShowsOnPCT(filters);
 
-    expect(res).toBeDefined();
-    expect(res).toHaveProperty("nextPage");
-    expect(res).toHaveProperty("medias");
-    expect(res.medias).toBeInstanceOf(Array);
-  });
-});
+//     expect(res).toBeDefined();
+//     expect(res).toHaveProperty("nextPage");
+//     expect(res).toHaveProperty("medias");
+//     expect(res.medias).toBeInstanceOf(Array);
+//   });
+// });

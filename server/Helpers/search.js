@@ -3,7 +3,7 @@ import qs from "qs";
 
 const YTS_BASE_URL = "https://yts.ae";
 const YTS_URL = `${YTS_BASE_URL}/api/v2/list_movies.json`;
-const POPCORN_URL = "https://tv-v2.api-fetch.website/shows";
+// const POPCORN_URL = "https://tv-v2.api-fetch.website/shows";
 
 export const searchMoviesOnYts = async ({
   query,
@@ -51,33 +51,35 @@ export const searchMoviesOnYts = async ({
   };
 };
 
-export const searchShowsOnPCT = async ({ query, page, collections }) => {
-  const queryParams = qs.stringify({
-    genre: collections,
-    keywords: query,
-    sort: "trending"
-  });
-  const { data } = await axios.get(`${POPCORN_URL}/${page}?${queryParams}`);
+// Todo: adapt to film
 
-  const parsedShows =
-    (data &&
-      data.map((show) => ({
-        cover: show.images.poster,
-        title: show.title,
-        year: show.year,
-        summary: null,
-        genres: null,
-        rating: show.rating.percentage / 20,
-        id: show.imdb_id,
-        runtime: null,
-        seaons: show.num_seasons
-      }))) ||
-    [];
+// export const searchShowsOnPCT = async ({ query, page, collections }) => {
+//   const queryParams = qs.stringify({
+//     genre: collections,
+//     keywords: query,
+//     sort: "trending"
+//   });
+//   const { data } = await axios.get(`${POPCORN_URL}/${page}?${queryParams}`);
 
-  return {
-    nextPage: parsedShows.length === 50,
-    medias: parsedShows
-  };
-};
+//   const parsedShows =
+//     (data &&
+//       data.map((show) => ({
+//         cover: show.images.poster,
+//         title: show.title,
+//         year: show.year,
+//         summary: null,
+//         genres: null,
+//         rating: show.rating.percentage / 20,
+//         id: show.imdb_id,
+//         runtime: null,
+//         seaons: show.num_seasons
+//       }))) ||
+//     [];
 
-export default { searchMoviesOnYts, searchShowsOnPCT };
+//   return {
+//     nextPage: parsedShows.length === 50,
+//     medias: parsedShows
+//   };
+// };
+
+export default { searchMoviesOnYts };

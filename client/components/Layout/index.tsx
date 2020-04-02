@@ -62,9 +62,6 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
   const [searchQuery, setSearchQuery] = useState(
     qs.parse(location.search.slice(1)).query || ""
   );
-  const [mediaType, setMediaType] = useState(
-    location.pathname.includes("movies") ? "movies" : "shows"
-  );
 
   const handleClickAway = (e: React.MouseEvent<EventTarget>): void => {
     const target = e.target as HTMLElement;
@@ -89,8 +86,6 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           onExpandFilters={(): void => setExpandedFilters(true)}
-          onMediaTypeChange={setMediaType}
-          mediaType={mediaType}
         />
         <Box className={classes.contentContainer}>
           <ClickAwayListener onClickAway={handleClickAway}>
@@ -100,7 +95,6 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
             >
               <Filters
                 searchQuery={searchQuery}
-                mediaType={mediaType}
                 onReset={(): void => setSearchQuery("")}
               />
             </Box>

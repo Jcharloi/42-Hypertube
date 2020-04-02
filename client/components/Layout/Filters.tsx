@@ -16,11 +16,10 @@ import { useFiltersStyles } from "./styles";
 
 interface Props {
   searchQuery: string;
-  mediaType: string;
   onReset: () => void;
 }
 
-const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
+const Filters = ({ searchQuery, onReset }: Props): ReactElement => {
   const classes = useFiltersStyles({});
   const location = useLocation();
   const history = useHistory();
@@ -42,7 +41,6 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
    * Filters debonced value
    * (display value with a 500ms, the one we send to the api)
    */
-  const debouncedMediaType = useDebounce(mediaType, 100);
   const debouncedQueryField = useDebounce(searchQuery, 500);
   const debouncedYear = useDebounce(year, 500);
   const debouncedCollections = useDebounce(collections, 500);
@@ -69,20 +67,18 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
 
     // If we're on a search page or if one filters has been changed
     if (
-      history.location.pathname === "/shows" ||
-      history.location.pathname === "/movies" ||
+      history.location.pathname === "/search" ||
       debouncedQueryField ||
       debouncedYear ||
       debouncedCollections !== "all" ||
       debouncedMinRating
     ) {
       history.push({
-        pathname: `/${debouncedMediaType}`,
+        pathname: `/search`,
         search: queryParams
       });
     }
   }, [
-    debouncedMediaType,
     debouncedQueryField,
     debouncedYear,
     debouncedCollections,
@@ -100,44 +96,40 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
   return (
     <Paper className={classes.container}>
       {/* Production year */}
-      {mediaType === "movies" && (
-        <div>
-          {/* Year */}
-          <InputLabel id="production-year">
-            {_t({ id: "layout.filters.production_year" })}
-          </InputLabel>
-          <Select
-            labelId="production-year"
-            value={year}
-            onChange={(e: ChangeEvent<{ value: number }>): void =>
-              setYear(e.target.value)
-            }
-            className={classes.collectionsContainer}
+      <div>
+        {/* Year */}
+        <InputLabel id="production-year">
+          {_t({ id: "layout.filters.production_year" })}
+        </InputLabel>
+        <Select
+          labelId="production-year"
+          value={year}
+          onChange={(e: ChangeEvent<{ value: number }>): void =>
+            setYear(e.target.value)
+          }
+          className={classes.collectionsContainer}
+        >
+          {/* Default year production */}
+          <MenuItem
+            className={classes.yearItem}
+            id="menuitem-yeardefault"
+            value={0}
           >
-            {/* Default year production */}
+            {_t({ id: "layout.filters.all" })}
+          </MenuItem>
+          {/* 1900 to now */}
+          {_.rangeRight(1900, moment().year() + 1).map((yearSelect: number) => (
             <MenuItem
               className={classes.yearItem}
-              id="menuitem-yeardefault"
-              value={0}
+              id={`menuitem-year${yearSelect}`}
+              value={yearSelect}
+              key={`menuitem-year${yearSelect}`}
             >
-              {_t({ id: "layout.filters.all" })}
+              {yearSelect}
             </MenuItem>
-            {/* 1900 to now */}
-            {_.rangeRight(1900, moment().year() + 1).map(
-              (yearSelect: number) => (
-                <MenuItem
-                  className={classes.yearItem}
-                  id={`menuitem-year${yearSelect}`}
-                  value={yearSelect}
-                  key={`menuitem-year${yearSelect}`}
-                >
-                  {yearSelect}
-                </MenuItem>
-              )
-            )}
-          </Select>
-        </div>
-      )}
+          ))}
+        </Select>
+      </div>
 
       {/* Collection */}
       <div className={classes.collectionsContainer}>
@@ -152,21 +144,19 @@ const Filters = ({ searchQuery, mediaType, onReset }: Props): ReactElement => {
       </div>
 
       {/* Rating */}
-      {mediaType === "movies" && (
-        <div className={classes.ratingContainer}>
-          <div>
-            <InputLabel id="rating">
-              {_t({ id: "layout.filters.select.minrating" })}
-            </InputLabel>
-            <Rating
-              defaultValue={minRating}
-              value={minRating || 0}
-              onChange={(e, value): void => setMinRating(value)}
-              name="ratingmin"
-            />
-          </div>
+      <div className={classes.ratingContainer}>
+        <div>
+          <InputLabel id="rating">
+            {_t({ id: "layout.filters.select.minrating" })}
+          </InputLabel>
+          <Rating
+            defaultValue={minRating}
+            value={minRating || 0}
+            onChange={(e, value): void => setMinRating(value)}
+            name="ratingmin"
+          />
         </div>
-      )}
+      </div>
       <Button onClick={resetFilter} className={classes.resetFilterButton}>
         {_t({ id: "layout.filters.select.reset" })}
       </Button>

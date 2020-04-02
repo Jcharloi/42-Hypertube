@@ -26,20 +26,17 @@ const Search = (): ReactElement => {
   const [page, setPage] = useState(1);
   const history = useHistory();
   const location = useLocation();
-  const mediaType = location.pathname.includes("movies") ? "movies" : "shows";
   const { data, loading, error, setUrl }: SearchData = (useApi(
-    formatQueryUrl(location.search, 1, mediaType)
+    formatQueryUrl(location.search, 1)
   ) as unknown) as SearchData;
 
   /**
    * Starting a new search
    */
   useEffect(() => {
-    if (!loading) {
-      setPage(1);
-      setFilmList([]);
-      setUrl(formatQueryUrl(location.search, 1, mediaType));
-    }
+    setPage(1);
+    setFilmList([]);
+    setUrl(formatQueryUrl(location.search, 1));
   }, [location.search, location.pathname]);
 
   /**
@@ -47,7 +44,11 @@ const Search = (): ReactElement => {
    */
   useEffect(() => {
     if (data && data.medias?.length) {
-      setFilmList((oldFilmList) => [...oldFilmList, ...data.medias]);
+      if (page === 1) {
+        setFilmList(data.medias);
+      } else {
+        setFilmList((oldFilmList) => [...oldFilmList, ...data.medias]);
+      }
     }
   }, [data]);
 
@@ -59,7 +60,7 @@ const Search = (): ReactElement => {
       return;
     }
     setPage(page + 1);
-    setUrl(formatQueryUrl(location.search, page + 1, mediaType));
+    setUrl(formatQueryUrl(location.search, page + 1));
   };
 
   if (error) {
@@ -129,17 +130,9 @@ const Search = (): ReactElement => {
                   {media.rating} <StarIcon className={classes.ratingIcon} />
                   {media.runtime && <span>- {media.runtime} mins</span>}
                 </Typography>
-                <Link
-                  to={`/${mediaType.slice(0, -1)}/${media.id}`}
-                  className={classes.watchLink}
-                >
+                <Link to={`/movie/${media.id}`} className={classes.watchLink}>
                   <Button color="primary" variant="contained">
-                    {_t({
-                      id:
-                        mediaType === "movies"
-                          ? "search.film.watch"
-                          : "search.film.watch_show"
-                    })}
+                    {_t({ id: "search.film.watch" })}
                   </Button>
                 </Link>
               </div>

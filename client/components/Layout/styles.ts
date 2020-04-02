@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { deepPurple, cyan } from "@material-ui/core/colors";
 
 export const useLayoutStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -100,20 +99,8 @@ export const useHeaderStyles = makeStyles((theme) => ({
       background: theme.palette.grey[800]
     }
   },
-  toggleContent: {
-    display: "flex",
-    alignItems: "center",
-    margin: theme.spacing(0, 1.5),
-    cursor: "pointer"
-  },
   thumb: {
     color: theme.palette.primary.main
-  },
-  switchMovies: {
-    backgroundColor: deepPurple[500]
-  },
-  switchShows: {
-    backgroundColor: cyan[500]
   }
 }));
 

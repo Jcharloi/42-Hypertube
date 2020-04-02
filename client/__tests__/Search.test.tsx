@@ -55,8 +55,7 @@ describe("Search", () => {
       it("should get a full query", () => {
         const testQuery = ServiceSearch.formatQueryUrl(
           "?query=top&collections%5B0%5D=collec1&collections%5B1%5D=collec2",
-          1,
-          "movies"
+          1
         );
 
         expect(testQuery).toBe(
@@ -65,7 +64,7 @@ describe("Search", () => {
       });
 
       it("should get a empty query", () => {
-        const testQuery = ServiceSearch.formatQueryUrl("", 1, "movies");
+        const testQuery = ServiceSearch.formatQueryUrl("", 1);
         expect(testQuery).toBe("/movies?page=1");
       });
     });
