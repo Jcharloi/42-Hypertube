@@ -66,13 +66,13 @@ const Header = ({
           </Typography>
           <Hidden smDown>
             <Typography className={classes.linkMedia} variant="subtitle2">
-              <Link className={classes.titleLink} to="/movies">
-                {_t({ id: "header.trending_movies" })}
+              <Link className={classes.titleLink} to="/shows">
+                {_t({ id: "header.trending_shows" })}
               </Link>
             </Typography>
             <Typography className={classes.linkMedia} variant="subtitle2">
-              <Link className={classes.titleLink} to="/shows">
-                {_t({ id: "header.trending_shows" })}
+              <Link className={classes.titleLink} to="/movies">
+                {_t({ id: "header.trending_movies" })}
               </Link>
             </Typography>
           </Hidden>

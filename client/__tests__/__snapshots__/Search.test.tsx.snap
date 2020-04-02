@@ -34,7 +34,7 @@ exports[`Search search en renders correctly 1`] = `
           loader={null}
           pageStart={0}
           ref={null}
-          threshold={250}
+          threshold={100}
           useCapture={false}
           useWindow={true}
         >
@@ -139,7 +139,7 @@ exports[`Search search fr renders correctly 1`] = `
           loader={null}
           pageStart={0}
           ref={null}
-          threshold={250}
+          threshold={100}
           useCapture={false}
           useWindow={true}
         >

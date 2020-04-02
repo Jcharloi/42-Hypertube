@@ -57,6 +57,7 @@ const App = (): ReactElement => {
             <CustomRoute path="/shows" component={Search} requireAuth />
             <CustomRoute path="/movies" component={Search} requireAuth />
             <CustomRoute path="/movie" component={Movie} requireAuth />
+            <CustomRoute path="/show" component={Movie} requireAuth />
             <Route exact path="/error" component={Error} requiredAuth />
             <Route exact path="/" component={Home} />
             <Route component={FourOhFour} />

@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, ChangeEvent } from "react";
 import { useIntl } from "react-intl";
 
 import { MenuItem, Select } from "@material-ui/core";
@@ -6,27 +6,33 @@ import { MenuItem, Select } from "@material-ui/core";
 import { useFiltersStyles } from "./styles";
 
 interface Props {
-  collections: string[];
-  setCollections: (value: string[]) => void;
+  collections: string;
+  setCollections: (value: string) => void;
+  labelid: string;
 }
 
 const FiltersSelect = ({
   collections,
-  setCollections
+  setCollections,
+  labelid
 }: Props): ReactElement => {
   const { formatMessage: _t } = useIntl();
   const classes = useFiltersStyles({});
 
   return (
     <Select
+      labelId={labelid}
       defaultValue={collections}
-      onChange={(e): void => setCollections(e.target.value as string[])}
+      onChange={(e: ChangeEvent<{ value: string }>): void =>
+        setCollections(e.target.value)
+      }
       value={collections}
       className={classes.filtersComponent}
     >
-      <MenuItem value="" id="menuitem-default">
+      <MenuItem value="all" id="menuitem-default">
         {_t({ id: "layout.filters.all" })}
       </MenuItem>
+
       <MenuItem value="Action" id="menuitem-action">
         {_t({ id: "layout.filters.select_category.action" })}
       </MenuItem>

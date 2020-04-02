@@ -69,8 +69,9 @@ const useSearchStyles = makeStyles((theme) => ({
     display: "flex",
     marginBottom: theme.spacing(1)
   },
-  watchButton: {
-    width: "75%"
+  watchLink: {
+    width: "75%",
+    textDecoration: "none"
   },
   ratingIcon: {
     color: yellow[500]

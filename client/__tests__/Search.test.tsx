@@ -51,22 +51,6 @@ describe("Search", () => {
   });
 
   describe("Service", () => {
-    describe("clamp", () => {
-      it("should not clamp", () => {
-        const shortFilmName = "Short";
-
-        const clamped = ServiceSearch.clamp(shortFilmName, 24);
-        expect(clamped).toBe("Short");
-      });
-
-      it("should clamp", () => {
-        const longFilmName = "Very long";
-
-        const clamped = ServiceSearch.clamp(longFilmName, 1);
-        expect(clamped).toBe("V...");
-      });
-    });
-
     describe("formatQueryUrl", () => {
       it("should get a full query", () => {
         const testQuery = ServiceSearch.formatQueryUrl(

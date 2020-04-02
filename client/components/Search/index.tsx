@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import { useIntl } from "react-intl";
 import _ from "lodash";
 import InfiniteScroll from "react-infinite-scroller";
@@ -23,7 +23,6 @@ const Search = (): ReactElement => {
   const classes = useSearchStyles({});
   const { formatMessage: _t } = useIntl();
   const [filmList, setFilmList] = useState([]);
-  const [block, setBlock] = useState(false);
   const [page, setPage] = useState(1);
   const history = useHistory();
   const location = useLocation();
@@ -32,26 +31,33 @@ const Search = (): ReactElement => {
     formatQueryUrl(location.search, 1, mediaType)
   ) as unknown) as SearchData;
 
+  /**
+   * Starting a new search
+   */
   useEffect(() => {
-    if (!loading && !block) {
+    if (!loading) {
       setPage(1);
       setFilmList([]);
       setUrl(formatQueryUrl(location.search, 1, mediaType));
     }
   }, [location.search, location.pathname]);
 
+  /**
+   * New Data receive
+   */
   useEffect(() => {
     if (data && data.medias?.length) {
-      setFilmList(() => [...filmList, ...data.medias]);
-      setBlock(false);
+      setFilmList((oldFilmList) => [...oldFilmList, ...data.medias]);
     }
   }, [data]);
 
+  /**
+   * Getting next page
+   */
   const loadMore = (): void => {
-    if (!data.nextPage) {
+    if (loading || !data.nextPage) {
       return;
     }
-    setBlock(true);
     setPage(page + 1);
     setUrl(formatQueryUrl(location.search, page + 1, mediaType));
   };
@@ -67,7 +73,9 @@ const Search = (): ReactElement => {
         initialLoad={false}
         loadMore={loadMore}
         hasMore={data.nextPage}
+        threshold={100}
       >
+        {/* No media found */}
         {!filmList.length && !loading && (
           <div className={classes.noMediaContainer}>
             <img
@@ -80,11 +88,10 @@ const Search = (): ReactElement => {
             </Typography>
           </div>
         )}
+
+        {/* Medias list */}
         {filmList.map((media) => (
-          <div
-            className={classes.thumbnailContainer}
-            key={_.uniqueId("media_")}
-          >
+          <div className={classes.thumbnailContainer} key={media.id}>
             <Image
               animationDuration={500}
               src={media.cover}
@@ -113,7 +120,7 @@ const Search = (): ReactElement => {
                         label={genre}
                         clickable
                         color="primary"
-                        key={_.uniqueId("mediaGenre_")}
+                        key={genre}
                       />
                     ))}
                   </div>
@@ -122,31 +129,28 @@ const Search = (): ReactElement => {
                   {media.rating} <StarIcon className={classes.ratingIcon} />
                   {media.runtime && <span>- {media.runtime} mins</span>}
                 </Typography>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  className={classes.watchButton}
-                  onClick={(): void =>
-                    history.push(`/${mediaType.slice(0, -1)}/${media.id}`)
-                  }
+                <Link
+                  to={`/${mediaType.slice(0, -1)}/${media.id}`}
+                  className={classes.watchLink}
                 >
-                  {_t({
-                    id:
-                      mediaType === "movies"
-                        ? "search.film.watch"
-                        : "search.film.watch_show"
-                  })}
-                </Button>
+                  <Button color="primary" variant="contained">
+                    {_t({
+                      id:
+                        mediaType === "movies"
+                          ? "search.film.watch"
+                          : "search.film.watch_show"
+                    })}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         ))}
+
+        {/* Fake movies Loading */}
         {loading &&
-          _.times(12, () => (
-            <div
-              className={classes.thumbnailContainer}
-              key={_.uniqueId("loading_")}
-            >
+          _.times(12, (i) => (
+            <div className={classes.thumbnailContainer} key={i}>
               <Skeleton
                 variant="rect"
                 width={300}

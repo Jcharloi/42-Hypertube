@@ -58,9 +58,10 @@ export const theme = createMuiTheme({
 const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
   const classes = useLayoutStyles({});
   const location = useLocation();
-  const { query: searchQueryParam } = qs.parse(location.search.slice(1));
   const [expandedFilters, setExpandedFilters] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(searchQueryParam || "");
+  const [searchQuery, setSearchQuery] = useState(
+    qs.parse(location.search.slice(1)).query || ""
+  );
   const [mediaType, setMediaType] = useState(
     location.pathname.includes("movies") ? "movies" : "shows"
   );
@@ -86,9 +87,9 @@ const Layout = ({ children, locale, setLocale }: Props): ReactElement => {
           locale={locale}
           setLocale={setLocale}
           searchQuery={searchQuery}
-          onSearchChange={(query): void => setSearchQuery(query)}
+          onSearchChange={setSearchQuery}
           onExpandFilters={(): void => setExpandedFilters(true)}
-          onMediaTypeChange={(newMediaType): void => setMediaType(newMediaType)}
+          onMediaTypeChange={setMediaType}
           mediaType={mediaType}
         />
         <Box className={classes.contentContainer}>

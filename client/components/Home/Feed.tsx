@@ -6,8 +6,6 @@ import { Paper, Typography } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import { useFeedStyles } from "./styles";
 
-import { clamp } from "../Search/service";
-
 const mock = [
   {
     updatedAt: moment().format(),
@@ -82,7 +80,7 @@ const Feed = (): ReactElement => {
               <Rating value={recentFeed.rating} readOnly />
             </div>
             <Typography variant="caption">
-              {clamp(recentFeed.review, 400)}
+              {(recentFeed.review, 400)}
             </Typography>
           </div>
         </div>
