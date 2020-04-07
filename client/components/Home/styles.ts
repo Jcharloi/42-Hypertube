@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useHomeStyles = makeStyles(() => ({
   mainPoster: {
     background:
-      "linear-gradient(to bottom, transparent 40%, black 80%), url('https://fr.web.img6.acsta.net/pictures/19/11/19/12/39/2279585.jpg')",
+      "linear-gradient(to bottom, transparent 40%, black 80%), url('/public/backgroundImage.jpg')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "50% 0%",

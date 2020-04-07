@@ -17,6 +17,13 @@ export interface UseApiOption {
   validateStatus?: (status: number) => boolean;
 }
 
+export interface Movies {
+  title: string;
+  img: string;
+  imdbId: string;
+  genre: string;
+}
+
 export interface UseApiReturn<T, E> {
   callApi: (freshData?: Data) => Promise<void>;
   loading: boolean;
