@@ -59,7 +59,7 @@ describe("Movie Comments", () => {
     await movieHelpers.saveReview(mockedReview);
     const reviewDb = await MovieCommentModel.findById(mockedUserId);
     expect(reviewDb.toJSON()).toEqual(finalReview);
-  });
+  }, 50000);
 
   it("should finds our review in the database", async () => {
     const ourReviews = await movieHelpers.findReviews(mockedMovieId);

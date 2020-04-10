@@ -24,12 +24,12 @@ describe("Sign Up", () => {
       emailVerified: false,
       __v: 0
     };
-  });
+  }, 10000);
 
   afterAll(async () => {
     await UserModel.findByIdAndDelete(mockedUser._id);
     await TokenModel.findOneAndDelete({ user: mockedUser._id });
-  });
+  }, 10000);
 
   it("should insert user", async () => {
     const newUser = await createUser(mockedUser, true);
@@ -38,17 +38,17 @@ describe("Sign Up", () => {
       resultUser.password = newUser.password;
     }
     expect(newUser.toJSON()).toEqual(resultUser);
-  });
+  }, 50000);
 
   it("should be the same user", async () => {
     const findUser = await UserModel.findById(mockedUser._id);
     expect(findUser.toJSON()).toEqual(resultUser);
-  });
+  }, 10000);
 
   it("should create a token for our user", async () => {
     await sendValidateEmail(resultUser, "en");
     const token = await TokenModel.findOne({ user: resultUser._id });
 
     expect(token).not.toBeNull();
-  });
+  }, 10000);
 });
