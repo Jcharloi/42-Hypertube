@@ -1,4 +1,29 @@
+import Axios from "axios";
 import MovieCommentModel from "../Schemas/Movie";
+
+const getRecommendation = async (req, res) => {
+  const list = [];
+  await Axios(`https://tv-v2.api-fetch.website/movies/1`).then((response) => {
+    for (let index = 0; index < 4; index++) {
+      const id = Math.round(Math.random() * 49);
+      if (
+        index === 0 ||
+        list.filter((movie) => movie.imdbId === response.data[id].imdb_id)
+          .length === 0
+      ) {
+        list.push({
+          title: response.data[id].title,
+          img: response.data[id].images.poster,
+          imdbId: response.data[id].imdb_id,
+          genre: response.data[id].genres[0]
+        });
+      } else {
+        index--;
+      }
+    }
+  });
+  return res.send({ list });
+};
 
 const timestampToDate = (month, day, year) => {
   return `${month}, ${day}, ${year}`;
@@ -54,4 +79,10 @@ const saveReview = async (comment) => {
   }
 };
 
-export default { timestampToDate, saveReview, sortReviews, findReviews };
+export default {
+  timestampToDate,
+  saveReview,
+  sortReviews,
+  findReviews,
+  getRecommendation
+};
